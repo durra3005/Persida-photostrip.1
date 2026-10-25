@@ -1,0 +1,1 @@
+# Persida-photostrip.1
