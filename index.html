@@ -1,6 +1,5 @@
 
 
-
 <!DOCTYPE html>
 
 <html lang="en">
@@ -347,16 +346,6 @@ video {
 
 }
 
-input {
-
-  padding:12px;
-
-  border:1px solid #e4cbd5;
-
-  border-radius:10px;
-
-}
-
 @media print {
 
   body { background:white; }
@@ -589,11 +578,11 @@ style="display:none">
 
 // ==================================
 
-// CONFIGURATION
+// GOOGLE APPS SCRIPT URL
 
 // ==================================
 
-const SCRIPT_URL = "PASTE_YOUR_WEB_APP_URL_HERE";
+const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbz3AO1u0gi-w1OwHEU8S4FzMfntbKFpPs96HjMBXItG6nz8O1ZMhDXlDQsWpK9K65n3/exec";
 
 let stream = null;
 
@@ -795,16 +784,6 @@ function buildPhotostrip() {
 
 function uploadPhotos() {
 
-  if(!SCRIPT_URL.startsWith("https://script.google.com/")) {
-
-    $("uploadStatus").textContent =
-
-      "Please configure your Google Apps Script URL.";
-
-    return;
-
-  }
-
   $("uploadStatus").textContent =
 
     "Uploading your three photos...";
@@ -849,6 +828,10 @@ window.addEventListener("message", function(event) {
 
       "Upload failed: " + result.error;
 
+    $("qrStatus").textContent =
+
+      "Upload failed. Please try again.";
+
     return;
 
   }
@@ -862,6 +845,10 @@ window.addEventListener("message", function(event) {
   $("uploadStatus").textContent =
 
     "Your QR code is ready!";
+
+  $("qrStatus").textContent =
+
+    "Your QR code is ready! Scan to save.";
 
   $("printBtn").disabled = false;
 
@@ -947,8 +934,6 @@ function showQrPage() {
 
 async function downloadStrip() {
 
-  const strip = $("strip");
-
   if(!sessionUrl) {
 
     alert("Your photostrip is not ready yet.");
@@ -957,7 +942,7 @@ async function downloadStrip() {
 
   }
 
-  const canvas = await html2canvas(strip,{
+  const canvas = await html2canvas($("strip"),{
 
     scale:2,
 
@@ -970,3 +955,13 @@ async function downloadStrip() {
   link.download = "PERSIDA-Photostrip.png";
 
   link.href = canvas.toDataURL("image/png");
+
+  link.click();
+
+}
+
+</script>
+
+</body>
+
+</html>  link.href = canvas.toDataURL("image/png");
