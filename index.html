@@ -1,170 +1,708 @@
-/* LANDING PAGE — PERSIDA */
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Appreciation Night with PERSIDA</title>
+
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+
+<style>
+:root {
+  --pink:#f5dce5;
+  --dark:#9c526c;
+  --green:#718775;
+  --cream:#fffaf8;
+  --text:#51434a;
+}
+
+* { box-sizing:border-box; }
+
 body {
-  background-color: #fff0f2;
-  background-image:
-    radial-gradient(circle, rgba(222,157,176,.35) 4px, transparent 4.5px);
-  background-size: 33px 33px;
-  background-attachment: fixed;
+  margin:0;
+  font-family:'DM Sans',sans-serif;
+  color:var(--text);
+  background-color:#fff9fb;
+  background-image:radial-gradient(#e9c5d2 1.4px,transparent 1.4px);
+  background-size:20px 20px;
 }
 
-.shell {
-  width: 100%;
-  max-width: 100%;
-  padding: 0;
+.page {
+  display:none;
+  min-height:100vh;
+  padding:25px 15px;
+  align-items:center;
+  justify-content:center;
 }
 
-.hero {
-  min-height: 100svh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  padding: 35px 15px;
-  background: transparent;
-  border: 0;
+.page.active { display:flex; }
+
+.panel {
+  width:min(100%,750px);
+  background:rgba(255,250,248,.97);
+  border:1px solid #efd9e1;
+  border-radius:26px;
+  padding:clamp(22px,5vw,45px);
+  text-align:center;
+  box-shadow:0 12px 35px #a66d8018;
 }
 
-.hero-decor {
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
-  gap: 18px;
-  margin: 0 auto 25px;
+h1,h2 {
+  font-family:'Playfair Display',serif;
+  color:var(--dark);
 }
 
-.mini-strip {
-  width: 112px;
-  padding: 8px 7px 10px;
-  background: #fffdfb;
-  border: 1px solid #e4cbd4;
-  box-shadow: 0 5px 12px rgba(80,45,58,.16);
-  transform: rotate(-9deg);
-}
-
-.mini-strip.right {
-  transform: rotate(8deg);
-  margin-top: 15px;
-}
-
-.mini-photo {
-  height: 65px;
-  margin-bottom: 5px;
-  background: linear-gradient(
-    160deg,
-    #c8edfa 0%,
-    #e8f8fc 45%,
-    #b9d58a 46%,
-    #7fae48 100%
-  );
-  border: 1px solid #eee;
-}
-
-.mini-label {
-  font: 7px Georgia, serif;
-  color: #856d76;
-  text-align: center;
-  margin-top: 5px;
-}
-
-.hero-inner {
-  width: 100%;
-  max-width: 600px;
-  padding: 0 10px;
-  margin: 0;
-}
+h1 { font-size:clamp(2.2rem,7vw,4rem); line-height:1.1; }
+h2 { font-size:clamp(1.8rem,5vw,2.6rem); }
 
 .eyebrow {
-  display: none;
+  color:var(--green);
+  letter-spacing:3px;
+  font-size:.75rem;
+  font-weight:700;
+  text-transform:uppercase;
 }
 
-.hero h1 {
-  font-family: cursive;
-  font-style: italic;
-  font-size: clamp(38px, 8vw, 65px);
-  font-weight: normal;
-  line-height: 1.1;
-  margin: 20px 0 0;
-  color: #171014;
+.flower { font-size:2rem; color:var(--green); }
+
+.btn {
+  background:var(--dark);
+  color:white;
+  border:0;
+  border-radius:30px;
+  padding:14px 25px;
+  font-size:1rem;
+  font-weight:700;
+  cursor:pointer;
+  margin:6px;
 }
 
-.hero-inner > div:nth-of-type(1) {
-  font-family: Georgia, serif;
-  font-size: 35px !important;
-  margin: 0 0 25px !important;
-  color: #171014;
+.btn.alt { background:#ead6de; color:#744456; }
+.btn:disabled { opacity:.45; cursor:not-allowed; }
+
+.camera {
+  position:relative;
+  width:100%;
+  max-width:570px;
+  margin:20px auto;
+  aspect-ratio:4/3;
+  background:#292329;
+  border-radius:20px;
+  overflow:hidden;
 }
 
-.date {
-  display: none;
+video {
+  width:100%;
+  height:100%;
+  object-fit:cover;
 }
 
-.intro {
-  display: none;
+#count {
+  position:absolute;
+  inset:0;
+  display:grid;
+  place-items:center;
+  font-size:6rem;
+  color:white;
+  font-weight:700;
+  text-shadow:0 2px 20px #000;
 }
 
-/* FLOWER BUTTONS */
-.flower-actions {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 35px;
-  margin-top: 35px;
+.thumbs {
+  display:flex;
+  justify-content:center;
+  gap:10px;
+  margin:15px;
 }
 
-.flower-btn {
-  width: 145px;
-  height: 125px;
-  background: #d7e6ad;
-  color: #111;
-  border: none;
-  clip-path: polygon(
-    50% 0%, 61% 13%, 76% 5%, 81% 22%,
-    98% 25%, 91% 42%, 100% 55%, 84% 66%,
-    88% 84%, 68% 83%, 56% 100%, 43% 87%,
-    25% 95%, 22% 77%, 4% 70%, 13% 52%,
-    2% 37%, 20% 29%, 20% 12%, 39% 17%
-  );
-  font-family: Georgia, serif;
-  font-size: 19px;
-  font-weight: normal;
-  line-height: 1.1;
-  padding: 15px;
+.thumbs img {
+  width:85px;
+  border-radius:10px;
+  border:2px solid white;
 }
 
-.flower-btn span {
-  font-size: 11px;
-  margin-top: 5px;
+.strip {
+  width:min(100%,300px);
+  background:white;
+  padding:14px;
+  margin:20px auto;
+  border:1px solid #eadde1;
+  box-shadow:0 8px 25px #0001;
 }
 
-.flower-btn:active {
-  transform: scale(.96);
+.strip-title {
+  font-family:'Playfair Display',serif;
+  color:var(--dark);
+  margin-bottom:12px;
+  font-size:1.05rem;
 }
 
-.flower-btn.alt {
-  background: #d7e6ad;
+.strip-photos {
+  display:grid;
+  gap:7px;
 }
 
-@media (max-width: 480px) {
-  .hero {
-    padding: 25px 10px;
+.strip-photos img {
+  width:100%;
+  display:block;
+  aspect-ratio:4/3;
+  object-fit:cover;
+}
+
+.strip-date {
+  font-size:.65rem;
+  letter-spacing:1px;
+  margin:10px 0;
+  color:#795968;
+}
+
+#stripQr {
+  display:flex;
+  justify-content:center;
+  margin:10px auto;
+}
+
+#stripQr img {
+  width:76px;
+  height:76px;
+}
+
+.strip-footer {
+  font-size:.55rem;
+  letter-spacing:1px;
+  color:#8c7180;
+}
+
+#bigQr {
+  display:flex;
+  justify-content:center;
+  margin:20px auto;
+  padding:15px;
+  width:max-content;
+  background:white;
+  border:1px solid #eadde1;
+  border-radius:15px;
+}
+
+#bigQr img {
+  width:210px;
+  height:210px;
+}
+
+.status {
+  color:var(--green);
+  font-weight:600;
+  min-height:25px;
+}
+
+.small {
+  font-size:.8rem;
+  color:#806d75;
+}
+
+input {
+  padding:12px;
+  border:1px solid #e4cbd5;
+  border-radius:10px;
+}
+
+@media print {
+  body { background:white; }
+  body * { visibility:hidden; }
+  #strip, #strip * { visibility:visible; }
+  #strip {
+    position:absolute;
+    top:0;
+    left:50%;
+    transform:translateX(-50%);
+    margin:0;
+    box-shadow:none;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<!-- LANDING PAGE -->
+<section id="home" class="page active">
+<div class="panel">
+
+<div class="flower">✿ ❀ ✿</div>
+
+<div class="eyebrow">Faculty of Accountancy presents</div>
+
+<h1>
+Appreciation Night<br>
+with PERSIDA
+</h1>
+
+<p>A little moment, a lovely memory.</p>
+
+<p class="small">11.3.2026</p>
+
+<button class="btn" onclick="startCamera()">
+START PHOTOBOOTH
+</button>
+
+<p class="small">Capture • Keep • Remember</p>
+
+</div>
+</section>
+
+
+<!-- CAMERA PAGE -->
+<section id="cameraPage" class="page">
+<div class="panel">
+
+<div class="eyebrow">Your little moment</div>
+
+<h2>Let's take a photo!</h2>
+
+<p id="progress">Photo 1 of 3</p>
+
+<div class="camera">
+<video id="video" autoplay playsinline muted></video>
+<div id="count"></div>
+</div>
+
+<div class="thumbs" id="thumbs"></div>
+
+<button class="btn" id="captureBtn" onclick="capturePhoto()">
+TAKE PHOTO
+</button>
+
+<button class="btn alt" onclick="switchCamera()">
+FLIP CAMERA
+</button>
+
+<div id="cameraStatus" class="status"></div>
+
+</div>
+</section>
+
+
+<!-- PREVIEW PAGE -->
+<section id="previewPage" class="page">
+<div class="panel">
+
+<div class="eyebrow">Your photo memories</div>
+
+<h2>Your Photostrip</h2>
+
+<div class="strip" id="strip">
+
+<div class="strip-title">
+Appreciation Night with PERSIDA
+</div>
+
+<div class="strip-photos" id="stripPhotos"></div>
+
+<div class="strip-date">
+11.3.2026 · FACULTY OF ACCOUNTANCY
+</div>
+
+<div id="stripQr"></div>
+
+<div class="strip-footer">
+A LITTLE MOMENT, A LOVELY MEMORY
+</div>
+
+</div>
+
+<p id="uploadStatus" class="status">
+Uploading your photos...
+</p>
+
+<button class="btn" id="printBtn" onclick="printStrip()" disabled>
+PRINT PHOTOSTRIP
+</button>
+
+<button class="btn alt" onclick="showQrPage()">
+CONTINUE
+</button>
+
+</div>
+</section>
+
+
+<!-- QR PAGE -->
+<section id="qrPage" class="page">
+<div class="panel">
+
+<div class="flower">✿</div>
+
+<div class="eyebrow">Thank you for celebrating with us</div>
+
+<h2>Scan to save your memories</h2>
+
+<p>
+Scan this QR code using your phone to access all three photos.
+</p>
+
+<div id="bigQr"></div>
+
+<div id="qrStatus" class="status">
+Preparing your QR code...
+</div>
+
+<button class="btn" onclick="downloadStrip()">
+DOWNLOAD PHOTOSTRIP
+</button>
+
+<button class="btn alt" onclick="location.reload()">
+NEW SESSION
+</button>
+
+<p class="small">
+Thank you for being part of our night. ♡
+</p>
+
+</div>
+</section>
+
+
+<!-- HIDDEN UPLOAD FORM -->
+<iframe name="uploadFrame" id="uploadFrame" style="display:none"></iframe>
+
+<form id="uploadForm"
+method="post"
+target="uploadFrame"
+style="display:none">
+
+<input type="hidden" name="payload" id="payload">
+
+</form>
+
+
+<script>
+
+// ==================================
+// CONFIGURATION
+// ==================================
+
+const SCRIPT_URL = "PASTE_YOUR_WEB_APP_URL_HERE";
+
+let stream = null;
+let facing = "user";
+let photos = [];
+let sessionUrl = "";
+
+const $ = id => document.getElementById(id);
+
+
+// ==================================
+// PAGE NAVIGATION
+// ==================================
+
+function showPage(id) {
+  document.querySelectorAll(".page").forEach(p => {
+    p.classList.remove("active");
+  });
+
+  $(id).classList.add("active");
+}
+
+
+// ==================================
+// CAMERA
+// ==================================
+
+async function startCamera() {
+
+  showPage("cameraPage");
+
+  try {
+    await openCamera();
+  } catch(error) {
+    $("cameraStatus").textContent =
+      "Please allow camera permission and reload.";
   }
 
-  .mini-strip {
-    width: 100px;
+}
+
+async function openCamera() {
+
+  if(stream) {
+    stream.getTracks().forEach(t => t.stop());
   }
 
-  .mini-photo {
-    height: 58px;
+  stream = await navigator.mediaDevices.getUserMedia({
+    video:{
+      facingMode:facing,
+      width:{ideal:1280},
+      height:{ideal:960}
+    },
+    audio:false
+  });
+
+  $("video").srcObject = stream;
+
+}
+
+async function switchCamera() {
+
+  facing = facing === "user" ? "environment" : "user";
+
+  try {
+    await openCamera();
+  } catch(error) {
+    $("cameraStatus").textContent = "Unable to switch camera.";
   }
 
-  .flower-actions {
-    gap: 15px;
+}
+
+
+// ==================================
+// TAKE 3 PHOTOS
+// ==================================
+
+async function capturePhoto() {
+
+  if(photos.length >= 3) return;
+
+  const button = $("captureBtn");
+  button.disabled = true;
+
+  for(let i=3; i>0; i--) {
+    $("count").textContent = i;
+    await new Promise(resolve => setTimeout(resolve,700));
   }
 
-  .flower-btn {
-    width: 135px;
-    height: 115px;
-    font-size: 17px;
+  $("count").textContent = "";
+
+  const canvas = document.createElement("canvas");
+
+  canvas.width = 960;
+  canvas.height = 720;
+
+  const ctx = canvas.getContext("2d");
+
+  ctx.drawImage($("video"),0,0,960,720);
+
+  photos.push(canvas.toDataURL("image/jpeg",0.80));
+
+  renderPhotos();
+
+  $("progress").textContent =
+    `Photo ${photos.length} of 3`;
+
+  button.disabled = false;
+
+  if(photos.length === 3) {
+
+    stream.getTracks().forEach(t => t.stop());
+
+    setTimeout(buildPhotostrip,500);
+
   }
-}</html></html>
+
+}
+
+function renderPhotos() {
+
+  $("thumbs").innerHTML = "";
+
+  photos.forEach(src => {
+
+    const img = document.createElement("img");
+
+    img.src = src;
+
+    $("thumbs").appendChild(img);
+
+  });
+
+}
+
+
+// ==================================
+// PHOTOSTRIP
+// ==================================
+
+function buildPhotostrip() {
+
+  showPage("previewPage");
+
+  $("stripPhotos").innerHTML = "";
+
+  photos.forEach(src => {
+
+    const img = document.createElement("img");
+
+    img.src = src;
+
+    $("stripPhotos").appendChild(img);
+
+  });
+
+  uploadPhotos();
+
+}
+
+
+// ==================================
+// UPLOAD TO GOOGLE DRIVE
+// ==================================
+
+function uploadPhotos() {
+
+  if(!SCRIPT_URL.startsWith("https://script.google.com/")) {
+
+    $("uploadStatus").textContent =
+      "Please configure your Google Apps Script URL.";
+
+    return;
+
+  }
+
+  $("uploadStatus").textContent =
+    "Uploading your three photos...";
+
+  $("payload").value = JSON.stringify({
+    photos:photos,
+    event:"Appreciation Night with PERSIDA",
+    date:"11.3.2026"
+  });
+
+  $("uploadForm").action = SCRIPT_URL;
+
+  $("uploadForm").submit();
+
+}
+
+
+// ==================================
+// RECEIVE UPLOAD RESULT
+// ==================================
+
+window.addEventListener("message", function(event) {
+
+  if(!event.data ||
+     event.data.type !== "PHOTOBOOTH_UPLOAD_RESULT") {
+    return;
+  }
+
+  const result = event.data;
+
+  if(!result.ok) {
+
+    $("uploadStatus").textContent =
+      "Upload failed: " + result.error;
+
+    return;
+
+  }
+
+  sessionUrl = result.url;
+
+  generateQR(sessionUrl,"stripQr",76);
+
+  generateQR(sessionUrl,"bigQr",210);
+
+  $("uploadStatus").textContent =
+    "Your QR code is ready!";
+
+  $("printBtn").disabled = false;
+
+});
+
+
+// ==================================
+// QR GENERATOR
+// ==================================
+
+function generateQR(url,target,size) {
+
+  const element = $(target);
+
+  element.innerHTML = "";
+
+  const qr = document.createElement("div");
+
+  element.appendChild(qr);
+
+  new QRCode(qr,{
+    text:url,
+    width:size,
+    height:size,
+    correctLevel:QRCode.CorrectLevel.M
+  });
+
+}
+
+
+// ==================================
+// PRINT PHOTOSTRIP
+// ==================================
+
+function printStrip() {
+
+  if(!sessionUrl) return;
+
+  window.print();
+
+}
+
+
+// ==================================
+// QR SCREEN
+// ==================================
+
+function showQrPage() {
+
+  showPage("qrPage");
+
+  if(sessionUrl) {
+
+    generateQR(sessionUrl,"bigQr",210);
+
+    $("qrStatus").textContent =
+      "Your QR code is ready! Scan to save.";
+
+  } else {
+
+    $("qrStatus").textContent =
+      "Please wait for the upload to finish.";
+
+  }
+
+}
+
+
+// ==================================
+// DOWNLOAD PHOTOSTRIP
+// ==================================
+
+async function downloadStrip() {
+
+  const strip = $("strip");
+
+  if(!sessionUrl) {
+    alert("Your photostrip is not ready yet.");
+    return;
+  }
+
+  const canvas = await html2canvas(strip,{
+    scale:2,
+    backgroundColor:"#ffffff"
+  });
+
+  const link = document.createElement("a");
+
+  link.download = "PERSIDA-Photostrip.png";
+
+  link.href = canvas.toDataURL("image/png");
+
+  link.click();
+
+}
+
+</script>
+
+</body>
+</html>
