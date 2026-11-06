@@ -1,869 +1,170 @@
-
-
-<!DOCTYPE html>
-
-<html lang="en">
-
-<head>
-
-<meta charset="UTF-8">
-
-<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-
-<meta name="theme-color" content="#f5e1e7">
-
-<title>Floral Photobooth | PERSIDA</title>
-
-<style>
-
-:root {
-
-  --pink: #f5e1e7;
-
-  --rose: #bd8194;
-
-  --sage: #82977b;
-
-  --cream: #fffaf5;
-
-  --green: #4d6149;
-
-}
-
-* {
-
-  box-sizing: border-box;
-
-}
-
-html, body {
-
-  margin: 0;
-
-  width: 100%;
-
-  min-height: 100%;
-
-  font-family: Georgia, serif;
-
-  background: var(--pink);
-
-  color: var(--green);
-
-}
-
+/* LANDING PAGE — PERSIDA */
 body {
-
-  min-height: 100vh;
-
-  min-height: 100dvh;
-
+  background-color: #fff0f2;
+  background-image:
+    radial-gradient(circle, rgba(222,157,176,.35) 4px, transparent 4.5px);
+  background-size: 33px 33px;
+  background-attachment: fixed;
 }
 
-main {
-
-  position: relative;
-
+.shell {
   width: 100%;
-
-  height: 100vh;
-
-  height: 100dvh;
-
-  overflow: hidden;
-
-  background: var(--pink);
-
+  max-width: 100%;
+  padding: 0;
 }
 
-#camera {
-
-  position: absolute;
-
-  inset: 0;
-
-  width: 100%;
-
-  height: 100%;
-
-  object-fit: cover;
-
-  background: #e8e8df;
-
-}
-
-.camera-frame {
-
-  position: absolute;
-
-  inset: 12px;
-
-  z-index: 2;
-
-  border: 1.5px solid rgba(255,250,245,.9);
-
-  border-radius: 24px;
-
-  pointer-events: none;
-
-}
-
-.flower {
-
-  position: absolute;
-
-  z-index: 3;
-
-  color: var(--cream);
-
-  font-size: 24px;
-
-  text-shadow: 0 1px 8px #0005;
-
-  pointer-events: none;
-
-}
-
-.top-left {
-
-  top: 25px;
-
-  left: 26px;
-
-}
-
-.top-right {
-
-  top: 25px;
-
-  right: 26px;
-
-}
-
-.bottom-left {
-
-  bottom: 28px;
-
-  left: 26px;
-
-}
-
-.bottom-right {
-
-  bottom: 28px;
-
-  right: 26px;
-
-}
-
-.header {
-
-  position: absolute;
-
-  z-index: 3;
-
-  top: max(35px, env(safe-area-inset-top));
-
-  left: 0;
-
-  width: 100%;
-
-  padding: 0 45px;
-
-  text-align: center;
-
-  color: white;
-
-  text-shadow: 0 1px 8px #0007;
-
-  letter-spacing: 2px;
-
-  font-size: 12px;
-
-}
-
-#countdown {
-
-  position: absolute;
-
-  z-index: 4;
-
-  inset: 0;
-
+.hero {
+  min-height: 100svh;
   display: flex;
-
-  justify-content: center;
-
-  align-items: center;
-
-  color: white;
-
-  font-family: Georgia, serif;
-
-  font-size: clamp(90px, 24vw, 150px);
-
-  text-shadow: 0 3px 18px #0007;
-
-  pointer-events: none;
-
-}
-
-#status {
-
-  position: absolute;
-
-  z-index: 4;
-
-  bottom: calc(115px + env(safe-area-inset-bottom));
-
-  left: 20px;
-
-  right: 20px;
-
-  margin: 0;
-
-  color: white;
-
-  text-align: center;
-
-  font-size: 14px;
-
-  line-height: 1.5;
-
-  text-shadow: 0 1px 8px #0008;
-
-}
-
-.controls {
-
-  position: absolute;
-
-  z-index: 5;
-
-  bottom: calc(32px + env(safe-area-inset-bottom));
-
-  left: 0;
-
-  width: 100%;
-
-  display: flex;
-
-  justify-content: center;
-
-  align-items: center;
-
-  gap: 12px;
-
-}
-
-button, .download {
-
-  border: 1px solid #fff9;
-
-  border-radius: 50px;
-
-  padding: 13px 22px;
-
-  background: var(--sage);
-
-  color: white;
-
-  font: inherit;
-
-  font-size: 14px;
-
-  cursor: pointer;
-
-  text-decoration: none;
-
-  -webkit-tap-highlight-color: transparent;
-
-}
-
-.secondary {
-
-  background: var(--rose);
-
-}
-
-button:disabled {
-
-  opacity: .55;
-
-  cursor: default;
-
-}
-
-#strip {
-
-  display: none;
-
-  width: min(82%, 340px);
-
-  max-height: 70%;
-
-  object-fit: contain;
-
-  position: absolute;
-
-  z-index: 6;
-
-  left: 50%;
-
-  top: 50%;
-
-  transform: translate(-50%, -50%);
-
-  border: 5px solid var(--cream);
-
-  box-shadow: 0 8px 30px #0004;
-
-  background: var(--cream);
-
-}
-
-#resultButtons {
-
-  display: none;
-
-  position: absolute;
-
-  z-index: 7;
-
-  bottom: calc(20px + env(safe-area-inset-bottom));
-
-  left: 0;
-
-  right: 0;
-
-  text-align: center;
-
-}
-
-#download {
-
-  display: inline-block;
-
-  background: var(--rose);
-
-}
-
-#permissionMessage {
-
-  position: absolute;
-
-  z-index: 8;
-
-  inset: 0;
-
-  display: none;
-
   flex-direction: column;
-
-  align-items: center;
-
   justify-content: center;
-
-  padding: 32px;
-
-  background: var(--cream);
-
+  align-items: center;
   text-align: center;
-
-  line-height: 1.7;
-
+  padding: 35px 15px;
+  background: transparent;
+  border: 0;
 }
 
-#permissionMessage button {
+.hero-decor {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 18px;
+  margin: 0 auto 25px;
+}
 
+.mini-strip {
+  width: 112px;
+  padding: 8px 7px 10px;
+  background: #fffdfb;
+  border: 1px solid #e4cbd4;
+  box-shadow: 0 5px 12px rgba(80,45,58,.16);
+  transform: rotate(-9deg);
+}
+
+.mini-strip.right {
+  transform: rotate(8deg);
   margin-top: 15px;
-
 }
 
-@media (max-height: 600px) {
-
-  .header {
-
-    top: 18px;
-
-  }
-
-  .controls {
-
-    bottom: 15px;
-
-  }
-
-  #status {
-
-    bottom: 75px;
-
-  }
-
+.mini-photo {
+  height: 65px;
+  margin-bottom: 5px;
+  background: linear-gradient(
+    160deg,
+    #c8edfa 0%,
+    #e8f8fc 45%,
+    #b9d58a 46%,
+    #7fae48 100%
+  );
+  border: 1px solid #eee;
 }
 
-</style>
-
-</head>
-
-<body>
-
-<main>
-
-  <video id="camera" autoplay playsinline muted></video>
-
-  <div class="camera-frame"></div>
-
-  <div class="header">
-
-    APPRECIATION NIGHT · PERSIDA
-
-  </div>
-
-  <div class="flower top-left">✿</div>
-
-  <div class="flower top-right">❀</div>
-
-  <div class="flower bottom-left">❀</div>
-
-  <div class="flower bottom-right">✿</div>
-
-  <div id="countdown">♡</div>
-
-  <p id="status">Ready for your little memories?</p>
-
-  <div class="controls" id="controls">
-
-    <button id="start">Start ♡</button>
-
-    <button id="flip" class="secondary">Flip ↻</button>
-
-  </div>
-
-  <canvas id="strip"></canvas>
-
-  <div id="resultButtons">
-
-    <button id="again">Retake ↻</button>
-
-    <a id="download" class="download"
-
-       download="PERSIDA-Photostrip.png">Save ♡</a>
-
-  </div>
-
-  <div id="permissionMessage">
-
-    <div style="font-size:35px;color:#82977b">✿</div>
-
-    <h2>Camera access needed</h2>
-
-    <p>Please allow camera access in your browser settings, then try again.</p>
-
-    <button id="retry">Try Again ♡</button>
-
-  </div>
-
-</main>
-
-<script>
-
-const video = document.getElementById("camera");
-
-const countdown = document.getElementById("countdown");
-
-const statusText = document.getElementById("status");
-
-const startButton = document.getElementById("start");
-
-const flipButton = document.getElementById("flip");
-
-const strip = document.getElementById("strip");
-
-const download = document.getElementById("download");
-
-const resultButtons = document.getElementById("resultButtons");
-
-const controls = document.getElementById("controls");
-
-const permissionMessage = document.getElementById("permissionMessage");
-
-let stream = null;
-
-let facingMode = "user";
-
-let busy = false;
-
-let photos = [];
-
-let cameraReady = false;
-
-function wait(ms) {
-
-  return new Promise(resolve => setTimeout(resolve, ms));
-
+.mini-label {
+  font: 7px Georgia, serif;
+  color: #856d76;
+  text-align: center;
+  margin-top: 5px;
 }
 
-async function openCamera() {
-
-  if (!navigator.mediaDevices ||
-
-      !navigator.mediaDevices.getUserMedia) {
-
-    showCameraError(
-
-      "Camera needs HTTPS. Please open your published GitHub Pages website."
-
-    );
-
-    return false;
-
-  }
-
-  if (stream) {
-
-    stream.getTracks().forEach(track => track.stop());
-
-    stream = null;
-
-  }
-
-  cameraReady = false;
-
-  try {
-
-    stream = await navigator.mediaDevices.getUserMedia({
-
-      audio: false,
-
-      video: {
-
-        facingMode: { ideal: facingMode },
-
-        width: { ideal: 1080 },
-
-        height: { ideal: 1440 }
-
-      }
-
-    });
-
-    video.srcObject = stream;
-
-    await video.play();
-
-    if (!video.videoWidth) {
-
-      await new Promise(resolve => {
-
-        video.addEventListener("loadedmetadata", resolve, {
-
-          once: true
-
-        });
-
-      });
-
-    }
-
-    cameraReady = true;
-
-    permissionMessage.style.display = "none";
-
-    statusText.textContent = "Camera ready ♡";
-
-    return true;
-
-  } catch (error) {
-
-    showCameraError(
-
-      "Allow camera access in your browser, then tap Try Again."
-
-    );
-
-    return false;
-
-  }
-
+.hero-inner {
+  width: 100%;
+  max-width: 600px;
+  padding: 0 10px;
+  margin: 0;
 }
 
-function showCameraError(message) {
-
-  cameraReady = false;
-
-  permissionMessage.style.display = "flex";
-
-  permissionMessage.querySelector("p").textContent = message;
-
-  statusText.textContent = "Camera unavailable";
-
+.eyebrow {
+  display: none;
 }
 
-async function takeThreePhotos() {
-
-  if (busy) return;
-
-  busy = true;
-
-  startButton.disabled = true;
-
-  flipButton.disabled = true;
-
-  resultButtons.style.display = "none";
-
-  strip.style.display = "none";
-
-  photos = [];
-
-  try {
-
-    if (!cameraReady || !stream || !stream.active) {
-
-      const opened = await openCamera();
-
-      if (!opened) return;
-
-    }
-
-    controls.style.display = "none";
-
-    for (let i = 0; i < 3; i++) {
-
-      statusText.textContent =
-
-        `PHOTO ${i + 1} OF 3 · GET READY`;
-
-      for (let n = 5; n >= 1; n--) {
-
-        countdown.textContent = n;
-
-        await wait(1000);
-
-      }
-
-      countdown.textContent = "SNAP!";
-
-      await wait(200);
-
-      const canvas = document.createElement("canvas");
-
-      canvas.width = video.videoWidth;
-
-      canvas.height = video.videoHeight;
-
-      const ctx = canvas.getContext("2d");
-
-      if (facingMode === "user") {
-
-        ctx.translate(canvas.width, 0);
-
-        ctx.scale(-1, 1);
-
-      }
-
-      ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
-
-      photos.push(canvas);
-
-      // Briefly clear the number before the next countdown.
-
-      countdown.textContent = "♡";
-
-      await wait(650);
-
-    }
-
-    createStrip();
-
-    countdown.textContent = "";
-
-    statusText.textContent = "Your memories are ready ♡";
-
-    resultButtons.style.display = "block";
-
-  } catch (error) {
-
-    statusText.textContent = "Something went wrong. Please try again.";
-
-    controls.style.display = "flex";
-
-  } finally {
-
-    busy = false;
-
-    startButton.disabled = false;
-
-    flipButton.disabled = false;
-
-  }
-
+.hero h1 {
+  font-family: cursive;
+  font-style: italic;
+  font-size: clamp(38px, 8vw, 65px);
+  font-weight: normal;
+  line-height: 1.1;
+  margin: 20px 0 0;
+  color: #171014;
 }
 
-function createStrip() {
-
-  const width = 600;
-
-  const photoWidth = 500;
-
-  const photoHeight = 500;
-
-  const gap = 16;
-
-  const top = 125;
-
-  const bottom = 100;
-
-  strip.width = width;
-
-  strip.height = top + photoHeight * 3 + gap * 2 + bottom;
-
-  const ctx = strip.getContext("2d");
-
-  ctx.fillStyle = "#f5e1e7";
-
-  ctx.fillRect(0, 0, width, strip.height);
-
-  ctx.fillStyle = "#fffaf5";
-
-  ctx.fillRect(16, 16, width - 32, strip.height - 32);
-
-  ctx.textAlign = "center";
-
-  ctx.fillStyle = "#82977b";
-
-  ctx.font = "38px Georgia";
-
-  ctx.fillText("✿   ❀   ✿", width / 2, 52);
-
-  ctx.fillStyle = "#a7657b";
-
-  ctx.font = "bold 28px Georgia";
-
-  ctx.fillText("PERSIDA ♡", width / 2, 88);
-
-  ctx.fillStyle = "#4d6149";
-
-  ctx.font = "16px Georgia";
-
-  ctx.fillText("Appreciation Night · 3.11.2026",
-
-    width / 2, 111);
-
-  photos.forEach((photo, i) => {
-
-    const x = 50;
-
-    const y = top + i * (photoHeight + gap);
-
-    ctx.fillStyle = "#d5b5a5";
-
-    ctx.fillRect(x - 4, y - 4, photoWidth + 8, photoHeight + 8);
-
-    const scale = Math.max(
-
-      photoWidth / photo.width,
-
-      photoHeight / photo.height
-
-    );
-
-    const sw = photoWidth / scale;
-
-    const sh = photoHeight / scale;
-
-    const sx = (photo.width - sw) / 2;
-
-    const sy = (photo.height - sh) / 2;
-
-    ctx.drawImage(
-
-      photo,
-
-      sx, sy, sw, sh,
-
-      x, y, photoWidth, photoHeight
-
-    );
-
-    ctx.font = "24px Georgia";
-
-    ctx.fillStyle = "#fffaf5";
-
-    ctx.fillText("✿", x + 20, y + 30);
-
-    ctx.fillText("❀", x + photoWidth - 20, y + photoHeight - 10);
-
-  });
-
-  ctx.fillStyle = "#82977b";
-
-  ctx.font = "22px Georgia";
-
-  ctx.fillText("♡ Made with love ♡",
-
-    width / 2, strip.height - 38);
-
-  strip.style.display = "block";
-
-  download.href = strip.toDataURL("image/png");
-
+.hero-inner > div:nth-of-type(1) {
+  font-family: Georgia, serif;
+  font-size: 35px !important;
+  margin: 0 0 25px !important;
+  color: #171014;
 }
 
-startButton.addEventListener("click", takeThreePhotos);
+.date {
+  display: none;
+}
 
-flipButton.addEventListener("click", async () => {
+.intro {
+  display: none;
+}
 
-  if (busy) return;
+/* FLOWER BUTTONS */
+.flower-actions {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 35px;
+  margin-top: 35px;
+}
 
-  facingMode = facingMode === "user" ? "environment" : "user";
+.flower-btn {
+  width: 145px;
+  height: 125px;
+  background: #d7e6ad;
+  color: #111;
+  border: none;
+  clip-path: polygon(
+    50% 0%, 61% 13%, 76% 5%, 81% 22%,
+    98% 25%, 91% 42%, 100% 55%, 84% 66%,
+    88% 84%, 68% 83%, 56% 100%, 43% 87%,
+    25% 95%, 22% 77%, 4% 70%, 13% 52%,
+    2% 37%, 20% 29%, 20% 12%, 39% 17%
+  );
+  font-family: Georgia, serif;
+  font-size: 19px;
+  font-weight: normal;
+  line-height: 1.1;
+  padding: 15px;
+}
 
-  const opened = await openCamera();
+.flower-btn span {
+  font-size: 11px;
+  margin-top: 5px;
+}
 
-  if (opened) {
+.flower-btn:active {
+  transform: scale(.96);
+}
 
-    statusText.textContent =
+.flower-btn.alt {
+  background: #d7e6ad;
+}
 
-      facingMode === "user" ? "Front camera ♡" : "Back camera ♡";
-
+@media (max-width: 480px) {
+  .hero {
+    padding: 25px 10px;
   }
 
-});
-
-document.getElementById("again").addEventListener("click", () => {
-
-  takeThreePhotos();
-
-});
-
-document.getElementById("retry").addEventListener("click", async () => {
-
-  const opened = await openCamera();
-
-  if (opened) {
-
-    controls.style.display = "flex";
-
+  .mini-strip {
+    width: 100px;
   }
 
-});
-
-// Open camera only after permission can be requested.
-
-// If permission is blocked, show a helpful retry message.
-
-openCamera().then(opened => {
-
-  if (!opened) {
-
-    controls.style.display = "none";
-
+  .mini-photo {
+    height: 58px;
   }
 
-});
+  .flower-actions {
+    gap: 15px;
+  }
 
-</script>
-
-</body>
-
-</html></html>
+  .flower-btn {
+    width: 135px;
+    height: 115px;
+    font-size: 17px;
+  }
+}</html></html>
