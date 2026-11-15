@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 
 <html lang="en">
@@ -6,651 +8,707 @@
 
 <meta charset="UTF-8">
 
-<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>PERSIDA 12 | Photo Booth</title>
+<meta name="theme-color" content="#f9e8ed">
+
+<title>PERSIDA 12 | Appreciation Night</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Quicksand:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+<link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Allura&family=Dancing+Script:wght@400;500;600;700&family=Great+Vibes&family=Italianno&family=Parisienne&family=Pinyon+Script&family=Sacramento&family=Tangerine:wght@400;700&display=swap" rel="stylesheet">
 
 <style>
 
-:root{
+:root {
 
-  --pink:#f5dfe5;
+  --pink: #f7dce5;
 
-  --dusty:#d991a1;
+  --dark-pink: #d98da8;
 
-  --sage:#a6b89b;
+  --green: #758b69;
 
-  --dark-sage:#71846b;
+  --cream: #fffaf5;
 
-  --cream:#fffaf5;
-
-  --text:#65565a;
+  --ink: #55454a;
 
 }
 
-*{box-sizing:border-box}
+* { box-sizing: border-box; }
 
-html,body{
+body {
 
-  margin:0;
+  margin: 0;
 
-  min-height:100%;
+  min-height: 100vh;
 
-  color:var(--text);
+  color: var(--ink);
 
-  font-family:Quicksand,sans-serif;
+  font-family: Georgia, serif;
 
-}
+  background-color: #f9e8ed;
 
-body{
+  background-image: radial-gradient(#e9b9c9 1.6px, transparent 1.6px);
 
-  background-color:#f8e8eb;
-
-  background-image:radial-gradient(circle,#fff 2.4px,transparent 2.8px);
-
-  background-size:30px 30px;
-
-  background-attachment:fixed;
+  background-size: 22px 22px;
 
 }
 
-button,input,select{font:inherit}
+button, input, select, textarea { font: inherit; }
 
-button{border:0;cursor:pointer}
+button {
 
-button:disabled{opacity:.5;cursor:not-allowed}
+  cursor: pointer;
 
-.page{
-
-  display:none;
-
-  min-height:100vh;
-
-  padding:25px 15px 42px;
-
-  align-items:center;
-
-  flex-direction:column;
-
-  position:relative;
+  border: 0;
 
 }
 
-.page.active{display:flex}
+.page {
 
-h1,h2,h3{
+  width: 100%;
 
-  font-family:'Cormorant Garamond',serif;
+  min-height: 100vh;
 
-  font-weight:600;
-
-  color:#8c5967;
+  padding: 25px 16px 35px;
 
 }
 
-.brand{
+.hidden { display: none !important; }
 
-  font-family:'Cormorant Garamond',serif;
+.home {
 
-  font-size:23px;
+  min-height: calc(100vh - 60px);
 
-  letter-spacing:3px;
+  display: flex;
 
-  color:var(--dark-sage);
+  align-items: center;
 
-}
+  justify-content: center;
 
-.eyebrow{
-
-  font-size:11px;
-
-  letter-spacing:3px;
-
-  text-transform:uppercase;
-
-  color:#9a7b7e;
+  text-align: center;
 
 }
 
-.main-title{
+.home-card {
 
-  font-size:clamp(44px,10vw,68px);
+  width: min(100%, 430px);
 
-  line-height:.95;
+  padding: 38px 24px;
 
-  margin:12px 0;
+  background: rgba(255,250,245,.88);
 
-  text-align:center;
+  border: 1px solid #efd0da;
 
-}
+  border-radius: 32px;
 
-.subtitle{
-
-  max-width:340px;
-
-  text-align:center;
-
-  font-size:13px;
-
-  line-height:1.8;
-
-  color:#8c777a;
+  box-shadow: 0 12px 35px #b77b8b20;
 
 }
 
-.primary-btn{
+.eyebrow {
 
-  background:#8fa486;
+  font-size: 11px;
 
-  color:white;
+  letter-spacing: 4px;
 
-  border-radius:30px;
+  color: #9c7882;
 
-  padding:13px 22px;
-
-  font-size:12px;
-
-  font-weight:700;
-
-  letter-spacing:1px;
-
-  box-shadow:0 5px 14px #8c9e8a35;
+  text-transform: uppercase;
 
 }
 
-.secondary-btn{
+.home h1 {
 
-  background:#fffaf5;
+  font-size: clamp(48px, 12vw, 76px);
 
-  color:#80656d;
+  font-weight: 400;
 
-  border:1px solid #e5cbd1;
+  line-height: 1;
 
-  border-radius:30px;
+  margin: 22px 0 8px;
 
-  padding:11px 17px;
-
-  font-size:11px;
-
-  font-weight:700;
+  color: #b66f89;
 
 }
 
-.danger-btn{
+.home h2 {
 
-  background:#f7e3e5;
+  font-size: 15px;
 
-  color:#a45f6e;
+  font-weight: 400;
 
-  border:1px solid #e8c2ca;
+  letter-spacing: 3px;
 
-  border-radius:25px;
+  text-transform: uppercase;
 
-  padding:10px 15px;
-
-  font-size:11px;
-
-  font-weight:700;
+  margin: 0;
 
 }
 
-.btn-row{
+.home .subtitle {
 
-  display:flex;
+  font-family: 'Great Vibes', cursive;
 
-  flex-wrap:wrap;
+  font-size: 34px;
 
-  justify-content:center;
+  color: #a77d88;
 
-  gap:9px;
-
-  margin-top:17px;
+  margin: 25px 0 30px;
 
 }
 
-.home-card,.camera-card,.result-card{
+.home .tagline {
 
-  width:min(100%,520px);
+  font-size: 12px;
 
-  background:#fffaf5ed;
+  letter-spacing: 2px;
 
-  border:1px solid white;
+  line-height: 1.8;
 
-  border-radius:25px;
-
-  padding:20px;
-
-  box-shadow:0 12px 35px #9c7b8030;
+  color: #9a8187;
 
 }
 
-.home-card{
+.primary-btn {
 
-  width:min(100%,440px);
+  display: block;
 
-  margin:auto;
+  width: 100%;
 
-  padding:35px 22px;
+  max-width: 270px;
 
-  text-align:center;
+  margin: 13px auto;
 
-  border-radius:180px 180px 28px 28px;
+  padding: 16px 20px;
 
-}
+  border-radius: 30px;
 
-.camera-frame{
+  background: var(--green);
 
-  width:100%;
+  color: white;
 
-  aspect-ratio:3/4;
+  font-size: 11px;
 
-  background:#eadde0;
+  letter-spacing: 2px;
 
-  border-radius:18px;
-
-  overflow:hidden;
-
-  position:relative;
+  box-shadow: 0 5px 15px #687c5c30;
 
 }
 
-#cameraVideo{
+.secondary-btn {
 
-  width:100%;
+  display: block;
 
-  height:100%;
+  width: 100%;
 
-  object-fit:cover;
+  max-width: 270px;
 
-  transform:scaleX(-1);
+  margin: 12px auto;
 
-}
+  padding: 14px 20px;
 
-#countdown{
+  border-radius: 30px;
 
-  position:absolute;
+  background: #f4e0e6;
 
-  inset:0;
+  color: #956879;
 
-  display:none;
+  font-size: 11px;
 
-  align-items:center;
-
-  justify-content:center;
-
-  color:white;
-
-  font-family:'Cormorant Garamond',serif;
-
-  font-size:100px;
-
-  text-shadow:0 3px 20px #0008;
-
-  background:#0002;
+  letter-spacing: 1.5px;
 
 }
 
-#flash{
+.footer {
 
-  position:absolute;
+  margin-top: 32px;
 
-  inset:0;
+  font-size: 10px;
 
-  background:white;
+  letter-spacing: 2px;
 
-  opacity:0;
+  color: #a78b94;
 
-  pointer-events:none;
-
-}
-
-.flash-now{animation:flash .35s ease}
-
-@keyframes flash{0%{opacity:.95}100%{opacity:0}}
-
-.status{
-
-  text-align:center;
-
-  font-size:13px;
-
-  color:#8b777a;
-
-  margin:12px 0;
+  line-height: 1.8;
 
 }
 
-.photo-count{color:var(--dark-sage);font-weight:700}
+/* COMMON */
 
-.section-title{font-size:36px;margin:9px 0}
+.panel {
 
-.result-strip{
+  width: min(100%, 1000px);
 
-  width:min(100%,230px);
+  margin: 0 auto;
 
-  margin:17px auto;
+  background: rgba(255,250,245,.95);
 
-  display:block;
+  border: 1px solid #efd0da;
 
-  box-shadow:0 8px 25px #795c6330;
+  border-radius: 25px;
 
-}
+  padding: 22px;
 
-.preview-video{
-
-  width:min(100%,230px);
-
-  border-radius:8px;
-
-  margin:10px auto;
-
-  display:block;
-
-  background:#222;
+  box-shadow: 0 10px 30px #b77b8b15;
 
 }
 
-.qr-section{
+.panel-title {
 
-  margin-top:25px;
+  text-align: center;
 
-  padding-top:18px;
+  font-size: 25px;
 
-  border-top:1px solid #ead9dc;
+  font-weight: 400;
 
-}
+  color: #b66f89;
 
-.single-qr{
-
-  display:flex;
-
-  justify-content:center;
-
-  align-items:center;
-
-  margin:18px auto;
-
-  padding:12px;
-
-  background:white;
-
-  border:1px solid #f0dce0;
-
-  border-radius:16px;
-
-  width:fit-content;
-
-  min-width:145px;
-
-  min-height:145px;
+  margin: 5px 0 8px;
 
 }
 
-.small-note{
+.panel-subtitle {
 
-  font-size:11px;
+  text-align: center;
 
-  line-height:1.7;
+  font-size: 12px;
 
-  color:#9b8588;
+  color: #a18a90;
 
-  margin-top:12px;
+  margin: 0 0 22px;
 
-  text-align:center;
-
-}
-
-.loading{
-
-  display:none;
-
-  margin:14px 0;
-
-  color:var(--dark-sage);
-
-  font-size:12px;
-
-  font-weight:700;
-
-  text-align:center;
+  line-height: 1.6;
 
 }
 
-.loading.show{display:block}
+.back-btn {
 
-.footer{
+  background: transparent;
 
-  text-align:center;
+  color: #9c7882;
 
-  margin-top:25px;
+  padding: 8px 0;
 
-  font-size:11px;
-
-  letter-spacing:1px;
-
-  color:#92767d;
-
-  line-height:1.9;
+  font-size: 12px;
 
 }
 
-/* DESIGN STUDIO */
+.action-row {
 
-#studioPage{
+  display: flex;
 
-  background:linear-gradient(125deg,#f7e2e8 0%,#f7e2e8 48%,#dce7d5 48%,#dce7d5 100%);
+  flex-wrap: wrap;
 
-  background-attachment:fixed;
+  justify-content: center;
 
-}
+  gap: 10px;
 
-.studio-page{width:100%;max-width:1150px}
-
-.studio-heading{text-align:center;margin-bottom:14px}
-
-.studio-layout{
-
-  display:grid;
-
-  grid-template-columns:minmax(0,1fr);
-
-  gap:14px;
+  margin-top: 18px;
 
 }
 
-.studio-panel{
+.small-btn {
 
-  background:#fffaf5ed;
+  background: #f2dce4;
 
-  border:1px solid white;
+  color: #875d6c;
 
-  border-radius:20px;
+  padding: 12px 18px;
 
-  padding:14px;
+  border-radius: 22px;
 
-  box-shadow:0 8px 25px #9c7b8020;
+  font-size: 11px;
 
-  min-width:0;
-
-}
-
-.studio-preview-panel{overflow:hidden}
-
-.editor-preview-wrap{
-
-  background:linear-gradient(135deg,#f3dce3 0 50%,#dce7d5 50% 100%);
-
-  border-radius:15px;
-
-  padding:18px;
-
-  display:flex;
-
-  justify-content:center;
-
-  align-items:flex-start;
-
-  overflow:hidden;
-
-  min-height:200px;
-
-  background-size:cover;
-
-  background-position:center;
+  letter-spacing: 1px;
 
 }
 
-#editorCanvas{
+.green-btn {
 
-  width:100%;
+  background: var(--green);
 
-  max-width:300px;
-
-  height:auto;
-
-  display:block;
-
-  box-shadow:0 5px 18px #755d6530;
-
-  touch-action:none;
-
-  background:#fff;
+  color: white;
 
 }
 
-.studio-actions{
+.field {
 
-  display:flex;
-
-  flex-wrap:wrap;
-
-  gap:7px;
-
-  justify-content:center;
-
-  margin:10px 0 15px;
+  margin: 14px 0;
 
 }
 
-.studio-actions button{font-size:10px}
+.field label {
 
-.studio-panel h3{font-size:23px;margin:3px 0 10px}
+  display: block;
 
-.editor-tools{
+  font-size: 11px;
 
-  display:grid;
+  letter-spacing: 1px;
 
-  grid-template-columns:repeat(2,minmax(0,1fr));
+  color: #92737e;
 
-  gap:7px;
-
-}
-
-.editor-tools button{width:100%;padding:10px 7px}
-
-.field{margin:10px 0}
-
-.field label{
-
-  display:block;
-
-  font-size:10px;
-
-  font-weight:700;
-
-  color:#846d72;
-
-  margin-bottom:5px;
+  margin-bottom: 7px;
 
 }
 
-.field input:not([type=checkbox]),.field select{
+.field input, .field select, .field textarea {
 
-  width:100%;
+  width: 100%;
 
-  padding:10px;
+  border: 1px solid #e8cbd5;
 
-  border:1px solid #e7cfd4;
+  background: #fffdfb;
 
-  border-radius:9px;
+  padding: 11px 12px;
 
-  background:white;
+  border-radius: 12px;
 
-  color:#65565a;
+  color: #65535a;
 
-  min-width:0;
-
-  font-size:12px;
+  outline: none;
 
 }
 
-.field input[type=color]{height:40px;padding:3px}
+.field textarea { min-height: 65px; resize: vertical; }
 
-.field input[type=range]{padding:0;accent-color:#8fa486}
+.field input[type="color"] {
 
-.field input[type=checkbox]{accent-color:#8fa486}
+  height: 42px;
 
-.field-row{
-
-  display:grid;
-
-  grid-template-columns:1fr 1fr;
-
-  gap:8px;
+  padding: 4px;
 
 }
 
-.hint{font-size:10px;color:#927d81;line-height:1.6}
+.field input[type="range"] { padding: 0; }
 
-.selected-name{
+/* STUDIO */
 
-  font-size:11px;
+.studio-layout {
 
-  font-weight:700;
+  display: grid;
 
-  color:#71846b;
+  grid-template-columns: minmax(0, 1fr) minmax(250px, 340px);
 
-  margin:8px 0;
+  gap: 22px;
 
-}
-
-.studio-divider{border:0;border-top:1px solid #ead9dc;margin:13px 0}
-
-.file-input{display:none}
-
-.tool-tabs{display:flex;gap:6px;flex-wrap:wrap;margin:8px 0}
-
-.tool-tabs button{flex:1;min-width:90px}
-
-@media(min-width:850px){
-
-  .studio-layout{
-
-    grid-template-columns:minmax(0,1fr) 350px;
-
-    align-items:start;
-
-  }
-
-  .studio-preview-panel{position:sticky;top:12px}
-
-  .editor-preview-wrap{padding:25px}
-
-  #editorCanvas{max-width:380px}
+  align-items: start;
 
 }
 
-@media(max-width:380px){
+.stage-wrap {
 
-  .camera-card,.result-card{padding:12px}
+  width: 100%;
+
+  max-width: 420px;
+
+  margin: 0 auto;
+
+}
+
+.stage-preview {
+
+  width: 100%;
+
+  aspect-ratio: 9 / 16;
+
+  background: #f5dce5;
+
+  display: flex;
+
+  justify-content: center;
+
+  align-items: center;
+
+  overflow: hidden;
+
+  border-radius: 18px;
+
+  position: relative;
+
+  background-size: cover;
+
+  background-position: center;
+
+}
+
+#studioStrip {
+
+  width: auto;
+
+  height: 100%;
+
+  max-width: 100%;
+
+  aspect-ratio: 1 / 3;
+
+  object-fit: contain;
+
+  box-shadow: 0 5px 20px #0002;
+
+  touch-action: none;
+
+}
+
+.zoom-row {
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 10px;
+
+  margin-top: 10px;
+
+  font-size: 11px;
+
+  color: #92737e;
+
+}
+
+.zoom-row input { flex: 1; }
+
+.editor-tools {
+
+  max-height: 700px;
+
+  overflow-y: auto;
+
+  padding-right: 4px;
+
+}
+
+.tool-section {
+
+  border-top: 1px solid #efdce2;
+
+  padding-top: 13px;
+
+  margin-top: 13px;
+
+}
+
+.tool-section h3 {
+
+  font-size: 12px;
+
+  font-weight: 400;
+
+  letter-spacing: 1px;
+
+  color: #b16e88;
+
+  text-transform: uppercase;
+
+}
+
+.slot-editor {
+
+  border: 1px solid #edd6df;
+
+  border-radius: 13px;
+
+  padding: 10px;
+
+  margin: 9px 0;
+
+  background: #fffdfb;
+
+}
+
+.slot-editor strong {
+
+  font-size: 11px;
+
+  font-weight: 400;
+
+  color: #8d6977;
+
+}
+
+.two-col {
+
+  display: grid;
+
+  grid-template-columns: 1fr 1fr;
+
+  gap: 9px;
+
+}
+
+/* CAMERA */
+
+.camera-box {
+
+  width: min(100%, 480px);
+
+  margin: 0 auto;
+
+  text-align: center;
+
+}
+
+.camera-frame {
+
+  width: 100%;
+
+  aspect-ratio: 3 / 4;
+
+  border-radius: 25px;
+
+  overflow: hidden;
+
+  background: #ead9df;
+
+  position: relative;
+
+}
+
+#cameraVideo {
+
+  width: 100%;
+
+  height: 100%;
+
+  object-fit: cover;
+
+  transform: scaleX(-1);
+
+}
+
+.camera-count {
+
+  font-size: 65px;
+
+  color: white;
+
+  position: absolute;
+
+  inset: 0;
+
+  display: flex;
+
+  justify-content: center;
+
+  align-items: center;
+
+  text-shadow: 0 2px 12px #0008;
+
+  pointer-events: none;
+
+}
+
+.camera-status {
+
+  font-size: 12px;
+
+  color: #9b7b86;
+
+  margin: 16px 0;
+
+}
+
+.progress {
+
+  height: 5px;
+
+  width: 100%;
+
+  background: #f0dce3;
+
+  border-radius: 10px;
+
+  overflow: hidden;
+
+  margin: 12px 0;
+
+}
+
+.progress-inner {
+
+  height: 100%;
+
+  width: 0%;
+
+  background: var(--green);
+
+  transition: width .2s;
+
+}
+
+/* RESULT */
+
+.result-grid {
+
+  display: grid;
+
+  grid-template-columns: 1fr 1fr;
+
+  gap: 18px;
+
+  align-items: start;
+
+}
+
+.result-card {
+
+  text-align: center;
+
+  min-width: 0;
+
+}
+
+.result-card h3 {
+
+  font-weight: 400;
+
+  color: #a76d82;
+
+  font-size: 15px;
+
+}
+
+.result-card img, .result-card video {
+
+  width: min(100%, 250px);
+
+  max-height: 480px;
+
+  object-fit: contain;
+
+  border-radius: 12px;
+
+  background: #f3e5e9;
+
+}
+
+#qrBox img {
+
+  width: 180px;
+
+  height: 180px;
+
+  object-fit: contain;
+
+  margin: 10px auto;
+
+}
+
+/* MOBILE */
+
+@media(max-width: 700px) {
+
+  .studio-layout { grid-template-columns: 1fr; }
+
+  .stage-wrap { max-width: 320px; }
+
+  .editor-tools { max-height: none; }
+
+  .result-grid { grid-template-columns: 1fr; }
+
+  .panel { padding: 17px; }
 
 }
 
@@ -660,29 +718,27 @@ h1,h2,h3{
 
 <body>
 
-<!-- HOMEPAGE -->
+<div class="page">
 
-<section class="page active" id="home">
+<!-- HOME -->
+
+<section id="homePage" class="home">
 
   <div class="home-card">
 
-    <div class="brand">PERSIDA 12</div>
+    <div class="eyebrow">Faculty of Accountancy</div>
 
-    <p class="eyebrow">Appreciation Night</p>
+    <h1>PERSIDA</h1>
 
-    <h1 class="main-title">A Little<br>Memory</h1>
+    <h2>12 Appreciation Night</h2>
 
-    <p class="subtitle">Capture your beautiful moments and keep them forever.</p>
+    <div class="subtitle">A Little Memory</div>
 
-    <div style="margin:24px 0;font-size:36px;color:#a6b89b">♡</div>
+    <p class="tagline">CAPTURE THE MOMENT<br>KEEP IT FOREVER</p>
 
-    <button class="primary-btn" onclick="openCamera()">OPEN CAMERA</button>
+    <button class="primary-btn" onclick="startSession()">OPEN CAMERA</button>
 
-    <div class="btn-row">
-
-      <button class="secondary-btn" onclick="openStudio()">DESIGN STUDIO · OPERATOR</button>
-
-    </div>
+    <button class="secondary-btn" onclick="openStudio()">DESIGN STUDIO · OPERATOR</button>
 
     <div class="footer">
 
@@ -696,37 +752,297 @@ h1,h2,h3{
 
 </section>
 
-<!-- CAMERA -->
+<!-- DESIGN STUDIO -->
 
-<section class="page" id="cameraPage">
+<section id="studioPage" class="hidden">
 
-  <div class="brand">PERSIDA 12</div>
+  <div class="panel">
 
-  <h2 class="section-title">Let's Capture</h2>
+    <button class="back-btn" onclick="goHome()">← BACK TO HOME</button>
 
-  <p class="subtitle">Three poses. Each pose records five seconds of movement.</p>
+    <h2 class="panel-title">Design Studio</h2>
 
-  <div class="camera-card">
+    <p class="panel-subtitle">Create your photostrip and backdrop design</p>
 
-    <div class="camera-frame">
+    <div class="studio-layout">
 
-      <video id="cameraVideo" autoplay playsinline muted></video>
+      <div>
 
-      <div id="countdown">5</div>
+        <div class="stage-wrap">
 
-      <div id="flash"></div>
+          <div class="stage-preview" id="stagePreview">
+
+            <canvas id="studioStrip" width="600" height="1800"></canvas>
+
+          </div>
+
+          <div class="zoom-row">
+
+            <span>ZOOM</span>
+
+            <input id="zoomSlider" type="range" min="70" max="120" value="100" oninput="updateZoom(this.value)">
+
+            <span id="zoomLabel">100%</span>
+
+          </div>
+
+        </div>
+
+        <div class="action-row">
+
+          <button class="small-btn" onclick="renderStudio()">REFRESH PREVIEW</button>
+
+          <button class="small-btn green-btn" onclick="useForSession()">USE FOR NEXT SESSION</button>
+
+          <button class="small-btn" onclick="saveDefault()">SAVE AS DEFAULT</button>
+
+        </div>
+
+      </div>
+
+      <div class="editor-tools">
+
+        <div class="tool-section">
+
+          <h3>Photostrip Layout</h3>
+
+          <div class="field">
+
+            <label>NUMBER OF PHOTOS</label>
+
+            <select id="photoCount" onchange="changePhotoCount(this.value)">
+
+              <option value="1">1 Photo</option>
+
+              <option value="2">2 Photos</option>
+
+              <option value="3" selected>3 Photos</option>
+
+              <option value="4">4 Photos</option>
+
+            </select>
+
+          </div>
+
+          <div class="field">
+
+            <label>STRIP BACKGROUND</label>
+
+            <input id="stripColor" type="color" value="#fffaf5" onchange="updateTemplate('stripBackground',this.value)">
+
+          </div>
+
+          <div class="field">
+
+            <label>PHOTO FILTER</label>
+
+            <select id="photoFilter" onchange="updateTemplate('photoFilter',this.value)">
+
+              <option value="none">Original</option>
+
+              <option value="soft">Soft</option>
+
+              <option value="warm">Warm</option>
+
+              <option value="bw">Black & White</option>
+
+              <option value="vintage">Vintage</option>
+
+            </select>
+
+          </div>
+
+        </div>
+
+        <div class="tool-section">
+
+          <h3>Backdrop · 9:16</h3>
+
+          <div class="field">
+
+            <label>BACKDROP COLOR</label>
+
+            <input id="backdropColor" type="color" value="#f7dce5" onchange="updateTemplate('backdropColor',this.value)">
+
+          </div>
+
+          <div class="field">
+
+            <label>SECOND COLOR</label>
+
+            <input id="backdropColor2" type="color" value="#fff4f5" onchange="updateTemplate('backdropColor2',this.value)">
+
+          </div>
+
+          <div class="field">
+
+            <label>BACKDROP STYLE</label>
+
+            <select id="backdropStyle" onchange="updateTemplate('backdropStyle',this.value)">
+
+              <option value="solid">Solid</option>
+
+              <option value="gradient">Gradient</option>
+
+              <option value="polkadot">Polkadot</option>
+
+            </select>
+
+          </div>
+
+          <div class="field">
+
+            <label>UPLOAD BACKDROP IMAGE</label>
+
+            <input type="file" accept="image/*" onchange="uploadBackdrop(event)">
+
+          </div>
+
+          <button class="small-btn" onclick="removeBackdrop()">REMOVE BACKDROP IMAGE</button>
+
+        </div>
+
+        <div class="tool-section">
+
+          <h3>Photo Slot Settings</h3>
+
+          <div id="slotEditors"></div>
+
+        </div>
+
+        <div class="tool-section">
+
+          <h3>Text & Fonts</h3>
+
+          <div class="field">
+
+            <label>ADD TEXT</label>
+
+            <input id="newText" type="text" placeholder="Enter your text">
+
+          </div>
+
+          <div class="field">
+
+            <label>FONT STYLE</label>
+
+            <select id="newFont">
+
+              <option value="Georgia">Georgia</option>
+
+              <option value="Amiri">Amiri</option>
+
+              <option value="Great Vibes">Great Vibes</option>
+
+              <option value="Allura">Allura</option>
+
+              <option value="Parisienne">Parisienne</option>
+
+              <option value="Sacramento">Sacramento</option>
+
+              <option value="Dancing Script">Dancing Script</option>
+
+              <option value="Tangerine">Tangerine</option>
+
+              <option value="Pinyon Script">Pinyon Script</option>
+
+              <option value="Italianno">Italianno</option>
+
+            </select>
+
+          </div>
+
+          <div class="two-col">
+
+            <div class="field">
+
+              <label>FONT SIZE</label>
+
+              <input id="newSize" type="number" min="12" max="150" value="42">
+
+            </div>
+
+            <div class="field">
+
+              <label>TEXT COLOR</label>
+
+              <input id="newColor" type="color" value="#9b657a">
+
+            </div>
+
+          </div>
+
+          <button class="small-btn" onclick="addText()">ADD TEXT TO STRIP</button>
+
+          <div id="textEditors"></div>
+
+        </div>
+
+        <div class="tool-section">
+
+          <h3>Footer</h3>
+
+          <div class="field">
+
+            <label>FOOTER TEXT 1</label>
+
+            <input id="footer1" value="PERSIDA" onchange="updateFooter(0,this.value)">
+
+          </div>
+
+          <div class="field">
+
+            <label>FOOTER TEXT 2</label>
+
+            <input id="footer2" value="appreciation night with Persida 12" onchange="updateFooter(1,this.value)">
+
+          </div>
+
+          <div class="field">
+
+            <label>FOOTER TEXT 3</label>
+
+            <input id="footer3" value="17.11.2026" onchange="updateFooter(2,this.value)">
+
+          </div>
+
+        </div>
+
+      </div>
 
     </div>
 
-    <div class="status">Pose <span id="photoCount" class="photo-count">0</span> of 3</div>
+  </div>
 
-    <p id="cameraStatus" class="status">Press start when you are ready.</p>
+</section>
 
-    <div class="btn-row">
+<!-- CAMERA -->
 
-      <button class="primary-btn" id="startBtn" onclick="startSession()">START</button>
+<section id="cameraPage" class="hidden">
 
-      <button class="secondary-btn" onclick="goHome()">BACK</button>
+  <div class="panel">
+
+    <button class="back-btn" onclick="goHome()">← BACK TO HOME</button>
+
+    <h2 class="panel-title">Let's Capture Memories</h2>
+
+    <p class="panel-subtitle">Get ready and smile for the camera!</p>
+
+    <div class="camera-box">
+
+      <div class="camera-frame">
+
+        <video id="cameraVideo" autoplay playsinline muted></video>
+
+        <div id="cameraCount" class="camera-count"></div>
+
+      </div>
+
+      <div id="cameraStatus" class="camera-status">Preparing your camera...</div>
+
+      <div class="progress"><div id="progressInner" class="progress-inner"></div></div>
+
+      <button id="captureBtn" class="primary-btn" onclick="beginCapture()">START PHOTO SESSION</button>
 
     </div>
 
@@ -736,63 +1052,65 @@ h1,h2,h3{
 
 <!-- RESULT -->
 
-<section class="page" id="resultPage">
+<section id="resultPage" class="hidden">
 
-  <div class="brand">PERSIDA 12</div>
+  <div class="panel">
 
-  <h2 class="section-title">Your Memories</h2>
+    <h2 class="panel-title">Your Memories</h2>
 
-  <p class="subtitle">Your photostrip is ready!</p>
+    <p class="panel-subtitle">A little moment to keep forever</p>
 
-  <div class="result-card">
+    <div class="result-grid">
 
-    <h3 style="font-size:27px;margin:5px 0">Static Photostrip</h3>
+      <div class="result-card">
 
-    <img id="stripPreview" class="result-strip" alt="Photostrip">
+        <h3>Static Memory</h3>
 
-    <button class="primary-btn" onclick="downloadStatic()">DOWNLOAD PNG</button>
+        <img id="staticPreview" alt="Photostrip with backdrop">
 
-    <div class="qr-section">
+        <div class="action-row">
 
-      <h3 style="font-size:27px;margin:5px 0">Live Photostrip</h3>
+          <button class="small-btn green-btn" onclick="downloadStatic()">DOWNLOAD PHOTO</button>
 
-      <video id="livePreview" class="preview-video" controls playsinline loop muted></video>
+        </div>
 
-      <button class="primary-btn" onclick="downloadLive()">DOWNLOAD VIDEO</button>
+      </div>
+
+      <div class="result-card">
+
+        <h3>Live Memory</h3>
+
+        <video id="livePreview" controls playsinline loop></video>
+
+        <p id="liveMessage" class="camera-status"></p>
+
+        <div class="action-row">
+
+          <button id="downloadLiveBtn" class="small-btn" onclick="downloadLive()">DOWNLOAD LIVE VIDEO</button>
+
+        </div>
+
+      </div>
 
     </div>
 
-    <div class="qr-section">
+    <div class="action-row">
 
-      <h3 style="font-size:27px;margin:5px 0">Your Photo Collection</h3>
-
-      <p class="small-note">One QR code to access all three photos and both photostrips.</p>
-
-      <button class="primary-btn" id="uploadBtn" onclick="uploadSession()">GENERATE MY QR CODE</button>
-
-      <div class="loading" id="loading">Uploading your photos and preparing your QR code...</div>
-
-      <div class="single-qr" id="singleQR"></div>
-
-      <p id="uploadStatus" class="small-note"></p>
-
-    </div>
-
-    <div class="btn-row">
+      <button id="uploadBtn" class="primary-btn" onclick="uploadSession()">SAVE TO GALLERY & GENERATE QR</button>
 
       <button class="secondary-btn" onclick="retake()">RETAKE PHOTOS</button>
 
-      <button class="secondary-btn" onclick="goHome()">HOME</button>
-
     </div>
 
-    <div class="footer">
+    <div id="qrBox" class="camera-box hidden">
 
-      <strong>PERSIDA</strong><br>
+      <h3 class="panel-title">Your QR Memory</h3>
 
-      appreciation night with Persida 12<br>
+      <p class="panel-subtitle">Scan the QR code to access your photos</p>
 
-      17.11.2026
+      <div id="qrImage"></div>
+
+      <p id="uploadMessage" class="camera-status"></p>
 
     </div>
 
@@ -800,507 +1118,129 @@ h1,h2,h3{
 
 </section>
 
-<!-- DESIGN STUDIO -->
-
-<section class="page" id="studioPage">
-
-  <div class="studio-page">
-
-    <div class="studio-heading">
-
-      <div class="brand">PERSIDA 12</div>
-
-      <h2 class="section-title">Design Studio</h2>
-
-      <p class="subtitle">Tap an element to select it, drag to move, and use the controls to edit your photostrip.</p>
-
-    </div>
-
-    <div class="studio-actions">
-
-      <button class="secondary-btn" onclick="saveDefault()">SAVE AS DEFAULT</button>
-
-      <button class="primary-btn" onclick="useForSession()">USE FOR NEXT SESSION</button>
-
-      <button class="danger-btn" onclick="resetDesign()">RESET DESIGN</button>
-
-    </div>
-
-    <div class="studio-layout">
-
-      <div class="studio-panel studio-preview-panel">
-
-        <div class="editor-preview-wrap" id="previewWrap">
-
-          <canvas id="editorCanvas" width="600" height="1800"></canvas>
-
-        </div>
-
-        <p class="hint">
-
-          Tap a photo frame, text or decoration to select it. Drag it to move.
-
-          The background behind the strip is only a preview and will not be printed.
-
-        </p>
-
-      </div>
-
-      <div class="studio-panel">
-
-        <h3>Photostrip Background</h3>
-
-        <div class="field-row">
-
-          <div class="field">
-
-            <label>BASE COLOUR</label>
-
-            <input type="color" id="baseColor" value="#ffffff" oninput="changeDesign()">
-
-          </div>
-
-          <div class="field">
-
-            <label>DOT COLOUR</label>
-
-            <input type="color" id="dotColor" value="#111111" oninput="changeDesign()">
-
-          </div>
-
-        </div>
-
-        <div class="field">
-
-          <label>PHOTO FILTER</label>
-
-          <select id="photoFilter" onchange="changeDesign()">
-
-            <option value="color">Original colour photos</option>
-
-            <option value="grayscale">Black & white photos</option>
-
-          </select>
-
-        </div>
-
-        <div class="field">
-
-          <label><input type="checkbox" id="dotsToggle" onchange="changeDesign()"> Polkadots on photostrip</label>
-
-        </div>
-
-        <div class="field">
-
-          <label>UPLOAD IMAGE AS STRIP BACKGROUND</label>
-
-          <button class="secondary-btn" style="width:100%" onclick="$('stripBgUpload').click()">UPLOAD STRIP BACKGROUND</button>
-
-          <input class="file-input" id="stripBgUpload" type="file" accept="image/*" onchange="uploadStripBackground(event)">
-
-          <button class="danger-btn" style="width:100%;margin-top:7px" onclick="removeStripBackground()">REMOVE STRIP BACKGROUND</button>
-
-        </div>
-
-        <div class="field">
-
-          <label>UPLOAD PHOTOSTRIP TEMPLATE (PNG)</label>
-
-          <button class="secondary-btn" style="width:100%" onclick="$('templateUpload').click()">UPLOAD TRANSPARENT PNG TEMPLATE</button>
-
-          <input class="file-input" id="templateUpload" type="file" accept="image/png,image/webp" onchange="uploadTemplate(event)">
-
-          <button class="danger-btn" style="width:100%;margin-top:7px" onclick="removeTemplate()">REMOVE TEMPLATE</button>
-
-          <p class="hint">The uploaded template is placed over the photos. Use a PNG with transparent photo windows. Adjust the three photo frames below to line up with the openings.</p>
-
-        </div>
-
-        <hr class="studio-divider">
-
-        <h3>Background Behind Strip</h3>
-
-        <div class="field-row">
-
-          <div class="field">
-
-            <label>BACKDROP COLOUR</label>
-
-            <input type="color" id="stageColor" value="#f7e2e8" oninput="changeStage()">
-
-          </div>
-
-          <div class="field">
-
-            <label>SECOND COLOUR</label>
-
-            <input type="color" id="stageColor2" value="#dce7d5" oninput="changeStage()">
-
-          </div>
-
-        </div>
-
-        <div class="field">
-
-          <label>UPLOAD BACKDROP IMAGE</label>
-
-          <button class="secondary-btn" style="width:100%" onclick="$('stageUpload').click()">UPLOAD IMAGE BEHIND STRIP</button>
-
-          <input class="file-input" id="stageUpload" type="file" accept="image/*" onchange="uploadStageBackground(event)">
-
-          <button class="danger-btn" style="width:100%;margin-top:7px" onclick="removeStageBackground()">REMOVE BACKDROP IMAGE</button>
-
-        </div>
-
-        <hr class="studio-divider">
-
-        <h3>Photo Frames</h3>
-
-        <div class="field">
-
-          <label>SELECT PHOTO FRAME</label>
-
-          <select id="slotChoice" onchange="selectSlot()">
-
-            <option value="0">Photo frame 1</option>
-
-            <option value="1">Photo frame 2</option>
-
-            <option value="2">Photo frame 3</option>
-
-          </select>
-
-        </div>
-
-        <div class="field">
-
-          <label>FRAME SHAPE</label>
-
-          <select id="slotShape" onchange="updateSlot()">
-
-            <option value="rectangle">Rectangle</option>
-
-            <option value="rounded">Rounded rectangle</option>
-
-            <option value="oval">Oval</option>
-
-            <option value="scalloped">Scalloped / Bergerigi</option>
-
-          </select>
-
-        </div>
-
-        <div class="field-row">
-
-          <div class="field">
-
-            <label>X POSITION</label>
-
-            <input type="number" id="slotX" oninput="updateSlot()">
-
-          </div>
-
-          <div class="field">
-
-            <label>Y POSITION</label>
-
-            <input type="number" id="slotY" oninput="updateSlot()">
-
-          </div>
-
-        </div>
-
-        <div class="field-row">
-
-          <div class="field">
-
-            <label>WIDTH</label>
-
-            <input type="number" id="slotW" oninput="updateSlot()">
-
-          </div>
-
-          <div class="field">
-
-            <label>HEIGHT</label>
-
-            <input type="number" id="slotH" oninput="updateSlot()">
-
-          </div>
-
-        </div>
-
-        <div class="field">
-
-          <label>FRAME CORNER / EDGE ROUNDING</label>
-
-          <input type="range" id="slotRadius" min="0" max="100" value="25" oninput="updateSlot()">
-
-        </div>
-
-        <div class="field">
-
-          <label>FRAME BORDER COLOUR</label>
-
-          <input type="color" id="slotBorder" value="#111111" oninput="updateSlot()">
-
-        </div>
-
-        <div class="field">
-
-          <label>FRAME BORDER WIDTH</label>
-
-          <input type="range" id="slotBorderWidth" min="0" max="20" value="3" oninput="updateSlot()">
-
-        </div>
-
-        <hr class="studio-divider">
-
-        <h3>Add Elements</h3>
-
-        <div class="editor-tools">
-
-          <button class="secondary-btn" onclick="addText()">＋ Add Text</button>
-
-          <button class="secondary-btn" onclick="addEmoji('♡')">♡ Heart</button>
-
-          <button class="secondary-btn" onclick="addEmoji('✿')">✿ Flower</button>
-
-          <button class="secondary-btn" onclick="addEmoji('🦋')">🦋 Butterfly</button>
-
-          <button class="secondary-btn" onclick="addEmoji('✧')">✧ Sparkle</button>
-
-          <button class="secondary-btn" onclick="addEmoji('☁')">☁ Cloud</button>
-
-          <button class="secondary-btn" onclick="addEmoji('☆')">☆ Star</button>
-
-          <button class="secondary-btn" onclick="$('assetUpload').click()">＋ Upload Image</button>
-
-        </div>
-
-        <input class="file-input" id="assetUpload" type="file" accept="image/png,image/webp,image/jpeg" onchange="uploadElement(event)">
-
-        <hr class="studio-divider">
-
-        <h3>Edit Selected Element</h3>
-
-        <div id="selectedName" class="selected-name">No element selected</div>
-
-        <div class="field">
-
-          <label>TEXT</label>
-
-          <input id="elementText" type="text" placeholder="Select a text element" oninput="updateElement()">
-
-        </div>
-
-        <div class="field">
-
-          <label>FONT</label>
-
-          <select id="elementFont" onchange="updateElement()">
-
-            <option value="Quicksand">Quicksand</option>
-
-            <option value="Cormorant Garamond">Cormorant Garamond</option>
-
-            <option value="Playfair Display">Playfair Display</option>
-
-            <option value="Georgia">Georgia</option>
-
-          </select>
-
-        </div>
-
-        <div class="field-row">
-
-          <div class="field">
-
-            <label>TEXT COLOUR</label>
-
-            <input type="color" id="elementColor" value="#111111" oninput="updateElement()">
-
-          </div>
-
-          <div class="field">
-
-            <label>FONT SIZE</label>
-
-            <input type="number" id="elementSize" min="8" max="220" value="40" oninput="updateElement()">
-
-          </div>
-
-        </div>
-
-        <div class="field-row">
-
-          <div class="field">
-
-            <label>WIDTH</label>
-
-            <input type="number" id="elementWidth" min="10" max="600" oninput="updateElement()">
-
-          </div>
-
-          <div class="field">
-
-            <label>HEIGHT</label>
-
-            <input type="number" id="elementHeight" min="10" max="1800" oninput="updateElement()">
-
-          </div>
-
-        </div>
-
-        <div class="field">
-
-          <label>ROTATION</label>
-
-          <input type="range" id="elementRotation" min="-180" max="180" value="0" oninput="updateElement()">
-
-        </div>
-
-        <div class="field">
-
-          <label>OPACITY</label>
-
-          <input type="range" id="elementOpacity" min="10" max="100" value="100" oninput="updateElement()">
-
-        </div>
-
-        <div class="field-row">
-
-          <div class="field">
-
-            <label>X POSITION</label>
-
-            <input type="number" id="elementX" oninput="updatePosition()">
-
-          </div>
-
-          <div class="field">
-
-            <label>Y POSITION</label>
-
-            <input type="number" id="elementY" oninput="updatePosition()">
-
-          </div>
-
-        </div>
-
-        <div class="field">
-
-          <label>TEXT ALIGNMENT</label>
-
-          <select id="elementAlign" onchange="updateElement()">
-
-            <option value="center">Center</option>
-
-            <option value="left">Left</option>
-
-            <option value="right">Right</option>
-
-          </select>
-
-        </div>
-
-        <div class="btn-row">
-
-          <button class="secondary-btn" onclick="duplicateElement()">DUPLICATE</button>
-
-          <button class="danger-btn" onclick="deleteElement()">DELETE</button>
-
-        </div>
-
-        <hr class="studio-divider">
-
-        <div class="btn-row">
-
-          <button class="secondary-btn" onclick="goHome()">BACK TO HOME</button>
-
-        </div>
-
-      </div>
-
-    </div>
-
-    <p class="small-note">Default design is saved in this browser on this device. Use the same device and browser at the event.</p>
-
-  </div>
-
-</section>
+</div>
 
 <script>
 
-/* MASUKKAN URL GOOGLE APPS SCRIPT WEB APP DI SINI */
+/* =====================================================
 
-const SCRIPT_URL = "PASTE_YOUR_GOOGLE_APPS_SCRIPT_WEB_APP_URL_HERE";
+   PERSIDA 12 PHOTOBOOTH
+
+   Replace this URL with your deployed Apps Script URL.
+
+===================================================== */
+
+const APPS_SCRIPT_URL = "PASTE_YOUR_GOOGLE_APPS_SCRIPT_WEB_APP_URL_HERE";
 
 const W = 600;
 
 const H = 1800;
 
-const $ = id => document.getElementById(id);
+const OUTPUT_W = 1080;
 
-const clone = obj => JSON.parse(JSON.stringify(obj));
+const OUTPUT_H = 1920;
+
+const $ = id => document.getElementById(id);
 
 const ORIGINAL_TEMPLATE = {
 
-  base:"#ffffff",
+  photoCount: 3,
 
-  dot:"#111111",
+  stripBackground: "#fffaf5",
 
-  dots:false,
+  photoFilter: "none",
 
-  photoFilter:"color",
+  backdropColor: "#f7dce5",
 
-  stage:"#f7e2e8",
+  backdropColor2: "#fff4f5",
 
-  stage2:"#dce7d5",
+  backdropStyle: "gradient",
 
-  stageImage:null,
+  backdropImage: null,
 
-  stripBackground:null,
+  footer: [
 
-  overlay:null,
+    "PERSIDA",
 
-  slots:[
+    "appreciation night with Persida 12",
 
-    {x:55,y:250,w:490,h:350,shape:"rectangle",radius:25,border:"#111111",borderWidth:3},
-
-    {x:55,y:650,w:490,h:350,shape:"rectangle",radius:25,border:"#111111",borderWidth:3},
-
-    {x:55,y:1050,w:490,h:350,shape:"rectangle",radius:25,border:"#111111",borderWidth:3}
+    "17.11.2026"
 
   ],
 
-  elements:[
+  slots: [
 
-    {id:"head1",type:"text",text:"PERSIDA",x:300,y:105,size:42,color:"#111111",font:"Cormorant Garamond",align:"center",rotation:0,opacity:100},
+    {x:55,y:250,w:490,h:350},
 
-    {id:"head2",type:"text",text:"appreciation night with Persida 12",x:300,y:155,size:16,color:"#222222",font:"Quicksand",align:"center",rotation:0,opacity:100},
+    {x:55,y:625,w:490,h:350},
 
-    {id:"foot1",type:"text",text:"PERSIDA",x:300,y:1510,size:35,color:"#111111",font:"Cormorant Garamond",align:"center",rotation:0,opacity:100},
+    {x:55,y:1000,w:490,h:350}
 
-    {id:"foot2",type:"text",text:"appreciation night with Persida 12",x:300,y:1550,size:13,color:"#222222",font:"Quicksand",align:"center",rotation:0,opacity:100},
+  ],
 
-    {id:"foot3",type:"text",text:"17.11.2026",x:300,y:1590,size:17,color:"#111111",font:"Quicksand",align:"center",rotation:0,opacity:100}
+  elements: [
+
+    {
+
+      type:"text",
+
+      text:"PERSIDA",
+
+      x:300,y:100,
+
+      size:55,
+
+      color:"#a66d82",
+
+      font:"Georgia",
+
+      align:"center"
+
+    }
 
   ]
 
 };
 
-function loadDefault(){
+let defaultTemplate = clone(ORIGINAL_TEMPLATE);
 
-  try{
+let workingTemplate = clone(ORIGINAL_TEMPLATE);
 
-    const saved=localStorage.getItem("persida12_default_template");
+let activeSessionTemplate = null;
 
-    if(!saved)return clone(ORIGINAL_TEMPLATE);
+let stream = null;
 
-    return {...clone(ORIGINAL_TEMPLATE),...JSON.parse(saved)};
+let photos = [];
 
-  }catch(e){
+let liveBlob = null;
+
+let staticBlob = null;
+
+let staticURL = null;
+
+let liveURL = null;
+
+let backdropImageObject = null;
+
+let selectedTextIndex = -1;
+
+let zoomValue = 100;
+
+function clone(obj) {
+
+  return JSON.parse(JSON.stringify(obj));
+
+}
+
+function getDefaultTemplate() {
+
+  try {
+
+    const saved = localStorage.getItem("persida12_default_template");
+
+    return saved ? JSON.parse(saved) : clone(ORIGINAL_TEMPLATE);
+
+  } catch {
 
     return clone(ORIGINAL_TEMPLATE);
 
@@ -1308,757 +1248,1115 @@ function loadDefault(){
 
 }
 
-let defaultTemplate=loadDefault();
+function getPendingTemplate() {
 
-let sessionTemplate=null;
+  try {
 
-let workingTemplate=clone(defaultTemplate);
+    const saved = localStorage.getItem("persida12_next_session_template");
 
-let selected=null;
+    return saved ? JSON.parse(saved) : null;
 
-let selectedSlotIndex=0;
+  } catch {
 
-let photos=[];
+    return null;
 
-let clips=[];
+  }
 
-let cameraStream=null;
+}
 
-let staticBlob=null;
+defaultTemplate = getDefaultTemplate();
 
-let liveBlob=null;
+function showPage(page) {
 
-let staticURL=null;
+  ["homePage","studioPage","cameraPage","resultPage"].forEach(id => {
 
-let liveURL=null;
+    $(id).classList.add("hidden");
 
-let busy=false;
+  });
 
-const imgCache=new Map();
-
-function showPage(id){
-
-  document.querySelectorAll(".page").forEach(p=>p.classList.remove("active"));
-
-  $(id).classList.add("active");
+  $(page).classList.remove("hidden");
 
   window.scrollTo(0,0);
 
 }
 
-function sleep(ms){return new Promise(resolve=>setTimeout(resolve,ms))}
+function goHome() {
 
-function newId(){return "el"+Date.now()+Math.random().toString(16).slice(2)}
+  stopCamera();
 
-/* ---------------- DESIGN STUDIO ---------------- */
+  showPage("homePage");
 
-function openStudio(){
+}
 
-  workingTemplate=clone(defaultTemplate);
+function openStudio() {
 
-  selected=null;
+  const pending = getPendingTemplate();
+
+  workingTemplate = clone(pending || defaultTemplate);
+
+  selectedTextIndex = -1;
+
+  loadStudioControls();
 
   showPage("studioPage");
 
-  syncDesignControls();
-
-  renderEditor();
-
-  refreshControls();
-
-  selectSlot();
+  renderStudio();
 
 }
 
-function syncDesignControls(){
+function loadStudioControls() {
 
-  $("baseColor").value=workingTemplate.base||"#ffffff";
+  $("photoCount").value = workingTemplate.photoCount || 3;
 
-  $("dotColor").value=workingTemplate.dot||"#111111";
+  $("stripColor").value = workingTemplate.stripBackground || "#fffaf5";
 
-  $("dotsToggle").checked=!!workingTemplate.dots;
+  $("photoFilter").value = workingTemplate.photoFilter || "none";
 
-  $("photoFilter").value=workingTemplate.photoFilter||"color";
+  $("backdropColor").value = workingTemplate.backdropColor || "#f7dce5";
 
-  $("stageColor").value=workingTemplate.stage||"#f7e2e8";
+  $("backdropColor2").value = workingTemplate.backdropColor2 || "#fff4f5";
 
-  $("stageColor2").value=workingTemplate.stage2||"#dce7d5";
+  $("backdropStyle").value = workingTemplate.backdropStyle || "gradient";
 
-  updateStagePreview();
+  $("footer1").value = workingTemplate.footer[0];
+
+  $("footer2").value = workingTemplate.footer[1];
+
+  $("footer3").value = workingTemplate.footer[2];
+
+  createSlotEditors();
+
+  createTextEditors();
+
+  updateStageBackdrop();
 
 }
 
-function saveDefault(){
+function useForSession() {
 
-  try{
+  localStorage.setItem(
 
-    localStorage.setItem("persida12_default_template",JSON.stringify(workingTemplate));
+    "persida12_next_session_template",
 
-    defaultTemplate=clone(workingTemplate);
+    JSON.stringify(workingTemplate)
 
-    alert("Default design saved on this device!");
+  );
 
-  }catch(e){
+  alert("Design saved for your next photo session!");
 
-    alert("Unable to save. The uploaded images may be too large. Try using smaller images.");
+  goHome();
+
+}
+
+function saveDefault() {
+
+  localStorage.setItem(
+
+    "persida12_default_template",
+
+    JSON.stringify(workingTemplate)
+
+  );
+
+  defaultTemplate = clone(workingTemplate);
+
+  alert("Default design saved successfully!");
+
+}
+
+function updateTemplate(key,value) {
+
+  workingTemplate[key] = value;
+
+  if(key === "stripBackground" || key === "photoFilter") {
+
+    renderStudio();
+
+  } else {
+
+    updateStageBackdrop();
+
+    renderStudio();
 
   }
 
 }
 
-function useForSession(){
+function updateFooter(index,value) {
 
-  sessionTemplate=clone(workingTemplate);
+  workingTemplate.footer[index] = value;
 
-  alert("Your design will be used for the next photo session.");
-
-  showPage("home");
+  renderStudio();
 
 }
 
-function resetDesign(){
+function changePhotoCount(value) {
 
-  if(!confirm("Reset the design to the original PERSIDA 12 template?"))return;
+  const count = Math.max(1,Math.min(4,Number(value)));
 
-  workingTemplate=clone(ORIGINAL_TEMPLATE);
+  workingTemplate.photoCount = count;
 
-  selected=null;
+  workingTemplate.slots = createSlots(count);
 
-  syncDesignControls();
+  createSlotEditors();
 
-  renderEditor();
-
-  refreshControls();
-
-  selectSlot();
+  renderStudio();
 
 }
 
-function changeDesign(){
+function createSlots(count) {
 
-  workingTemplate.base=$("baseColor").value;
+  const layouts = {
 
-  workingTemplate.dot=$("dotColor").value;
+    1: [{x:75,y:420,w:450,h:520}],
 
-  workingTemplate.dots=$("dotsToggle").checked;
+    2: [
 
-  workingTemplate.photoFilter=$("photoFilter").value;
+      {x:55,y:330,w:490,h:500},
 
-  renderEditor();
+      {x:55,y:855,w:490,h:500}
 
-}
+    ],
 
-function changeStage(){
+    3: [
 
-  workingTemplate.stage=$("stageColor").value;
+      {x:55,y:250,w:490,h:350},
 
-  workingTemplate.stage2=$("stageColor2").value;
+      {x:55,y:625,w:490,h:350},
 
-  updateStagePreview();
+      {x:55,y:1000,w:490,h:350}
 
-}
+    ],
 
-function updateStagePreview(){
+    4: [
 
-  const wrap=$("previewWrap");
+      {x:55,y:210,w:490,h:260},
 
-  if(workingTemplate.stageImage){
+      {x:55,y:495,w:490,h:260},
 
-    wrap.style.backgroundImage=`url("${workingTemplate.stageImage}")`;
+      {x:55,y:780,w:490,h:260},
 
-    wrap.style.backgroundSize="cover";
+      {x:55,y:1065,w:490,h:260}
 
-    wrap.style.backgroundPosition="center";
+    ]
 
-  }else{
+  };
 
-    wrap.style.backgroundImage=`linear-gradient(125deg,${workingTemplate.stage} 0%,${workingTemplate.stage} 48%,${workingTemplate.stage2} 48%,${workingTemplate.stage2} 100%)`;
-
-  }
+  return clone(layouts[count]);
 
 }
 
-function readImageFile(file,callback){
+function createSlotEditors() {
 
-  if(!file)return;
+  const box = $("slotEditors");
 
-  if(file.size>5000000){
+  box.innerHTML = "";
 
-    alert("Please choose an image smaller than 5MB.");
+  workingTemplate.slots.forEach((slot,index) => {
+
+    const div = document.createElement("div");
+
+    div.className = "slot-editor";
+
+    div.innerHTML = `
+
+      <strong>PHOTO ${index+1}</strong>
+
+      <div class="two-col">
+
+        <div class="field">
+
+          <label>WIDTH</label>
+
+          <input type="number" value="${slot.w}" data-index="${index}" data-key="w">
+
+        </div>
+
+        <div class="field">
+
+          <label>HEIGHT</label>
+
+          <input type="number" value="${slot.h}" data-index="${index}" data-key="h">
+
+        </div>
+
+        <div class="field">
+
+          <label>X POSITION</label>
+
+          <input type="number" value="${slot.x}" data-index="${index}" data-key="x">
+
+        </div>
+
+        <div class="field">
+
+          <label>Y POSITION</label>
+
+          <input type="number" value="${slot.y}" data-index="${index}" data-key="y">
+
+        </div>
+
+      </div>
+
+    `;
+
+    box.appendChild(div);
+
+  });
+
+  box.querySelectorAll("input").forEach(input => {
+
+    input.addEventListener("change", () => {
+
+      const index = Number(input.dataset.index);
+
+      const key = input.dataset.key;
+
+      workingTemplate.slots[index][key] = Number(input.value);
+
+      renderStudio();
+
+    });
+
+  });
+
+}
+
+function createTextEditors() {
+
+  const box = $("textEditors");
+
+  box.innerHTML = "";
+
+  workingTemplate.elements.forEach((el,index) => {
+
+    if(el.type !== "text") return;
+
+    const div = document.createElement("div");
+
+    div.className = "slot-editor";
+
+    div.innerHTML = `
+
+      <strong>TEXT ${index+1}</strong>
+
+      <div class="field">
+
+        <input type="text" value="${escapeHTML(el.text)}" data-index="${index}">
+
+      </div>
+
+      <div class="two-col">
+
+        <button class="small-btn" data-action="select" data-index="${index}">SELECT</button>
+
+        <button class="small-btn" data-action="delete" data-index="${index}">DELETE</button>
+
+      </div>
+
+    `;
+
+    box.appendChild(div);
+
+  });
+
+  box.querySelectorAll("input").forEach(input => {
+
+    input.addEventListener("change", () => {
+
+      workingTemplate.elements[Number(input.dataset.index)].text = input.value;
+
+      renderStudio();
+
+    });
+
+  });
+
+  box.querySelectorAll("button").forEach(button => {
+
+    button.addEventListener("click", () => {
+
+      const index = Number(button.dataset.index);
+
+      if(button.dataset.action === "delete") {
+
+        workingTemplate.elements.splice(index,1);
+
+        selectedTextIndex = -1;
+
+        createTextEditors();
+
+        renderStudio();
+
+      } else {
+
+        selectedTextIndex = index;
+
+        renderStudio();
+
+      }
+
+    });
+
+  });
+
+}
+
+function escapeHTML(value) {
+
+  return String(value).replace(/[&<>"']/g, char => ({
+
+    "&":"&amp;",
+
+    "<":"&lt;",
+
+    ">":"&gt;",
+
+    '"':"&quot;",
+
+    "'":"&#39;"
+
+  }[char]));
+
+}
+
+function addText() {
+
+  const text = $("newText").value.trim();
+
+  if(!text) return;
+
+  workingTemplate.elements.push({
+
+    type:"text",
+
+    text,
+
+    x:300,
+
+    y:1450,
+
+    size:Number($("newSize").value) || 42,
+
+    color:$("newColor").value,
+
+    font:$("newFont").value,
+
+    align:"center"
+
+  });
+
+  $("newText").value = "";
+
+  createTextEditors();
+
+  renderStudio();
+
+}
+
+function updateStageBackdrop() {
+
+  const stage = $("stagePreview");
+
+  if(backdropImageObject) {
+
+    stage.style.backgroundImage = `url("${backdropImageObject.src}")`;
+
+    stage.style.backgroundColor = workingTemplate.backdropColor;
 
     return;
 
   }
 
-  const reader=new FileReader();
+  const a = workingTemplate.backdropColor || "#f7dce5";
 
-  reader.onload=()=>callback(reader.result);
+  const b = workingTemplate.backdropColor2 || "#fff4f5";
 
-  reader.onerror=()=>alert("Unable to read this image.");
+  const style = workingTemplate.backdropStyle;
+
+  if(style === "gradient") {
+
+    stage.style.backgroundImage = `linear-gradient(145deg, ${a}, ${b})`;
+
+  } else if(style === "polkadot") {
+
+    stage.style.backgroundImage =
+
+      `radial-gradient(${b} 2px, transparent 2px)`;
+
+    stage.style.backgroundSize = "22px 22px";
+
+    stage.style.backgroundColor = a;
+
+  } else {
+
+    stage.style.backgroundImage = "none";
+
+    stage.style.backgroundColor = a;
+
+  }
+
+}
+
+function uploadBackdrop(event) {
+
+  const file = event.target.files[0];
+
+  if(!file) return;
+
+  const reader = new FileReader();
+
+  reader.onload = () => {
+
+    const img = new Image();
+
+    img.onload = () => {
+
+      backdropImageObject = img;
+
+      workingTemplate.backdropImage = reader.result;
+
+      updateStageBackdrop();
+
+      renderStudio();
+
+    };
+
+    img.src = reader.result;
+
+  };
 
   reader.readAsDataURL(file);
 
 }
 
-function uploadStripBackground(event){
+function removeBackdrop() {
 
-  const file=event.target.files?.[0];
+  backdropImageObject = null;
 
-  readImageFile(file,data=>{
+  workingTemplate.backdropImage = null;
 
-    workingTemplate.stripBackground=data;
+  updateStageBackdrop();
 
-    renderEditor();
-
-  });
-
-  event.target.value="";
+  renderStudio();
 
 }
 
-function removeStripBackground(){
+function updateZoom(value) {
 
-  workingTemplate.stripBackground=null;
+  zoomValue = Number(value);
 
-  renderEditor();
+  $("zoomLabel").textContent = zoomValue + "%";
 
-}
-
-function uploadTemplate(event){
-
-  const file=event.target.files?.[0];
-
-  readImageFile(file,data=>{
-
-    workingTemplate.overlay=data;
-
-    renderEditor();
-
-  });
-
-  event.target.value="";
+  $("studioStrip").style.height = zoomValue + "%";
 
 }
 
-function removeTemplate(){
+function roundedRect(ctx,x,y,w,h,r) {
 
-  workingTemplate.overlay=null;
+  r = Math.min(r,w/2,h/2);
 
-  renderEditor();
+  ctx.beginPath();
 
-}
+  ctx.moveTo(x+r,y);
 
-function uploadStageBackground(event){
+  ctx.lineTo(x+w-r,y);
 
-  const file=event.target.files?.[0];
+  ctx.quadraticCurveTo(x+w,y,x+w,y+r);
 
-  readImageFile(file,data=>{
+  ctx.lineTo(x+w,y+h-r);
 
-    workingTemplate.stageImage=data;
+  ctx.quadraticCurveTo(x+w,y+h,x+w-r,y+h);
 
-    updateStagePreview();
+  ctx.lineTo(x+r,y+h);
 
-  });
+  ctx.quadraticCurveTo(x,y+h,x,y+h-r);
 
-  event.target.value="";
+  ctx.lineTo(x,y+r);
 
-}
+  ctx.quadraticCurveTo(x,y,x+r,y);
 
-function removeStageBackground(){
-
-  workingTemplate.stageImage=null;
-
-  updateStagePreview();
+  ctx.closePath();
 
 }
 
-function addText(){
+function drawImageCover(ctx,img,x,y,w,h) {
 
-  const value=prompt("Enter your text:");
+  const scale = Math.max(w/img.width,h/img.height);
 
-  if(!value||!value.trim())return;
+  const sw = w/scale;
 
-  const e={
+  const sh = h/scale;
 
-    id:newId(),type:"text",text:value.trim(),
+  const sx = (img.width-sw)/2;
 
-    x:300,y:900,size:35,color:"#111111",
-
-    font:"Quicksand",align:"center",rotation:0,opacity:100
-
-  };
-
-  workingTemplate.elements.push(e);
-
-  selected={kind:"element",id:e.id};
-
-  renderEditor();
-
-  refreshControls();
-
-}
-
-function addEmoji(value){
-
-  const e={
-
-    id:newId(),type:"text",text:value,
-
-    x:300,y:900,size:70,color:"#111111",
-
-    font:"Quicksand",align:"center",rotation:0,opacity:100
-
-  };
-
-  workingTemplate.elements.push(e);
-
-  selected={kind:"element",id:e.id};
-
-  renderEditor();
-
-  refreshControls();
-
-}
-
-function uploadElement(event){
-
-  const file=event.target.files?.[0];
-
-  readImageFile(file,data=>{
-
-    const e={
-
-      id:newId(),type:"image",src:data,
-
-      x:300,y:900,w:150,h:150,rotation:0,opacity:100
-
-    };
-
-    workingTemplate.elements.push(e);
-
-    selected={kind:"element",id:e.id};
-
-    renderEditor();
-
-    refreshControls();
-
-  });
-
-  event.target.value="";
-
-}
-
-function getSelected(){
-
-  if(!selected)return null;
-
-  if(selected.kind==="element"){
-
-    return workingTemplate.elements.find(e=>e.id===selected.id);
-
-  }
-
-  if(selected.kind==="slot"){
-
-    return workingTemplate.slots[selected.index];
-
-  }
-
-  return null;
-
-}
-
-function selectSlot(){
-
-  selectedSlotIndex=Number($("slotChoice").value)||0;
-
-  const s=workingTemplate.slots[selectedSlotIndex];
-
-  selected={kind:"slot",index:selectedSlotIndex};
-
-  $("slotShape").value=s.shape||"rectangle";
-
-  $("slotX").value=Math.round(s.x);
-
-  $("slotY").value=Math.round(s.y);
-
-  $("slotW").value=Math.round(s.w);
-
-  $("slotH").value=Math.round(s.h);
-
-  $("slotRadius").value=s.radius??25;
-
-  $("slotBorder").value=s.border||"#111111";
-
-  $("slotBorderWidth").value=s.borderWidth??3;
-
-  refreshControls();
-
-  renderEditor();
-
-}
-
-function updateSlot(){
-
-  const s=workingTemplate.slots[selectedSlotIndex];
-
-  s.shape=$("slotShape").value;
-
-  s.x=Number($("slotX").value)||0;
-
-  s.y=Number($("slotY").value)||0;
-
-  s.w=Math.max(30,Number($("slotW").value)||30);
-
-  s.h=Math.max(30,Number($("slotH").value)||30);
-
-  s.radius=Number($("slotRadius").value)||0;
-
-  s.border=$("slotBorder").value;
-
-  s.borderWidth=Number($("slotBorderWidth").value)||0;
-
-  selected={kind:"slot",index:selectedSlotIndex};
-
-  renderEditor();
-
-}
-
-function refreshControls(){
-
-  const e=getSelected();
-
-  const isText=e&&selected.kind==="element"&&e.type==="text";
-
-  const isImage=e&&selected.kind==="element"&&e.type==="image";
-
-  $("selectedName").textContent=!e?"No element selected":
-
-    selected.kind==="slot"?"Photo frame "+(selected.index+1):
-
-    isImage?"Uploaded image":e.text||"Text";
-
-  $("elementText").disabled=!isText;
-
-  $("elementFont").disabled=!isText;
-
-  $("elementAlign").disabled=!isText;
-
-  $("elementColor").disabled=!isText;
-
-  $("elementSize").disabled=!isText;
-
-  $("elementWidth").disabled=!isImage;
-
-  $("elementHeight").disabled=!isImage;
-
-  $("elementRotation").disabled=!e||selected.kind==="slot";
-
-  $("elementOpacity").disabled=!e||selected.kind==="slot";
-
-  $("elementX").disabled=!e||selected.kind==="slot";
-
-  $("elementY").disabled=!e||selected.kind==="slot";
-
-  if(!e){
-
-    ["elementText","elementWidth","elementHeight","elementX","elementY"].forEach(id=>$(id).value="");
-
-    return;
-
-  }
-
-  $("elementText").value=isText?e.text:"";
-
-  $("elementFont").value=isText?e.font:"Quicksand";
-
-  $("elementColor").value=e.color||"#111111";
-
-  $("elementSize").value=e.size||35;
-
-  $("elementRotation").value=e.rotation||0;
-
-  $("elementOpacity").value=e.opacity??100;
-
-  $("elementAlign").value=e.align||"center";
-
-  $("elementWidth").value=isImage?e.w:"";
-
-  $("elementHeight").value=isImage?e.h:"";
-
-  $("elementX").value=Math.round(e.x);
-
-  $("elementY").value=Math.round(e.y);
-
-}
-
-function updateElement(){
-
-  const e=getSelected();
-
-  if(!e||selected.kind!=="element")return;
-
-  if(e.type==="text"){
-
-    e.text=$("elementText").value;
-
-    e.font=$("elementFont").value;
-
-    e.color=$("elementColor").value;
-
-    e.size=Math.max(8,Number($("elementSize").value)||35);
-
-    e.align=$("elementAlign").value;
-
-  }else{
-
-    e.w=Math.max(10,Number($("elementWidth").value)||e.w);
-
-    e.h=Math.max(10,Number($("elementHeight").value)||e.h);
-
-  }
-
-  e.rotation=Number($("elementRotation").value)||0;
-
-  e.opacity=Number($("elementOpacity").value)||100;
-
-  renderEditor();
-
-}
-
-function updatePosition(){
-
-  const e=getSelected();
-
-  if(!e||selected.kind!=="element")return;
-
-  e.x=Number($("elementX").value)||0;
-
-  e.y=Number($("elementY").value)||0;
-
-  renderEditor();
-
-}
-
-function duplicateElement(){
-
-  const e=getSelected();
-
-  if(!e||selected.kind!=="element")return;
-
-  const copy=clone(e);
-
-  copy.id=newId();
-
-  copy.x+=25;
-
-  copy.y+=25;
-
-  workingTemplate.elements.push(copy);
-
-  selected={kind:"element",id:copy.id};
-
-  renderEditor();
-
-  refreshControls();
-
-}
-
-function deleteElement(){
-
-  if(!selected||selected.kind!=="element")return;
-
-  workingTemplate.elements=workingTemplate.elements.filter(e=>e.id!==selected.id);
-
-  selected=null;
-
-  renderEditor();
-
-  refreshControls();
-
-}
-
-/* ---------------- DRAW PHOTOSTRIP ---------------- */
-
-function getImg(src){
-
-  if(!src)return null;
-
-  if(!imgCache.has(src)){
-
-    const img=new Image();
-
-    img.src=src;
-
-    imgCache.set(src,img);
-
-  }
-
-  return imgCache.get(src);
-
-}
-
-async function waitImages(design){
-
-  await document.fonts.ready;
-
-  const sources=[
-
-    design.stripBackground,
-
-    design.overlay,
-
-    design.stageImage,
-
-    ...design.elements.filter(e=>e.type==="image").map(e=>e.src)
-
-  ].filter(Boolean);
-
-  await Promise.all(sources.map(src=>new Promise(resolve=>{
-
-    const img=getImg(src);
-
-    if(img.complete)return resolve();
-
-    img.onload=resolve;
-
-    img.onerror=resolve;
-
-  })));
-
-}
-
-function drawImageCover(ctx,img,x,y,w,h){
-
-  if(!img||!img.naturalWidth)return;
-
-  const scale=Math.max(w/img.width,h/img.height);
-
-  const sw=w/scale,sh=h/scale;
-
-  const sx=(img.width-sw)/2,sy=(img.height-sh)/2;
+  const sy = (img.height-sh)/2;
 
   ctx.drawImage(img,sx,sy,sw,sh,x,y,w,h);
 
 }
 
-function drawShapePath(ctx,s){
+function getFilter(filter) {
 
-  ctx.beginPath();
+  switch(filter) {
 
-  if(s.shape==="oval"){
+    case "soft": return "brightness(1.05) saturate(.8)";
 
-    ctx.ellipse(s.x+s.w/2,s.y+s.h/2,s.w/2,s.h/2,0,0,Math.PI*2);
+    case "warm": return "sepia(.22) saturate(1.2)";
 
-  }else if(s.shape==="rounded"){
+    case "bw": return "grayscale(1)";
 
-    const r=Math.min(s.radius||25,s.w/2,s.h/2);
+    case "vintage": return "sepia(.35) contrast(.9) saturate(.8)";
 
-    ctx.roundRect(s.x,s.y,s.w,s.h,r);
-
-  }else if(s.shape==="scalloped"){
-
-    const steps=12;
-
-    const cx=s.x+s.w/2,cy=s.y+s.h/2;
-
-    const rx=s.w/2,ry=s.h/2;
-
-    for(let i=0;i<=steps*8;i++){
-
-      const a=i/(steps*8)*Math.PI*2;
-
-      const wave=1+0.045*Math.cos(a*steps);
-
-      const x=cx+Math.cos(a)*rx*wave;
-
-      const y=cy+Math.sin(a)*ry*wave;
-
-      if(i===0)ctx.moveTo(x,y);else ctx.lineTo(x,y);
-
-    }
-
-    ctx.closePath();
-
-  }else{
-
-    ctx.rect(s.x,s.y,s.w,s.h);
+    default: return "none";
 
   }
 
 }
 
-function drawSlotPhoto(ctx,img,s,filter){
+function drawStrip(ctx,template,photoList=[]) {
 
-  ctx.save();
+  ctx.clearRect(0,0,W,H);
 
-  drawShapePath(ctx,s);
-
-  ctx.clip();
-
-  if(img){
-
-    ctx.save();
-
-    if(filter==="grayscale")ctx.filter="grayscale(1)";
-
-    drawImageCover(ctx,img,s.x,s.y,s.w,s.h);
-
-    ctx.restore();
-
-  }else{
-
-    ctx.fillStyle="#eadde0";
-
-    ctx.fillRect(s.x,s.y,s.w,s.h);
-
-  }
-
-  ctx.restore();
-
-  if(s.borderWidth>0){
-
-    ctx.save();
-
-    drawShapePath(ctx,s);
-
-    ctx.strokeStyle=s.border||"#111111";
-
-    ctx.lineWidth=s.borderWidth;
-
-    ctx.stroke();
-
-    ctx.restore();
-
-  }
-
-}
-
-function drawBackground(ctx,d){
-
-  ctx.fillStyle=d.base||"#ffffff";
+  ctx.fillStyle = template.stripBackground || "#fffaf5";
 
   ctx.fillRect(0,0,W,H);
 
-  if(d.stripBackground){
+  const slots = template.slots || [];
 
-    const img=getImg(d.stripBackground);
+  slots.forEach((slot,index) => {
 
-    if(img?.complete&&img.naturalWidth)drawImageCover(ctx,img,0,0,W,H);
+    ctx.save();
+
+    ctx.fillStyle = "#f1e6e8";
+
+    roundedRect(ctx,slot.x,slot.y,slot.w,slot.h,12);
+
+    ctx.fill();
+
+    const photo = photoList[index];
+
+    if(photo) {
+
+      ctx.save();
+
+      ctx.filter = getFilter(template.photoFilter);
+
+      drawImageCover(ctx,photo,slot.x,slot.y,slot.w,slot.h);
+
+      ctx.restore();
+
+    } else {
+
+      ctx.fillStyle = "#d7c4ca";
+
+      ctx.font = "20px Georgia";
+
+      ctx.textAlign = "center";
+
+      ctx.fillText("PHOTO " + (index+1),slot.x+slot.w/2,slot.y+slot.h/2);
+
+    }
+
+    ctx.restore();
+
+  });
+
+  (template.elements || []).forEach((el,index) => {
+
+    if(el.type !== "text") return;
+
+    ctx.save();
+
+    ctx.fillStyle = el.color || "#9b657a";
+
+    ctx.textAlign = el.align || "center";
+
+    ctx.textBaseline = "middle";
+
+    ctx.font = `${el.size || 42}px "${el.font || "Georgia"}"`;
+
+    ctx.fillText(el.text || "",el.x,el.y);
+
+    if(index === selectedTextIndex) {
+
+      const width = ctx.measureText(el.text || "").width;
+
+      ctx.strokeStyle = "#d98da8";
+
+      ctx.setLineDash([6,5]);
+
+      ctx.strokeRect(el.x-width/2,el.y-(el.size||42)/2,width,el.size||42);
+
+    }
+
+    ctx.restore();
+
+  });
+
+  const footer = template.footer || ORIGINAL_TEMPLATE.footer;
+
+  ctx.save();
+
+  ctx.textAlign = "center";
+
+  ctx.fillStyle = "#9b7782";
+
+  ctx.font = "bold 34px Georgia";
+
+  ctx.fillText(footer[0] || "PERSIDA",300,1515);
+
+  ctx.font = "20px Georgia";
+
+  ctx.fillText(footer[1] || "appreciation night with Persida 12",300,1555);
+
+  ctx.font = "18px Georgia";
+
+  ctx.fillText(footer[2] || "17.11.2026",300,1595);
+
+  ctx.restore();
+
+}
+
+async function waitForFonts() {
+
+  if(document.fonts && document.fonts.ready) {
+
+    try { await document.fonts.ready; } catch {}
 
   }
 
-  if(d.dots){
+}
 
-    ctx.fillStyle=d.dot||"#111111";
+async function renderStudio() {
 
-    for(let y=18;y<H;y+=40){
+  await waitForFonts();
 
-      for(let x=18;x<W;x+=40){
+  const canvas = $("studioStrip");
+
+  const ctx = canvas.getContext("2d");
+
+  drawStrip(ctx,workingTemplate,[]);
+
+}
+
+$("studioStrip").addEventListener("click",event => {
+
+  const rect = event.currentTarget.getBoundingClientRect();
+
+  const x = (event.clientX-rect.left)/rect.width*W;
+
+  const y = (event.clientY-rect.top)/rect.height*H;
+
+  const index = workingTemplate.elements.findIndex(el =>
+
+    el.type === "text" &&
+
+    Math.abs(el.x-x)<150 &&
+
+    Math.abs(el.y-y)<100
+
+  );
+
+  if(index >= 0) {
+
+    selectedTextIndex = index;
+
+    renderStudio();
+
+  }
+
+});
+
+/* CAMERA */
+
+async function openCamera() {
+
+  if(!navigator.mediaDevices || !navigator.mediaDevices.getUserMedia) {
+
+    throw new Error("Camera is not available in this browser.");
+
+  }
+
+  stream = await navigator.mediaDevices.getUserMedia({
+
+    video: {
+
+      facingMode:"user",
+
+      width:{ideal:1280},
+
+      height:{ideal:960}
+
+    },
+
+    audio:false
+
+  });
+
+  $("cameraVideo").srcObject = stream;
+
+  await $("cameraVideo").play();
+
+}
+
+function stopCamera() {
+
+  if(stream) {
+
+    stream.getTracks().forEach(track => track.stop());
+
+    stream = null;
+
+  }
+
+  $("cameraVideo").srcObject = null;
+
+}
+
+async function startSession() {
+
+  const pending = getPendingTemplate();
+
+  activeSessionTemplate = clone(pending || defaultTemplate);
+
+  photos = [];
+
+  liveBlob = null;
+
+  staticBlob = null;
+
+  showPage("cameraPage");
+
+  $("cameraStatus").textContent = "Preparing your camera...";
+
+  $("cameraCount").textContent = "";
+
+  $("progressInner").style.width = "0%";
+
+  $("captureBtn").disabled = true;
+
+  try {
+
+    await openCamera();
+
+    $("cameraStatus").textContent =
+
+      `${activeSessionTemplate.photoCount} photos ready. Press start when you're ready.`;
+
+    $("captureBtn").disabled = false;
+
+  } catch(error) {
+
+    $("cameraStatus").textContent = error.message;
+
+    alert("Please allow camera access and open this website using HTTPS.");
+
+  }
+
+}
+
+function wait(ms) {
+
+  return new Promise(resolve => setTimeout(resolve,ms));
+
+}
+
+function countdown(seconds) {
+
+  return new Promise(resolve => {
+
+    let count = seconds;
+
+    $("cameraCount").textContent = count;
+
+    const timer = setInterval(() => {
+
+      count--;
+
+      if(count <= 0) {
+
+        clearInterval(timer);
+
+        $("cameraCount").textContent = "";
+
+        resolve();
+
+      } else {
+
+        $("cameraCount").textContent = count;
+
+      }
+
+    },1000);
+
+  });
+
+}
+
+function captureStill() {
+
+  const video = $("cameraVideo");
+
+  const canvas = document.createElement("canvas");
+
+  canvas.width = video.videoWidth || 1280;
+
+  canvas.height = video.videoHeight || 960;
+
+  const ctx = canvas.getContext("2d");
+
+  ctx.translate(canvas.width,0);
+
+  ctx.scale(-1,1);
+
+  ctx.drawImage(video,0,0,canvas.width,canvas.height);
+
+  return new Promise(resolve => {
+
+    canvas.toBlob(blob => {
+
+      if(!blob) {
+
+        resolve(null);
+
+        return;
+
+      }
+
+      const img = new Image();
+
+      img.onload = () => resolve(img);
+
+      img.onerror = () => resolve(null);
+
+      img.src = URL.createObjectURL(blob);
+
+    },"image/jpeg",0.95);
+
+  });
+
+}
+
+async function recordCameraClip(duration=1500) {
+
+  if(!stream || typeof MediaRecorder === "undefined") return null;
+
+  let recorder;
+
+  try {
+
+    const candidates = [
+
+      "video/mp4",
+
+      "video/webm;codecs=vp9",
+
+      "video/webm;codecs=vp8",
+
+      "video/webm"
+
+    ];
+
+    let options = undefined;
+
+    if(typeof MediaRecorder.isTypeSupported === "function") {
+
+      const mime = candidates.find(type => MediaRecorder.isTypeSupported(type));
+
+      if(mime) options = {mimeType:mime};
+
+    }
+
+    recorder = options
+
+      ? new MediaRecorder(stream,options)
+
+      : new MediaRecorder(stream);
+
+    const chunks = [];
+
+    return await new Promise(resolve => {
+
+      let finished = false;
+
+      const finish = blob => {
+
+        if(finished) return;
+
+        finished = true;
+
+        resolve(blob && blob.size ? blob : null);
+
+      };
+
+      recorder.ondataavailable = event => {
+
+        if(event.data && event.data.size) chunks.push(event.data);
+
+      };
+
+      recorder.onerror = () => finish(null);
+
+      recorder.onstop = () => {
+
+        const type = recorder.mimeType || "video/webm";
+
+        finish(new Blob(chunks,{type}));
+
+      };
+
+      recorder.start();
+
+      setTimeout(() => {
+
+        if(recorder.state !== "inactive") {
+
+          try { recorder.stop(); } catch { finish(null); }
+
+        }
+
+      },duration);
+
+    });
+
+  } catch(error) {
+
+    console.warn("Camera recording unavailable:",error);
+
+    return null;
+
+  }
+
+}
+
+async function beginCapture() {
+
+  $("captureBtn").disabled = true;
+
+  photos = [];
+
+  const total = activeSessionTemplate.photoCount || 3;
+
+  for(let i=0;i<total;i++) {
+
+    $("cameraStatus").textContent = `PHOTO ${i+1} OF ${total}`;
+
+    $("progressInner").style.width = `${(i/total)*100}%`;
+
+    await countdown(3);
+
+    const photo = await captureStill();
+
+    if(photo) photos.push(photo);
+
+    if(i < total-1) await wait(900);
+
+  }
+
+  $("cameraStatus").textContent = "Creating your live memory...";
+
+  $("progressInner").style.width = "100%";
+
+  liveBlob = await recordCameraClip(1800);
+
+  stopCamera();
+
+  $("cameraStatus").textContent = "Preparing your photostrip...";
+
+  await showResult();
+
+}
+
+function makeCanvas() {
+
+  const canvas = document.createElement("canvas");
+
+  canvas.width = W;
+
+  canvas.height = H;
+
+  drawStrip(canvas.getContext("2d"),activeSessionTemplate,photos);
+
+  return canvas;
+
+}
+
+function drawBackdrop(ctx,template) {
+
+  if(template.backdropImage && backdropImageObject) {
+
+    drawImageCover(ctx,backdropImageObject,0,0,OUTPUT_W,OUTPUT_H);
+
+    return;
+
+  }
+
+  if(template.backdropImage) {
+
+    return new Promise(resolve => {
+
+      const img = new Image();
+
+      img.onload = () => {
+
+        drawImageCover(ctx,img,0,0,OUTPUT_W,OUTPUT_H);
+
+        resolve();
+
+      };
+
+      img.onerror = () => {
+
+        drawBackdropColor(ctx,template);
+
+        resolve();
+
+      };
+
+      img.src = template.backdropImage;
+
+    });
+
+  }
+
+  drawBackdropColor(ctx,template);
+
+}
+
+function drawBackdropColor(ctx,template) {
+
+  const a = template.backdropColor || "#f7dce5";
+
+  const b = template.backdropColor2 || "#fff4f5";
+
+  if(template.backdropStyle === "gradient") {
+
+    const gradient = ctx.createLinearGradient(0,0,OUTPUT_W,OUTPUT_H);
+
+    gradient.addColorStop(0,a);
+
+    gradient.addColorStop(1,b);
+
+    ctx.fillStyle = gradient;
+
+    ctx.fillRect(0,0,OUTPUT_W,OUTPUT_H);
+
+  } else if(template.backdropStyle === "polkadot") {
+
+    ctx.fillStyle = a;
+
+    ctx.fillRect(0,0,OUTPUT_W,OUTPUT_H);
+
+    ctx.fillStyle = b;
+
+    for(let y=15;y<OUTPUT_H;y+=40) {
+
+      for(let x=15;x<OUTPUT_W;x+=40) {
 
         ctx.beginPath();
 
-        ctx.arc(x,y,2.2,0,Math.PI*2);
+        ctx.arc(x,y,3,0,Math.PI*2);
 
         ctx.fill();
 
@@ -2066,849 +2364,163 @@ function drawBackground(ctx,d){
 
     }
 
+  } else {
+
+    ctx.fillStyle = a;
+
+    ctx.fillRect(0,0,OUTPUT_W,OUTPUT_H);
+
   }
 
 }
 
-function drawElements(ctx,d){
+async function makeFinalCanvas() {
 
-  d.elements.forEach(e=>{
+  await waitForFonts();
 
-    ctx.save();
+  const canvas = document.createElement("canvas");
 
-    ctx.globalAlpha=(e.opacity??100)/100;
+  canvas.width = OUTPUT_W;
 
-    ctx.translate(e.x,e.y);
+  canvas.height = OUTPUT_H;
 
-    ctx.rotate((e.rotation||0)*Math.PI/180);
+  const ctx = canvas.getContext("2d");
 
-    if(e.type==="text"){
+  await drawBackdrop(ctx,activeSessionTemplate);
 
-      ctx.fillStyle=e.color||"#111111";
+  const strip = makeCanvas();
 
-      ctx.textAlign=e.align||"center";
+  const scale = Math.min(OUTPUT_W/W,OUTPUT_H/H);
 
-      ctx.textBaseline="middle";
+  const width = W*scale;
 
-      ctx.font=`600 ${e.size||35}px "${e.font||"Quicksand"}",sans-serif`;
+  const height = H*scale;
 
-      ctx.fillText(e.text||"",0,0);
+  const x = (OUTPUT_W-width)/2;
 
-    }else if(e.type==="image"){
+  const y = (OUTPUT_H-height)/2;
 
-      const img=getImg(e.src);
+  ctx.save();
 
-      if(img?.complete&&img.naturalWidth){
+  ctx.shadowColor = "#61434d55";
 
-        ctx.drawImage(img,-(e.w||150)/2,-(e.h||150)/2,e.w||150,e.h||150);
+  ctx.shadowBlur = 25;
 
-      }
+  ctx.shadowOffsetY = 8;
 
-    }
+  ctx.drawImage(strip,x,y,width,height);
 
-    ctx.restore();
+  ctx.restore();
+
+  return canvas;
+
+}
+
+function canvasToBlob(canvas,type="image/png") {
+
+  return new Promise(resolve => {
+
+    canvas.toBlob(blob => resolve(blob),type);
 
   });
 
 }
 
-function drawStrip(ctx,images,d,videoEls=null,editorMode=false){
-
-  drawBackground(ctx,d);
-
-  d.slots.forEach((s,i)=>{
-
-    let source=null;
-
-    if(videoEls&&videoEls[i]&&videoEls[i].readyState>=2){
-
-      source=videoEls[i];
-
-    }else if(images&&images[i]){
-
-      source=images[i];
-
-    }
-
-    ctx.save();
-
-    drawShapePath(ctx,s);
-
-    ctx.clip();
-
-    if(source){
-
-      if(d.photoFilter==="grayscale")ctx.filter="grayscale(1)";
-
-      if(source instanceof HTMLVideoElement){
-
-        drawImageCover(ctx,source,s.x,s.y,s.w,s.h);
-
-      }else{
-
-        drawImageCover(ctx,source,s.x,s.y,s.w,s.h);
-
-      }
-
-      ctx.filter="none";
-
-    }else if(editorMode){
-
-      ctx.fillStyle="#eadde0";
-
-      ctx.fillRect(s.x,s.y,s.w,s.h);
-
-      ctx.fillStyle="#8c777a";
-
-      ctx.font="24px Quicksand";
-
-      ctx.textAlign="center";
-
-      ctx.fillText("PHOTO "+(i+1),s.x+s.w/2,s.y+s.h/2);
-
-    }
-
-    ctx.restore();
-
-    if(s.borderWidth>0){
-
-      ctx.save();
-
-      drawShapePath(ctx,s);
-
-      ctx.strokeStyle=s.border||"#111111";
-
-      ctx.lineWidth=s.borderWidth;
-
-      ctx.stroke();
-
-      ctx.restore();
-
-    }
-
-  });
-
-  /* Template PNG goes over the photos */
-
-  if(d.overlay){
-
-    const img=getImg(d.overlay);
-
-    if(img?.complete&&img.naturalWidth){
-
-      ctx.drawImage(img,0,0,W,H);
-
-    }
-
-  }
-
-  drawElements(ctx,d);
-
-}
-
-function renderEditor(){
-
-  const canvas=$("editorCanvas");
-
-  const ctx=canvas.getContext("2d");
-
-  drawStrip(ctx,null,workingTemplate,null,true);
-
-  if(selected){
-
-    const e=getSelected();
-
-    if(e){
-
-      ctx.save();
-
-      ctx.strokeStyle="#d05f83";
-
-      ctx.lineWidth=3;
-
-      ctx.setLineDash([8,6]);
-
-      if(selected.kind==="slot"){
-
-        drawShapePath(ctx,e);
-
-        ctx.stroke();
-
-      }else if(e.type==="image"){
-
-        ctx.translate(e.x,e.y);
-
-        ctx.rotate((e.rotation||0)*Math.PI/180);
-
-        ctx.strokeRect(-(e.w||150)/2,-(e.h||150)/2,e.w||150,e.h||150);
-
-      }else{
-
-        ctx.translate(e.x,e.y);
-
-        ctx.rotate((e.rotation||0)*Math.PI/180);
-
-        ctx.strokeRect(-Math.max(65,e.size*2.7),-e.size,Math.max(130,e.size*5.4),e.size*2);
-
-      }
-
-      ctx.restore();
-
-    }
-
-  }
-
-}
-
-/* SELECT AND DRAG */
-
-const editor=$("editorCanvas");
-
-let dragging=false;
-
-let dragInfo=null;
-
-function pointerPoint(event){
-
-  const rect=editor.getBoundingClientRect();
-
-  return{
-
-    x:(event.clientX-rect.left)*W/rect.width,
-
-    y:(event.clientY-rect.top)*H/rect.height
-
-  };
-
-}
-
-function hitTest(p){
-
-  for(let i=workingTemplate.elements.length-1;i>=0;i--){
-
-    const e=workingTemplate.elements[i];
-
-    const w=e.type==="image"?e.w:Math.max(100,e.size*5);
-
-    const h=e.type==="image"?e.h:Math.max(70,e.size*2);
-
-    if(p.x>=e.x-w/2-12&&p.x<=e.x+w/2+12&&p.y>=e.y-h/2-12&&p.y<=e.y+h/2+12){
-
-      return{kind:"element",id:e.id};
-
-    }
-
-  }
-
-  for(let i=workingTemplate.slots.length-1;i>=0;i--){
-
-    const s=workingTemplate.slots[i];
-
-    if(p.x>=s.x&&p.x<=s.x+s.w&&p.y>=s.y&&p.y<=s.y+s.h){
-
-      return{kind:"slot",index:i};
-
-    }
-
-  }
-
-  return null;
-
-}
-
-editor.addEventListener("pointerdown",event=>{
-
-  const p=pointerPoint(event);
-
-  selected=hitTest(p);
-
-  if(selected){
-
-    const e=getSelected();
-
-    dragging=true;
-
-    dragInfo={x:p.x,y:p.y,ex:e.x,ey:e.y};
-
-    editor.setPointerCapture(event.pointerId);
-
-    if(selected.kind==="slot"){
-
-      selectedSlotIndex=selected.index;
-
-      $("slotChoice").value=String(selected.index);
-
-      selectSlot();
-
-    }else{
-
-      refreshControls();
-
-    }
-
-  }else{
-
-    refreshControls();
-
-  }
-
-  renderEditor();
-
-});
-
-editor.addEventListener("pointermove",event=>{
-
-  if(!dragging||!selected||!dragInfo)return;
-
-  const p=pointerPoint(event);
-
-  const e=getSelected();
-
-  e.x=Math.round(dragInfo.ex+p.x-dragInfo.x);
-
-  e.y=Math.round(dragInfo.ey+p.y-dragInfo.y);
-
-  if(selected.kind==="slot"){
-
-    $("slotX").value=e.x;
-
-    $("slotY").value=e.y;
-
-  }else{
-
-    $("elementX").value=e.x;
-
-    $("elementY").value=e.y;
-
-  }
-
-  renderEditor();
-
-});
-
-["pointerup","pointercancel","lostpointercapture"].forEach(name=>{
-
-  editor.addEventListener(name,()=>{
-
-    dragging=false;
-
-    dragInfo=null;
-
-  });
-
-});
-
-/* ---------------- CAMERA ---------------- */
-
-async function openCamera(){
-
-  showPage("cameraPage");
-
-  try{
-
-    if(!navigator.mediaDevices?.getUserMedia){
-
-      throw new Error("Camera API unavailable. Open the website using HTTPS.");
-
-    }
-
-    cameraStream=await navigator.mediaDevices.getUserMedia({
-
-      video:{facingMode:"user",width:{ideal:1280},height:{ideal:960}},
-
-      audio:false
-
-    });
-
-    $("cameraVideo").srcObject=cameraStream;
-
-    $("cameraStatus").textContent="Camera ready. Press START.";
-
-  }catch(error){
-
-    $("cameraStatus").textContent="Camera access failed. Allow camera permission and open the HTTPS website.";
-
-  }
-
-}
-
-function stopCamera(){
-
-  if(cameraStream){
-
-    cameraStream.getTracks().forEach(track=>track.stop());
-
-    cameraStream=null;
-
-  }
-
-  $("cameraVideo").srcObject=null;
-
-}
-
-function goHome(){
-
-  stopCamera();
-
-  showPage("home");
-
-}
-
-function captureStill(){
-
-  const video=$("cameraVideo");
-
-  const canvas=document.createElement("canvas");
-
-  const width=video.videoWidth||1280;
-
-  const height=video.videoHeight||960;
-
-  canvas.width=width;
-
-  canvas.height=height;
-
-  const ctx=canvas.getContext("2d");
-
-  ctx.translate(width,0);
-
-  ctx.scale(-1,1);
-
-  ctx.drawImage(video,0,0,width,height);
-
-  const flash=$("flash");
-
-  flash.classList.remove("flash-now");
-
-  void flash.offsetWidth;
-
-  flash.classList.add("flash-now");
-
-  return canvas.toDataURL("image/jpeg",.92);
-
-}
-
-function recordCameraClip(ms=5000){
-
-  return new Promise((resolve,reject)=>{
-
-    if(!cameraStream||!window.MediaRecorder){
-
-      reject(new Error("This browser cannot record video."));
-
-      return;
-
-    }
-
-    let type="";
-
-    for(const candidate of [
-
-      "video/mp4;codecs=avc1",
-
-      "video/mp4",
-
-      "video/webm;codecs=vp8",
-
-      "video/webm"
-
-    ]){
-
-      if(MediaRecorder.isTypeSupported(candidate)){
-
-        type=candidate;
-
-        break;
-
-      }
-
-    }
-
-    let recorder;
-
-    try{
-
-      recorder=type?new MediaRecorder(cameraStream,{mimeType:type}):new MediaRecorder(cameraStream);
-
-    }catch(error){
-
-      reject(error);
-
-      return;
-
-    }
-
-    const chunks=[];
-
-    recorder.ondataavailable=event=>{
-
-      if(event.data?.size)chunks.push(event.data);
-
-    };
-
-    recorder.onerror=()=>reject(new Error("Camera video recording failed."));
-
-    recorder.onstop=()=>{
-
-      const blob=new Blob(chunks,{type:recorder.mimeType||type||"video/webm"});
-
-      if(!blob.size)reject(new Error("The camera returned an empty video."));
-
-      else resolve(blob);
-
-    };
-
-    recorder.start();
-
-    setTimeout(()=>{
-
-      if(recorder.state!=="inactive")recorder.stop();
-
-    },ms);
-
-  });
-
-}
-
-async function startSession(){
-
-  if(busy)return;
-
-  if(!cameraStream){
-
-    await openCamera();
-
-    if(!cameraStream)return;
-
-  }
-
-  busy=true;
-
-  photos=[];
-
-  clips=[];
-
-  $("photoCount").textContent="0";
-
-  $("startBtn").disabled=true;
-
-  $("startBtn").textContent="RECORDING...";
-
-  $("singleQR").innerHTML="";
-
-  $("uploadStatus").textContent="";
-
-  try{
-
-    for(let i=0;i<3;i++){
-
-      $("cameraStatus").textContent="Pose "+(i+1)+": get ready!";
-
-      for(let n=5;n>=1;n--){
-
-        $("countdown").style.display="flex";
-
-        $("countdown").textContent=n;
-
-        await sleep(1000);
-
-      }
-
-      $("countdown").style.display="none";
-
-      photos.push(captureStill());
-
-      $("photoCount").textContent=photos.length;
-
-      $("cameraStatus").textContent="Recording movement for 5 seconds...";
-
-      clips.push(await recordCameraClip(5000));
-
-      $("cameraStatus").textContent="Pose "+(i+1)+" saved!";
-
-      await sleep(350);
-
-    }
-
-  }catch(error){
-
-    console.error(error);
-
-    $("cameraStatus").textContent="Recording issue: "+error.message;
-
-    busy=false;
-
-    $("startBtn").disabled=false;
-
-    $("startBtn").textContent="TRY AGAIN";
-
-    stopCamera();
-
-    return;
-
-  }
-
-  stopCamera();
-
-  busy=false;
-
-  $("startBtn").disabled=false;
-
-  $("startBtn").textContent="START AGAIN";
-
-  await showResult();
-
-}
-
-/* ---------------- CREATE PHOTO OUTPUTS ---------------- */
-
-function photoImages(){
-
-  return Promise.all(photos.map(src=>new Promise((resolve,reject)=>{
-
-    const img=new Image();
-
-    img.onload=()=>resolve(img);
-
-    img.onerror=reject;
-
-    img.src=src;
-
-  })));
-
-}
-
-async function makeStatic(images,design){
-
-  await waitImages(design);
-
-  const canvas=document.createElement("canvas");
-
-  canvas.width=W;
-
-  canvas.height=H;
-
-  drawStrip(canvas.getContext("2d"),images,design);
-
-  return new Promise((resolve,reject)=>{
-
-    canvas.toBlob(blob=>{
-
-      if(blob)resolve(blob);
-
-      else reject(new Error("Could not create PNG."));
-
-    },"image/png");
-
-  });
-
-}
-
-async function makeLive(design){
-
-  if(!HTMLCanvasElement.prototype.captureStream||!window.MediaRecorder){
-
-    throw new Error("Canvas video is not supported in this browser.");
-
-  }
-
-  await waitImages(design);
-
-  const videos=clips.map(blob=>{
-
-    const video=document.createElement("video");
-
-    video.muted=true;
-
-    video.playsInline=true;
-
-    video.loop=true;
-
-    video.src=URL.createObjectURL(blob);
-
-    return video;
-
-  });
-
-  await Promise.all(videos.map(video=>new Promise((resolve,reject)=>{
-
-    video.onloadeddata=resolve;
-
-    video.onerror=()=>reject(new Error("Could not load a recorded clip."));
-
-    video.load();
-
-  })));
-
-  videos.forEach(video=>video.currentTime=0);
-
-  await Promise.all(videos.map(video=>video.play()));
-
-  const canvas=document.createElement("canvas");
-
-  canvas.width=W;
-
-  canvas.height=H;
-
-  const ctx=canvas.getContext("2d");
-
-  const stream=canvas.captureStream(24);
-
-  let mime="";
-
-  for(const candidate of [
-
-    "video/mp4;codecs=avc1",
-
-    "video/mp4",
-
-    "video/webm;codecs=vp8",
-
-    "video/webm"
-
-  ]){
-
-    if(MediaRecorder.isTypeSupported(candidate)){
-
-      mime=candidate;
-
-      break;
-
-    }
-
-  }
-
-  const recorder=mime?new MediaRecorder(stream,{mimeType:mime}):new MediaRecorder(stream);
-
-  const chunks=[];
-
-  recorder.ondataavailable=event=>{
-
-    if(event.data?.size)chunks.push(event.data);
-
-  };
-
-  const finished=new Promise((resolve,reject)=>{
-
-    recorder.onerror=()=>reject(new Error("Final live photostrip recording failed."));
-
-    recorder.onstop=()=>resolve(new Blob(chunks,{type:recorder.mimeType||mime||"video/webm"}));
-
-  });
-
-  drawStrip(ctx,null,design,videos);
-
-  recorder.start(200);
-
-  const start=performance.now();
-
-  await new Promise(resolve=>{
-
-    function frame(){
-
-      drawStrip(ctx,null,design,videos);
-
-      if(performance.now()-start>=5000){
-
-        resolve();
-
-        return;
-
-      }
-
-      requestAnimationFrame(frame);
-
-    }
-
-    requestAnimationFrame(frame);
-
-  });
-
-  recorder.stop();
-
-  const result=await finished;
-
-  stream.getTracks().forEach(track=>track.stop());
-
-  videos.forEach(video=>{
-
-    video.pause();
-
-    URL.revokeObjectURL(video.src);
-
-  });
-
-  return result;
-
-}
-
-async function showResult(){
+async function showResult() {
 
   showPage("resultPage");
 
-  $("uploadStatus").textContent="";
+  $("liveMessage").textContent = "Preparing live memory...";
 
-  $("singleQR").innerHTML="";
+  $("uploadBtn").disabled = true;
 
-  $("uploadBtn").disabled=true;
+  try {
 
-  $("uploadBtn").textContent="PREPARING...";
+    const finalCanvas = await makeFinalCanvas();
 
-  try{
+    staticBlob = await canvasToBlob(finalCanvas,"image/png");
 
-    const images=await photoImages();
+    if(!staticBlob) throw new Error("Unable to create photo.");
 
-    const design=clone(sessionTemplate||defaultTemplate);
+    if(staticURL) URL.revokeObjectURL(staticURL);
 
-    staticBlob=await makeStatic(images,design);
+    staticURL = URL.createObjectURL(staticBlob);
 
-    if(staticURL)URL.revokeObjectURL(staticURL);
+    $("staticPreview").src = staticURL;
 
-    staticURL=URL.createObjectURL(staticBlob);
+    $("uploadBtn").disabled = false;
 
-    $("stripPreview").src=staticURL;
+  } catch(error) {
 
-    liveBlob=await makeLive(design);
-
-    if(liveURL)URL.revokeObjectURL(liveURL);
-
-    liveURL=URL.createObjectURL(liveBlob);
-
-    $("livePreview").src=liveURL;
-
-    $("uploadBtn").disabled=false;
-
-    $("uploadBtn").textContent="GENERATE MY QR CODE";
-
-    sessionTemplate=null;
-
-  }catch(error){
+    $("liveMessage").textContent = "Unable to create the static image.";
 
     console.error(error);
 
-    $("uploadStatus").textContent="Photostrip creation issue: "+error.message+" Please try again using an updated browser.";
+  }
 
-    $("uploadBtn").disabled=true;
+  if(liveBlob) {
 
-    $("uploadBtn").textContent="NOT READY";
+    if(liveURL) URL.revokeObjectURL(liveURL);
+
+    liveURL = URL.createObjectURL(liveBlob);
+
+    $("livePreview").src = liveURL;
+
+    $("livePreview").classList.remove("hidden");
+
+    $("downloadLiveBtn").disabled = false;
+
+    $("liveMessage").textContent = "Live memory is ready.";
+
+  } else {
+
+    $("livePreview").classList.add("hidden");
+
+    $("downloadLiveBtn").disabled = true;
+
+    $("liveMessage").textContent =
+
+      "Live video is not supported on this device. Your static photo is still ready to save.";
 
   }
 
+  localStorage.removeItem("persida12_next_session_template");
+
 }
 
-/* ---------------- DOWNLOADS ---------------- */
+function downloadStatic() {
 
-function downloadBlob(blob,name){
+  if(!staticBlob) return;
 
-  if(!blob)return;
+  const url = URL.createObjectURL(staticBlob);
 
-  const url=URL.createObjectURL(blob);
+  downloadURL(url,"PERSIDA12-Static-Memory.png");
 
-  const a=document.createElement("a");
+  setTimeout(() => URL.revokeObjectURL(url),3000);
 
-  a.href=url;
+}
 
-  a.download=name;
+function downloadLive() {
+
+  if(!liveBlob) return;
+
+  const extension = liveBlob.type.includes("mp4") ? "mp4" : "webm";
+
+  const url = URL.createObjectURL(liveBlob);
+
+  downloadURL(url,`PERSIDA12-Live-Memory.${extension}`);
+
+  setTimeout(() => URL.revokeObjectURL(url),3000);
+
+}
+
+function downloadURL(url,name) {
+
+  const a = document.createElement("a");
+
+  a.href = url;
+
+  a.download = name;
 
   document.body.appendChild(a);
 
@@ -2916,55 +2528,179 @@ function downloadBlob(blob,name){
 
   a.remove();
 
-  setTimeout(()=>URL.revokeObjectURL(url),4000);
+}
+
+function retake() {
+
+  if(staticURL) URL.revokeObjectURL(staticURL);
+
+  if(liveURL) URL.revokeObjectURL(liveURL);
+
+  staticURL = null;
+
+  liveURL = null;
+
+  staticBlob = null;
+
+  liveBlob = null;
+
+  photos = [];
+
+  showPage("cameraPage");
+
+  openCamera().then(() => {
+
+    $("cameraStatus").textContent = "Ready for another round!";
+
+    $("captureBtn").disabled = false;
+
+    $("progressInner").style.width = "0%";
+
+  }).catch(error => {
+
+    $("cameraStatus").textContent = error.message;
+
+  });
 
 }
 
-function downloadStatic(){
+/* UPLOAD + QR */
 
-  downloadBlob(staticBlob,"PERSIDA12-Photostrip.png");
+async function uploadSession() {
+
+  if(!staticBlob) {
+
+    alert("Your static photo is not ready yet.");
+
+    return;
+
+  }
+
+  if(!APPS_SCRIPT_URL ||
+
+     APPS_SCRIPT_URL.includes("PASTE_YOUR")) {
+
+    alert("Please add your Google Apps Script Web App URL in the code first.");
+
+    return;
+
+  }
+
+  $("uploadBtn").disabled = true;
+
+  $("uploadMessage").textContent = "Uploading your memories...";
+
+  try {
+
+    const files = [];
+
+    files.push({
+
+      name:"PERSIDA12-Static-Memory.png",
+
+      mimeType:"image/png",
+
+      data:await blobToBase64(staticBlob)
+
+    });
+
+    for(let i=0;i<photos.length;i++) {
+
+      const blob = await imageToBlob(photos[i]);
+
+      files.push({
+
+        name:`PERSIDA12-Original-Photo-${i+1}.jpg`,
+
+        mimeType:"image/jpeg",
+
+        data:await blobToBase64(blob)
+
+      });
+
+    }
+
+    if(liveBlob) {
+
+      const ext = liveBlob.type.includes("mp4") ? "mp4" : "webm";
+
+      files.push({
+
+        name:`PERSIDA12-Live-Memory.${ext}`,
+
+        mimeType:liveBlob.type || "video/webm",
+
+        data:await blobToBase64(liveBlob)
+
+      });
+
+    }
+
+    const payload = {
+
+      action:"uploadBatch",
+
+      sessionId:"PERSIDA12-" + Date.now(),
+
+      files
+
+    };
+
+    const response = await fetch(APPS_SCRIPT_URL,{
+
+      method:"POST",
+
+      body:JSON.stringify(payload)
+
+    });
+
+    const result = await response.json();
+
+    if(!result.ok || !result.folderUrl) {
+
+      throw new Error(result.message || "Upload was unsuccessful.");
+
+    }
+
+    await generateQR(result.folderUrl);
+
+    $("qrBox").classList.remove("hidden");
+
+    $("uploadMessage").textContent =
+
+      "Your memories have been uploaded successfully!";
+
+    $("uploadBtn").textContent = "UPLOADED SUCCESSFULLY";
+
+  } catch(error) {
+
+    console.error(error);
+
+    $("uploadMessage").textContent =
+
+      "Upload failed: " + error.message;
+
+    $("uploadBtn").disabled = false;
+
+  }
 
 }
 
-function downloadLive(){
+function blobToBase64(blob) {
 
-  if(!liveBlob)return;
+  return new Promise((resolve,reject) => {
 
-  const extension=liveBlob.type.includes("mp4")?"mp4":"webm";
+    const reader = new FileReader();
 
-  downloadBlob(liveBlob,"PERSIDA12-Live-Photostrip."+extension);
+    reader.onloadend = () => {
 
-}
+      const result = String(reader.result);
 
-function retake(){
+      resolve(result.split(",")[1]);
 
-  photos=[];
+    };
 
-  clips=[];
-
-  staticBlob=null;
-
-  liveBlob=null;
-
-  $("photoCount").textContent="0";
-
-  $("singleQR").innerHTML="";
-
-  openCamera();
-
-}
-
-/* ---------------- GOOGLE DRIVE UPLOAD + QR ---------------- */
-
-function blobData(blob){
-
-  return new Promise((resolve,reject)=>{
-
-    const reader=new FileReader();
-
-    reader.onloadend=()=>resolve(reader.result);
-
-    reader.onerror=reject;
+    reader.onerror = reject;
 
     reader.readAsDataURL(blob);
 
@@ -2972,134 +2708,90 @@ function blobData(blob){
 
 }
 
-async function uploadSession(){
+function imageToBlob(img) {
 
-  if(!SCRIPT_URL.startsWith("https://")||SCRIPT_URL.includes("PASTE_")){
+  return new Promise(resolve => {
 
-    $("uploadStatus").textContent="Please paste your deployed Google Apps Script URL in the code first.";
+    const canvas = document.createElement("canvas");
 
-    return;
+    canvas.width = img.naturalWidth || img.width;
 
-  }
+    canvas.height = img.naturalHeight || img.height;
 
-  if(!staticBlob||!liveBlob||photos.length!==3){
+    canvas.getContext("2d").drawImage(img,0,0);
 
-    $("uploadStatus").textContent="Photos and photostrips are not ready.";
+    canvas.toBlob(resolve,"image/jpeg",0.95);
 
-    return;
+  });
 
-  }
+}
 
-  $("uploadBtn").disabled=true;
+async function generateQR(url) {
 
-  $("loading").classList.add("show");
+  const box = $("qrImage");
 
-  $("uploadStatus").textContent="";
+  box.innerHTML = "";
 
-  $("singleQR").innerHTML="";
+  if(window.QRCode) {
 
-  try{
+    new QRCode(box,{
 
-    const files=[];
-
-    for(let i=0;i<3;i++){
-
-      files.push({
-
-        name:"PERSIDA12-Photo-"+(i+1)+".jpg",
-
-        mimeType:"image/jpeg",
-
-        data:photos[i]
-
-      });
-
-    }
-
-    files.push({
-
-      name:"PERSIDA12-Photostrip.png",
-
-      mimeType:"image/png",
-
-      data:await blobData(staticBlob)
-
-    });
-
-    const extension=liveBlob.type.includes("mp4")?"mp4":"webm";
-
-    files.push({
-
-      name:"PERSIDA12-Live-Photostrip."+extension,
-
-      mimeType:liveBlob.type||"video/webm",
-
-      data:await blobData(liveBlob)
-
-    });
-
-    const response=await fetch(SCRIPT_URL,{
-
-      method:"POST",
-
-      headers:{"Content-Type":"text/plain;charset=utf-8"},
-
-      body:JSON.stringify({
-
-        action:"uploadBatch",
-
-        sessionId:"PERSIDA12-"+Date.now(),
-
-        files
-
-      })
-
-    });
-
-    if(!response.ok)throw new Error("Server returned an upload error.");
-
-    const result=await response.json();
-
-    if(!result.ok||!result.folderUrl){
-
-      throw new Error(result.error||"Upload failed.");
-
-    }
-
-    new QRCode($("singleQR"),{
-
-      text:result.folderUrl,
+      text:url,
 
       width:200,
 
       height:200,
 
-      correctLevel:QRCode.CorrectLevel.M
+      colorDark:"#55454a",
+
+      colorLight:"#ffffff",
+
+      correctLevel:QRCode.CorrectLevel.H
 
     });
 
-    $("uploadStatus").textContent="All five files are ready! Scan this QR code to access your collection.";
-
-  }catch(error){
-
-    console.error(error);
-
-    $("uploadStatus").textContent="Upload failed: "+error.message;
-
-  }finally{
-
-    $("loading").classList.remove("show");
-
-    $("uploadBtn").disabled=false;
-
-    $("uploadBtn").textContent="GENERATE MY QR CODE";
+    return;
 
   }
 
+  const script = document.createElement("script");
+
+  script.src = "https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js";
+
+  await new Promise((resolve,reject) => {
+
+    script.onload = resolve;
+
+    script.onerror = reject;
+
+    document.head.appendChild(script);
+
+  });
+
+  if(!window.QRCode) throw new Error("QR generator could not load.");
+
+  new QRCode(box,{
+
+    text:url,
+
+    width:200,
+
+    height:200
+
+  });
+
 }
+
+/* INITIALISE */
+
+window.addEventListener("load",() => {
+
+  defaultTemplate = getDefaultTemplate();
+
+});
 
 </script>
 
 </body>
 
-</html></html></html></html></html></html>
+</html></html></html></html></html></html></html>
