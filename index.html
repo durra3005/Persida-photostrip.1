@@ -16,7 +16,7 @@
 
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Quicksand:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
 
@@ -24,507 +24,245 @@
 
 :root {
 
-  --pink: #f8e8eb;
+  --pink:#f8e8eb;
 
-  --dusty: #d991a1;
+  --dusty:#d991a1;
 
-  --sage: #a6b89b;
+  --sage:#a6b89b;
 
-  --dark-sage: #71846b;
+  --dark-sage:#71846b;
 
-  --cream: #fffaf5;
+  --cream:#fffaf5;
 
-  --text: #65565a;
-
-}
-
-* {
-
-  box-sizing: border-box;
+  --text:#65565a;
 
 }
 
-html {
+*{box-sizing:border-box}
 
-  min-height: 100%;
+html{min-height:100%;background:var(--pink)}
 
-  background: var(--pink);
+body{
 
-}
+  margin:0;min-height:100vh;color:var(--text);
 
-body {
+  font-family:"Quicksand",sans-serif;
 
-  margin: 0;
+  background-color:var(--pink);
 
-  min-height: 100vh;
+  background-image:radial-gradient(circle,#fff 2.4px,transparent 2.8px);
 
-  color: var(--text);
-
-  font-family: "Quicksand", sans-serif;
-
-  background-color: var(--pink);
-
-  background-image: radial-gradient(
-
-    circle,
-
-    #fff 2.4px,
-
-    transparent 2.8px
-
-  );
-
-  background-size: 30px 30px;
-
-  background-attachment: fixed;
+  background-size:30px 30px;background-attachment:fixed;
 
 }
 
-button {
+button{border:0;cursor:pointer;font-family:inherit}
 
-  border: 0;
+input,select{font-family:inherit}
 
-  cursor: pointer;
+.page{
 
-  font-family: inherit;
+  display:none;min-height:100vh;padding:28px 16px 45px;
 
-}
-
-.page {
-
-  display: none;
-
-  min-height: 100vh;
-
-  padding: 28px 16px 45px;
-
-  position: relative;
-
-  overflow: hidden;
+  position:relative;overflow:hidden;
 
 }
 
-.page.active {
+.page.active{display:flex;flex-direction:column;align-items:center}
 
-  display: flex;
+h1,h2,h3{font-family:"Cormorant Garamond",serif;font-weight:600;color:#8c5967}
 
-  flex-direction: column;
+.brand{font-family:"Cormorant Garamond",serif;font-size:23px;letter-spacing:3px;color:var(--dark-sage)}
 
-  align-items: center;
+.eyebrow{font-size:11px;letter-spacing:3px;text-transform:uppercase;color:#9a7b7e}
 
-}
+.main-title{font-size:clamp(44px,10vw,68px);line-height:.95;margin:12px 0;text-align:center}
 
-h1, h2, h3 {
+.subtitle{max-width:330px;text-align:center;font-size:13px;line-height:1.8;color:#8c777a}
 
-  font-family: "Cormorant Garamond", serif;
+.primary-btn{
 
-  font-weight: 600;
+  background:#9eaf91;color:white;border-radius:30px;padding:14px 25px;
 
-  color: #8c5967;
+  font-size:13px;font-weight:700;letter-spacing:1px;
 
-}
-
-.brand {
-
-  font-family: "Cormorant Garamond", serif;
-
-  font-size: 23px;
-
-  letter-spacing: 3px;
-
-  color: var(--dark-sage);
+  box-shadow:0 5px 14px #8c9e8a35;
 
 }
 
-.eyebrow {
+.primary-btn:disabled{opacity:.55;cursor:not-allowed}
 
-  font-size: 11px;
+.secondary-btn{
 
-  letter-spacing: 3px;
+  background:#fffaf5;color:#8c6970;border:1px solid #e9cbd1;
 
-  text-transform: uppercase;
-
-  color: #9a7b7e;
+  border-radius:30px;padding:12px 20px;font-size:12px;font-weight:700;
 
 }
 
-.main-title {
+.danger-btn{
 
-  font-size: clamp(44px, 10vw, 68px);
+  background:#f7e3e5;color:#a45f6e;border:1px solid #e8c2ca;
 
-  line-height: .95;
-
-  margin: 12px 0;
-
-  text-align: center;
+  border-radius:25px;padding:11px 17px;font-size:12px;font-weight:700;
 
 }
 
-.subtitle {
+.btn-row{display:flex;flex-wrap:wrap;justify-content:center;gap:10px;margin-top:20px}
 
-  max-width: 330px;
+.home-card,.camera-card,.result-card{
 
-  text-align: center;
+  width:min(100%,520px);background:#fffaf5ed;border:1px solid white;
 
-  font-size: 13px;
+  border-radius:25px;padding:20px;box-shadow:0 12px 35px #9c7b8030;
 
-  line-height: 1.8;
-
-  color: #8c777a;
+  position:relative;z-index:2;
 
 }
 
-.primary-btn {
+.home-card{
 
-  background: #9eaf91;
+  width:min(100%,440px);margin:auto;padding:35px 22px;text-align:center;
 
-  color: white;
-
-  border-radius: 30px;
-
-  padding: 14px 28px;
-
-  font-size: 13px;
-
-  font-weight: 700;
-
-  letter-spacing: 1px;
-
-  box-shadow: 0 5px 14px #8c9e8a35;
+  border-radius:180px 180px 28px 28px;
 
 }
 
-.primary-btn:disabled {
+.camera-frame{width:100%;aspect-ratio:3/4;background:#eadde0;border-radius:18px;overflow:hidden;position:relative}
 
-  opacity: .55;
+#cameraVideo{width:100%;height:100%;object-fit:cover;transform:scaleX(-1)}
 
-  cursor: not-allowed;
+#countdown{
 
-}
+  position:absolute;inset:0;display:none;align-items:center;justify-content:center;
 
-.secondary-btn {
+  color:white;font-family:"Cormorant Garamond",serif;font-size:100px;
 
-  background: #fffaf5;
-
-  color: #8c6970;
-
-  border: 1px solid #e9cbd1;
-
-  border-radius: 30px;
-
-  padding: 12px 23px;
-
-  font-size: 12px;
-
-  font-weight: 700;
+  text-shadow:0 3px 20px #0008;background:#0002;
 
 }
 
-.btn-row {
+#flash{position:absolute;inset:0;background:white;opacity:0;pointer-events:none}
 
-  display: flex;
+#flash.flash-now{animation:flash .35s ease}
 
-  flex-wrap: wrap;
+@keyframes flash{0%{opacity:.95}100%{opacity:0}}
 
-  justify-content: center;
+.status{text-align:center;font-size:13px;color:#8b777a;margin:14px 0}
 
-  gap: 10px;
+.photo-count{color:var(--dark-sage);font-weight:700}
 
-  margin-top: 20px;
+.result-strip{width:min(100%,300px);margin:18px auto;display:block;border-radius:5px;box-shadow:0 8px 25px #795c6330}
 
-}
+.preview-video{width:min(100%,300px);border-radius:8px;margin:10px auto;display:block;background:#eadde0}
 
-.home-card {
+.section-title{font-size:36px;margin:10px 0}
 
-  width: min(100%, 440px);
+.qr-section{margin-top:28px;padding-top:20px;border-top:1px solid #ead9dc}
 
-  margin: auto;
+.single-qr{
 
-  padding: 35px 22px;
+  display:flex;justify-content:center;align-items:center;margin:22px auto;padding:15px;
 
-  text-align: center;
+  background:white;border:1px solid #f0dce0;border-radius:16px;
 
-  background: #fffaf5ed;
-
-  border: 1px solid white;
-
-  border-radius: 180px 180px 28px 28px;
-
-  box-shadow: 0 12px 40px #a77e8530;
-
-  position: relative;
-
-  z-index: 2;
+  width:fit-content;min-width:150px;min-height:150px;
 
 }
 
-.camera-card,
+.single-qr img,.single-qr canvas{max-width:200px;max-height:200px}
 
-.result-card {
+.small-note{font-size:11px;line-height:1.7;color:#9b8588;margin-top:14px;text-align:center}
 
-  width: min(100%, 520px);
+.loading{display:none;margin:15px 0;color:var(--dark-sage);font-size:13px;font-weight:700;text-align:center}
 
-  background: #fffaf5ed;
+.loading.show{display:block}
 
-  border: 1px solid white;
+.footer{text-align:center;margin-top:30px;font-size:11px;letter-spacing:1px;color:#92767d;line-height:1.9}
 
-  border-radius: 25px;
+/* DESIGN STUDIO */
 
-  padding: 20px;
+.studio-page{width:100%;max-width:900px}
 
-  box-shadow: 0 12px 35px #9c7b8030;
+.studio-heading{text-align:center;margin-bottom:15px}
 
-  position: relative;
+.studio-layout{width:100%;display:grid;grid-template-columns:1fr;gap:16px}
 
-  z-index: 2;
+.studio-panel{
 
-}
+  background:#fffaf5ed;border:1px solid white;border-radius:20px;
 
-.camera-frame {
-
-  width: 100%;
-
-  aspect-ratio: 3 / 4;
-
-  background: #eadde0;
-
-  border-radius: 18px;
-
-  overflow: hidden;
-
-  position: relative;
+  padding:16px;box-shadow:0 8px 25px #9c7b8020;
 
 }
 
-#cameraVideo {
+.editor-preview-wrap{
 
-  width: 100%;
+  background:#eadde0;border-radius:16px;padding:12px;
 
-  height: 100%;
+  display:flex;justify-content:center;align-items:flex-start;
 
-  object-fit: cover;
-
-  transform: scaleX(-1);
+  overflow:hidden;
 
 }
 
-#countdown {
+#editorCanvas{
 
-  position: absolute;
+  width:100%;max-width:330px;height:auto;display:block;
 
-  inset: 0;
+  box-shadow:0 5px 18px #755d6530;touch-action:none;
 
-  display: none;
-
-  align-items: center;
-
-  justify-content: center;
-
-  color: white;
-
-  font-family: "Cormorant Garamond", serif;
-
-  font-size: 100px;
-
-  font-weight: 700;
-
-  text-shadow: 0 3px 20px #0008;
-
-  background: #0002;
+  background:#f8e8eb;
 
 }
 
-#flash {
+.editor-tools{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:9px;margin-top:12px}
 
-  position: absolute;
+.editor-tools button{width:100%}
 
-  inset: 0;
+.field{margin:12px 0}
 
-  background: white;
+.field label{display:block;font-size:11px;font-weight:700;color:#846d72;margin-bottom:6px}
 
-  opacity: 0;
+.field input,.field select{
 
-  pointer-events: none;
+  width:100%;padding:11px;border:1px solid #e7cfd4;border-radius:10px;
 
-}
-
-#flash.flash-now {
-
-  animation: flash .35s ease;
+  background:white;color:#65565a;min-width:0;
 
 }
 
-@keyframes flash {
+.field input[type="color"]{height:43px;padding:4px}
 
-  0% { opacity: .95; }
+.field input[type="range"]{padding:0;accent-color:#9eaf91}
 
-  100% { opacity: 0; }
+.field input[type="checkbox"]{width:auto;accent-color:#9eaf91}
 
-}
+.field-row{display:grid;grid-template-columns:1fr 1fr;gap:10px}
 
-.status {
+.element-hint{font-size:11px;color:#927d81;line-height:1.6}
 
-  text-align: center;
+.selected-name{font-size:12px;font-weight:700;color:#71846b;margin:10px 0}
 
-  font-size: 13px;
+.studio-divider{border:0;border-top:1px solid #ead9dc;margin:16px 0}
 
-  color: #8b777a;
+.studio-top-actions{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin:12px 0}
 
-  margin: 14px 0;
+.studio-top-actions button{font-size:11px}
 
-}
+#assetUpload{display:none}
 
-.photo-count {
+@media(min-width:760px){
 
-  color: var(--dark-sage);
+  .studio-layout{grid-template-columns:minmax(0,1fr) 300px;align-items:start}
 
-  font-weight: 700;
-
-}
-
-.result-strip {
-
-  width: min(100%, 300px);
-
-  margin: 18px auto;
-
-  display: block;
-
-  border-radius: 5px;
-
-  box-shadow: 0 8px 25px #795c6330;
+  .studio-preview-panel{position:sticky;top:15px}
 
 }
 
-.preview-video {
+@media(max-width:380px){
 
-  width: min(100%, 300px);
-
-  border-radius: 8px;
-
-  margin: 10px auto;
-
-  display: block;
-
-  background: #eadde0;
-
-}
-
-.section-title {
-
-  font-size: 36px;
-
-  margin: 10px 0;
-
-}
-
-.qr-section {
-
-  margin-top: 28px;
-
-  padding-top: 20px;
-
-  border-top: 1px solid #ead9dc;
-
-}
-
-.single-qr {
-
-  display: flex;
-
-  justify-content: center;
-
-  align-items: center;
-
-  margin: 22px auto;
-
-  padding: 15px;
-
-  background: white;
-
-  border: 1px solid #f0dce0;
-
-  border-radius: 16px;
-
-  width: fit-content;
-
-  min-width: 150px;
-
-  min-height: 150px;
-
-}
-
-.single-qr img,
-
-.single-qr canvas {
-
-  max-width: 200px;
-
-  max-height: 200px;
-
-}
-
-.small-note {
-
-  font-size: 11px;
-
-  line-height: 1.7;
-
-  color: #9b8588;
-
-  margin-top: 14px;
-
-  text-align: center;
-
-}
-
-.loading {
-
-  display: none;
-
-  margin: 15px 0;
-
-  color: var(--dark-sage);
-
-  font-size: 13px;
-
-  font-weight: 700;
-
-  text-align: center;
-
-}
-
-.loading.show {
-
-  display: block;
-
-}
-
-.footer {
-
-  text-align: center;
-
-  margin-top: 30px;
-
-  font-size: 11px;
-
-  letter-spacing: 1px;
-
-  color: #92767d;
-
-  line-height: 1.9;
-
-}
-
-@media (max-width: 380px) {
-
-  .camera-card,
-
-  .result-card {
-
-    padding: 13px;
-
-  }
+  .camera-card,.result-card{padding:13px}
 
 }
 
@@ -534,7 +272,7 @@ h1, h2, h3 {
 
 <body>
 
-<!-- HOME PAGE -->
+<!-- HOME -->
 
 <section class="page active" id="home">
 
@@ -546,29 +284,21 @@ h1, h2, h3 {
 
     <h1 class="main-title">A Little<br>Memory</h1>
 
-    <p class="subtitle">
+    <p class="subtitle">Capture your beautiful moments and keep them forever.</p>
 
-      Capture your beautiful moments and keep them forever.
+    <div style="margin:25px 0;font-size:36px;color:#a6b89b">♡</div>
 
-    </p>
+    <button class="primary-btn" onclick="openCamera()">OPEN CAMERA</button>
 
-    <div style="margin:25px 0;font-size:36px;color:#a6b89b;">
+    <div class="btn-row">
 
-      ✿
+      <button class="secondary-btn" onclick="openStudio()">DESIGN STUDIO · OPERATOR</button>
 
     </div>
 
-    <button class="primary-btn" onclick="openCamera()">
-
-      OPEN CAMERA
-
-    </button>
-
     <div class="footer">
 
-      #pursuing excellent pioneering unity<br>
-
-      17.11.2026
+      #pursuing excellent pioneering unity<br>17.11.2026
 
     </div>
 
@@ -576,7 +306,7 @@ h1, h2, h3 {
 
 </section>
 
-<!-- CAMERA PAGE -->
+<!-- CAMERA -->
 
 <section class="page" id="cameraPage">
 
@@ -584,11 +314,7 @@ h1, h2, h3 {
 
   <h2 class="section-title">Let's Capture</h2>
 
-  <p class="subtitle">
-
-    Get ready! Three photos will be taken one by one.
-
-  </p>
+  <p class="subtitle">Get ready! Three photos will be taken one by one.</p>
 
   <div class="camera-card">
 
@@ -596,41 +322,19 @@ h1, h2, h3 {
 
       <video id="cameraVideo" autoplay playsinline muted></video>
 
-      <div id="countdown">5</div>
-
-      <div id="flash"></div>
+      <div id="countdown">5</div><div id="flash"></div>
 
     </div>
 
-    <div class="status">
+    <div class="status">Photo <span id="photoCount" class="photo-count">0</span> of 3</div>
 
-      Photo <span id="photoCount" class="photo-count">0</span> of 3
-
-    </div>
-
-    <p id="cameraStatus" class="status">
-
-      Press start when you are ready.
-
-    </p>
+    <p id="cameraStatus" class="status">Press start when you are ready.</p>
 
     <div class="btn-row">
 
-      <button class="primary-btn"
+      <button class="primary-btn" id="startBtn" onclick="startSession()">START</button>
 
-              id="startBtn"
-
-              onclick="startSession()">
-
-        START
-
-      </button>
-
-      <button class="secondary-btn" onclick="goHome()">
-
-        BACK
-
-      </button>
+      <button class="secondary-btn" onclick="goHome()">BACK</button>
 
     </div>
 
@@ -638,7 +342,7 @@ h1, h2, h3 {
 
 </section>
 
-<!-- RESULT PAGE -->
+<!-- RESULT -->
 
 <section class="page" id="resultPage">
 
@@ -650,79 +354,31 @@ h1, h2, h3 {
 
   <div class="result-card">
 
-    <h3 style="font-size:28px;margin:5px 0;">
+    <h3 style="font-size:28px;margin:5px 0">Static Photostrip</h3>
 
-      Static Photostrip
+    <img id="stripPreview" class="result-strip" alt="Your static photostrip">
 
-    </h3>
-
-    <img id="stripPreview"
-
-         class="result-strip"
-
-         alt="Your static photostrip">
-
-    <button class="primary-btn" onclick="downloadStatic()">
-
-      DOWNLOAD PNG
-
-    </button>
+    <button class="primary-btn" onclick="downloadStatic()">DOWNLOAD PNG</button>
 
     <div class="qr-section">
 
-      <h3 style="font-size:28px;margin:5px 0;">
+      <h3 style="font-size:28px;margin:5px 0">Live Photostrip</h3>
 
-        Live Photostrip
+      <video id="livePreview" class="preview-video" controls playsinline loop></video>
 
-      </h3>
-
-      <video id="livePreview"
-
-             class="preview-video"
-
-             controls
-
-             playsinline
-
-             loop></video>
-
-      <button class="primary-btn" onclick="downloadLive()">
-
-        DOWNLOAD VIDEO
-
-      </button>
+      <button class="primary-btn" onclick="downloadLive()">DOWNLOAD VIDEO</button>
 
     </div>
 
     <div class="qr-section">
 
-      <h3 style="font-size:28px;margin:5px 0;">
+      <h3 style="font-size:28px;margin:5px 0">Your Photo Collection</h3>
 
-        Your Photo Collection
+      <p class="small-note">One QR code to access all your photos and photostrips.</p>
 
-      </h3>
+      <button class="primary-btn" id="uploadBtn" onclick="uploadSession()">GENERATE MY QR CODE</button>
 
-      <p class="small-note">
-
-        One QR code to access all your photos and photostrips.
-
-      </p>
-
-      <button class="primary-btn"
-
-              id="uploadBtn"
-
-              onclick="uploadSession()">
-
-        GENERATE MY QR CODE
-
-      </button>
-
-      <div class="loading" id="loading">
-
-        Uploading your photos and preparing your QR code...
-
-      </div>
+      <div class="loading" id="loading">Uploading your photos and preparing your QR code...</div>
 
       <div class="single-qr" id="singleQR"></div>
 
@@ -732,17 +388,9 @@ h1, h2, h3 {
 
     <div class="btn-row">
 
-      <button class="secondary-btn" onclick="retake()">
+      <button class="secondary-btn" onclick="retake()">RETAKE PHOTOS</button>
 
-        RETAKE PHOTOS
-
-      </button>
-
-      <button class="secondary-btn" onclick="goHome()">
-
-        HOME
-
-      </button>
+      <button class="secondary-btn" onclick="goHome()">HOME</button>
 
     </div>
 
@@ -750,9 +398,7 @@ h1, h2, h3 {
 
       <strong>PERSIDA 12</strong><br>
 
-      #pursuing excellent pioneering unity<br>
-
-      17.11.2026
+      #pursuing excellent pioneering unity<br>17.11.2026
 
     </div>
 
@@ -760,731 +406,1201 @@ h1, h2, h3 {
 
 </section>
 
+<!-- DESIGN STUDIO -->
+
+<section class="page" id="studioPage">
+
+  <div class="studio-page">
+
+    <div class="studio-heading">
+
+      <div class="brand">PERSIDA 12</div>
+
+      <h2 class="section-title">Design Studio</h2>
+
+      <p class="subtitle">Create your photostrip template. Drag an element on the preview to move it.</p>
+
+    </div>
+
+    <div class="studio-top-actions">
+
+      <button class="secondary-btn" onclick="saveDefault()">SAVE AS DEFAULT</button>
+
+      <button class="primary-btn" onclick="useForSession()">USE FOR THIS SESSION</button>
+
+      <button class="danger-btn" onclick="resetDesign()">RESET DESIGN</button>
+
+    </div>
+
+    <div class="studio-layout">
+
+      <div class="studio-panel studio-preview-panel">
+
+        <div class="editor-preview-wrap">
+
+          <canvas id="editorCanvas" width="900" height="1900"></canvas>
+
+        </div>
+
+        <p class="element-hint">Tip: Tap an item to select it. Drag it to move. Use the controls on the right to adjust its size and rotation.</p>
+
+      </div>
+
+      <div class="studio-panel">
+
+        <h3 style="font-size:25px;margin:0 0 10px">Background</h3>
+
+        <div class="field">
+
+          <label>BACKGROUND COLOUR</label>
+
+          <input type="color" id="bgColor" value="#f8e8eb" oninput="changeBackground()">
+
+        </div>
+
+        <div class="field">
+
+          <label><input type="checkbox" id="dotsToggle" checked onchange="changeBackground()"> White polkadots</label>
+
+        </div>
+
+        <hr class="studio-divider">
+
+        <h3 style="font-size:25px;margin:0 0 10px">Add Elements</h3>
+
+        <div class="editor-tools">
+
+          <button class="secondary-btn" onclick="addText()">＋ Add Text</button>
+
+          <button class="secondary-btn" onclick="addEmoji('♡')">♡ Heart</button>
+
+          <button class="secondary-btn" onclick="addEmoji('✿')">✿ Flower</button>
+
+          <button class="secondary-btn" onclick="addEmoji('🦋')">🦋 Butterfly</button>
+
+          <button class="secondary-btn" onclick="addEmoji('✧')">✧ Sparkle</button>
+
+          <button class="secondary-btn" onclick="addEmoji('☁')">☁ Cloud</button>
+
+          <button class="secondary-btn" onclick="addEmoji('☆')">☆ Star</button>
+
+          <button class="secondary-btn" onclick="document.getElementById('assetUpload').click()">＋ Upload PNG</button>
+
+        </div>
+
+        <input id="assetUpload" type="file" accept="image/png,image/webp,image/jpeg" onchange="uploadElement(event)">
+
+        <hr class="studio-divider">
+
+        <h3 style="font-size:25px;margin:0 0 10px">Edit Selected Element</h3>
+
+        <div id="selectedName" class="selected-name">No element selected</div>
+
+        <div class="field">
+
+          <label>TEXT / EMOJI</label>
+
+          <input id="elementText" type="text" placeholder="Select a text or emoji" oninput="updateElement()">
+
+        </div>
+
+        <div class="field">
+
+          <label>FONT</label>
+
+          <select id="elementFont" onchange="updateElement()">
+
+            <option value="Quicksand">Quicksand</option>
+
+            <option value="Cormorant Garamond">Cormorant Garamond</option>
+
+            <option value="Playfair Display">Playfair Display</option>
+
+            <option value="Georgia">Georgia</option>
+
+          </select>
+
+        </div>
+
+        <div class="field">
+
+          <label>TEXT / ELEMENT COLOUR</label>
+
+          <input type="color" id="elementColor" value="#71846b" oninput="updateElement()">
+
+        </div>
+
+        <div class="field">
+
+          <label>SIZE</label>
+
+          <input type="range" id="elementSize" min="15" max="180" value="55" oninput="updateElement()">
+
+        </div>
+
+        <div class="field">
+
+          <label>ROTATION</label>
+
+          <input type="range" id="elementRotation" min="-180" max="180" value="0" oninput="updateElement()">
+
+        </div>
+
+        <div class="field">
+
+          <label>OPACITY</label>
+
+          <input type="range" id="elementOpacity" min="10" max="100" value="100" oninput="updateElement()">
+
+        </div>
+
+        <div class="field">
+
+          <label>ALIGNMENT</label>
+
+          <select id="elementAlign" onchange="updateElement()">
+
+            <option value="center">Center</option>
+
+            <option value="left">Left</option>
+
+            <option value="right">Right</option>
+
+          </select>
+
+        </div>
+
+        <div class="field-row">
+
+          <div class="field">
+
+            <label>WIDTH</label>
+
+            <input type="number" id="elementWidth" min="10" max="900" oninput="updateElement()">
+
+          </div>
+
+          <div class="field">
+
+            <label>HEIGHT</label>
+
+            <input type="number" id="elementHeight" min="10" max="1900" oninput="updateElement()">
+
+          </div>
+
+        </div>
+
+        <div class="btn-row">
+
+          <button class="secondary-btn" onclick="duplicateElement()">DUPLICATE</button>
+
+          <button class="danger-btn" onclick="deleteElement()">DELETE</button>
+
+        </div>
+
+        <hr class="studio-divider">
+
+        <p class="element-hint">To edit photo-frame positions, tap a photo frame in the preview. Select it and adjust its width, height and position by dragging.</p>
+
+        <div class="field-row">
+
+          <div class="field">
+
+            <label>X POSITION</label>
+
+            <input type="number" id="elementX" oninput="updatePosition()">
+
+          </div>
+
+          <div class="field">
+
+            <label>Y POSITION</label>
+
+            <input type="number" id="elementY" oninput="updatePosition()">
+
+          </div>
+
+        </div>
+
+        <div class="btn-row">
+
+          <button class="secondary-btn" onclick="goHome()">BACK TO HOME</button>
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <p class="small-note">Your default design is saved in this browser on this device. Use the same device and browser when operating the booth.</p>
+
+  </div>
+
+</section>
+
 <script>
 
-/* =====================================
+/* =========================================
 
-   GOOGLE APPS SCRIPT WEB APP URL
+   GOOGLE APPS SCRIPT URL
 
-===================================== */
+   GANTIKAN DENGAN URL WEB APP AWAK
 
-const SCRIPT_URL =
+========================================= */
 
-"PASTE_YOUR_GOOGLE_APPS_SCRIPT_WEB_APP_URL_HERE";
+const SCRIPT_URL = "PASTE_YOUR_GOOGLE_APPS_SCRIPT_WEB_APP_URL_HERE";
 
-/* =====================================
+/* =========================================
 
-   PHOTOBOOTH VARIABLES
+   PHOTOSTRIP TEMPLATE
 
-===================================== */
+========================================= */
 
-const photos = [];
+const ORIGINAL_TEMPLATE = {
 
-let cameraStream = null;
+  background:"#f8e8eb",
 
-let staticBlob = null;
+  dots:true,
 
-let liveBlob = null;
+  slots:[
 
-let staticURL = null;
+    {x:155,y:220,w:590,h:370},
 
-let liveURL = null;
+    {x:155,y:625,w:590,h:370},
 
-let busy = false;
+    {x:155,y:1030,w:590,h:370}
 
-const $ = id => document.getElementById(id);
+  ],
 
-function showPage(id) {
+  elements:[
 
-  document.querySelectorAll(".page").forEach(page => {
+    {id:"head1",type:"text",text:"PERSIDA 12",x:450,y:105,size:45,color:"#71846b",font:"Cormorant Garamond",align:"center",rotation:0,opacity:100},
 
-    page.classList.remove("active");
+    {id:"head2",type:"text",text:"appreciation night",x:450,y:145,size:23,color:"#9a747c",font:"Quicksand",align:"center",rotation:0,opacity:100},
 
-  });
+    {id:"foot1",type:"text",text:"PERSIDA 12",x:450,y:1545,size:43,color:"#71846b",font:"Cormorant Garamond",align:"center",rotation:0,opacity:100},
+
+    {id:"foot2",type:"text",text:"#pursuing excellent pioneering unity",x:450,y:1590,size:18,color:"#8c7479",font:"Quicksand",align:"center",rotation:0,opacity:100},
+
+    {id:"foot3",type:"text",text:"17.11.2026",x:450,y:1635,size:22,color:"#71846b",font:"Quicksand",align:"center",rotation:0,opacity:100}
+
+  ]
+
+};
+
+function clone(obj){return JSON.parse(JSON.stringify(obj))}
+
+function loadDefault(){
+
+  try{
+
+    const saved=localStorage.getItem("persida12_default_template");
+
+    return saved ? JSON.parse(saved) : clone(ORIGINAL_TEMPLATE);
+
+  }catch(e){return clone(ORIGINAL_TEMPLATE)}
+
+}
+
+let defaultTemplate=loadDefault();
+
+let sessionTemplate=null;
+
+let workingTemplate=clone(defaultTemplate);
+
+let selected=null;
+
+let photos=[];
+
+let cameraStream=null;
+
+let staticBlob=null,liveBlob=null,staticURL=null,liveURL=null;
+
+let busy=false;
+
+const $=id=>document.getElementById(id);
+
+const STRIP_W=900,STRIP_H=1900;
+
+function showPage(id){
+
+  document.querySelectorAll(".page").forEach(p=>p.classList.remove("active"));
 
   $(id).classList.add("active");
 
-  window.scrollTo(0, 0);
+  window.scrollTo(0,0);
 
 }
 
-function sleep(ms) {
+function sleep(ms){return new Promise(r=>setTimeout(r,ms))}
 
-  return new Promise(resolve => setTimeout(resolve, ms));
+/* =========================================
+
+   DESIGN STUDIO
+
+========================================= */
+
+function openStudio(){
+
+  workingTemplate=clone(defaultTemplate);
+
+  selected=null;
+
+  showPage("studioPage");
+
+  $("bgColor").value=workingTemplate.background;
+
+  $("dotsToggle").checked=workingTemplate.dots;
+
+  renderEditor();
+
+  refreshControls();
 
 }
 
-/* =====================================
+function saveDefault(){
 
-   CAMERA
+  try{
 
-===================================== */
+    localStorage.setItem("persida12_default_template",JSON.stringify(workingTemplate));
 
-async function openCamera() {
+    defaultTemplate=clone(workingTemplate);
 
-  showPage("cameraPage");
+    alert("Your new default template has been saved on this device!");
 
-  try {
+  }catch(e){
 
-    cameraStream = await navigator.mediaDevices.getUserMedia({
-
-      video: {
-
-        facingMode: "user",
-
-        width: { ideal: 1280 },
-
-        height: { ideal: 960 }
-
-      },
-
-      audio: false
-
-    });
-
-    $("cameraVideo").srcObject = cameraStream;
-
-    $("cameraStatus").textContent =
-
-      "Camera ready. Press START.";
-
-  } catch (error) {
-
-    $("cameraStatus").textContent =
-
-      "Camera access failed. Please allow camera access.";
+    alert("Unable to save. Your uploaded image may be too large. Try a smaller PNG.");
 
   }
 
 }
 
-function stopCamera() {
+function useForSession(){
 
-  if (cameraStream) {
+  sessionTemplate=clone(workingTemplate);
 
-    cameraStream.getTracks().forEach(track => track.stop());
-
-    cameraStream = null;
-
-  }
-
-  $("cameraVideo").srcObject = null;
-
-}
-
-function goHome() {
-
-  stopCamera();
+  alert("This design will be used for the next customer session. Your default template stays unchanged.");
 
   showPage("home");
 
 }
 
-async function startSession() {
+function resetDesign(){
 
-  if (busy) return;
+  if(!confirm("Reset the design to the original PERSIDA 12 template?"))return;
 
-  if (!cameraStream) {
+  workingTemplate=clone(ORIGINAL_TEMPLATE);
 
-    await openCamera();
+  selected=null;
 
-    if (!cameraStream) return;
+  $("bgColor").value=workingTemplate.background;
+
+  $("dotsToggle").checked=true;
+
+  renderEditor();
+
+  refreshControls();
+
+}
+
+function changeBackground(){
+
+  workingTemplate.background=$("bgColor").value;
+
+  workingTemplate.dots=$("dotsToggle").checked;
+
+  renderEditor();
+
+}
+
+function newId(){return "el"+Date.now()+Math.random().toString(16).slice(2)}
+
+function addText(){
+
+  const text=prompt("Enter your text:");
+
+  if(text===null||!text.trim())return;
+
+  const el={id:newId(),type:"text",text:text.trim(),x:450,y:900,size:45,color:"#71846b",font:"Quicksand",align:"center",rotation:0,opacity:100};
+
+  workingTemplate.elements.push(el);
+
+  selected={kind:"element",id:el.id};
+
+  renderEditor();refreshControls();
+
+}
+
+function addEmoji(emoji){
+
+  const el={id:newId(),type:"text",text:emoji,x:450,y:900,size:90,color:"#71846b",font:"Quicksand",align:"center",rotation:0,opacity:100};
+
+  workingTemplate.elements.push(el);
+
+  selected={kind:"element",id:el.id};
+
+  renderEditor();refreshControls();
+
+}
+
+function uploadElement(event){
+
+  const file=event.target.files&&event.target.files[0];
+
+  if(!file)return;
+
+  if(file.size>1500000){
+
+    alert("Please choose an image smaller than 1.5MB for easier saving.");
+
+    event.target.value="";return;
 
   }
 
-  busy = true;
+  const reader=new FileReader();
 
-  photos.length = 0;
+  reader.onload=()=>{
 
-  $("photoCount").textContent = "0";
+    const el={id:newId(),type:"image",src:reader.result,x:450,y:900,w:180,h:180,rotation:0,opacity:100};
 
-  $("startBtn").disabled = true;
+    workingTemplate.elements.push(el);
 
-  $("startBtn").textContent = "PLEASE WAIT";
+    selected={kind:"element",id:el.id};
 
-  $("singleQR").innerHTML = "";
+    renderEditor();refreshControls();
 
-  $("uploadStatus").textContent = "";
+  };
 
-  for (let i = 0; i < 3; i++) {
+  reader.readAsDataURL(file);
 
-    $("cameraStatus").textContent =
+  event.target.value="";
 
-      "Get ready for photo " + (i + 1);
+}
 
-    for (let count = 5; count >= 1; count--) {
+function getSelected(){
 
-      $("countdown").style.display = "flex";
+  if(!selected)return null;
 
-      $("countdown").textContent = count;
+  if(selected.kind==="element")return workingTemplate.elements.find(e=>e.id===selected.id);
 
-      await sleep(1000);
+  if(selected.kind==="slot")return workingTemplate.slots[selected.index];
+
+  return null;
+
+}
+
+function refreshControls(){
+
+  const el=getSelected();
+
+  $("selectedName").textContent=el?(selected.kind==="slot"?"Photo frame "+(selected.index+1):(el.type==="image"?"Uploaded image":el.text||"Element")):"No element selected";
+
+  const isText=el&&selected.kind==="element"&&el.type==="text";
+
+  $("elementText").disabled=!isText;
+
+  $("elementFont").disabled=!isText;
+
+  $("elementAlign").disabled=!isText;
+
+  $("elementColor").disabled=!el||selected.kind==="slot"||el.type==="image";
+
+  $("elementSize").disabled=!el||selected.kind==="slot"||el.type==="image";
+
+  $("elementRotation").disabled=!el;
+
+  $("elementOpacity").disabled=!el;
+
+  $("elementWidth").disabled=!el||selected.kind==="element"&&el.type==="text";
+
+  $("elementHeight").disabled=!el||selected.kind==="element"&&el.type==="text";
+
+  $("elementX").disabled=!el;
+
+  $("elementY").disabled=!el;
+
+  if(!el)return;
+
+  $("elementText").value=isText?el.text:"";
+
+  $("elementFont").value=isText?el.font:"Quicksand";
+
+  $("elementColor").value=el.color||"#71846b";
+
+  $("elementSize").value=el.size||55;
+
+  $("elementRotation").value=el.rotation||0;
+
+  $("elementOpacity").value=el.opacity===undefined?100:el.opacity;
+
+  $("elementAlign").value=el.align||"center";
+
+  $("elementWidth").value=el.w||"";
+
+  $("elementHeight").value=el.h||"";
+
+  $("elementX").value=Math.round(el.x);
+
+  $("elementY").value=Math.round(el.y);
+
+}
+
+function updateElement(){
+
+  const el=getSelected();if(!el||selected.kind!=="element")return;
+
+  if(el.type==="text"){
+
+    el.text=$("elementText").value;
+
+    el.font=$("elementFont").value;
+
+    el.color=$("elementColor").value;
+
+    el.size=Number($("elementSize").value);
+
+    el.align=$("elementAlign").value;
+
+  }
+
+  el.rotation=Number($("elementRotation").value);
+
+  el.opacity=Number($("elementOpacity").value);
+
+  if(el.type==="image"){
+
+    el.w=Math.max(10,Number($("elementWidth").value)||el.w);
+
+    el.h=Math.max(10,Number($("elementHeight").value)||el.h);
+
+  }
+
+  renderEditor();
+
+}
+
+function updatePosition(){
+
+  const el=getSelected();if(!el)return;
+
+  el.x=Number($("elementX").value)||0;
+
+  el.y=Number($("elementY").value)||0;
+
+  renderEditor();
+
+}
+
+function duplicateElement(){
+
+  const el=getSelected();if(!el||selected.kind!=="element")return;
+
+  const copy=clone(el);copy.id=newId();copy.x+=35;copy.y+=35;
+
+  workingTemplate.elements.push(copy);
+
+  selected={kind:"element",id:copy.id};
+
+  renderEditor();refreshControls();
+
+}
+
+function deleteElement(){
+
+  if(!selected||selected.kind!=="element")return;
+
+  workingTemplate.elements=workingTemplate.elements.filter(e=>e.id!==selected.id);
+
+  selected=null;renderEditor();refreshControls();
+
+}
+
+/* =========================================
+
+   DRAWING PHOTOSTRIP
+
+========================================= */
+
+function drawPolkadotBackground(ctx,design){
+
+  ctx.fillStyle=design.background||"#f8e8eb";
+
+  ctx.fillRect(0,0,STRIP_W,STRIP_H);
+
+  if(!design.dots)return;
+
+  for(let y=18;y<STRIP_H;y+=48){
+
+    for(let x=18;x<STRIP_W;x+=48){
+
+      ctx.beginPath();ctx.arc(x,y,5,0,Math.PI*2);
+
+      ctx.fillStyle="#fffdfb";ctx.fill();
 
     }
 
-    $("countdown").style.display = "none";
-
-    captureStill();
-
-    $("photoCount").textContent = String(photos.length);
-
-    await sleep(1200);
-
-  }
-
-  $("cameraStatus").textContent =
-
-    "All three photos captured!";
-
-  stopCamera();
-
-  busy = false;
-
-  $("startBtn").disabled = false;
-
-  $("startBtn").textContent = "START AGAIN";
-
-  await showResult();
-
-}
-
-function captureStill() {
-
-  const video = $("cameraVideo");
-
-  const canvas = document.createElement("canvas");
-
-  const width = video.videoWidth || 1280;
-
-  const height = video.videoHeight || 960;
-
-  canvas.width = width;
-
-  canvas.height = height;
-
-  const ctx = canvas.getContext("2d");
-
-  ctx.translate(width, 0);
-
-  ctx.scale(-1, 1);
-
-  ctx.drawImage(video, 0, 0, width, height);
-
-  const flash = $("flash");
-
-  flash.classList.remove("flash-now");
-
-  void flash.offsetWidth;
-
-  flash.classList.add("flash-now");
-
-  photos.push(canvas.toDataURL("image/jpeg", 0.92));
-
-}
-
-/* =====================================
-
-   POLKADOT PHOTOSTRIP BACKGROUND
-
-===================================== */
-
-const STRIP_W = 900;
-
-const STRIP_H = 1900;
-
-function drawPolkadotBackground(ctx) {
-
-  ctx.fillStyle = "#f8e8eb";
-
-  ctx.fillRect(0, 0, STRIP_W, STRIP_H);
-
-  for (let y = 18; y < STRIP_H; y += 48) {
-
-    for (let x = 18; x < STRIP_W; x += 48) {
-
-      ctx.beginPath();
-
-      ctx.arc(x, y, 5, 0, Math.PI * 2);
-
-      ctx.fillStyle = "#fffdfb";
-
-      ctx.fill();
-
-    }
-
   }
 
 }
 
-/* =====================================
+function drawPhotoCover(ctx,image,x,y,w,h,zoom=1){
 
-   PHOTO DRAWING
+  const iw=image.width,ih=image.height;
 
-===================================== */
+  const scale=Math.max(w/iw,h/ih)*zoom;
 
-function drawPhotoCover(ctx, image, x, y, w, h, zoom = 1) {
+  const sw=w/scale,sh=h/scale;
 
-  const iw = image.width;
-
-  const ih = image.height;
-
-  const scale = Math.max(w / iw, h / ih) * zoom;
-
-  const sw = w / scale;
-
-  const sh = h / scale;
-
-  const sx = (iw - sw) / 2;
-
-  const sy = (ih - sh) / 2;
+  const sx=(iw-sw)/2,sy=(ih-sh)/2;
 
   ctx.save();
 
   ctx.beginPath();
 
-  ctx.roundRect(x, y, w, h, 8);
+  if(ctx.roundRect)ctx.roundRect(x,y,w,h,8);else ctx.rect(x,y,w,h);
 
-  ctx.clip();
-
-  ctx.drawImage(
-
-    image,
-
-    sx, sy, sw, sh,
-
-    x, y, w, h
-
-  );
+  ctx.clip();ctx.drawImage(image,sx,sy,sw,sh,x,y,w,h);
 
   ctx.restore();
 
 }
 
-/* =====================================
+const imageCache=new Map();
 
-   COMPLETE PHOTOSTRIP LAYOUT
+function getImage(src){
 
-===================================== */
+  if(!imageCache.has(src)){
 
-function drawStrip(ctx, images, animationTime = 0) {
+    const img=new Image();img.src=src;imageCache.set(src,img);
 
-  drawPolkadotBackground(ctx);
+  }
 
-  ctx.textAlign = "center";
-
-  // Header
-
-  ctx.fillStyle = "#71846b";
-
-  ctx.font = "600 35px 'Cormorant Garamond', serif";
-
-  ctx.fillText("PERSIDA 12", STRIP_W / 2, 105);
-
-  ctx.fillStyle = "#9a747c";
-
-  ctx.font = "500 23px 'Quicksand', sans-serif";
-
-  ctx.fillText("appreciation night", STRIP_W / 2, 145);
-
-  // Three vertical photographs
-
-  const x = 155;
-
-  const w = 590;
-
-  const h = 370;
-
-  const ys = [220, 625, 1030];
-
-  images.forEach((img, i) => {
-
-    const phase = animationTime * 0.0015 + i * 1.4;
-
-    const zoom = 1 + (Math.sin(phase) + 1) * 0.018;
-
-    ctx.fillStyle = "#fffaf5";
-
-    ctx.shadowColor = "rgba(100,70,75,.16)";
-
-    ctx.shadowBlur = 15;
-
-    ctx.fillRect(x - 9, ys[i] - 9, w + 18, h + 18);
-
-    ctx.shadowBlur = 0;
-
-    drawPhotoCover(
-
-      ctx, img, x, ys[i], w, h, zoom
-
-    );
-
-  });
-
-  // Footer
-
-  ctx.textAlign = "center";
-
-  ctx.fillStyle = "#71846b";
-
-  ctx.font = "700 34px 'Cormorant Garamond', serif";
-
-  ctx.fillText("PERSIDA 12", STRIP_W / 2, 1545);
-
-  ctx.fillStyle = "#8c7479";
-
-  ctx.font = "600 18px 'Quicksand', sans-serif";
-
-  ctx.fillText(
-
-    "#pursuing excellent pioneering unity",
-
-    STRIP_W / 2,
-
-    1590
-
-  );
-
-  ctx.fillStyle = "#71846b";
-
-  ctx.font = "600 22px 'Quicksand', sans-serif";
-
-  ctx.fillText("17.11.2026", STRIP_W / 2, 1635);
+  return imageCache.get(src);
 
 }
 
-function loadPhotoImages() {
+async function waitForDesignImages(design){
 
-  return Promise.all(photos.map(src => {
+  const sources=design.elements.filter(e=>e.type==="image").map(e=>e.src);
 
-    return new Promise((resolve, reject) => {
+  await Promise.all(sources.map(src=>new Promise(resolve=>{
 
-      const img = new Image();
+    const img=getImage(src);
 
-      img.onload = () => resolve(img);
+    if(img.complete)return resolve();
 
-      img.onerror = reject;
+    img.onload=resolve;img.onerror=resolve;
 
-      img.src = src;
-
-    });
-
-  }));
+  })));
 
 }
 
-/* =====================================
+function drawElements(ctx,design){
 
-   STATIC PNG
+  design.elements.forEach(el=>{
 
-===================================== */
+    ctx.save();
 
-async function makeStaticStrip(images) {
+    ctx.globalAlpha=(el.opacity===undefined?100:el.opacity)/100;
 
-  const canvas = document.createElement("canvas");
+    ctx.translate(el.x,el.y);
 
-  canvas.width = STRIP_W;
+    ctx.rotate((el.rotation||0)*Math.PI/180);
 
-  canvas.height = STRIP_H;
+    if(el.type==="text"){
 
-  await document.fonts.ready;
+      ctx.fillStyle=el.color||"#71846b";
 
-  drawStrip(canvas.getContext("2d"), images, 0);
+      ctx.textAlign=el.align||"center";
 
-  return new Promise((resolve, reject) => {
+      ctx.textBaseline="middle";
 
-    canvas.toBlob(blob => {
+      ctx.font=`600 ${el.size||40}px "${el.font||"Quicksand"}", sans-serif`;
 
-      if (!blob) {
+      ctx.fillText(el.text||"",0,0);
 
-        reject(new Error("Could not create PNG."));
+    }else if(el.type==="image"){
 
-        return;
+      const img=getImage(el.src);
+
+      if(img.complete&&img.naturalWidth){
+
+        ctx.drawImage(img,-(el.w||180)/2,-(el.h||180)/2,el.w||180,el.h||180);
 
       }
 
-      resolve(blob);
+    }
 
-    }, "image/png");
+    ctx.restore();
 
   });
 
 }
 
-/* =====================================
+function drawStrip(ctx,images,design,animationTime=0){
 
-   LIVE VIDEO PHOTOSTRIP
+  drawPolkadotBackground(ctx,design);
 
-===================================== */
+  const slots=design.slots||ORIGINAL_TEMPLATE.slots;
 
-async function makeLiveStrip(images) {
+  slots.forEach((slot,i)=>{
 
-  const canvas = document.createElement("canvas");
+    const img=images[i];if(!img)return;
 
-  canvas.width = STRIP_W;
+    const phase=animationTime*.0015+i*1.4;
 
-  canvas.height = STRIP_H;
+    const zoom=1+(Math.sin(phase)+1)*.018;
 
-  const ctx = canvas.getContext("2d");
+    ctx.save();
 
-  await document.fonts.ready;
+    ctx.fillStyle="#fffaf5";
 
-  if (!canvas.captureStream || !window.MediaRecorder) {
+    ctx.shadowColor="rgba(100,70,75,.16)";
 
-    throw new Error("Video recording is not supported.");
+    ctx.shadowBlur=15;
+
+    ctx.fillRect(slot.x-9,slot.y-9,slot.w+18,slot.h+18);
+
+    ctx.shadowBlur=0;
+
+    drawPhotoCover(ctx,img,slot.x,slot.y,slot.w,slot.h,zoom);
+
+    ctx.restore();
+
+  });
+
+  drawElements(ctx,design);
+
+}
+
+function renderEditor(){
+
+  const canvas=$("editorCanvas");
+
+  const ctx=canvas.getContext("2d");
+
+  const placeholders=[];
+
+  for(let i=0;i<3;i++){
+
+    const c=document.createElement("canvas");c.width=600;c.height=370;
+
+    const cctx=c.getContext("2d");
+
+    const grad=cctx.createLinearGradient(0,0,600,370);
+
+    grad.addColorStop(0,"#e4cbd1");grad.addColorStop(1,"#b7c6ad");
+
+    cctx.fillStyle=grad;cctx.fillRect(0,0,600,370);
+
+    cctx.fillStyle="#fffaf5";cctx.font="30px Quicksand";cctx.textAlign="center";
+
+    cctx.fillText("PHOTO "+(i+1),300,190);
+
+    placeholders.push(c);
 
   }
 
-  const stream = canvas.captureStream(24);
+  drawStrip(ctx,placeholders,workingTemplate,0);
 
-  let mimeType = "";
+  if(selected){
 
-  const types = [
+    const el=getSelected();
 
-    "video/mp4",
+    if(el){
 
-    "video/webm;codecs=vp9",
+      ctx.save();ctx.strokeStyle="#71846b";ctx.lineWidth=5;ctx.setLineDash([12,8]);
 
-    "video/webm;codecs=vp8",
+      if(selected.kind==="slot"){
 
-    "video/webm"
+        ctx.strokeRect(el.x,el.y,el.w,el.h);
 
-  ];
+      }else if(el.type==="image"){
 
-  for (const type of types) {
+        ctx.translate(el.x,el.y);ctx.rotate((el.rotation||0)*Math.PI/180);
 
-    if (MediaRecorder.isTypeSupported(type)) {
+        ctx.strokeRect(-el.w/2,-el.h/2,el.w,el.h);
 
-      mimeType = type;
+      }else{
 
-      break;
+        ctx.translate(el.x,el.y);ctx.rotate((el.rotation||0)*Math.PI/180);
+
+        ctx.strokeRect(-220,-el.size,440,el.size*2);
+
+      }
+
+      ctx.restore();
 
     }
 
   }
 
-  const recorder = mimeType
+}
 
-    ? new MediaRecorder(stream, { mimeType })
+/* Tap or drag elements / photo frames */
 
-    : new MediaRecorder(stream);
+const editorCanvas=$("editorCanvas");
 
-  const chunks = [];
+let dragging=false,dragStart=null;
 
-  recorder.ondataavailable = event => {
+function canvasPoint(event){
 
-    if (event.data && event.data.size > 0) {
+  const rect=editorCanvas.getBoundingClientRect();
 
-      chunks.push(event.data);
+  return {x:(event.clientX-rect.left)*STRIP_W/rect.width,y:(event.clientY-rect.top)*STRIP_H/rect.height};
+
+}
+
+function hitTest(point){
+
+  for(let i=workingTemplate.elements.length-1;i>=0;i--){
+
+    const el=workingTemplate.elements[i];
+
+    const w=el.type==="image"?(el.w||180):Math.max(100,(el.size||40)*5);
+
+    const h=el.type==="image"?(el.h||180):Math.max(80,(el.size||40)*2);
+
+    if(point.x>=el.x-w/2-15&&point.x<=el.x+w/2+15&&point.y>=el.y-h/2-15&&point.y<=el.y+h/2+15){
+
+      return {kind:"element",id:el.id};
 
     }
 
-  };
+  }
 
-  const finished = new Promise((resolve, reject) => {
+  for(let i=workingTemplate.slots.length-1;i>=0;i--){
 
-    recorder.onerror = () => {
+    const s=workingTemplate.slots[i];
 
-      reject(new Error("Video recording failed."));
+    if(point.x>=s.x&&point.x<=s.x+s.w&&point.y>=s.y&&point.y<=s.y+s.h)return {kind:"slot",index:i};
 
-    };
+  }
 
-    recorder.onstop = () => {
+  return null;
 
-      stream.getTracks().forEach(track => track.stop());
+}
 
-      resolve(new Blob(chunks, {
+editorCanvas.addEventListener("pointerdown",e=>{
 
-        type: recorder.mimeType || mimeType || "video/webm"
+  const p=canvasPoint(e);
 
-      }));
+  selected=hitTest(p);
+
+  if(selected){
+
+    const el=getSelected();
+
+    dragging=true;dragStart={x:p.x,y:p.y,elX:el.x,elY:el.y};
+
+    editorCanvas.setPointerCapture(e.pointerId);
+
+  }
+
+  renderEditor();refreshControls();
+
+});
+
+editorCanvas.addEventListener("pointermove",e=>{
+
+  if(!dragging||!selected)return;
+
+  const p=canvasPoint(e),el=getSelected();
+
+  el.x=Math.round(dragStart.elX+p.x-dragStart.x);
+
+  el.y=Math.round(dragStart.elY+p.y-dragStart.y);
+
+  $("elementX").value=el.x;$("elementY").value=el.y;
+
+  renderEditor();
+
+});
+
+editorCanvas.addEventListener("pointerup",()=>{dragging=false;dragStart=null});
+
+editorCanvas.addEventListener("pointercancel",()=>{dragging=false;dragStart=null});
+
+/* =========================================
+
+   CAMERA
+
+========================================= */
+
+async function openCamera(){
+
+  sessionTemplate=sessionTemplate||clone(defaultTemplate);
+
+  showPage("cameraPage");
+
+  try{
+
+    cameraStream=await navigator.mediaDevices.getUserMedia({
+
+      video:{facingMode:"user",width:{ideal:1280},height:{ideal:960}},
+
+      audio:false
+
+    });
+
+    $("cameraVideo").srcObject=cameraStream;
+
+    $("cameraStatus").textContent="Camera ready. Press START.";
+
+  }catch(error){
+
+    $("cameraStatus").textContent="Camera access failed. Please allow camera access.";
+
+  }
+
+}
+
+function stopCamera(){
+
+  if(cameraStream){cameraStream.getTracks().forEach(t=>t.stop());cameraStream=null}
+
+  $("cameraVideo").srcObject=null;
+
+}
+
+function goHome(){stopCamera();showPage("home")}
+
+async function startSession(){
+
+  if(busy)return;
+
+  if(!cameraStream){await openCamera();if(!cameraStream)return}
+
+  busy=true;photos=[];
+
+  $("photoCount").textContent="0";
+
+  $("startBtn").disabled=true;$("startBtn").textContent="PLEASE WAIT";
+
+  $("singleQR").innerHTML="";$("uploadStatus").textContent="";
+
+  for(let i=0;i<3;i++){
+
+    $("cameraStatus").textContent="Get ready for photo "+(i+1);
+
+    for(let n=5;n>=1;n--){
+
+      $("countdown").style.display="flex";$("countdown").textContent=n;
+
+      await sleep(1000);
+
+    }
+
+    $("countdown").style.display="none";
+
+    captureStill();$("photoCount").textContent=photos.length;
+
+    await sleep(1200);
+
+  }
+
+  $("cameraStatus").textContent="All three photos captured!";
+
+  stopCamera();busy=false;
+
+  $("startBtn").disabled=false;$("startBtn").textContent="START AGAIN";
+
+  await showResult();
+
+}
+
+function captureStill(){
+
+  const video=$("cameraVideo");
+
+  const canvas=document.createElement("canvas");
+
+  const width=video.videoWidth||1280,height=video.videoHeight||960;
+
+  canvas.width=width;canvas.height=height;
+
+  const ctx=canvas.getContext("2d");
+
+  ctx.translate(width,0);ctx.scale(-1,1);ctx.drawImage(video,0,0,width,height);
+
+  const flash=$("flash");flash.classList.remove("flash-now");void flash.offsetWidth;flash.classList.add("flash-now");
+
+  photos.push(canvas.toDataURL("image/jpeg",.92));
+
+}
+
+/* =========================================
+
+   STATIC AND LIVE STRIPS
+
+========================================= */
+
+function loadPhotoImages(){
+
+  return Promise.all(photos.map(src=>new Promise((resolve,reject)=>{
+
+    const img=new Image();img.onload=()=>resolve(img);img.onerror=reject;img.src=src;
+
+  })));
+
+}
+
+async function makeStaticStrip(images,design){
+
+  await document.fonts.ready;await waitForDesignImages(design);
+
+  const canvas=document.createElement("canvas");canvas.width=STRIP_W;canvas.height=STRIP_H;
+
+  drawStrip(canvas.getContext("2d"),images,design,0);
+
+  return new Promise((resolve,reject)=>canvas.toBlob(blob=>blob?resolve(blob):reject(new Error("Could not create PNG.")),"image/png"));
+
+}
+
+async function makeLiveStrip(images,design){
+
+  const canvas=document.createElement("canvas");canvas.width=STRIP_W;canvas.height=STRIP_H;
+
+  const ctx=canvas.getContext("2d");
+
+  await document.fonts.ready;await waitForDesignImages(design);
+
+  if(!canvas.captureStream||!window.MediaRecorder)throw new Error("Video recording is not supported by this browser.");
+
+  const stream=canvas.captureStream(24);
+
+  let mimeType="";
+
+  const types=["video/mp4","video/webm;codecs=vp9","video/webm;codecs=vp8","video/webm"];
+
+  for(const t of types){if(MediaRecorder.isTypeSupported(t)){mimeType=t;break}}
+
+  const recorder=mimeType?new MediaRecorder(stream,{mimeType}):new MediaRecorder(stream);
+
+  const chunks=[];
+
+  recorder.ondataavailable=e=>{if(e.data&&e.data.size)chunks.push(e.data)};
+
+  const finished=new Promise((resolve,reject)=>{
+
+    recorder.onerror=()=>reject(new Error("Video recording failed."));
+
+    recorder.onstop=()=>{
+
+      stream.getTracks().forEach(t=>t.stop());
+
+      resolve(new Blob(chunks,{type:recorder.mimeType||mimeType||"video/webm"}));
 
     };
 
   });
 
-  const start = performance.now();
+  const start=performance.now();let running=true;
 
-  let running = true;
+  function animate(now){if(!running)return;drawStrip(ctx,images,design,now-start);requestAnimationFrame(animate)}
 
-  function animate(now) {
+  drawStrip(ctx,images,design,0);requestAnimationFrame(animate);
 
-    if (!running) return;
-
-    drawStrip(ctx, images, now - start);
-
-    requestAnimationFrame(animate);
-
-  }
-
-  drawStrip(ctx, images, 0);
-
-  requestAnimationFrame(animate);
-
-  recorder.start(200);
-
-  await sleep(6000);
-
-  running = false;
-
-  recorder.stop();
+  recorder.start(200);await sleep(6000);running=false;recorder.stop();
 
   return finished;
 
 }
 
-/* =====================================
-
-   SHOW RESULT
-
-===================================== */
-
-async function showResult() {
+async function showResult(){
 
   showPage("resultPage");
 
-  $("uploadStatus").textContent = "";
+  $("uploadStatus").textContent="";$("singleQR").innerHTML="";
 
-  $("singleQR").innerHTML = "";
+  $("uploadBtn").disabled=true;$("uploadBtn").textContent="PREPARING PHOTOSTRIP";
 
-  $("uploadBtn").disabled = true;
+  try{
 
-  $("uploadBtn").textContent = "PREPARING PHOTOSTRIP";
+    const images=await loadPhotoImages();
 
-  try {
+    const design=clone(sessionTemplate||defaultTemplate);
 
-    const images = await loadPhotoImages();
+    staticBlob=await makeStaticStrip(images,design);
 
-    staticBlob = await makeStaticStrip(images);
+    if(staticURL)URL.revokeObjectURL(staticURL);
 
-    if (staticURL) URL.revokeObjectURL(staticURL);
+    staticURL=URL.createObjectURL(staticBlob);$("stripPreview").src=staticURL;
 
-    staticURL = URL.createObjectURL(staticBlob);
+    liveBlob=await makeLiveStrip(images,design);
 
-    $("stripPreview").src = staticURL;
+    if(liveURL)URL.revokeObjectURL(liveURL);
 
-    liveBlob = await makeLiveStrip(images);
+    liveURL=URL.createObjectURL(liveBlob);$("livePreview").src=liveURL;
 
-    if (liveURL) URL.revokeObjectURL(liveURL);
+    $("uploadBtn").disabled=false;$("uploadBtn").textContent="GENERATE MY QR CODE";
 
-    liveURL = URL.createObjectURL(liveBlob);
-
-    $("livePreview").src = liveURL;
-
-    $("uploadBtn").disabled = false;
-
-    $("uploadBtn").textContent = "GENERATE MY QR CODE";
-
-  } catch (error) {
+  }catch(error){
 
     console.error(error);
 
-    $("uploadStatus").textContent =
+    $("uploadStatus").textContent="Video creation failed: "+(error.message||"");
 
-      "Video creation failed. Please try a supported browser. " +
-
-      (error.message || "");
-
-    $("uploadBtn").disabled = false;
-
-    $("uploadBtn").textContent = "TRY AGAIN";
+    $("uploadBtn").disabled=false;$("uploadBtn").textContent="TRY AGAIN";
 
   }
 
 }
 
-/* =====================================
+/* =========================================
 
-   DOWNLOAD FILES
+   DOWNLOADS AND RETAKE
 
-===================================== */
+========================================= */
 
-function downloadBlob(blob, filename) {
+function downloadBlob(blob,filename){
 
-  if (!blob) return;
+  if(!blob)return;
 
-  const url = URL.createObjectURL(blob);
+  const url=URL.createObjectURL(blob),link=document.createElement("a");
 
-  const link = document.createElement("a");
+  link.href=url;link.download=filename;document.body.appendChild(link);link.click();link.remove();
 
-  link.href = url;
-
-  link.download = filename;
-
-  document.body.appendChild(link);
-
-  link.click();
-
-  link.remove();
-
-  setTimeout(() => URL.revokeObjectURL(url), 3000);
+  setTimeout(()=>URL.revokeObjectURL(url),3000);
 
 }
 
-function downloadStatic() {
+function downloadStatic(){downloadBlob(staticBlob,"PERSIDA12-Photostrip.png")}
 
-  downloadBlob(staticBlob, "PERSIDA12-Photostrip.png");
+function downloadLive(){
 
-}
+  if(!liveBlob)return;
 
-function downloadLive() {
+  const ext=liveBlob.type.includes("mp4")?"mp4":"webm";
 
-  if (!liveBlob) return;
-
-  const extension = liveBlob.type.includes("mp4")
-
-    ? "mp4"
-
-    : "webm";
-
-  downloadBlob(
-
-    liveBlob,
-
-    "PERSIDA12-Live-Photostrip." + extension
-
-  );
+  downloadBlob(liveBlob,"PERSIDA12-Live-Photostrip."+ext);
 
 }
 
-/* =====================================
+function retake(){
 
-   RETAKE
+  photos=[];staticBlob=null;liveBlob=null;
 
-===================================== */
+  $("photoCount").textContent="0";$("singleQR").innerHTML="";
 
-function retake() {
-
-  photos.length = 0;
-
-  staticBlob = null;
-
-  liveBlob = null;
-
-  $("photoCount").textContent = "0";
-
-  $("singleQR").innerHTML = "";
-
-  $("uploadStatus").textContent = "";
-
-  openCamera();
+  $("uploadStatus").textContent="";openCamera();
 
 }
 
-/* =====================================
+/* =========================================
 
-   UPLOAD HELPERS
+   UPLOAD FIVE FILES + ONE QR
 
-===================================== */
+========================================= */
 
-function blobToDataURL(blob) {
+function blobToDataURL(blob){
 
-  return new Promise((resolve, reject) => {
+  return new Promise((resolve,reject)=>{
 
-    const reader = new FileReader();
+    const reader=new FileReader();
 
-    reader.onloadend = () => resolve(reader.result);
-
-    reader.onerror = reject;
+    reader.onloadend=()=>resolve(reader.result);reader.onerror=reject;
 
     reader.readAsDataURL(blob);
 
@@ -1492,165 +1608,67 @@ function blobToDataURL(blob) {
 
 }
 
-/* =====================================
+async function uploadSession(){
 
-   UPLOAD ALL FIVE FILES
+  if(!SCRIPT_URL.startsWith("https://")||SCRIPT_URL.includes("PASTE_")){
 
-   ONE QR CODE FOR EACH SESSION
-
-===================================== */
-
-async function uploadSession() {
-
-  if (!SCRIPT_URL.startsWith("https://") ||
-
-      SCRIPT_URL.includes("PASTE_")) {
-
-    $("uploadStatus").textContent =
-
-      "Please add your Apps Script URL first.";
-
-    return;
+    $("uploadStatus").textContent="Please add your Apps Script URL first.";return;
 
   }
 
-  if (!staticBlob || !liveBlob || photos.length !== 3) {
+  if(!staticBlob||!liveBlob||photos.length!==3){
 
-    $("uploadStatus").textContent =
-
-      "Your photos and photostrips are not ready.";
-
-    return;
+    $("uploadStatus").textContent="Your photos and photostrips are not ready.";return;
 
   }
 
-  $("uploadBtn").disabled = true;
+  $("uploadBtn").disabled=true;$("loading").classList.add("show");
 
-  $("loading").classList.add("show");
+  $("uploadStatus").textContent="";$("singleQR").innerHTML="";
 
-  $("uploadStatus").textContent = "";
+  try{
 
-  $("singleQR").innerHTML = "";
+    const files=[];
 
-  try {
+    for(let i=0;i<photos.length;i++){
 
-    const files = [];
-
-    // Original photos
-
-    for (let i = 0; i < photos.length; i++) {
-
-      files.push({
-
-        name: "PERSIDA12-Photo-" + (i + 1) + ".jpg",
-
-        mimeType: "image/jpeg",
-
-        data: photos[i]
-
-      });
+      files.push({name:"PERSIDA12-Photo-"+(i+1)+".jpg",mimeType:"image/jpeg",data:photos[i]});
 
     }
 
-    // Static photostrip
+    files.push({name:"PERSIDA12-Photostrip.png",mimeType:"image/png",data:await blobToDataURL(staticBlob)});
 
-    files.push({
+    const ext=liveBlob.type.includes("mp4")?"mp4":"webm";
 
-      name: "PERSIDA12-Photostrip.png",
+    files.push({name:"PERSIDA12-Live-Photostrip."+ext,mimeType:liveBlob.type||"video/webm",data:await blobToDataURL(liveBlob)});
 
-      mimeType: "image/png",
+    const response=await fetch(SCRIPT_URL,{
 
-      data: await blobToDataURL(staticBlob)
+      method:"POST",headers:{"Content-Type":"text/plain;charset=utf-8"},
 
-    });
-
-    // Live photostrip
-
-    const extension = liveBlob.type.includes("mp4")
-
-      ? "mp4"
-
-      : "webm";
-
-    files.push({
-
-      name: "PERSIDA12-Live-Photostrip." + extension,
-
-      mimeType: liveBlob.type || "video/webm",
-
-      data: await blobToDataURL(liveBlob)
+      body:JSON.stringify({action:"uploadBatch",sessionId:"PERSIDA12-"+Date.now(),files})
 
     });
 
-    const response = await fetch(SCRIPT_URL, {
+    if(!response.ok)throw new Error("Server returned an upload error.");
 
-      method: "POST",
+    const result=await response.json();
 
-      headers: {
+    if(!result.ok||!result.folderUrl)throw new Error(result.error||"Upload failed.");
 
-        "Content-Type": "text/plain;charset=utf-8"
+    new QRCode($("singleQR"),{text:result.folderUrl,width:200,height:200,correctLevel:QRCode.CorrectLevel.M});
 
-      },
+    $("uploadStatus").textContent="All five files are ready! Scan this QR code to access your collection.";
 
-      body: JSON.stringify({
+  }catch(error){
 
-        action: "uploadBatch",
+    console.error(error);$("uploadStatus").textContent="Upload failed: "+(error.message||"");
 
-        sessionId: "PERSIDA12-" + Date.now(),
+  }finally{
 
-        files: files
+    $("loading").classList.remove("show");$("uploadBtn").disabled=false;
 
-      })
-
-    });
-
-    if (!response.ok) {
-
-      throw new Error("Server returned an upload error.");
-
-    }
-
-    const result = await response.json();
-
-    if (!result.ok || !result.folderUrl) {
-
-      throw new Error(result.error || "Upload failed.");
-
-    }
-
-    // Generate only ONE QR code for the session folder
-
-    new QRCode($("singleQR"), {
-
-      text: result.folderUrl,
-
-      width: 200,
-
-      height: 200,
-
-      correctLevel: QRCode.CorrectLevel.M
-
-    });
-
-    $("uploadStatus").textContent =
-
-      "All five files are ready! Scan this QR code to access your collection.";
-
-  } catch (error) {
-
-    console.error(error);
-
-    $("uploadStatus").textContent =
-
-      "Upload failed: " + (error.message || "");
-
-  } finally {
-
-    $("loading").classList.remove("show");
-
-    $("uploadBtn").disabled = false;
-
-    $("uploadBtn").textContent = "GENERATE MY QR CODE";
+    $("uploadBtn").textContent="GENERATE MY QR CODE";
 
   }
 
@@ -1660,4 +1678,4 @@ async function uploadSession() {
 
 </body>
 
-</html></html></html></html></html>
+</html></html></html></html></html></html>
