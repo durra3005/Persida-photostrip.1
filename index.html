@@ -1,1439 +1,502 @@
 
-
 <!DOCTYPE html>
-
 <html lang="en">
-
 <head>
-
 <meta charset="UTF-8">
-
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>PERSIDA 12 | Appreciation Night</title>
-
-<link rel="preconnect" href="https://fonts.googleapis.com">
-
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:wght@500;600;700&family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+<title>My Photo Booth</title>
 
 <style>
-
-:root {
-
-  --pink: #f9e8eb;
-
-  --green: #789b16;
-
-  --dark-green: #526b13;
-
-  --cream: #fff9f2;
-
-}
-
 * {
-
   box-sizing: border-box;
-
+  margin: 0;
+  padding: 0;
 }
 
 body {
+  font-family: Arial, sans-serif;
+  background: #f8f2ec;
+  color: #333;
+  text-align: center;
+}
 
-  margin: 0;
+header {
+  padding: 25px 15px;
+}
 
-  font-family: 'Poppins', sans-serif;
+header h1 {
+  font-family: Georgia, serif;
+  font-size: 32px;
+  margin-bottom: 8px;
+}
 
-  background: var(--pink);
+header p {
+  font-size: 13px;
+  color: #777;
+}
 
-  color: var(--dark-green);
+.container {
+  max-width: 480px;
+  margin: auto;
+  padding: 15px;
+}
 
+.screen {
+  display: none;
+}
+
+.screen.active {
+  display: block;
+}
+
+.card {
+  background: white;
+  padding: 18px;
+  border-radius: 20px;
+  box-shadow: 0 5px 20px #00000010;
+  margin-bottom: 20px;
 }
 
 button {
-
-  font-family: inherit;
-
-  cursor: pointer;
-
   border: none;
-
+  background: #405d46;
+  color: white;
+  padding: 13px 22px;
+  border-radius: 30px;
+  font-size: 14px;
+  cursor: pointer;
+  margin: 5px;
 }
 
-.page {
-
-  display: none;
-
-  min-height: 100vh;
-
+button.secondary {
+  background: #e9e2d9;
+  color: #333;
 }
 
-.page.active {
-
-  display: flex;
-
+button:disabled {
+  opacity: .5;
 }
 
-/* =========================
-
-   PAGE 1 - HOMEPAGE
-
-========================= */
-
-#homePage {
-
-  justify-content: center;
-
-  align-items: flex-start;
-
-  background: #fceef0;
-
-  min-height: 100vh;
-
-  padding: 0;
-
-}
-
-.home-design {
-
-  position: relative;
-
+video {
   width: 100%;
-
-  max-width: 520px;
-
-  margin: 0 auto;
-
-  line-height: 0;
-
-}
-
-.home-design img {
-
-  width: 100%;
-
-  height: auto;
-
-  display: block;
-
-}
-
-.open-camera-area {
-
-  position: absolute;
-
-  left: 27%;
-
-  top: 60.2%;
-
-  width: 46%;
-
-  height: 6.5%;
-
-  background: transparent;
-
-  border-radius: 60px;
-
-  z-index: 2;
-
-}
-
-.open-camera-area:focus-visible {
-
-  outline: 3px solid white;
-
-}
-
-/* =========================
-
-   PAGE 2 - CAMERA
-
-========================= */
-
-#cameraPage {
-
-  display: none;
-
-  justify-content: center;
-
-  align-items: center;
-
-  padding: 15px;
-
-  background: #fceef0;
-
-}
-
-#cameraPage.active {
-
-  display: flex;
-
-}
-
-.camera-design {
-
-  position: relative;
-
-  width: 100%;
-
-  max-width: 430px;
-
-  aspect-ratio: 706 / 1536;
-
-  overflow: hidden;
-
-  background-image: url("assets/camera-bg.jpg");
-
-  background-size: 100% 100%;
-
-  background-position: center;
-
-  background-repeat: no-repeat;
-
-  border-radius: 20px;
-
-}
-
-.camera-window {
-
-  position: absolute;
-
-  left: 8%;
-
-  top: 44.5%;
-
-  width: 84%;
-
-  height: 22%;
-
-  overflow: hidden;
-
-  background: #789b16;
-
-  border: 7px solid #f6c9d1;
-
-  border-radius: 10px;
-
-  display: flex;
-
-  align-items: center;
-
-  justify-content: center;
-
-}
-
-#video {
-
-  width: 100%;
-
-  height: 100%;
-
-  object-fit: cover;
-
+  border-radius: 15px;
+  background: #222;
   transform: scaleX(-1);
+}
 
-  display: none;
-
+.camera-wrap {
+  position: relative;
 }
 
 #countdown {
-
   position: absolute;
-
-  z-index: 3;
-
-  color: white;
-
-  font-family: 'Playfair Display', serif;
-
-  font-size: clamp(55px, 15vw, 100px);
-
-  font-weight: 700;
-
-  text-shadow: 0 3px 12px #455b0b;
-
+  inset: 0;
   display: none;
-
-}
-
-.camera-message {
-
-  position: absolute;
-
-  color: white;
-
-  text-align: center;
-
-  font-size: 13px;
-
-  padding: 10px;
-
-}
-
-.camera-controls {
-
-  position: absolute;
-
-  top: 69%;
-
-  width: 100%;
-
-  display: flex;
-
+  align-items: center;
   justify-content: center;
-
-  gap: 10px;
-
-  flex-wrap: wrap;
-
-  padding: 10px;
-
-}
-
-.green-button {
-
+  font-size: 90px;
   color: white;
-
-  background: linear-gradient(#a6c443, #668510);
-
-  padding: 13px 25px;
-
-  border-radius: 40px;
-
-  font-size: 14px;
-
-  box-shadow: 0 4px 8px #596b2940;
-
+  font-weight: bold;
+  text-shadow: 0 3px 10px black;
 }
 
-.green-button:disabled {
-
-  opacity: 0.5;
-
-  cursor: not-allowed;
-
-}
-
-.camera-status {
-
+#flash {
   position: absolute;
-
-  top: 76%;
-
-  width: 100%;
-
-  text-align: center;
-
-  color: #6c811b;
-
-  font-size: 12px;
-
-  padding: 5px;
-
-}
-
-/* =========================
-
-   PAGE 3 - PREVIEW
-
-========================= */
-
-#resultPage {
-
-  display: none;
-
-  flex-direction: column;
-
-  align-items: center;
-
-  padding: 25px 12px 40px;
-
-  background: #f9edf0;
-
-}
-
-#resultPage.active {
-
-  display: flex;
-
-}
-
-.result-heading {
-
-  text-align: center;
-
-  margin: 10px 0 20px;
-
-}
-
-.result-heading h2 {
-
-  font-family: 'Great Vibes', cursive;
-
-  font-size: 42px;
-
-  font-weight: normal;
-
-  margin: 0;
-
-  color: #829b24;
-
-}
-
-.result-heading p {
-
-  font-size: 12px;
-
-  margin: 4px;
-
-}
-
-.strip-design {
-
-  position: relative;
-
-  width: min(100%, 430px);
-
-  aspect-ratio: 864 / 1536;
-
-  background-image: url("assets/photostrip-bg.jpg");
-
-  background-size: 100% 100%;
-
-  background-repeat: no-repeat;
-
-  overflow: hidden;
-
-}
-
-/* Photo positions based on the supplied photostrip design */
-
-.photo-slot {
-
-  position: absolute;
-
-  overflow: hidden;
-
-  background: #d9edfa;
-
-  border: 4px solid #e7f2b6;
-
-  border-radius: 10px;
-
-}
-
-.photo-slot img {
-
-  width: 100%;
-
-  height: 100%;
-
-  display: block;
-
-  object-fit: cover;
-
-}
-
-/* Left photostrip */
-
-.left-one {
-
-  left: 15.2%;
-
-  top: 29.5%;
-
-  width: 30.2%;
-
-  height: 11.5%;
-
-  transform: rotate(-2deg);
-
-}
-
-.left-two {
-
-  left: 14.5%;
-
-  top: 43.5%;
-
-  width: 30.5%;
-
-  height: 12%;
-
-  transform: rotate(-2deg);
-
-}
-
-.left-three {
-
-  left: 14%;
-
-  top: 58.5%;
-
-  width: 31%;
-
-  height: 12%;
-
-  transform: rotate(-2deg);
-
-}
-
-/* Right photostrip */
-
-.right-one {
-
-  left: 59.5%;
-
-  top: 31%;
-
-  width: 31%;
-
-  height: 11.5%;
-
-  transform: rotate(5deg);
-
-}
-
-.right-two {
-
-  left: 59%;
-
-  top: 45.5%;
-
-  width: 31%;
-
-  height: 12%;
-
-  transform: rotate(5deg);
-
-}
-
-.right-three {
-
-  left: 58.5%;
-
-  top: 60%;
-
-  width: 31%;
-
-  height: 12%;
-
-  transform: rotate(5deg);
-
-}
-
-.result-buttons {
-
-  width: 100%;
-
-  max-width: 430px;
-
-  display: flex;
-
-  flex-direction: column;
-
-  gap: 10px;
-
-  margin-top: 20px;
-
-  align-items: center;
-
-}
-
-.result-buttons button {
-
-  width: 90%;
-
-  max-width: 320px;
-
-}
-
-.qr-area {
-
-  display: none;
-
-  text-align: center;
-
+  inset: 0;
   background: white;
-
-  padding: 20px;
-
-  border-radius: 18px;
-
-  margin-top: 20px;
-
-  width: min(90%, 350px);
-
-}
-
-.qr-area img {
-
-  width: 180px;
-
-  height: 180px;
-
-  object-fit: contain;
-
-}
-
-.qr-area p {
-
-  font-size: 12px;
-
-  line-height: 1.6;
-
-}
-
-/* =========================
-
-   PAGE 4 - CUSTOMER GALLERY
-
-========================= */
-
-#galleryPage {
-
-  display: none;
-
-  flex-direction: column;
-
-  align-items: center;
-
-  padding: 30px 15px;
-
-  background: #fff3f4;
-
-}
-
-#galleryPage.active {
-
-  display: flex;
-
-}
-
-.gallery-title {
-
-  text-align: center;
-
-}
-
-.gallery-title h1 {
-
-  font-family: 'Great Vibes', cursive;
-
-  color: #829b24;
-
-  font-size: 42px;
-
-  font-weight: normal;
-
-}
-
-.gallery-tabs {
-
-  display: flex;
-
-  gap: 10px;
-
-  margin: 15px 0;
-
-}
-
-.gallery-content {
-
-  width: 100%;
-
-  max-width: 430px;
-
-  text-align: center;
-
-}
-
-.gallery-content img {
-
-  max-width: 100%;
-
-}
-
-.motion-list video {
-
-  width: 100%;
-
+  opacity: 0;
+  pointer-events: none;
   border-radius: 15px;
-
-  margin: 10px 0;
-
 }
 
-.hidden {
-
-  display: none !important;
-
+.controls {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 15px;
 }
 
-/* Desktop */
-
-@media (min-width: 700px) {
-
-  #homePage {
-
-    align-items: flex-start;
-
-  }
-
-  .home-design {
-
-    max-width: 480px;
-
-  }
-
-  #cameraPage {
-
-    min-height: 100vh;
-
-  }
-
+.photo-count {
+  margin: 15px;
+  font-size: 14px;
+  color: #777;
 }
 
+.strip {
+  width: 220px;
+  margin: 20px auto;
+  padding: 12px;
+  background: white;
+  box-shadow: 0 5px 20px #0002;
+}
+
+.strip img {
+  width: 100%;
+  display: block;
+  margin-bottom: 8px;
+}
+
+.strip-footer {
+  font-family: Georgia, serif;
+  font-size: 13px;
+  padding: 12px 0 5px;
+}
+
+.theme-options {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin: 15px;
+}
+
+.theme {
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  border: 2px solid #aaa;
+  cursor: pointer;
+}
+
+#message {
+  font-size: 13px;
+  color: #777;
+  margin: 10px;
+}
+
+footer {
+  padding: 25px;
+  color: #999;
+  font-size: 11px;
+}
 </style>
-
 </head>
 
 <body>
 
-<!-- =========================
+<header>
+  <h1>Photo Booth</h1>
+  <p>Capture your little moments ♡</p>
+</header>
 
-     PAGE 1: HOMEPAGE
+<div class="container">
 
-========================= -->
+  <!-- HOME -->
+  <section id="home" class="screen active">
+    <div class="card">
+      <h2>Let's take some pictures!</h2>
+      <p style="margin:15px 0;color:#888;font-size:14px">
+        Get ready, smile and make memories.
+      </p>
+      <button onclick="startCamera()">START PHOTOBOOTH ♡</button>
+    </div>
+  </section>
 
-<section id="homePage" class="page active">
+  <!-- CAMERA -->
+  <section id="camera" class="screen">
+    <div class="card">
 
-  <div class="home-design">
+      <div class="camera-wrap">
+        <video id="video" autoplay playsinline muted></video>
+        <div id="countdown"></div>
+        <div id="flash"></div>
+      </div>
 
-    <img src="assets/home.jpg" alt="PERSIDA 12 Appreciation Night">
+      <div class="photo-count" id="photoCount">
+        PHOTO 1 OF 3
+      </div>
 
-    <button
+      <p id="message">Ready for your first photo?</p>
 
-      class="open-camera-area"
-
-      onclick="openCamera()"
-
-      aria-label="Open Camera">
-
-    </button>
-
-  </div>
-
-</section>
-
-<!-- =========================
-
-     PAGE 2: CAMERA
-
-========================= -->
-
-<section id="cameraPage" class="page">
-
-  <div class="camera-design">
-
-    <div class="camera-window">
-
-      <video id="video" autoplay playsinline muted></video>
-
-      <div id="countdown">5</div>
-
-      <div class="camera-message" id="cameraMessage">
-
-        Press Start Camera to begin
-
+      <div class="controls">
+        <button onclick="flipCamera()" class="secondary">
+          FLIP CAMERA
+        </button>
+        <button id="captureBtn" onclick="takePhoto()">
+          TAKE PHOTO
+        </button>
       </div>
 
     </div>
+  </section>
 
-    <div class="camera-controls">
+  <!-- PREVIEW -->
+  <section id="preview" class="screen">
+    <div class="card">
+      <h2>Your memories ♡</h2>
+      <p style="color:#888;font-size:13px;margin-top:8px">
+        Choose your photostrip background.
+      </p>
 
-      <button class="green-button" id="startButton" onclick="startCamera()">
+      <div class="theme-options">
+        <div class="theme" style="background:#ffffff"
+          onclick="changeTheme('#ffffff')"></div>
+        <div class="theme" style="background:#f5dfe5"
+          onclick="changeTheme('#f5dfe5')"></div>
+        <div class="theme" style="background:#dce8d8"
+          onclick="changeTheme('#dce8d8')"></div>
+        <div class="theme" style="background:#eee3d2"
+          onclick="changeTheme('#eee3d2')"></div>
+      </div>
 
-        Start Camera
+      <div class="strip" id="strip">
+        <div id="stripPhotos"></div>
+        <div class="strip-footer">
+          PHOTO BOOTH ♡
+          <br>
+          <small id="date"></small>
+        </div>
+      </div>
 
-      </button>
-
-      <button class="green-button" id="captureButton"
-
-        onclick="startPhotoSession()" disabled>
-
-        Start Photo
-
-      </button>
-
-      <button class="green-button" onclick="backHome()">
-
-        Back
-
-      </button>
-
+      <button onclick="downloadStrip()">DOWNLOAD PHOTO</button>
+      <br>
+      <button class="secondary" onclick="retake()">RETAKE</button>
+      <button class="secondary" onclick="finish()">HOME</button>
     </div>
+  </section>
 
-    <div class="camera-status" id="cameraStatus">
+</div>
 
-      Three photos will be taken automatically
-
-    </div>
-
-  </div>
-
-</section>
-
-<!-- =========================
-
-     PAGE 3: PHOTO STRIP RESULT
-
-========================= -->
-
-<section id="resultPage" class="page">
-
-  <div class="result-heading">
-
-    <h2>Your PERSIDA Memories</h2>
-
-    <p>Appreciation Night with PERSIDA 12</p>
-
-  </div>
-
-  <div class="strip-design" id="stripDesign">
-
-    <!-- LEFT STRIP -->
-
-    <div class="photo-slot left-one">
-
-      <img id="photo1" alt="Photo 1">
-
-    </div>
-
-    <div class="photo-slot left-two">
-
-      <img id="photo2" alt="Photo 2">
-
-    </div>
-
-    <div class="photo-slot left-three">
-
-      <img id="photo3" alt="Photo 3">
-
-    </div>
-
-    <!-- RIGHT STRIP -->
-
-    <div class="photo-slot right-one">
-
-      <img id="photo4" alt="Photo 1">
-
-    </div>
-
-    <div class="photo-slot right-two">
-
-      <img id="photo5" alt="Photo 2">
-
-    </div>
-
-    <div class="photo-slot right-three">
-
-      <img id="photo6" alt="Photo 3">
-
-    </div>
-
-  </div>
-
-  <div class="result-buttons">
-
-    <button class="green-button" onclick="downloadStrip()">
-
-      Download Photo Strip
-
-    </button>
-
-    <button class="green-button" onclick="showQR()">
-
-      Generate My QR Code
-
-    </button>
-
-    <button class="green-button" onclick="backHome()">
-
-      Back to Homepage
-
-    </button>
-
-  </div>
-
-  <div class="qr-area" id="qrArea">
-
-    <h3>Your PERSIDA 12 QR</h3>
-
-    <img id="qrImage" alt="QR Code">
-
-    <p>
-
-      Scan this QR code to open your personal photo page.
-
-    </p>
-
-    <p id="qrNote"></p>
-
-  </div>
-
-</section>
-
-<!-- =========================
-
-     PAGE 4: CUSTOMER GALLERY
-
-========================= -->
-
-<section id="galleryPage" class="page">
-
-  <div class="gallery-title">
-
-    <h1>PERSIDA 12</h1>
-
-    <p>Appreciation Night Memories</p>
-
-  </div>
-
-  <div class="gallery-tabs">
-
-    <button class="green-button" onclick="showGalleryTab('photos')">
-
-      Photo Strip
-
-    </button>
-
-    <button class="green-button" onclick="showGalleryTab('motion')">
-
-      Motion Photos
-
-    </button>
-
-  </div>
-
-  <div class="gallery-content" id="galleryPhotos">
-
-    <h3>Your Photo Strip</h3>
-
-    <img id="galleryStrip" alt="Your photo strip">
-
-    <br><br>
-
-    <button class="green-button" onclick="downloadStrip()">
-
-      Download Photo Strip
-
-    </button>
-
-  </div>
-
-  <div class="gallery-content motion-list hidden" id="galleryMotion">
-
-    <h3>Your Motion Photos</h3>
-
-    <div id="motionVideos"></div>
-
-  </div>
-
-</section>
+<footer>
+  MADE WITH LOVE ♡
+</footer>
 
 <script>
+const video = document.getElementById("video");
+const countdown = document.getElementById("countdown");
+const photoCount = document.getElementById("photoCount");
+const message = document.getElementById("message");
+const captureBtn = document.getElementById("captureBtn");
 
-/* =====================================
-
-   SETTINGS
-
-===================================== */
-
-// Add your Google Apps Script Web App URL here later.
-
-// Example: https://script.google.com/macros/s/XXXXX/exec
-
-const SCRIPT_URL = "";
-
-// Three photos
-
+let stream = null;
+let facingMode = "user";
 let photos = [];
+let themeColor = "#ffffff";
+let busy = false;
 
-// Motion video recordings
-
-let motionVideos = [];
-
-let cameraStream = null;
-
-let currentRecorder = null;
-
-let currentChunks = [];
-
-let photoSessionStarted = false;
-
-/* =====================================
-
-   PAGE NAVIGATION
-
-===================================== */
-
-function showPage(pageId) {
-
-  document.querySelectorAll(".page").forEach(page => {
-
-    page.classList.remove("active");
-
+function showScreen(id) {
+  document.querySelectorAll(".screen").forEach(s => {
+    s.classList.remove("active");
   });
 
-  document.getElementById(pageId).classList.add("active");
-
-  window.scrollTo(0, 0);
-
+  document.getElementById(id).classList.add("active");
 }
-
-function openCamera() {
-
-  showPage("cameraPage");
-
-}
-
-function backHome() {
-
-  stopCamera();
-
-  showPage("homePage");
-
-}
-
-/* =====================================
-
-   CAMERA
-
-===================================== */
 
 async function startCamera() {
-
-  const message = document.getElementById("cameraMessage");
-
-  const video = document.getElementById("video");
-
   try {
-
-    cameraStream = await navigator.mediaDevices.getUserMedia({
-
-      video: {
-
-        facingMode: "user",
-
-        width: { ideal: 1280 },
-
-        height: { ideal: 720 }
-
-      },
-
-      audio: false
-
-    });
-
-    video.srcObject = cameraStream;
-
-    video.style.display = "block";
-
-    message.style.display = "none";
-
-    document.getElementById("captureButton").disabled = false;
-
-    document.getElementById("startButton").disabled = true;
-
-    document.getElementById("cameraStatus").textContent =
-
-      "Camera ready! Press Start Photo.";
-
+    await openCamera();
+    photos = [];
+    showScreen("camera");
+    updateCount();
   } catch (error) {
+    alert("Unable to access camera. Please allow camera permission in Safari settings.");
+  }
+}
 
-    alert("Unable to access camera. Please allow camera permission and use HTTPS.");
-
-    console.error(error);
-
+async function openCamera() {
+  if (stream) {
+    stream.getTracks().forEach(track => track.stop());
   }
 
-}
-
-function stopCamera() {
-
-  if (cameraStream) {
-
-    cameraStream.getTracks().forEach(track => track.stop());
-
-    cameraStream = null;
-
-  }
-
-  const video = document.getElementById("video");
-
-  video.srcObject = null;
-
-  video.style.display = "none";
-
-  document.getElementById("startButton").disabled = false;
-
-  document.getElementById("captureButton").disabled = true;
-
-}
-
-/* =====================================
-
-   COUNTDOWN AND TAKE PHOTO
-
-===================================== */
-
-function sleep(ms) {
-
-  return new Promise(resolve => setTimeout(resolve, ms));
-
-}
-
-async function startPhotoSession() {
-
-  if (!cameraStream) {
-
-    alert("Please start the camera first.");
-
-    return;
-
-  }
-
-  if (photoSessionStarted) return;
-
-  photoSessionStarted = true;
-
-  photos = [];
-
-  motionVideos = [];
-
-  const captureButton = document.getElementById("captureButton");
-
-  captureButton.disabled = true;
-
-  document.getElementById("cameraStatus").textContent =
-
-    "Get ready! Your photos are coming...";
-
-  for (let i = 0; i < 3; i++) {
-
-    await countdown();
-
-    takePhoto();
-
-    await sleep(1000);
-
-  }
-
-  document.getElementById("cameraStatus").textContent =
-
-    "All 3 photos captured!";
-
-  document.getElementById("cameraMessage").style.display = "flex";
-
-  document.getElementById("cameraMessage").textContent = "Done!";
-
-  await sleep(700);
-
-  stopCamera();
-
-  photoSessionStarted = false;
-
-  showResultPage();
-
-}
-
-async function countdown() {
-
-  const countdownElement = document.getElementById("countdown");
-
-  countdownElement.style.display = "block";
-
-  for (let number = 5; number >= 1; number--) {
-
-    countdownElement.textContent = number;
-
-    await sleep(1000);
-
-  }
-
-  countdownElement.textContent = "SNAP!";
-
-  await sleep(350);
-
-  countdownElement.style.display = "none";
-
-}
-
-/* =====================================
-
-   CAPTURE PHOTO
-
-===================================== */
-
-function takePhoto() {
-
-  const video = document.getElementById("video");
-
-  const canvas = document.createElement("canvas");
-
-  canvas.width = video.videoWidth;
-
-  canvas.height = video.videoHeight;
-
-  const context = canvas.getContext("2d");
-
-  // Mirror image to match the live selfie preview
-
-  context.translate(canvas.width, 0);
-
-  context.scale(-1, 1);
-
-  context.drawImage(video, 0, 0, canvas.width, canvas.height);
-
-  const photoData = canvas.toDataURL("image/jpeg", 0.92);
-
-  photos.push(photoData);
-
-}
-
-/* =====================================
-
-   SHOW PHOTO STRIP
-
-===================================== */
-
-function showResultPage() {
-
-  if (photos.length !== 3) {
-
-    alert("Please capture all 3 photos first.");
-
-    return;
-
-  }
-
-  document.getElementById("photo1").src = photos[0];
-
-  document.getElementById("photo2").src = photos[1];
-
-  document.getElementById("photo3").src = photos[2];
-
-  document.getElementById("photo4").src = photos[0];
-
-  document.getElementById("photo5").src = photos[1];
-
-  document.getElementById("photo6").src = photos[2];
-
-  showPage("resultPage");
-
-}
-
-/* =====================================
-
-   DOWNLOAD PHOTO STRIP
-
-===================================== */
-
-async function downloadStrip() {
-
-  const background = new Image();
-
-  background.src = "assets/photostrip-bg.jpg";
-
-  await new Promise((resolve, reject) => {
-
-    background.onload = resolve;
-
-    background.onerror = reject;
-
+  stream = await navigator.mediaDevices.getUserMedia({
+    audio: false,
+    video: {
+      facingMode: facingMode,
+      width: { ideal: 1280 },
+      height: { ideal: 1920 }
+    }
   });
 
+  video.srcObject = stream;
+  await video.play();
+}
+
+async function flipCamera() {
+  if (busy) return;
+
+  facingMode = facingMode === "user" ? "environment" : "user";
+
+  try {
+    await openCamera();
+  } catch (error) {
+    facingMode = facingMode === "user" ? "environment" : "user";
+    alert("Unable to switch camera.");
+  }
+}
+
+function updateCount() {
+  photoCount.textContent = `PHOTO ${photos.length + 1} OF 3`;
+}
+
+function sleep(ms) {
+  return new Promise(resolve => setTimeout(resolve, ms));
+}
+
+async function takePhoto() {
+  if (busy || photos.length >= 3) return;
+
+  busy = true;
+  captureBtn.disabled = true;
+
+  for (let i = 3; i >= 1; i--) {
+    countdown.style.display = "flex";
+    countdown.textContent = i;
+    await sleep(1000);
+  }
+
+  countdown.style.display = "none";
+
   const canvas = document.createElement("canvas");
-
-  canvas.width = 864;
-
-  canvas.height = 1536;
+  canvas.width = video.videoWidth;
+  canvas.height = video.videoHeight;
 
   const ctx = canvas.getContext("2d");
 
-  ctx.drawImage(background, 0, 0, 864, 1536);
-
-  const positions = [
-
-    [131, 453, 260, 176, -2],
-
-    [125, 668, 263, 184, -2],
-
-    [121, 899, 267, 184, -2],
-
-    [514, 476, 268, 176, 5],
-
-    [510, 699, 268, 184, 5],
-
-    [505, 922, 268, 184, 5]
-
-  ];
-
-  for (let i = 0; i < 6; i++) {
-
-    const img = new Image();
-
-    img.src = photos[i % 3];
-
-    await new Promise(resolve => {
-
-      img.onload = resolve;
-
-    });
-
-    const [x, y, w, h, angle] = positions[i];
-
-    ctx.save();
-
-    ctx.translate(x + w / 2, y + h / 2);
-
-    ctx.rotate(angle * Math.PI / 180);
-
-    ctx.drawImage(img, -w / 2, -h / 2, w, h);
-
-    ctx.restore();
-
+  if (facingMode === "user") {
+    ctx.translate(canvas.width, 0);
+    ctx.scale(-1, 1);
   }
 
-  const link = document.createElement("a");
+  ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
 
-  link.download = "PERSIDA12-Photostrip.jpg";
+  photos.push(canvas.toDataURL("image/jpeg", 0.95));
 
-  link.href = canvas.toDataURL("image/jpeg", 0.95);
+  const flash = document.getElementById("flash");
+  flash.style.opacity = "1";
+  await sleep(120);
+  flash.style.opacity = "0";
 
-  link.click();
+  busy = false;
+  captureBtn.disabled = false;
 
+  if (photos.length < 3) {
+    updateCount();
+    message.textContent = "Beautiful! Get ready for the next one ♡";
+  } else {
+    stopCamera();
+    createPreview();
+  }
 }
 
-/* =====================================
+function stopCamera() {
+  if (stream) {
+    stream.getTracks().forEach(track => track.stop());
+    stream = null;
+  }
+}
 
-   QR CODE
+function createPreview() {
+  const area = document.getElementById("stripPhotos");
+  area.innerHTML = "";
 
-===================================== */
-
-function showQR() {
-
-  const qrArea = document.getElementById("qrArea");
-
-  const sessionId = "PERSIDA12-" +
-
-    Date.now() + "-" +
-
-    Math.random().toString(36).substring(2, 8);
-
-  // This is a temporary QR demo.
-
-  // A Google Apps Script backend is needed
-
-  // to make photos accessible on another phone.
-
-  const galleryURL =
-
-    window.location.origin +
-
-    window.location.pathname +
-
-    "#gallery=" + sessionId;
-
-  const qrURL =
-
-    "https://api.qrserver.com/v1/create-qr-code/?size=250x250&data=" +
-
-    encodeURIComponent(galleryURL);
-
-  document.getElementById("qrImage").src = qrURL;
-
-  document.getElementById("qrNote").textContent =
-
-    "Demo QR only. Cloud photo storage will be connected using Google Apps Script.";
-
-  qrArea.style.display = "block";
-
-  qrArea.scrollIntoView({
-
-    behavior: "smooth",
-
-    block: "center"
-
+  photos.forEach(src => {
+    const img = document.createElement("img");
+    img.src = src;
+    area.appendChild(img);
   });
 
+  document.getElementById("date").textContent =
+    new Date().toLocaleDateString();
+
+  changeTheme(themeColor);
+  showScreen("preview");
 }
 
-/* =====================================
+function changeTheme(color) {
+  themeColor = color;
+  document.getElementById("strip").style.background = color;
+}
 
-   GALLERY PAGE
+async function downloadStrip() {
+  const images = [];
 
-===================================== */
-
-function showGalleryTab(tab) {
-
-  const photosTab = document.getElementById("galleryPhotos");
-
-  const motionTab = document.getElementById("galleryMotion");
-
-  if (tab === "photos") {
-
-    photosTab.classList.remove("hidden");
-
-    motionTab.classList.add("hidden");
-
-  } else {
-
-    photosTab.classList.add("hidden");
-
-    motionTab.classList.remove("hidden");
-
+  for (const src of photos) {
+    const img = new Image();
+    img.src = src;
+    await new Promise(resolve => img.onload = resolve);
+    images.push(img);
   }
 
+  const canvas = document.createElement("canvas");
+  const ctx = canvas.getContext("2d");
+
+  const width = 700;
+  const padding = 35;
+  const photoHeight = 420;
+  const gap = 20;
+
+  canvas.width = width;
+  canvas.height = padding * 2 + (photoHeight * 3) +
+                  (gap * 2) + 100;
+
+  ctx.fillStyle = themeColor;
+  ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+  let y = padding;
+
+  images.forEach(img => {
+    const ratio = Math.max(width / img.width,
+                           photoHeight / img.height);
+
+    const w = img.width * ratio;
+    const h = img.height * ratio;
+
+    const sx = (w - width) / 2;
+    const sy = (h - photoHeight) / 2;
+
+    ctx.drawImage(
+      img,
+      sx / ratio,
+      sy / ratio,
+      width / ratio,
+      photoHeight / ratio,
+      0,
+      y,
+      width,
+      photoHeight
+    );
+
+    y += photoHeight + gap;
+  });
+
+  ctx.fillStyle = "#333";
+  ctx.textAlign = "center";
+  ctx.font = "32px Georgia";
+  ctx.fillText("PHOTO BOOTH ♡", width / 2, y + 25);
+
+  ctx.font = "20px Arial";
+  ctx.fillText(
+    new Date().toLocaleDateString(),
+    width / 2,
+    y + 60
+  );
+
+  const link = document.createElement("a");
+  link.download = "my-photostrip.png";
+  link.href = canvas.toDataURL("image/png");
+  link.click();
 }
 
-/* =====================================
+async function retake() {
+  photos = [];
+  facingMode = "user";
 
-   OPEN QR GALLERY
-
-===================================== */
-
-function checkGalleryLink() {
-
-  if (window.location.hash.startsWith("#gallery=")) {
-
-    showPage("galleryPage");
-
-    // The gallery needs cloud storage integration
-
-    // before it can load the customer's photos.
-
-    document.getElementById("galleryPhotos").innerHTML =
-
-      "<h3>Your PERSIDA 12 Photos</h3>" +
-
-      "<p>Your personal photos will appear here after cloud storage is connected.</p>";
-
-    document.getElementById("galleryMotion").innerHTML =
-
-      "<h3>Your Motion Photos</h3>" +
-
-      "<p>Your motion clips will appear here after cloud storage is connected.</p>";
-
+  try {
+    await openCamera();
+    showScreen("camera");
+    updateCount();
+    message.textContent = "Let's try again!";
+  } catch (error) {
+    alert("Unable to reopen camera.");
   }
-
 }
 
-window.addEventListener("load", checkGalleryLink);
-
+function finish() {
+  stopCamera();
+  photos = [];
+  showScreen("home");
+}
 </script>
 
 </body>
-
+</html>
 </html>
