@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 
 <html lang="en">
@@ -14,7 +16,7 @@
 
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Quicksand:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Quicksand:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&family=Great+Vibes&family=Dancing+Script:wght@400;500;600;700&family=Parisienne&family=Allura&family=Sacramento&family=Georgia&display=swap" rel="stylesheet">
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
 
@@ -22,17 +24,17 @@
 
 :root{
 
-  --pink:#f5dfe5;
+ --pink:#f5dfe5;
 
-  --dusty:#d991a1;
+ --dusty:#d991a1;
 
-  --sage:#a6b89b;
+ --sage:#a6b89b;
 
-  --dark-sage:#71846b;
+ --dark-sage:#71846b;
 
-  --cream:#fffaf5;
+ --cream:#fffaf5;
 
-  --text:#65565a;
+ --text:#65565a;
 
 }
 
@@ -40,25 +42,25 @@
 
 html,body{
 
-  margin:0;
+ margin:0;
 
-  min-height:100%;
+ min-height:100%;
 
-  color:var(--text);
+ color:var(--text);
 
-  font-family:Quicksand,sans-serif;
+ font-family:Quicksand,sans-serif;
 
 }
 
 body{
 
-  background-color:#f8e8eb;
+ background-color:#f8e8eb;
 
-  background-image:radial-gradient(circle,#fff 2.4px,transparent 2.8px);
+ background-image:radial-gradient(circle,#fff 2.4px,transparent 2.8px);
 
-  background-size:30px 30px;
+ background-size:30px 30px;
 
-  background-attachment:fixed;
+ background-attachment:fixed;
 
 }
 
@@ -70,17 +72,17 @@ button:disabled{opacity:.5;cursor:not-allowed}
 
 .page{
 
-  display:none;
+ display:none;
 
-  min-height:100vh;
+ min-height:100vh;
 
-  padding:25px 15px 42px;
+ padding:25px 15px 42px;
 
-  align-items:center;
+ align-items:center;
 
-  flex-direction:column;
+ flex-direction:column;
 
-  position:relative;
+ position:relative;
 
 }
 
@@ -88,227 +90,227 @@ button:disabled{opacity:.5;cursor:not-allowed}
 
 h1,h2,h3{
 
-  font-family:'Cormorant Garamond',serif;
+ font-family:'Cormorant Garamond',serif;
 
-  font-weight:600;
+ font-weight:600;
 
-  color:#8c5967;
+ color:#8c5967;
 
 }
 
 .brand{
 
-  font-family:'Cormorant Garamond',serif;
+ font-family:'Cormorant Garamond',serif;
 
-  font-size:23px;
+ font-size:23px;
 
-  letter-spacing:3px;
+ letter-spacing:3px;
 
-  color:var(--dark-sage);
+ color:var(--dark-sage);
 
 }
 
 .eyebrow{
 
-  font-size:11px;
+ font-size:11px;
 
-  letter-spacing:3px;
+ letter-spacing:3px;
 
-  text-transform:uppercase;
+ text-transform:uppercase;
 
-  color:#9a7b7e;
+ color:#9a7b7e;
 
 }
 
 .main-title{
 
-  font-size:clamp(44px,10vw,68px);
+ font-size:clamp(44px,10vw,68px);
 
-  line-height:.95;
+ line-height:.95;
 
-  margin:12px 0;
+ margin:12px 0;
 
-  text-align:center;
+ text-align:center;
 
 }
 
 .subtitle{
 
-  max-width:340px;
+ max-width:340px;
 
-  text-align:center;
+ text-align:center;
 
-  font-size:13px;
+ font-size:13px;
 
-  line-height:1.8;
+ line-height:1.8;
 
-  color:#8c777a;
+ color:#8c777a;
 
 }
 
 .primary-btn{
 
-  background:#8fa486;
+ background:#8fa486;
 
-  color:white;
+ color:white;
 
-  border-radius:30px;
+ border-radius:30px;
 
-  padding:13px 22px;
+ padding:13px 22px;
 
-  font-size:12px;
+ font-size:12px;
 
-  font-weight:700;
+ font-weight:700;
 
-  letter-spacing:1px;
+ letter-spacing:1px;
 
-  box-shadow:0 5px 14px #8c9e8a35;
+ box-shadow:0 5px 14px #8c9e8a35;
 
 }
 
 .secondary-btn{
 
-  background:#fffaf5;
+ background:#fffaf5;
 
-  color:#80656d;
+ color:#80656d;
 
-  border:1px solid #e5cbd1;
+ border:1px solid #e5cbd1;
 
-  border-radius:30px;
+ border-radius:30px;
 
-  padding:11px 17px;
+ padding:11px 17px;
 
-  font-size:11px;
+ font-size:11px;
 
-  font-weight:700;
+ font-weight:700;
 
 }
 
 .danger-btn{
 
-  background:#f7e3e5;
+ background:#f7e3e5;
 
-  color:#a45f6e;
+ color:#a45f6e;
 
-  border:1px solid #e8c2ca;
+ border:1px solid #e8c2ca;
 
-  border-radius:25px;
+ border-radius:25px;
 
-  padding:10px 15px;
+ padding:10px 15px;
 
-  font-size:11px;
+ font-size:11px;
 
-  font-weight:700;
+ font-weight:700;
 
 }
 
 .btn-row{
 
-  display:flex;
+ display:flex;
 
-  flex-wrap:wrap;
+ flex-wrap:wrap;
 
-  justify-content:center;
+ justify-content:center;
 
-  gap:9px;
+ gap:9px;
 
-  margin-top:17px;
+ margin-top:17px;
 
 }
 
 .home-card,.camera-card,.result-card{
 
-  width:min(100%,520px);
+ width:min(100%,520px);
 
-  background:#fffaf5ed;
+ background:#fffaf5ed;
 
-  border:1px solid white;
+ border:1px solid white;
 
-  border-radius:25px;
+ border-radius:25px;
 
-  padding:20px;
+ padding:20px;
 
-  box-shadow:0 12px 35px #9c7b8030;
+ box-shadow:0 12px 35px #9c7b8030;
 
 }
 
 .home-card{
 
-  width:min(100%,440px);
+ width:min(100%,440px);
 
-  margin:auto;
+ margin:auto;
 
-  padding:35px 22px;
+ padding:35px 22px;
 
-  text-align:center;
+ text-align:center;
 
-  border-radius:180px 180px 28px 28px;
+ border-radius:180px 180px 28px 28px;
 
 }
 
 .camera-frame{
 
-  width:100%;
+ width:100%;
 
-  aspect-ratio:3/4;
+ aspect-ratio:3/4;
 
-  background:#eadde0;
+ background:#eadde0;
 
-  border-radius:18px;
+ border-radius:18px;
 
-  overflow:hidden;
+ overflow:hidden;
 
-  position:relative;
+ position:relative;
 
 }
 
 #cameraVideo{
 
-  width:100%;
+ width:100%;
 
-  height:100%;
+ height:100%;
 
-  object-fit:cover;
+ object-fit:cover;
 
-  transform:scaleX(-1);
+ transform:scaleX(-1);
 
 }
 
 #countdown{
 
-  position:absolute;
+ position:absolute;
 
-  inset:0;
+ inset:0;
 
-  display:none;
+ display:none;
 
-  align-items:center;
+ align-items:center;
 
-  justify-content:center;
+ justify-content:center;
 
-  color:white;
+ color:white;
 
-  font-family:'Cormorant Garamond',serif;
+ font-family:'Cormorant Garamond',serif;
 
-  font-size:100px;
+ font-size:100px;
 
-  text-shadow:0 3px 20px #0008;
+ text-shadow:0 3px 20px #0008;
 
-  background:#0002;
+ background:#0002;
 
 }
 
 #flash{
 
-  position:absolute;
+ position:absolute;
 
-  inset:0;
+ inset:0;
 
-  background:white;
+ background:white;
 
-  opacity:0;
+ opacity:0;
 
-  pointer-events:none;
+ pointer-events:none;
 
 }
 
@@ -318,13 +320,13 @@ h1,h2,h3{
 
 .status{
 
-  text-align:center;
+ text-align:center;
 
-  font-size:13px;
+ font-size:13px;
 
-  color:#8b777a;
+ color:#8b777a;
 
-  margin:12px 0;
+ margin:12px 0;
 
 }
 
@@ -334,93 +336,93 @@ h1,h2,h3{
 
 .result-strip{
 
-  width:min(100%,230px);
+ width:min(100%,230px);
 
-  margin:17px auto;
+ margin:17px auto;
 
-  display:block;
+ display:block;
 
-  box-shadow:0 8px 25px #795c6330;
+ box-shadow:0 8px 25px #795c6330;
 
 }
 
 .preview-video{
 
-  width:min(100%,230px);
+ width:min(100%,230px);
 
-  border-radius:8px;
+ border-radius:8px;
 
-  margin:10px auto;
+ margin:10px auto;
 
-  display:block;
+ display:block;
 
-  background:#222;
+ background:#222;
 
 }
 
 .qr-section{
 
-  margin-top:25px;
+ margin-top:25px;
 
-  padding-top:18px;
+ padding-top:18px;
 
-  border-top:1px solid #ead9dc;
+ border-top:1px solid #ead9dc;
 
 }
 
 .single-qr{
 
-  display:flex;
+ display:flex;
 
-  justify-content:center;
+ justify-content:center;
 
-  align-items:center;
+ align-items:center;
 
-  margin:18px auto;
+ margin:18px auto;
 
-  padding:12px;
+ padding:12px;
 
-  background:white;
+ background:white;
 
-  border:1px solid #f0dce0;
+ border:1px solid #f0dce0;
 
-  border-radius:16px;
+ border-radius:16px;
 
-  width:fit-content;
+ width:fit-content;
 
-  min-width:145px;
+ min-width:145px;
 
-  min-height:145px;
+ min-height:145px;
 
 }
 
 .small-note{
 
-  font-size:11px;
+ font-size:11px;
 
-  line-height:1.7;
+ line-height:1.7;
 
-  color:#9b8588;
+ color:#9b8588;
 
-  margin-top:12px;
+ margin-top:12px;
 
-  text-align:center;
+ text-align:center;
 
 }
 
 .loading{
 
-  display:none;
+ display:none;
 
-  margin:14px 0;
+ margin:14px 0;
 
-  color:var(--dark-sage);
+ color:var(--dark-sage);
 
-  font-size:12px;
+ font-size:12px;
 
-  font-weight:700;
+ font-weight:700;
 
-  text-align:center;
+ text-align:center;
 
 }
 
@@ -428,17 +430,17 @@ h1,h2,h3{
 
 .footer{
 
-  text-align:center;
+ text-align:center;
 
-  margin-top:25px;
+ margin-top:25px;
 
-  font-size:11px;
+ font-size:11px;
 
-  letter-spacing:1px;
+ letter-spacing:1px;
 
-  color:#92767d;
+ color:#92767d;
 
-  line-height:1.9;
+ line-height:1.9;
 
 }
 
@@ -446,9 +448,9 @@ h1,h2,h3{
 
 #studioPage{
 
-  background:linear-gradient(125deg,#f7e2e8 0%,#f7e2e8 48%,#dce7d5 48%,#dce7d5 100%);
+ background:linear-gradient(125deg,#f7e2e8 0%,#f7e2e8 48%,#dce7d5 48%,#dce7d5 100%);
 
-  background-attachment:fixed;
+ background-attachment:fixed;
 
 }
 
@@ -458,27 +460,27 @@ h1,h2,h3{
 
 .studio-layout{
 
-  display:grid;
+ display:grid;
 
-  grid-template-columns:minmax(0,1fr);
+ grid-template-columns:minmax(0,1fr);
 
-  gap:14px;
+ gap:14px;
 
 }
 
 .studio-panel{
 
-  background:#fffaf5ed;
+ background:#fffaf5ed;
 
-  border:1px solid white;
+ border:1px solid white;
 
-  border-radius:20px;
+ border-radius:20px;
 
-  padding:14px;
+ padding:14px;
 
-  box-shadow:0 8px 25px #9c7b8020;
+ box-shadow:0 8px 25px #9c7b8020;
 
-  min-width:0;
+ min-width:0;
 
 }
 
@@ -486,57 +488,79 @@ h1,h2,h3{
 
 .editor-preview-wrap{
 
-  background:linear-gradient(135deg,#f3dce3 0 50%,#dce7d5 50% 100%);
+ background:#f4e3e7;
 
-  border-radius:15px;
+ border-radius:15px;
 
-  padding:18px;
+ padding:12px;
 
-  display:flex;
+ display:flex;
 
-  justify-content:center;
+ justify-content:center;
 
-  align-items:flex-start;
+ align-items:center;
 
-  overflow:hidden;
+ overflow:hidden;
 
-  min-height:200px;
+}
 
-  background-size:cover;
+.editor-stage{
 
-  background-position:center;
+ width:min(100%,320px);
+
+ aspect-ratio:9/16;
+
+ border-radius:8px;
+
+ background:#f7e2e8;
+
+ background-size:cover;
+
+ background-position:center;
+
+ display:flex;
+
+ justify-content:center;
+
+ align-items:center;
+
+ overflow:hidden;
+
+ box-shadow:0 5px 18px #755d6530;
 
 }
 
 #editorCanvas{
 
-  width:100%;
+ width:auto;
 
-  max-width:300px;
+ height:auto;
 
-  height:auto;
+ max-width:82%;
 
-  display:block;
+ max-height:86%;
 
-  box-shadow:0 5px 18px #755d6530;
+ display:block;
 
-  touch-action:none;
+ box-shadow:0 5px 18px #755d6530;
 
-  background:#fff;
+ touch-action:none;
+
+ background:#fff;
 
 }
 
 .studio-actions{
 
-  display:flex;
+ display:flex;
 
-  flex-wrap:wrap;
+ flex-wrap:wrap;
 
-  gap:7px;
+ gap:7px;
 
-  justify-content:center;
+ justify-content:center;
 
-  margin:10px 0 15px;
+ margin:10px 0 15px;
 
 }
 
@@ -546,11 +570,11 @@ h1,h2,h3{
 
 .editor-tools{
 
-  display:grid;
+ display:grid;
 
-  grid-template-columns:repeat(2,minmax(0,1fr));
+ grid-template-columns:repeat(2,minmax(0,1fr));
 
-  gap:7px;
+ gap:7px;
 
 }
 
@@ -560,35 +584,35 @@ h1,h2,h3{
 
 .field label{
 
-  display:block;
+ display:block;
 
-  font-size:10px;
+ font-size:10px;
 
-  font-weight:700;
+ font-weight:700;
 
-  color:#846d72;
+ color:#846d72;
 
-  margin-bottom:5px;
+ margin-bottom:5px;
 
 }
 
 .field input:not([type=checkbox]),.field select{
 
-  width:100%;
+ width:100%;
 
-  padding:10px;
+ padding:10px;
 
-  border:1px solid #e7cfd4;
+ border:1px solid #e7cfd4;
 
-  border-radius:9px;
+ border-radius:9px;
 
-  background:white;
+ background:white;
 
-  color:#65565a;
+ color:#65565a;
 
-  min-width:0;
+ min-width:0;
 
-  font-size:12px;
+ font-size:12px;
 
 }
 
@@ -600,11 +624,11 @@ h1,h2,h3{
 
 .field-row{
 
-  display:grid;
+ display:grid;
 
-  grid-template-columns:1fr 1fr;
+ grid-template-columns:1fr 1fr;
 
-  gap:8px;
+ gap:8px;
 
 }
 
@@ -612,13 +636,13 @@ h1,h2,h3{
 
 .selected-name{
 
-  font-size:11px;
+ font-size:11px;
 
-  font-weight:700;
+ font-weight:700;
 
-  color:#71846b;
+ color:#71846b;
 
-  margin:8px 0;
+ margin:8px 0;
 
 }
 
@@ -632,25 +656,25 @@ h1,h2,h3{
 
 @media(min-width:850px){
 
-  .studio-layout{
+ .studio-layout{
 
-    grid-template-columns:minmax(0,1fr) 350px;
+  grid-template-columns:minmax(0,1fr) 350px;
 
-    align-items:start;
+  align-items:start;
 
-  }
+ }
 
-  .studio-preview-panel{position:sticky;top:12px}
+ .studio-preview-panel{position:sticky;top:12px}
 
-  .editor-preview-wrap{padding:25px}
+ .editor-preview-wrap{padding:20px}
 
-  #editorCanvas{max-width:380px}
+ .editor-stage{width:min(100%,380px)}
 
 }
 
 @media(max-width:380px){
 
-  .camera-card,.result-card{padding:12px}
+ .camera-card,.result-card{padding:12px}
 
 }
 
@@ -664,35 +688,35 @@ h1,h2,h3{
 
 <section class="page active" id="home">
 
-  <div class="home-card">
+ <div class="home-card">
 
-    <div class="brand">PERSIDA 12</div>
+  <div class="brand">PERSIDA 12</div>
 
-    <p class="eyebrow">Appreciation Night</p>
+  <p class="eyebrow">Appreciation Night</p>
 
-    <h1 class="main-title">A Little<br>Memory</h1>
+  <h1 class="main-title">A Little<br>Memory</h1>
 
-    <p class="subtitle">Capture your beautiful moments and keep them forever.</p>
+  <p class="subtitle">Capture your beautiful moments and keep them forever.</p>
 
-    <div style="margin:24px 0;font-size:36px;color:#a6b89b">♡</div>
+  <div style="margin:24px 0;font-size:36px;color:#a6b89b">♡</div>
 
-    <button class="primary-btn" onclick="openCamera()">OPEN CAMERA</button>
+  <button class="primary-btn" onclick="openCamera()">OPEN CAMERA</button>
 
-    <div class="btn-row">
+  <div class="btn-row">
 
-      <button class="secondary-btn" onclick="openStudio()">DESIGN STUDIO · OPERATOR</button>
-
-    </div>
-
-    <div class="footer">
-
-      #pursuing excellent pioneering unity<br>
-
-      17.11.2026
-
-    </div>
+   <button class="secondary-btn" onclick="openStudio()">DESIGN STUDIO · OPERATOR</button>
 
   </div>
+
+  <div class="footer">
+
+   #pursuing excellent pioneering unity<br>
+
+   17.11.2026
+
+  </div>
+
+ </div>
 
 </section>
 
@@ -700,37 +724,37 @@ h1,h2,h3{
 
 <section class="page" id="cameraPage">
 
-  <div class="brand">PERSIDA 12</div>
+ <div class="brand">PERSIDA 12</div>
 
-  <h2 class="section-title">Let's Capture</h2>
+ <h2 class="section-title">Let's Capture</h2>
 
-  <p class="subtitle">Three poses. Each pose records five seconds of movement.</p>
+ <p class="subtitle" id="cameraSubtitle">Your poses. Five seconds of movement for each pose.</p>
 
-  <div class="camera-card">
+ <div class="camera-card">
 
-    <div class="camera-frame">
+  <div class="camera-frame">
 
-      <video id="cameraVideo" autoplay playsinline muted></video>
+   <video id="cameraVideo" autoplay playsinline muted></video>
 
-      <div id="countdown">5</div>
+   <div id="countdown">5</div>
 
-      <div id="flash"></div>
-
-    </div>
-
-    <div class="status">Pose <span id="photoCount" class="photo-count">0</span> of 3</div>
-
-    <p id="cameraStatus" class="status">Press start when you are ready.</p>
-
-    <div class="btn-row">
-
-      <button class="primary-btn" id="startBtn" onclick="startSession()">START</button>
-
-      <button class="secondary-btn" onclick="goHome()">BACK</button>
-
-    </div>
+   <div id="flash"></div>
 
   </div>
+
+  <div class="status">Pose <span id="photoCount" class="photo-count">0</span> of <span id="photoTotal">3</span></div>
+
+  <p id="cameraStatus" class="status">Press start when you are ready.</p>
+
+  <div class="btn-row">
+
+   <button class="primary-btn" id="startBtn" onclick="startSession()">START</button>
+
+   <button class="secondary-btn" onclick="goHome()">BACK</button>
+
+  </div>
+
+ </div>
 
 </section>
 
@@ -738,65 +762,65 @@ h1,h2,h3{
 
 <section class="page" id="resultPage">
 
-  <div class="brand">PERSIDA 12</div>
+ <div class="brand">PERSIDA 12</div>
 
-  <h2 class="section-title">Your Memories</h2>
+ <h2 class="section-title">Your Memories</h2>
 
-  <p class="subtitle">Your photostrip is ready!</p>
+ <p class="subtitle">Your photostrip is ready!</p>
 
-  <div class="result-card">
+ <div class="result-card">
 
-    <h3 style="font-size:27px;margin:5px 0">Static Photostrip</h3>
+  <h3 style="font-size:27px;margin:5px 0">Static Photostrip</h3>
 
-    <img id="stripPreview" class="result-strip" alt="Photostrip">
+  <img id="stripPreview" class="result-strip" alt="Photostrip">
 
-    <button class="primary-btn" onclick="downloadStatic()">DOWNLOAD PNG</button>
+  <button class="primary-btn" onclick="downloadStatic()">DOWNLOAD PNG</button>
 
-    <div class="qr-section">
+  <div class="qr-section">
 
-      <h3 style="font-size:27px;margin:5px 0">Live Photostrip</h3>
+   <h3 style="font-size:27px;margin:5px 0">Live Photostrip</h3>
 
-      <video id="livePreview" class="preview-video" controls playsinline loop muted></video>
+   <video id="livePreview" class="preview-video" controls playsinline loop muted></video>
 
-      <button class="primary-btn" onclick="downloadLive()">DOWNLOAD VIDEO</button>
-
-    </div>
-
-    <div class="qr-section">
-
-      <h3 style="font-size:27px;margin:5px 0">Your Photo Collection</h3>
-
-      <p class="small-note">One QR code to access all three photos and both photostrips.</p>
-
-      <button class="primary-btn" id="uploadBtn" onclick="uploadSession()">GENERATE MY QR CODE</button>
-
-      <div class="loading" id="loading">Uploading your photos and preparing your QR code...</div>
-
-      <div class="single-qr" id="singleQR"></div>
-
-      <p id="uploadStatus" class="small-note"></p>
-
-    </div>
-
-    <div class="btn-row">
-
-      <button class="secondary-btn" onclick="retake()">RETAKE PHOTOS</button>
-
-      <button class="secondary-btn" onclick="goHome()">HOME</button>
-
-    </div>
-
-    <div class="footer">
-
-      <strong>PERSIDA</strong><br>
-
-      appreciation night with Persida 12<br>
-
-      17.11.2026
-
-    </div>
+   <button class="primary-btn" onclick="downloadLive()">DOWNLOAD VIDEO</button>
 
   </div>
+
+  <div class="qr-section">
+
+   <h3 style="font-size:27px;margin:5px 0">Your Photo Collection</h3>
+
+   <p class="small-note">One QR code to access all your photos and both photostrips.</p>
+
+   <button class="primary-btn" id="uploadBtn" onclick="uploadSession()">GENERATE MY QR CODE</button>
+
+   <div class="loading" id="loading">Uploading your photos and preparing your QR code...</div>
+
+   <div class="single-qr" id="singleQR"></div>
+
+   <p id="uploadStatus" class="small-note"></p>
+
+  </div>
+
+  <div class="btn-row">
+
+   <button class="secondary-btn" onclick="retake()">RETAKE PHOTOS</button>
+
+   <button class="secondary-btn" onclick="goHome()">HOME</button>
+
+  </div>
+
+  <div class="footer">
+
+   <strong>PERSIDA</strong><br>
+
+   appreciation night with Persida 12<br>
+
+   17.11.2026
+
+  </div>
+
+ </div>
 
 </section>
 
@@ -804,429 +828,479 @@ h1,h2,h3{
 
 <section class="page" id="studioPage">
 
-  <div class="studio-page">
+ <div class="studio-page">
 
-    <div class="studio-heading">
+  <div class="studio-heading">
 
-      <div class="brand">PERSIDA 12</div>
+   <div class="brand">PERSIDA 12</div>
 
-      <h2 class="section-title">Design Studio</h2>
+   <h2 class="section-title">Design Studio</h2>
 
-      <p class="subtitle">Tap an element to select it, drag to move, and use the controls to edit your photostrip.</p>
-
-    </div>
-
-    <div class="studio-actions">
-
-      <button class="secondary-btn" onclick="saveDefault()">SAVE AS DEFAULT</button>
-
-      <button class="primary-btn" onclick="useForSession()">USE FOR NEXT SESSION</button>
-
-      <button class="danger-btn" onclick="resetDesign()">RESET DESIGN</button>
-
-    </div>
-
-    <div class="studio-layout">
-
-      <div class="studio-panel studio-preview-panel">
-
-        <div class="editor-preview-wrap" id="previewWrap">
-
-          <canvas id="editorCanvas" width="600" height="1800"></canvas>
-
-        </div>
-
-        <p class="hint">
-
-          Tap a photo frame, text or decoration to select it. Drag it to move.
-
-          The background behind the strip is only a preview and will not be printed.
-
-        </p>
-
-      </div>
-
-      <div class="studio-panel">
-
-        <h3>Photostrip Background</h3>
-
-        <div class="field-row">
-
-          <div class="field">
-
-            <label>BASE COLOUR</label>
-
-            <input type="color" id="baseColor" value="#ffffff" oninput="changeDesign()">
-
-          </div>
-
-          <div class="field">
-
-            <label>DOT COLOUR</label>
-
-            <input type="color" id="dotColor" value="#111111" oninput="changeDesign()">
-
-          </div>
-
-        </div>
-
-        <div class="field">
-
-          <label>PHOTO FILTER</label>
-
-          <select id="photoFilter" onchange="changeDesign()">
-
-            <option value="color">Original colour photos</option>
-
-            <option value="grayscale">Black & white photos</option>
-
-          </select>
-
-        </div>
-
-        <div class="field">
-
-          <label><input type="checkbox" id="dotsToggle" onchange="changeDesign()"> Polkadots on photostrip</label>
-
-        </div>
-
-        <div class="field">
-
-          <label>UPLOAD IMAGE AS STRIP BACKGROUND</label>
-
-          <button class="secondary-btn" style="width:100%" onclick="$('stripBgUpload').click()">UPLOAD STRIP BACKGROUND</button>
-
-          <input class="file-input" id="stripBgUpload" type="file" accept="image/*" onchange="uploadStripBackground(event)">
-
-          <button class="danger-btn" style="width:100%;margin-top:7px" onclick="removeStripBackground()">REMOVE STRIP BACKGROUND</button>
-
-        </div>
-
-        <div class="field">
-
-          <label>UPLOAD PHOTOSTRIP TEMPLATE (PNG)</label>
-
-          <button class="secondary-btn" style="width:100%" onclick="$('templateUpload').click()">UPLOAD TRANSPARENT PNG TEMPLATE</button>
-
-          <input class="file-input" id="templateUpload" type="file" accept="image/png,image/webp" onchange="uploadTemplate(event)">
-
-          <button class="danger-btn" style="width:100%;margin-top:7px" onclick="removeTemplate()">REMOVE TEMPLATE</button>
-
-          <p class="hint">The uploaded template is placed over the photos. Use a PNG with transparent photo windows. Adjust the three photo frames below to line up with the openings.</p>
-
-        </div>
-
-        <hr class="studio-divider">
-
-        <h3>Background Behind Strip</h3>
-
-        <div class="field-row">
-
-          <div class="field">
-
-            <label>BACKDROP COLOUR</label>
-
-            <input type="color" id="stageColor" value="#f7e2e8" oninput="changeStage()">
-
-          </div>
-
-          <div class="field">
-
-            <label>SECOND COLOUR</label>
-
-            <input type="color" id="stageColor2" value="#dce7d5" oninput="changeStage()">
-
-          </div>
-
-        </div>
-
-        <div class="field">
-
-          <label>UPLOAD BACKDROP IMAGE</label>
-
-          <button class="secondary-btn" style="width:100%" onclick="$('stageUpload').click()">UPLOAD IMAGE BEHIND STRIP</button>
-
-          <input class="file-input" id="stageUpload" type="file" accept="image/*" onchange="uploadStageBackground(event)">
-
-          <button class="danger-btn" style="width:100%;margin-top:7px" onclick="removeStageBackground()">REMOVE BACKDROP IMAGE</button>
-
-        </div>
-
-        <hr class="studio-divider">
-
-        <h3>Photo Frames</h3>
-
-        <div class="field">
-
-          <label>SELECT PHOTO FRAME</label>
-
-          <select id="slotChoice" onchange="selectSlot()">
-
-            <option value="0">Photo frame 1</option>
-
-            <option value="1">Photo frame 2</option>
-
-            <option value="2">Photo frame 3</option>
-
-          </select>
-
-        </div>
-
-        <div class="field">
-
-          <label>FRAME SHAPE</label>
-
-          <select id="slotShape" onchange="updateSlot()">
-
-            <option value="rectangle">Rectangle</option>
-
-            <option value="rounded">Rounded rectangle</option>
-
-            <option value="oval">Oval</option>
-
-            <option value="scalloped">Scalloped / Bergerigi</option>
-
-          </select>
-
-        </div>
-
-        <div class="field-row">
-
-          <div class="field">
-
-            <label>X POSITION</label>
-
-            <input type="number" id="slotX" oninput="updateSlot()">
-
-          </div>
-
-          <div class="field">
-
-            <label>Y POSITION</label>
-
-            <input type="number" id="slotY" oninput="updateSlot()">
-
-          </div>
-
-        </div>
-
-        <div class="field-row">
-
-          <div class="field">
-
-            <label>WIDTH</label>
-
-            <input type="number" id="slotW" oninput="updateSlot()">
-
-          </div>
-
-          <div class="field">
-
-            <label>HEIGHT</label>
-
-            <input type="number" id="slotH" oninput="updateSlot()">
-
-          </div>
-
-        </div>
-
-        <div class="field">
-
-          <label>FRAME CORNER / EDGE ROUNDING</label>
-
-          <input type="range" id="slotRadius" min="0" max="100" value="25" oninput="updateSlot()">
-
-        </div>
-
-        <div class="field">
-
-          <label>FRAME BORDER COLOUR</label>
-
-          <input type="color" id="slotBorder" value="#111111" oninput="updateSlot()">
-
-        </div>
-
-        <div class="field">
-
-          <label>FRAME BORDER WIDTH</label>
-
-          <input type="range" id="slotBorderWidth" min="0" max="20" value="3" oninput="updateSlot()">
-
-        </div>
-
-        <hr class="studio-divider">
-
-        <h3>Add Elements</h3>
-
-        <div class="editor-tools">
-
-          <button class="secondary-btn" onclick="addText()">＋ Add Text</button>
-
-          <button class="secondary-btn" onclick="addEmoji('♡')">♡ Heart</button>
-
-          <button class="secondary-btn" onclick="addEmoji('✿')">✿ Flower</button>
-
-          <button class="secondary-btn" onclick="addEmoji('🦋')">🦋 Butterfly</button>
-
-          <button class="secondary-btn" onclick="addEmoji('✧')">✧ Sparkle</button>
-
-          <button class="secondary-btn" onclick="addEmoji('☁')">☁ Cloud</button>
-
-          <button class="secondary-btn" onclick="addEmoji('☆')">☆ Star</button>
-
-          <button class="secondary-btn" onclick="$('assetUpload').click()">＋ Upload Image</button>
-
-        </div>
-
-        <input class="file-input" id="assetUpload" type="file" accept="image/png,image/webp,image/jpeg" onchange="uploadElement(event)">
-
-        <hr class="studio-divider">
-
-        <h3>Edit Selected Element</h3>
-
-        <div id="selectedName" class="selected-name">No element selected</div>
-
-        <div class="field">
-
-          <label>TEXT</label>
-
-          <input id="elementText" type="text" placeholder="Select a text element" oninput="updateElement()">
-
-        </div>
-
-        <div class="field">
-
-          <label>FONT</label>
-
-          <select id="elementFont" onchange="updateElement()">
-
-            <option value="Quicksand">Quicksand</option>
-
-            <option value="Cormorant Garamond">Cormorant Garamond</option>
-
-            <option value="Playfair Display">Playfair Display</option>
-
-            <option value="Georgia">Georgia</option>
-
-          </select>
-
-        </div>
-
-        <div class="field-row">
-
-          <div class="field">
-
-            <label>TEXT COLOUR</label>
-
-            <input type="color" id="elementColor" value="#111111" oninput="updateElement()">
-
-          </div>
-
-          <div class="field">
-
-            <label>FONT SIZE</label>
-
-            <input type="number" id="elementSize" min="8" max="220" value="40" oninput="updateElement()">
-
-          </div>
-
-        </div>
-
-        <div class="field-row">
-
-          <div class="field">
-
-            <label>WIDTH</label>
-
-            <input type="number" id="elementWidth" min="10" max="600" oninput="updateElement()">
-
-          </div>
-
-          <div class="field">
-
-            <label>HEIGHT</label>
-
-            <input type="number" id="elementHeight" min="10" max="1800" oninput="updateElement()">
-
-          </div>
-
-        </div>
-
-        <div class="field">
-
-          <label>ROTATION</label>
-
-          <input type="range" id="elementRotation" min="-180" max="180" value="0" oninput="updateElement()">
-
-        </div>
-
-        <div class="field">
-
-          <label>OPACITY</label>
-
-          <input type="range" id="elementOpacity" min="10" max="100" value="100" oninput="updateElement()">
-
-        </div>
-
-        <div class="field-row">
-
-          <div class="field">
-
-            <label>X POSITION</label>
-
-            <input type="number" id="elementX" oninput="updatePosition()">
-
-          </div>
-
-          <div class="field">
-
-            <label>Y POSITION</label>
-
-            <input type="number" id="elementY" oninput="updatePosition()">
-
-          </div>
-
-        </div>
-
-        <div class="field">
-
-          <label>TEXT ALIGNMENT</label>
-
-          <select id="elementAlign" onchange="updateElement()">
-
-            <option value="center">Center</option>
-
-            <option value="left">Left</option>
-
-            <option value="right">Right</option>
-
-          </select>
-
-        </div>
-
-        <div class="btn-row">
-
-          <button class="secondary-btn" onclick="duplicateElement()">DUPLICATE</button>
-
-          <button class="danger-btn" onclick="deleteElement()">DELETE</button>
-
-        </div>
-
-        <hr class="studio-divider">
-
-        <div class="btn-row">
-
-          <button class="secondary-btn" onclick="goHome()">BACK TO HOME</button>
-
-        </div>
-
-      </div>
-
-    </div>
-
-    <p class="small-note">Default design is saved in this browser on this device. Use the same device and browser at the event.</p>
+   <p class="subtitle">Choose your layout, customise your photostrip and prepare your design.</p>
 
   </div>
+
+  <div class="studio-actions">
+
+   <button class="secondary-btn" onclick="saveDefault()">SAVE AS DEFAULT</button>
+
+   <button class="primary-btn" onclick="useForSession()">USE FOR NEXT SESSION</button>
+
+   <button class="danger-btn" onclick="resetDesign()">RESET DESIGN</button>
+
+  </div>
+
+  <div class="studio-layout">
+
+   <div class="studio-panel studio-preview-panel">
+
+    <div class="editor-preview-wrap">
+
+     <div class="editor-stage" id="editorStage">
+
+      <canvas id="editorCanvas" width="600" height="1800"></canvas>
+
+     </div>
+
+    </div>
+
+    <p class="hint">
+
+     The preview uses a vertical 9:16 backdrop. The photostrip is separate and can be edited independently. Tap an element to select it and drag to move.
+
+    </p>
+
+   </div>
+
+   <div class="studio-panel">
+
+    <h3>Photo Layout</h3>
+
+    <div class="field">
+
+     <label>NUMBER OF PICTURES</label>
+
+     <select id="layoutCount" onchange="changeLayout()">
+
+      <option value="1">1 Picture</option>
+
+      <option value="2">2 Pictures</option>
+
+      <option value="3" selected>3 Pictures</option>
+
+      <option value="4">4 Pictures</option>
+
+     </select>
+
+    </div>
+
+    <div class="field">
+
+     <label>PHOTOSTRIP RATIO</label>
+
+     <select id="stripRatio" onchange="changeLayout()">
+
+      <option value="2:6">Classic strip · 2:6</option>
+
+      <option value="1:1">Square · 1:1</option>
+
+      <option value="4:5">Portrait · 4:5</option>
+
+      <option value="2:3">Photo · 2:3</option>
+
+      <option value="9:16">Vertical · 9:16</option>
+
+     </select>
+
+    </div>
+
+    <p class="hint">Changing the layout automatically adjusts the number and arrangement of photo frames.</p>
+
+    <hr class="studio-divider">
+
+    <h3>Photostrip Background</h3>
+
+    <div class="field-row">
+
+     <div class="field">
+
+      <label>BASE COLOUR</label>
+
+      <input type="color" id="baseColor" value="#ffffff" oninput="changeDesign()">
+
+     </div>
+
+     <div class="field">
+
+      <label>DOT COLOUR</label>
+
+      <input type="color" id="dotColor" value="#111111" oninput="changeDesign()">
+
+     </div>
+
+    </div>
+
+    <div class="field">
+
+     <label>PHOTO FILTER</label>
+
+     <select id="photoFilter" onchange="changeDesign()">
+
+      <option value="color">Original colour photos</option>
+
+      <option value="grayscale">Black & white photos</option>
+
+     </select>
+
+    </div>
+
+    <div class="field">
+
+     <label><input type="checkbox" id="dotsToggle" onchange="changeDesign()"> Polkadots on photostrip</label>
+
+    </div>
+
+    <div class="field">
+
+     <label>UPLOAD IMAGE AS STRIP BACKGROUND</label>
+
+     <button class="secondary-btn" style="width:100%" onclick="$('stripBgUpload').click()">UPLOAD STRIP BACKGROUND</button>
+
+     <input class="file-input" id="stripBgUpload" type="file" accept="image/*" onchange="uploadStripBackground(event)">
+
+     <button class="danger-btn" style="width:100%;margin-top:7px" onclick="removeStripBackground()">REMOVE STRIP BACKGROUND</button>
+
+    </div>
+
+    <div class="field">
+
+     <label>UPLOAD PHOTOSTRIP TEMPLATE (PNG)</label>
+
+     <button class="secondary-btn" style="width:100%" onclick="$('templateUpload').click()">UPLOAD TRANSPARENT PNG TEMPLATE</button>
+
+     <input class="file-input" id="templateUpload" type="file" accept="image/png,image/webp" onchange="uploadTemplate(event)">
+
+     <button class="danger-btn" style="width:100%;margin-top:7px" onclick="removeTemplate()">REMOVE TEMPLATE</button>
+
+     <p class="hint">The uploaded template is placed over the photos. Use a transparent PNG with empty photo windows.</p>
+
+    </div>
+
+    <hr class="studio-divider">
+
+    <h3>Background Behind Strip</h3>
+
+    <p class="hint">Backdrop display size is always vertical 9:16. It is separate from the photostrip.</p>
+
+    <div class="field-row">
+
+     <div class="field">
+
+      <label>BACKDROP COLOUR</label>
+
+      <input type="color" id="stageColor" value="#f7e2e8" oninput="changeStage()">
+
+     </div>
+
+     <div class="field">
+
+      <label>SECOND COLOUR</label>
+
+      <input type="color" id="stageColor2" value="#dce7d5" oninput="changeStage()">
+
+     </div>
+
+    </div>
+
+    <div class="field">
+
+     <label>UPLOAD BACKDROP IMAGE (9:16)</label>
+
+     <button class="secondary-btn" style="width:100%" onclick="$('stageUpload').click()">UPLOAD IMAGE BEHIND STRIP</button>
+
+     <input class="file-input" id="stageUpload" type="file" accept="image/*" onchange="uploadStageBackground(event)">
+
+     <button class="danger-btn" style="width:100%;margin-top:7px" onclick="removeStageBackground()">REMOVE BACKDROP IMAGE</button>
+
+    </div>
+
+    <hr class="studio-divider">
+
+    <h3>Photo Frames</h3>
+
+    <div class="field">
+
+     <label>SELECT PHOTO FRAME</label>
+
+     <select id="slotChoice" onchange="selectSlot()"></select>
+
+    </div>
+
+    <div class="field">
+
+     <label>FRAME SHAPE</label>
+
+     <select id="slotShape" onchange="updateSlot()">
+
+      <option value="rectangle">Rectangle</option>
+
+      <option value="rounded">Rounded rectangle</option>
+
+      <option value="oval">Oval</option>
+
+      <option value="scalloped">Scalloped / Bergerigi</option>
+
+     </select>
+
+    </div>
+
+    <div class="field-row">
+
+     <div class="field">
+
+      <label>X POSITION</label>
+
+      <input type="number" id="slotX" oninput="updateSlot()">
+
+     </div>
+
+     <div class="field">
+
+      <label>Y POSITION</label>
+
+      <input type="number" id="slotY" oninput="updateSlot()">
+
+     </div>
+
+    </div>
+
+    <div class="field-row">
+
+     <div class="field">
+
+      <label>WIDTH</label>
+
+      <input type="number" id="slotW" oninput="updateSlot()">
+
+     </div>
+
+     <div class="field">
+
+      <label>HEIGHT</label>
+
+      <input type="number" id="slotH" oninput="updateSlot()">
+
+     </div>
+
+    </div>
+
+    <div class="field">
+
+     <label>FRAME CORNER / EDGE ROUNDING</label>
+
+     <input type="range" id="slotRadius" min="0" max="100" value="25" oninput="updateSlot()">
+
+    </div>
+
+    <div class="field">
+
+     <label>FRAME BORDER COLOUR</label>
+
+     <input type="color" id="slotBorder" value="#111111" oninput="updateSlot()">
+
+    </div>
+
+    <div class="field">
+
+     <label>FRAME BORDER WIDTH</label>
+
+     <input type="range" id="slotBorderWidth" min="0" max="20" value="3" oninput="updateSlot()">
+
+    </div>
+
+    <hr class="studio-divider">
+
+    <h3>Add Elements</h3>
+
+    <div class="editor-tools">
+
+     <button class="secondary-btn" onclick="addText()">＋ Add Text</button>
+
+     <button class="secondary-btn" onclick="addEmoji('♡')">♡ Heart</button>
+
+     <button class="secondary-btn" onclick="addEmoji('✿')">✿ Flower</button>
+
+     <button class="secondary-btn" onclick="addEmoji('🦋')">🦋 Butterfly</button>
+
+     <button class="secondary-btn" onclick="addEmoji('✧')">✧ Sparkle</button>
+
+     <button class="secondary-btn" onclick="addEmoji('☁')">☁ Cloud</button>
+
+     <button class="secondary-btn" onclick="addEmoji('☆')">☆ Star</button>
+
+     <button class="secondary-btn" onclick="$('assetUpload').click()">＋ Upload Image</button>
+
+    </div>
+
+    <input class="file-input" id="assetUpload" type="file" accept="image/png,image/webp,image/jpeg" onchange="uploadElement(event)">
+
+    <hr class="studio-divider">
+
+    <h3>Edit Selected Element</h3>
+
+    <div id="selectedName" class="selected-name">No element selected</div>
+
+    <div class="field">
+
+     <label>TEXT</label>
+
+     <input id="elementText" type="text" placeholder="Select a text element" oninput="updateElement()">
+
+    </div>
+
+    <div class="field">
+
+     <label>FONT STYLE</label>
+
+     <select id="elementFont" onchange="updateElement()">
+
+      <option value="Quicksand">Quicksand · Simple</option>
+
+      <option value="Cormorant Garamond">Cormorant Garamond · Elegant</option>
+
+      <option value="Playfair Display">Playfair Display · Classic</option>
+
+      <option value="Great Vibes">Great Vibes · Script</option>
+
+      <option value="Dancing Script">Dancing Script · Handwriting</option>
+
+      <option value="Parisienne">Parisienne · Cursive</option>
+
+      <option value="Allura">Allura · Calligraphy</option>
+
+      <option value="Sacramento">Sacramento · Handwritten</option>
+
+      <option value="Georgia">Georgia · Serif</option>
+
+     </select>
+
+    </div>
+
+    <div class="field-row">
+
+     <div class="field">
+
+      <label>TEXT COLOUR</label>
+
+      <input type="color" id="elementColor" value="#111111" oninput="updateElement()">
+
+     </div>
+
+     <div class="field">
+
+      <label>FONT SIZE</label>
+
+      <input type="number" id="elementSize" min="8" max="220" value="40" oninput="updateElement()">
+
+     </div>
+
+    </div>
+
+    <div class="field-row">
+
+     <div class="field">
+
+      <label>WIDTH (IMAGE)</label>
+
+      <input type="number" id="elementWidth" min="10" max="600" oninput="updateElement()">
+
+     </div>
+
+     <div class="field">
+
+      <label>HEIGHT (IMAGE)</label>
+
+      <input type="number" id="elementHeight" min="10" max="1800" oninput="updateElement()">
+
+     </div>
+
+    </div>
+
+    <div class="field">
+
+     <label>ROTATION</label>
+
+     <input type="range" id="elementRotation" min="-180" max="180" value="0" oninput="updateElement()">
+
+    </div>
+
+    <div class="field">
+
+     <label>OPACITY</label>
+
+     <input type="range" id="elementOpacity" min="10" max="100" value="100" oninput="updateElement()">
+
+    </div>
+
+    <div class="field-row">
+
+     <div class="field">
+
+      <label>X POSITION</label>
+
+      <input type="number" id="elementX" oninput="updatePosition()">
+
+     </div>
+
+     <div class="field">
+
+      <label>Y POSITION</label>
+
+      <input type="number" id="elementY" oninput="updatePosition()">
+
+     </div>
+
+    </div>
+
+    <div class="field">
+
+     <label>TEXT ALIGNMENT</label>
+
+     <select id="elementAlign" onchange="updateElement()">
+
+      <option value="center">Center</option>
+
+      <option value="left">Left</option>
+
+      <option value="right">Right</option>
+
+     </select>
+
+    </div>
+
+    <div class="btn-row">
+
+     <button class="secondary-btn" onclick="duplicateElement()">DUPLICATE</button>
+
+     <button class="danger-btn" onclick="deleteElement()">DELETE</button>
+
+    </div>
+
+    <hr class="studio-divider">
+
+    <div class="btn-row">
+
+     <button class="secondary-btn" onclick="goHome()">BACK TO HOME</button>
+
+    </div>
+
+   </div>
+
+  </div>
+
+  <p class="small-note">Default design is saved in this browser on this device. Use the same device and browser at the event.</p>
+
+ </div>
 
 </section>
 
@@ -1236,75 +1310,151 @@ h1,h2,h3{
 
 const SCRIPT_URL = "PASTE_YOUR_GOOGLE_APPS_SCRIPT_WEB_APP_URL_HERE";
 
-const W = 600;
+const W=600;
 
-const H = 1800;
+const $=id=>document.getElementById(id);
 
-const $ = id => document.getElementById(id);
+const clone=obj=>JSON.parse(JSON.stringify(obj));
 
-const clone = obj => JSON.parse(JSON.stringify(obj));
+function ratioHeight(ratio){
 
-const ORIGINAL_TEMPLATE = {
+ const parts=ratio.split(":").map(Number);
 
-  base:"#ffffff",
+ return Math.round(W*parts[1]/parts[0]);
 
-  dot:"#111111",
+}
 
-  dots:false,
+function createDefaultSlots(count,ratio){
 
-  photoFilter:"color",
+ const H=ratioHeight(ratio);
 
-  stage:"#f7e2e8",
+ const slots=[];
 
-  stage2:"#dce7d5",
+ const margin=45;
 
-  stageImage:null,
+ const header=ratio==="2:6"?210:Math.round(H*.12);
 
-  stripBackground:null,
+ const footer=ratio==="2:6"?240:Math.round(H*.12);
 
-  overlay:null,
+ const gap=25;
 
-  slots:[
+ const available=H-header-footer;
 
-    {x:55,y:250,w:490,h:350,shape:"rectangle",radius:25,border:"#111111",borderWidth:3},
+ let positions=[];
 
-    {x:55,y:650,w:490,h:350,shape:"rectangle",radius:25,border:"#111111",borderWidth:3},
+ if(ratio==="1:1"&&count>1){
 
-    {x:55,y:1050,w:490,h:350,shape:"rectangle",radius:25,border:"#111111",borderWidth:3}
+  const cols=2;
 
-  ],
+  const rows=Math.ceil(count/2);
 
-  elements:[
+  const cellW=(W-margin*2-gap)/2;
 
-    {id:"head1",type:"text",text:"PERSIDA",x:300,y:105,size:42,color:"#111111",font:"Cormorant Garamond",align:"center",rotation:0,opacity:100},
+  const cellH=(available-gap*(rows-1))/rows;
 
-    {id:"head2",type:"text",text:"appreciation night with Persida 12",x:300,y:155,size:16,color:"#222222",font:"Quicksand",align:"center",rotation:0,opacity:100},
+  for(let i=0;i<count;i++){
 
-    {id:"foot1",type:"text",text:"PERSIDA",x:300,y:1510,size:35,color:"#111111",font:"Cormorant Garamond",align:"center",rotation:0,opacity:100},
+   positions.push({
 
-    {id:"foot2",type:"text",text:"appreciation night with Persida 12",x:300,y:1550,size:13,color:"#222222",font:"Quicksand",align:"center",rotation:0,opacity:100},
+    x:margin+(i%2)*(cellW+gap),
 
-    {id:"foot3",type:"text",text:"17.11.2026",x:300,y:1590,size:17,color:"#111111",font:"Quicksand",align:"center",rotation:0,opacity:100}
+    y:header+Math.floor(i/2)*(cellH+gap),
 
-  ]
+    w:cellW,h:cellH
+
+   });
+
+  }
+
+ }else{
+
+  const cellH=(available-gap*(count-1))/count;
+
+  for(let i=0;i<count;i++){
+
+   positions.push({
+
+    x:margin,y:header+i*(cellH+gap),
+
+    w:W-margin*2,h:cellH
+
+   });
+
+  }
+
+ }
+
+ positions.forEach(p=>slots.push({
+
+  ...p,shape:"rectangle",radius:25,
+
+  border:"#111111",borderWidth:3
+
+ }));
+
+ return slots;
+
+}
+
+const ORIGINAL_TEMPLATE={
+
+ base:"#ffffff",
+
+ dot:"#111111",
+
+ dots:false,
+
+ photoFilter:"color",
+
+ stage:"#f7e2e8",
+
+ stage2:"#dce7d5",
+
+ stageImage:null,
+
+ stripBackground:null,
+
+ overlay:null,
+
+ layoutCount:3,
+
+ ratio:"2:6",
+
+ slots:createDefaultSlots(3,"2:6"),
+
+ elements:[
+
+  {id:"head1",type:"text",text:"PERSIDA",x:300,y:105,size:42,color:"#111111",font:"Cormorant Garamond",align:"center",rotation:0,opacity:100},
+
+  {id:"head2",type:"text",text:"appreciation night with Persida 12",x:300,y:155,size:16,color:"#222222",font:"Quicksand",align:"center",rotation:0,opacity:100},
+
+  {id:"foot1",type:"text",text:"PERSIDA",x:300,y:1510,size:35,color:"#111111",font:"Cormorant Garamond",align:"center",rotation:0,opacity:100},
+
+  {id:"foot2",type:"text",text:"appreciation night with Persida 12",x:300,y:1550,size:13,color:"#222222",font:"Quicksand",align:"center",rotation:0,opacity:100},
+
+  {id:"foot3",type:"text",text:"17.11.2026",x:300,y:1590,size:17,color:"#111111",font:"Quicksand",align:"center",rotation:0,opacity:100}
+
+ ]
 
 };
 
 function loadDefault(){
 
-  try{
+ try{
 
-    const saved=localStorage.getItem("persida12_default_template");
+  const saved=localStorage.getItem("persida12_default_template");
 
-    if(!saved)return clone(ORIGINAL_TEMPLATE);
+  if(!saved)return clone(ORIGINAL_TEMPLATE);
 
-    return {...clone(ORIGINAL_TEMPLATE),...JSON.parse(saved)};
+  const result={...clone(ORIGINAL_TEMPLATE),...JSON.parse(saved)};
 
-  }catch(e){
+  result.layoutCount=Number(result.layoutCount)||3;
 
-    return clone(ORIGINAL_TEMPLATE);
+  result.ratio=result.ratio||"2:6";
 
-  }
+  return result;
+
+ }catch(e){return clone(ORIGINAL_TEMPLATE)}
 
 }
 
@@ -1334,15 +1484,15 @@ let liveURL=null;
 
 let busy=false;
 
-const imgCache=new Map();
+let imgCache=new Map();
 
 function showPage(id){
 
-  document.querySelectorAll(".page").forEach(p=>p.classList.remove("active"));
+ document.querySelectorAll(".page").forEach(p=>p.classList.remove("active"));
 
-  $(id).classList.add("active");
+ $(id).classList.add("active");
 
-  window.scrollTo(0,0);
+ window.scrollTo(0,0);
 
 }
 
@@ -1350,263 +1500,403 @@ function sleep(ms){return new Promise(resolve=>setTimeout(resolve,ms))}
 
 function newId(){return "el"+Date.now()+Math.random().toString(16).slice(2)}
 
-/* ---------------- DESIGN STUDIO ---------------- */
+/* DESIGN STUDIO */
 
 function openStudio(){
 
-  workingTemplate=clone(defaultTemplate);
+ workingTemplate=clone(defaultTemplate);
 
-  selected=null;
+ selected=null;
 
-  showPage("studioPage");
+ showPage("studioPage");
 
-  syncDesignControls();
+ syncDesignControls();
 
-  renderEditor();
+ renderEditor();
 
-  refreshControls();
+ refreshControls();
 
-  selectSlot();
+ selectSlot();
 
 }
 
 function syncDesignControls(){
 
-  $("baseColor").value=workingTemplate.base||"#ffffff";
+ $("layoutCount").value=workingTemplate.layoutCount;
 
-  $("dotColor").value=workingTemplate.dot||"#111111";
+ $("stripRatio").value=workingTemplate.ratio;
 
-  $("dotsToggle").checked=!!workingTemplate.dots;
+ $("baseColor").value=workingTemplate.base||"#ffffff";
 
-  $("photoFilter").value=workingTemplate.photoFilter||"color";
+ $("dotColor").value=workingTemplate.dot||"#111111";
 
-  $("stageColor").value=workingTemplate.stage||"#f7e2e8";
+ $("dotsToggle").checked=!!workingTemplate.dots;
 
-  $("stageColor2").value=workingTemplate.stage2||"#dce7d5";
+ $("photoFilter").value=workingTemplate.photoFilter||"color";
 
-  updateStagePreview();
+ $("stageColor").value=workingTemplate.stage||"#f7e2e8";
+
+ $("stageColor2").value=workingTemplate.stage2||"#dce7d5";
+
+ updateStagePreview();
+
+ updateSlotChoices();
+
+}
+
+function updateSlotChoices(){
+
+ const select=$("slotChoice");
+
+ select.innerHTML="";
+
+ workingTemplate.slots.forEach((s,i)=>{
+
+  const option=document.createElement("option");
+
+  option.value=i;
+
+  option.textContent="Photo frame "+(i+1);
+
+  select.appendChild(option);
+
+ });
+
+ if(selectedSlotIndex>=workingTemplate.slots.length)selectedSlotIndex=0;
+
+ select.value=selectedSlotIndex;
+
+}
+
+function changeLayout(){
+
+ const count=Number($("layoutCount").value);
+
+ const ratio=$("stripRatio").value;
+
+ const oldSlots=workingTemplate.slots||[];
+
+ const newSlots=createDefaultSlots(count,ratio);
+
+ newSlots.forEach((s,i)=>{
+
+  if(oldSlots[i]){
+
+   s.shape=oldSlots[i].shape||s.shape;
+
+   s.radius=oldSlots[i].radius??s.radius;
+
+   s.border=oldSlots[i].border||s.border;
+
+   s.borderWidth=oldSlots[i].borderWidth??s.borderWidth;
+
+  }
+
+ });
+
+ workingTemplate.layoutCount=count;
+
+ workingTemplate.ratio=ratio;
+
+ workingTemplate.slots=newSlots;
+
+ const H=ratioHeight(ratio);
+
+ const header=ratio==="2:6"?210:Math.round(H*.12);
+
+ const footer=ratio==="2:6"?240:Math.round(H*.12);
+
+ workingTemplate.elements.forEach(e=>{
+
+  if(e.id==="head1")e.y=Math.round(header*.45);
+
+  if(e.id==="head2")e.y=Math.round(header*.75);
+
+  if(e.id==="foot1")e.y=H-Math.round(footer*.65);
+
+  if(e.id==="foot2")e.y=H-Math.round(footer*.43);
+
+  if(e.id==="foot3")e.y=H-Math.round(footer*.22);
+
+ });
+
+ selectedSlotIndex=0;
+
+ selected={kind:"slot",index:0};
+
+ updateSlotChoices();
+
+ resizeEditorCanvas();
+
+ renderEditor();
+
+ selectSlot();
+
+}
+
+function resizeEditorCanvas(){
+
+ const canvas=$("editorCanvas");
+
+ canvas.width=W;
+
+ canvas.height=ratioHeight(workingTemplate.ratio||"2:6");
 
 }
 
 function saveDefault(){
 
-  try{
+ try{
 
-    localStorage.setItem("persida12_default_template",JSON.stringify(workingTemplate));
+  localStorage.setItem("persida12_default_template",JSON.stringify(workingTemplate));
 
-    defaultTemplate=clone(workingTemplate);
+  defaultTemplate=clone(workingTemplate);
 
-    alert("Default design saved on this device!");
+  alert("Default design saved on this device!");
 
-  }catch(e){
+ }catch(e){
 
-    alert("Unable to save. The uploaded images may be too large. Try using smaller images.");
+  alert("Unable to save. The uploaded images may be too large. Try using smaller images.");
 
-  }
+ }
 
 }
 
 function useForSession(){
 
-  sessionTemplate=clone(workingTemplate);
+ sessionTemplate=clone(workingTemplate);
 
-  alert("Your design will be used for the next photo session.");
+ alert("Your design will be used for the next photo session.");
 
-  showPage("home");
+ showPage("home");
 
 }
 
 function resetDesign(){
 
-  if(!confirm("Reset the design to the original PERSIDA 12 template?"))return;
+ if(!confirm("Reset the design to the original PERSIDA 12 template?"))return;
 
-  workingTemplate=clone(ORIGINAL_TEMPLATE);
+ workingTemplate=clone(ORIGINAL_TEMPLATE);
 
-  selected=null;
+ selected=null;
 
-  syncDesignControls();
+ selectedSlotIndex=0;
 
-  renderEditor();
+ syncDesignControls();
 
-  refreshControls();
+ resizeEditorCanvas();
 
-  selectSlot();
+ renderEditor();
+
+ refreshControls();
+
+ selectSlot();
 
 }
 
 function changeDesign(){
 
-  workingTemplate.base=$("baseColor").value;
+ workingTemplate.base=$("baseColor").value;
 
-  workingTemplate.dot=$("dotColor").value;
+ workingTemplate.dot=$("dotColor").value;
 
-  workingTemplate.dots=$("dotsToggle").checked;
+ workingTemplate.dots=$("dotsToggle").checked;
 
-  workingTemplate.photoFilter=$("photoFilter").value;
+ workingTemplate.photoFilter=$("photoFilter").value;
 
-  renderEditor();
+ renderEditor();
 
 }
 
 function changeStage(){
 
-  workingTemplate.stage=$("stageColor").value;
+ workingTemplate.stage=$("stageColor").value;
 
-  workingTemplate.stage2=$("stageColor2").value;
+ workingTemplate.stage2=$("stageColor2").value;
 
-  updateStagePreview();
+ updateStagePreview();
 
 }
 
 function updateStagePreview(){
 
-  const wrap=$("previewWrap");
+ const stage=$("editorStage");
 
-  if(workingTemplate.stageImage){
+ if(workingTemplate.stageImage){
 
-    wrap.style.backgroundImage=`url("${workingTemplate.stageImage}")`;
+  stage.style.backgroundImage=`url("${workingTemplate.stageImage}")`;
 
-    wrap.style.backgroundSize="cover";
+  stage.style.backgroundSize="cover";
 
-    wrap.style.backgroundPosition="center";
+  stage.style.backgroundPosition="center";
 
-  }else{
+ }else{
 
-    wrap.style.backgroundImage=`linear-gradient(125deg,${workingTemplate.stage} 0%,${workingTemplate.stage} 48%,${workingTemplate.stage2} 48%,${workingTemplate.stage2} 100%)`;
+  stage.style.backgroundImage=`linear-gradient(125deg,${workingTemplate.stage} 0%,${workingTemplate.stage} 48%,${workingTemplate.stage2} 48%,${workingTemplate.stage2} 100%)`;
 
-  }
+ }
 
 }
 
 function readImageFile(file,callback){
 
-  if(!file)return;
+ if(!file)return;
 
-  if(file.size>5000000){
+ if(file.size>5000000){
 
-    alert("Please choose an image smaller than 5MB.");
+  alert("Please choose an image smaller than 5MB.");
 
-    return;
+  return;
 
-  }
+ }
 
-  const reader=new FileReader();
+ const reader=new FileReader();
 
-  reader.onload=()=>callback(reader.result);
+ reader.onload=()=>callback(reader.result);
 
-  reader.onerror=()=>alert("Unable to read this image.");
+ reader.onerror=()=>alert("Unable to read this image.");
 
-  reader.readAsDataURL(file);
+ reader.readAsDataURL(file);
 
 }
 
 function uploadStripBackground(event){
 
-  const file=event.target.files?.[0];
+ const file=event.target.files?.[0];
 
-  readImageFile(file,data=>{
+ readImageFile(file,data=>{
 
-    workingTemplate.stripBackground=data;
+  workingTemplate.stripBackground=data;
 
-    renderEditor();
+  renderEditor();
 
-  });
+ });
 
-  event.target.value="";
+ event.target.value="";
 
 }
 
 function removeStripBackground(){
 
-  workingTemplate.stripBackground=null;
+ workingTemplate.stripBackground=null;
 
-  renderEditor();
+ renderEditor();
 
 }
 
 function uploadTemplate(event){
 
-  const file=event.target.files?.[0];
+ const file=event.target.files?.[0];
 
-  readImageFile(file,data=>{
+ readImageFile(file,data=>{
 
-    workingTemplate.overlay=data;
+  workingTemplate.overlay=data;
 
-    renderEditor();
+  renderEditor();
 
-  });
+ });
 
-  event.target.value="";
+ event.target.value="";
 
 }
 
 function removeTemplate(){
 
-  workingTemplate.overlay=null;
+ workingTemplate.overlay=null;
 
-  renderEditor();
+ renderEditor();
 
 }
 
 function uploadStageBackground(event){
 
-  const file=event.target.files?.[0];
+ const file=event.target.files?.[0];
 
-  readImageFile(file,data=>{
+ readImageFile(file,data=>{
 
-    workingTemplate.stageImage=data;
+  workingTemplate.stageImage=data;
 
-    updateStagePreview();
+  updateStagePreview();
 
-  });
+ });
 
-  event.target.value="";
+ event.target.value="";
 
 }
 
 function removeStageBackground(){
 
-  workingTemplate.stageImage=null;
+ workingTemplate.stageImage=null;
 
-  updateStagePreview();
+ updateStagePreview();
 
 }
 
 function addText(){
 
-  const value=prompt("Enter your text:");
+ const value=prompt("Enter your text:");
 
-  if(!value||!value.trim())return;
+ if(!value||!value.trim())return;
 
-  const e={
+ const e={
 
-    id:newId(),type:"text",text:value.trim(),
+  id:newId(),type:"text",text:value.trim(),
 
-    x:300,y:900,size:35,color:"#111111",
+  x:300,y:Math.round($("editorCanvas").height/2),
 
-    font:"Quicksand",align:"center",rotation:0,opacity:100
+  size:35,color:"#111111",font:"Quicksand",
 
-  };
+  align:"center",rotation:0,opacity:100
 
-  workingTemplate.elements.push(e);
+ };
 
-  selected={kind:"element",id:e.id};
+ workingTemplate.elements.push(e);
 
-  renderEditor();
+ selected={kind:"element",id:e.id};
 
-  refreshControls();
+ renderEditor();
+
+ refreshControls();
 
 }
 
 function addEmoji(value){
 
+ const e={
+
+  id:newId(),type:"text",text:value,
+
+  x:300,y:Math.round($("editorCanvas").height/2),
+
+  size:70,color:"#111111",font:"Quicksand",
+
+  align:"center",rotation:0,opacity:100
+
+ };
+
+ workingTemplate.elements.push(e);
+
+ selected={kind:"element",id:e.id};
+
+ renderEditor();
+
+ refreshControls();
+
+}
+
+function uploadElement(event){
+
+ const file=event.target.files?.[0];
+
+ readImageFile(file,data=>{
+
   const e={
 
-    id:newId(),type:"text",text:value,
+   id:newId(),type:"image",src:data,
 
-    x:300,y:900,size:70,color:"#111111",
+   x:300,y:Math.round($("editorCanvas").height/2),
 
-    font:"Quicksand",align:"center",rotation:0,opacity:100
+   w:150,h:150,rotation:0,opacity:100
 
   };
 
@@ -1618,377 +1908,441 @@ function addEmoji(value){
 
   refreshControls();
 
-}
+ });
 
-function uploadElement(event){
-
-  const file=event.target.files?.[0];
-
-  readImageFile(file,data=>{
-
-    const e={
-
-      id:newId(),type:"image",src:data,
-
-      x:300,y:900,w:150,h:150,rotation:0,opacity:100
-
-    };
-
-    workingTemplate.elements.push(e);
-
-    selected={kind:"element",id:e.id};
-
-    renderEditor();
-
-    refreshControls();
-
-  });
-
-  event.target.value="";
+ event.target.value="";
 
 }
 
 function getSelected(){
 
-  if(!selected)return null;
+ if(!selected)return null;
 
-  if(selected.kind==="element"){
+ if(selected.kind==="element"){
 
-    return workingTemplate.elements.find(e=>e.id===selected.id);
+  return workingTemplate.elements.find(e=>e.id===selected.id);
 
-  }
+ }
 
-  if(selected.kind==="slot"){
+ if(selected.kind==="slot"){
 
-    return workingTemplate.slots[selected.index];
+  return workingTemplate.slots[selected.index];
 
-  }
+ }
 
-  return null;
+ return null;
 
 }
 
 function selectSlot(){
 
-  selectedSlotIndex=Number($("slotChoice").value)||0;
+ selectedSlotIndex=Number($("slotChoice").value)||0;
 
-  const s=workingTemplate.slots[selectedSlotIndex];
+ const s=workingTemplate.slots[selectedSlotIndex];
 
-  selected={kind:"slot",index:selectedSlotIndex};
+ if(!s)return;
 
-  $("slotShape").value=s.shape||"rectangle";
+ selected={kind:"slot",index:selectedSlotIndex};
 
-  $("slotX").value=Math.round(s.x);
+ $("slotShape").value=s.shape||"rectangle";
 
-  $("slotY").value=Math.round(s.y);
+ $("slotX").value=Math.round(s.x);
 
-  $("slotW").value=Math.round(s.w);
+ $("slotY").value=Math.round(s.y);
 
-  $("slotH").value=Math.round(s.h);
+ $("slotW").value=Math.round(s.w);
 
-  $("slotRadius").value=s.radius??25;
+ $("slotH").value=Math.round(s.h);
 
-  $("slotBorder").value=s.border||"#111111";
+ $("slotRadius").value=s.radius??25;
 
-  $("slotBorderWidth").value=s.borderWidth??3;
+ $("slotBorder").value=s.border||"#111111";
 
-  refreshControls();
+ $("slotBorderWidth").value=s.borderWidth??3;
 
-  renderEditor();
+ refreshControls();
+
+ renderEditor();
 
 }
 
 function updateSlot(){
 
-  const s=workingTemplate.slots[selectedSlotIndex];
+ const s=workingTemplate.slots[selectedSlotIndex];
 
-  s.shape=$("slotShape").value;
+ if(!s)return;
 
-  s.x=Number($("slotX").value)||0;
+ s.shape=$("slotShape").value;
 
-  s.y=Number($("slotY").value)||0;
+ s.x=Number($("slotX").value)||0;
 
-  s.w=Math.max(30,Number($("slotW").value)||30);
+ s.y=Number($("slotY").value)||0;
 
-  s.h=Math.max(30,Number($("slotH").value)||30);
+ s.w=Math.max(30,Number($("slotW").value)||30);
 
-  s.radius=Number($("slotRadius").value)||0;
+ s.h=Math.max(30,Number($("slotH").value)||30);
 
-  s.border=$("slotBorder").value;
+ s.radius=Number($("slotRadius").value)||0;
 
-  s.borderWidth=Number($("slotBorderWidth").value)||0;
+ s.border=$("slotBorder").value;
 
-  selected={kind:"slot",index:selectedSlotIndex};
+ s.borderWidth=Number($("slotBorderWidth").value)||0;
 
-  renderEditor();
+ selected={kind:"slot",index:selectedSlotIndex};
+
+ renderEditor();
 
 }
 
 function refreshControls(){
 
-  const e=getSelected();
+ const e=getSelected();
 
-  const isText=e&&selected.kind==="element"&&e.type==="text";
+ const isText=e&&selected.kind==="element"&&e.type==="text";
 
-  const isImage=e&&selected.kind==="element"&&e.type==="image";
+ const isImage=e&&selected.kind==="element"&&e.type==="image";
 
-  $("selectedName").textContent=!e?"No element selected":
+ $("selectedName").textContent=!e?"No element selected":
 
-    selected.kind==="slot"?"Photo frame "+(selected.index+1):
+  selected.kind==="slot"?"Photo frame "+(selected.index+1):
 
-    isImage?"Uploaded image":e.text||"Text";
+  isImage?"Uploaded image":e.text||"Text";
 
-  $("elementText").disabled=!isText;
+ $("elementText").disabled=!isText;
 
-  $("elementFont").disabled=!isText;
+ $("elementFont").disabled=!isText;
 
-  $("elementAlign").disabled=!isText;
+ $("elementAlign").disabled=!isText;
 
-  $("elementColor").disabled=!isText;
+ $("elementColor").disabled=!isText;
 
-  $("elementSize").disabled=!isText;
+ $("elementSize").disabled=!isText;
 
-  $("elementWidth").disabled=!isImage;
+ $("elementWidth").disabled=!isImage;
 
-  $("elementHeight").disabled=!isImage;
+ $("elementHeight").disabled=!isImage;
 
-  $("elementRotation").disabled=!e||selected.kind==="slot";
+ $("elementRotation").disabled=!e||selected.kind==="slot";
 
-  $("elementOpacity").disabled=!e||selected.kind==="slot";
+ $("elementOpacity").disabled=!e||selected.kind==="slot";
 
-  $("elementX").disabled=!e||selected.kind==="slot";
+ $("elementX").disabled=!e||selected.kind==="slot";
 
-  $("elementY").disabled=!e||selected.kind==="slot";
+ $("elementY").disabled=!e||selected.kind==="slot";
 
-  if(!e){
+ if(!e){
 
-    ["elementText","elementWidth","elementHeight","elementX","elementY"].forEach(id=>$(id).value="");
+  ["elementText","elementWidth","elementHeight","elementX","elementY"].forEach(id=>$(id).value="");
 
-    return;
+  return;
 
-  }
+ }
 
-  $("elementText").value=isText?e.text:"";
+ $("elementText").value=isText?e.text:"";
 
-  $("elementFont").value=isText?e.font:"Quicksand";
+ $("elementFont").value=isText?e.font:"Quicksand";
 
-  $("elementColor").value=e.color||"#111111";
+ $("elementColor").value=e.color||"#111111";
 
-  $("elementSize").value=e.size||35;
+ $("elementSize").value=e.size||35;
 
-  $("elementRotation").value=e.rotation||0;
+ $("elementRotation").value=e.rotation||0;
 
-  $("elementOpacity").value=e.opacity??100;
+ $("elementOpacity").value=e.opacity??100;
 
-  $("elementAlign").value=e.align||"center";
+ $("elementAlign").value=e.align||"center";
 
-  $("elementWidth").value=isImage?e.w:"";
+ $("elementWidth").value=isImage?e.w:"";
 
-  $("elementHeight").value=isImage?e.h:"";
+ $("elementHeight").value=isImage?e.h:"";
 
-  $("elementX").value=Math.round(e.x);
+ $("elementX").value=Math.round(e.x);
 
-  $("elementY").value=Math.round(e.y);
+ $("elementY").value=Math.round(e.y);
 
 }
 
 function updateElement(){
 
-  const e=getSelected();
+ const e=getSelected();
 
-  if(!e||selected.kind!=="element")return;
+ if(!e||selected.kind!=="element")return;
 
-  if(e.type==="text"){
+ if(e.type==="text"){
 
-    e.text=$("elementText").value;
+  e.text=$("elementText").value;
 
-    e.font=$("elementFont").value;
+  e.font=$("elementFont").value;
 
-    e.color=$("elementColor").value;
+  e.color=$("elementColor").value;
 
-    e.size=Math.max(8,Number($("elementSize").value)||35);
+  e.size=Math.max(8,Number($("elementSize").value)||35);
 
-    e.align=$("elementAlign").value;
+  e.align=$("elementAlign").value;
 
-  }else{
+ }else{
 
-    e.w=Math.max(10,Number($("elementWidth").value)||e.w);
+  e.w=Math.max(10,Number($("elementWidth").value)||e.w);
 
-    e.h=Math.max(10,Number($("elementHeight").value)||e.h);
+  e.h=Math.max(10,Number($("elementHeight").value)||e.h);
 
-  }
+ }
 
-  e.rotation=Number($("elementRotation").value)||0;
+ e.rotation=Number($("elementRotation").value)||0;
 
-  e.opacity=Number($("elementOpacity").value)||100;
+ e.opacity=Number($("elementOpacity").value)||100;
 
-  renderEditor();
+ renderEditor();
 
 }
 
 function updatePosition(){
 
-  const e=getSelected();
+ const e=getSelected();
 
-  if(!e||selected.kind!=="element")return;
+ if(!e||selected.kind!=="element")return;
 
-  e.x=Number($("elementX").value)||0;
+ e.x=Number($("elementX").value)||0;
 
-  e.y=Number($("elementY").value)||0;
+ e.y=Number($("elementY").value)||0;
 
-  renderEditor();
+ renderEditor();
 
 }
 
 function duplicateElement(){
 
-  const e=getSelected();
+ const e=getSelected();
 
-  if(!e||selected.kind!=="element")return;
+ if(!e||selected.kind!=="element")return;
 
-  const copy=clone(e);
+ const copy=clone(e);
 
-  copy.id=newId();
+ copy.id=newId();
 
-  copy.x+=25;
+ copy.x+=25;
 
-  copy.y+=25;
+ copy.y+=25;
 
-  workingTemplate.elements.push(copy);
+ workingTemplate.elements.push(copy);
 
-  selected={kind:"element",id:copy.id};
+ selected={kind:"element",id:copy.id};
 
-  renderEditor();
+ renderEditor();
 
-  refreshControls();
+ refreshControls();
 
 }
 
 function deleteElement(){
 
-  if(!selected||selected.kind!=="element")return;
+ if(!selected||selected.kind!=="element")return;
 
-  workingTemplate.elements=workingTemplate.elements.filter(e=>e.id!==selected.id);
+ workingTemplate.elements=workingTemplate.elements.filter(e=>e.id!==selected.id);
 
-  selected=null;
+ selected=null;
 
-  renderEditor();
+ renderEditor();
 
-  refreshControls();
+ refreshControls();
 
 }
 
-/* ---------------- DRAW PHOTOSTRIP ---------------- */
+/* DRAW PHOTOSTRIP */
 
 function getImg(src){
 
-  if(!src)return null;
+ if(!src)return null;
 
-  if(!imgCache.has(src)){
+ if(!imgCache.has(src)){
 
-    const img=new Image();
+  const img=new Image();
 
-    img.src=src;
+  img.src=src;
 
-    imgCache.set(src,img);
+  imgCache.set(src,img);
 
-  }
+ }
 
-  return imgCache.get(src);
+ return imgCache.get(src);
 
 }
 
 async function waitImages(design){
 
-  await document.fonts.ready;
+ await document.fonts.ready;
 
-  const sources=[
+ const sources=[
 
-    design.stripBackground,
+  design.stripBackground,design.overlay,design.stageImage,
 
-    design.overlay,
+  ...design.elements.filter(e=>e.type==="image").map(e=>e.src)
 
-    design.stageImage,
+ ].filter(Boolean);
 
-    ...design.elements.filter(e=>e.type==="image").map(e=>e.src)
+ await Promise.all(sources.map(src=>new Promise(resolve=>{
 
-  ].filter(Boolean);
+  const img=getImg(src);
 
-  await Promise.all(sources.map(src=>new Promise(resolve=>{
+  if(img.complete)return resolve();
 
-    const img=getImg(src);
+  img.onload=resolve;
 
-    if(img.complete)return resolve();
+  img.onerror=resolve;
 
-    img.onload=resolve;
-
-    img.onerror=resolve;
-
-  })));
+ })));
 
 }
 
 function drawImageCover(ctx,img,x,y,w,h){
 
-  if(!img||!img.naturalWidth)return;
+ if(!img||!img.width)return;
 
-  const scale=Math.max(w/img.width,h/img.height);
+ const scale=Math.max(w/img.width,h/img.height);
 
-  const sw=w/scale,sh=h/scale;
+ const sw=w/scale,sh=h/scale;
 
-  const sx=(img.width-sw)/2,sy=(img.height-sh)/2;
+ const sx=(img.width-sw)/2,sy=(img.height-sh)/2;
 
-  ctx.drawImage(img,sx,sy,sw,sh,x,y,w,h);
+ ctx.drawImage(img,sx,sy,sw,sh,x,y,w,h);
 
 }
 
 function drawShapePath(ctx,s){
 
-  ctx.beginPath();
+ ctx.beginPath();
 
-  if(s.shape==="oval"){
+ if(s.shape==="oval"){
 
-    ctx.ellipse(s.x+s.w/2,s.y+s.h/2,s.w/2,s.h/2,0,0,Math.PI*2);
+  ctx.ellipse(s.x+s.w/2,s.y+s.h/2,s.w/2,s.h/2,0,0,Math.PI*2);
 
-  }else if(s.shape==="rounded"){
+ }else if(s.shape==="rounded"){
 
-    const r=Math.min(s.radius||25,s.w/2,s.h/2);
+  const r=Math.min(s.radius||25,s.w/2,s.h/2);
 
-    ctx.roundRect(s.x,s.y,s.w,s.h,r);
+  ctx.roundRect(s.x,s.y,s.w,s.h,r);
 
-  }else if(s.shape==="scalloped"){
+ }else if(s.shape==="scalloped"){
 
-    const steps=12;
+  const steps=12,cx=s.x+s.w/2,cy=s.y+s.h/2;
 
-    const cx=s.x+s.w/2,cy=s.y+s.h/2;
+  const rx=s.w/2,ry=s.h/2;
 
-    const rx=s.w/2,ry=s.h/2;
+  for(let i=0;i<=steps*8;i++){
 
-    for(let i=0;i<=steps*8;i++){
+   const a=i/(steps*8)*Math.PI*2;
 
-      const a=i/(steps*8)*Math.PI*2;
+   const wave=1+.045*Math.cos(a*steps);
 
-      const wave=1+0.045*Math.cos(a*steps);
+   const x=cx+Math.cos(a)*rx*wave;
 
-      const x=cx+Math.cos(a)*rx*wave;
+   const y=cy+Math.sin(a)*ry*wave;
 
-      const y=cy+Math.sin(a)*ry*wave;
-
-      if(i===0)ctx.moveTo(x,y);else ctx.lineTo(x,y);
-
-    }
-
-    ctx.closePath();
-
-  }else{
-
-    ctx.rect(s.x,s.y,s.w,s.h);
+   if(i===0)ctx.moveTo(x,y);else ctx.lineTo(x,y);
 
   }
 
+  ctx.closePath();
+
+ }else{
+
+  ctx.rect(s.x,s.y,s.w,s.h);
+
+ }
+
 }
 
-function drawSlotPhoto(ctx,img,s,filter){
+function drawBackground(ctx,d){
+
+ const H=ctx.canvas.height;
+
+ ctx.fillStyle=d.base||"#ffffff";
+
+ ctx.fillRect(0,0,W,H);
+
+ if(d.stripBackground){
+
+  const img=getImg(d.stripBackground);
+
+  if(img?.complete&&img.naturalWidth)drawImageCover(ctx,img,0,0,W,H);
+
+ }
+
+ if(d.dots){
+
+  ctx.fillStyle=d.dot||"#111111";
+
+  for(let y=18;y<H;y+=40){
+
+   for(let x=18;x<W;x+=40){
+
+    ctx.beginPath();
+
+    ctx.arc(x,y,2.2,0,Math.PI*2);
+
+    ctx.fill();
+
+   }
+
+  }
+
+ }
+
+}
+
+function drawElements(ctx,d){
+
+ d.elements.forEach(e=>{
+
+  ctx.save();
+
+  ctx.globalAlpha=(e.opacity??100)/100;
+
+  ctx.translate(e.x,e.y);
+
+  ctx.rotate((e.rotation||0)*Math.PI/180);
+
+  if(e.type==="text"){
+
+   ctx.fillStyle=e.color||"#111111";
+
+   ctx.textAlign=e.align||"center";
+
+   ctx.textBaseline="middle";
+
+   ctx.font=`600 ${e.size||35}px "${e.font||"Quicksand"}",sans-serif`;
+
+   ctx.fillText(e.text||"",0,0);
+
+  }else if(e.type==="image"){
+
+   const img=getImg(e.src);
+
+   if(img?.complete&&img.naturalWidth){
+
+    ctx.drawImage(img,-(e.w||150)/2,-(e.h||150)/2,e.w||150,e.h||150);
+
+   }
+
+  }
+
+  ctx.restore();
+
+ });
+
+}
+
+function drawStrip(ctx,images,d,videoEls=null,editorMode=false){
+
+ drawBackground(ctx,d);
+
+ d.slots.forEach((s,i)=>{
+
+  let source=null;
+
+  if(videoEls&&videoEls[i]&&videoEls[i].readyState>=2)source=videoEls[i];
+
+  else if(images&&images[i])source=images[i];
 
   ctx.save();
 
@@ -1996,21 +2350,27 @@ function drawSlotPhoto(ctx,img,s,filter){
 
   ctx.clip();
 
-  if(img){
+  if(source){
 
-    ctx.save();
+   if(d.photoFilter==="grayscale")ctx.filter="grayscale(1)";
 
-    if(filter==="grayscale")ctx.filter="grayscale(1)";
+   drawImageCover(ctx,source,s.x,s.y,s.w,s.h);
 
-    drawImageCover(ctx,img,s.x,s.y,s.w,s.h);
+   ctx.filter="none";
 
-    ctx.restore();
+  }else if(editorMode){
 
-  }else{
+   ctx.fillStyle="#eadde0";
 
-    ctx.fillStyle="#eadde0";
+   ctx.fillRect(s.x,s.y,s.w,s.h);
 
-    ctx.fillRect(s.x,s.y,s.w,s.h);
+   ctx.fillStyle="#8c777a";
+
+   ctx.font="24px Quicksand";
+
+   ctx.textAlign="center";
+
+   ctx.fillText("PHOTO "+(i+1),s.x+s.w/2,s.y+s.h/2);
 
   }
 
@@ -2018,245 +2378,95 @@ function drawSlotPhoto(ctx,img,s,filter){
 
   if(s.borderWidth>0){
 
-    ctx.save();
+   ctx.save();
 
-    drawShapePath(ctx,s);
+   drawShapePath(ctx,s);
 
-    ctx.strokeStyle=s.border||"#111111";
+   ctx.strokeStyle=s.border||"#111111";
 
-    ctx.lineWidth=s.borderWidth;
+   ctx.lineWidth=s.borderWidth;
 
-    ctx.stroke();
+   ctx.stroke();
 
-    ctx.restore();
-
-  }
-
-}
-
-function drawBackground(ctx,d){
-
-  ctx.fillStyle=d.base||"#ffffff";
-
-  ctx.fillRect(0,0,W,H);
-
-  if(d.stripBackground){
-
-    const img=getImg(d.stripBackground);
-
-    if(img?.complete&&img.naturalWidth)drawImageCover(ctx,img,0,0,W,H);
+   ctx.restore();
 
   }
 
-  if(d.dots){
+ });
 
-    ctx.fillStyle=d.dot||"#111111";
+ if(d.overlay){
 
-    for(let y=18;y<H;y+=40){
+  const img=getImg(d.overlay);
 
-      for(let x=18;x<W;x+=40){
+  if(img?.complete&&img.naturalWidth)ctx.drawImage(img,0,0,W,ctx.canvas.height);
 
-        ctx.beginPath();
+ }
 
-        ctx.arc(x,y,2.2,0,Math.PI*2);
-
-        ctx.fill();
-
-      }
-
-    }
-
-  }
-
-}
-
-function drawElements(ctx,d){
-
-  d.elements.forEach(e=>{
-
-    ctx.save();
-
-    ctx.globalAlpha=(e.opacity??100)/100;
-
-    ctx.translate(e.x,e.y);
-
-    ctx.rotate((e.rotation||0)*Math.PI/180);
-
-    if(e.type==="text"){
-
-      ctx.fillStyle=e.color||"#111111";
-
-      ctx.textAlign=e.align||"center";
-
-      ctx.textBaseline="middle";
-
-      ctx.font=`600 ${e.size||35}px "${e.font||"Quicksand"}",sans-serif`;
-
-      ctx.fillText(e.text||"",0,0);
-
-    }else if(e.type==="image"){
-
-      const img=getImg(e.src);
-
-      if(img?.complete&&img.naturalWidth){
-
-        ctx.drawImage(img,-(e.w||150)/2,-(e.h||150)/2,e.w||150,e.h||150);
-
-      }
-
-    }
-
-    ctx.restore();
-
-  });
-
-}
-
-function drawStrip(ctx,images,d,videoEls=null,editorMode=false){
-
-  drawBackground(ctx,d);
-
-  d.slots.forEach((s,i)=>{
-
-    let source=null;
-
-    if(videoEls&&videoEls[i]&&videoEls[i].readyState>=2){
-
-      source=videoEls[i];
-
-    }else if(images&&images[i]){
-
-      source=images[i];
-
-    }
-
-    ctx.save();
-
-    drawShapePath(ctx,s);
-
-    ctx.clip();
-
-    if(source){
-
-      if(d.photoFilter==="grayscale")ctx.filter="grayscale(1)";
-
-      if(source instanceof HTMLVideoElement){
-
-        drawImageCover(ctx,source,s.x,s.y,s.w,s.h);
-
-      }else{
-
-        drawImageCover(ctx,source,s.x,s.y,s.w,s.h);
-
-      }
-
-      ctx.filter="none";
-
-    }else if(editorMode){
-
-      ctx.fillStyle="#eadde0";
-
-      ctx.fillRect(s.x,s.y,s.w,s.h);
-
-      ctx.fillStyle="#8c777a";
-
-      ctx.font="24px Quicksand";
-
-      ctx.textAlign="center";
-
-      ctx.fillText("PHOTO "+(i+1),s.x+s.w/2,s.y+s.h/2);
-
-    }
-
-    ctx.restore();
-
-    if(s.borderWidth>0){
-
-      ctx.save();
-
-      drawShapePath(ctx,s);
-
-      ctx.strokeStyle=s.border||"#111111";
-
-      ctx.lineWidth=s.borderWidth;
-
-      ctx.stroke();
-
-      ctx.restore();
-
-    }
-
-  });
-
-  /* Template PNG goes over the photos */
-
-  if(d.overlay){
-
-    const img=getImg(d.overlay);
-
-    if(img?.complete&&img.naturalWidth){
-
-      ctx.drawImage(img,0,0,W,H);
-
-    }
-
-  }
-
-  drawElements(ctx,d);
+ drawElements(ctx,d);
 
 }
 
 function renderEditor(){
 
-  const canvas=$("editorCanvas");
+ const canvas=$("editorCanvas");
 
-  const ctx=canvas.getContext("2d");
+ const H=ratioHeight(workingTemplate.ratio||"2:6");
 
-  drawStrip(ctx,null,workingTemplate,null,true);
+ if(canvas.height!==H||canvas.width!==W){
 
-  if(selected){
+  canvas.width=W;
 
-    const e=getSelected();
+  canvas.height=H;
 
-    if(e){
+ }
 
-      ctx.save();
+ const ctx=canvas.getContext("2d");
 
-      ctx.strokeStyle="#d05f83";
+ drawStrip(ctx,null,workingTemplate,null,true);
 
-      ctx.lineWidth=3;
+ if(selected){
 
-      ctx.setLineDash([8,6]);
+  const e=getSelected();
 
-      if(selected.kind==="slot"){
+  if(e){
 
-        drawShapePath(ctx,e);
+   ctx.save();
 
-        ctx.stroke();
+   ctx.strokeStyle="#d05f83";
 
-      }else if(e.type==="image"){
+   ctx.lineWidth=3;
 
-        ctx.translate(e.x,e.y);
+   ctx.setLineDash([8,6]);
 
-        ctx.rotate((e.rotation||0)*Math.PI/180);
+   if(selected.kind==="slot"){
 
-        ctx.strokeRect(-(e.w||150)/2,-(e.h||150)/2,e.w||150,e.h||150);
+    drawShapePath(ctx,e);
 
-      }else{
+    ctx.stroke();
 
-        ctx.translate(e.x,e.y);
+   }else if(e.type==="image"){
 
-        ctx.rotate((e.rotation||0)*Math.PI/180);
+    ctx.translate(e.x,e.y);
 
-        ctx.strokeRect(-Math.max(65,e.size*2.7),-e.size,Math.max(130,e.size*5.4),e.size*2);
+    ctx.rotate((e.rotation||0)*Math.PI/180);
 
-      }
+    ctx.strokeRect(-(e.w||150)/2,-(e.h||150)/2,e.w||150,e.h||150);
 
-      ctx.restore();
+   }else{
 
-    }
+    ctx.translate(e.x,e.y);
+
+    ctx.rotate((e.rotation||0)*Math.PI/180);
+
+    ctx.strokeRect(-Math.max(65,e.size*2.7),-e.size,Math.max(130,e.size*5.4),e.size*2);
+
+   }
+
+   ctx.restore();
 
   }
+
+ }
 
 }
 
@@ -2270,836 +2480,854 @@ let dragInfo=null;
 
 function pointerPoint(event){
 
-  const rect=editor.getBoundingClientRect();
+ const rect=editor.getBoundingClientRect();
 
-  return{
+ return{
 
-    x:(event.clientX-rect.left)*W/rect.width,
+  x:(event.clientX-rect.left)*W/rect.width,
 
-    y:(event.clientY-rect.top)*H/rect.height
+  y:(event.clientY-rect.top)*editor.height/rect.height
 
-  };
+ };
 
 }
 
 function hitTest(p){
 
-  for(let i=workingTemplate.elements.length-1;i>=0;i--){
+ for(let i=workingTemplate.elements.length-1;i>=0;i--){
 
-    const e=workingTemplate.elements[i];
+  const e=workingTemplate.elements[i];
 
-    const w=e.type==="image"?e.w:Math.max(100,e.size*5);
+  const w=e.type==="image"?e.w:Math.max(100,e.size*5);
 
-    const h=e.type==="image"?e.h:Math.max(70,e.size*2);
+  const h=e.type==="image"?e.h:Math.max(70,e.size*2);
 
-    if(p.x>=e.x-w/2-12&&p.x<=e.x+w/2+12&&p.y>=e.y-h/2-12&&p.y<=e.y+h/2+12){
+  if(p.x>=e.x-w/2-12&&p.x<=e.x+w/2+12&&p.y>=e.y-h/2-12&&p.y<=e.y+h/2+12){
 
-      return{kind:"element",id:e.id};
-
-    }
+   return{kind:"element",id:e.id};
 
   }
 
-  for(let i=workingTemplate.slots.length-1;i>=0;i--){
+ }
 
-    const s=workingTemplate.slots[i];
+ for(let i=workingTemplate.slots.length-1;i>=0;i--){
 
-    if(p.x>=s.x&&p.x<=s.x+s.w&&p.y>=s.y&&p.y<=s.y+s.h){
+  const s=workingTemplate.slots[i];
 
-      return{kind:"slot",index:i};
+  if(p.x>=s.x&&p.x<=s.x+s.w&&p.y>=s.y&&p.y<=s.y+s.h){
 
-    }
+   return{kind:"slot",index:i};
 
   }
 
-  return null;
+ }
+
+ return null;
 
 }
 
 editor.addEventListener("pointerdown",event=>{
 
-  const p=pointerPoint(event);
+ const p=pointerPoint(event);
 
-  selected=hitTest(p);
+ selected=hitTest(p);
 
-  if(selected){
+ if(selected){
 
-    const e=getSelected();
+  const e=getSelected();
 
-    dragging=true;
+  dragging=true;
 
-    dragInfo={x:p.x,y:p.y,ex:e.x,ey:e.y};
+  dragInfo={x:p.x,y:p.y,ex:e.x,ey:e.y};
 
-    editor.setPointerCapture(event.pointerId);
+  editor.setPointerCapture(event.pointerId);
 
-    if(selected.kind==="slot"){
+  if(selected.kind==="slot"){
 
-      selectedSlotIndex=selected.index;
+   selectedSlotIndex=selected.index;
 
-      $("slotChoice").value=String(selected.index);
+   $("slotChoice").value=String(selected.index);
 
-      selectSlot();
-
-    }else{
-
-      refreshControls();
-
-    }
+   selectSlot();
 
   }else{
 
-    refreshControls();
+   refreshControls();
 
   }
 
-  renderEditor();
+ }else{
+
+  refreshControls();
+
+ }
+
+ renderEditor();
 
 });
 
 editor.addEventListener("pointermove",event=>{
 
-  if(!dragging||!selected||!dragInfo)return;
+ if(!dragging||!selected||!dragInfo)return;
 
-  const p=pointerPoint(event);
+ const p=pointerPoint(event);
 
-  const e=getSelected();
+ const e=getSelected();
 
-  e.x=Math.round(dragInfo.ex+p.x-dragInfo.x);
+ e.x=Math.round(dragInfo.ex+p.x-dragInfo.x);
 
-  e.y=Math.round(dragInfo.ey+p.y-dragInfo.y);
+ e.y=Math.round(dragInfo.ey+p.y-dragInfo.y);
 
-  if(selected.kind==="slot"){
+ if(selected.kind==="slot"){
 
-    $("slotX").value=e.x;
+  $("slotX").value=e.x;
 
-    $("slotY").value=e.y;
+  $("slotY").value=e.y;
 
-  }else{
+ }else{
 
-    $("elementX").value=e.x;
+  $("elementX").value=e.x;
 
-    $("elementY").value=e.y;
+  $("elementY").value=e.y;
 
-  }
+ }
 
-  renderEditor();
+ renderEditor();
 
 });
 
 ["pointerup","pointercancel","lostpointercapture"].forEach(name=>{
 
-  editor.addEventListener(name,()=>{
+ editor.addEventListener(name,()=>{
 
-    dragging=false;
+  dragging=false;
 
-    dragInfo=null;
+  dragInfo=null;
 
-  });
+ });
 
 });
 
-/* ---------------- CAMERA ---------------- */
+/* CAMERA */
+
+function activeDesign(){
+
+ return clone(sessionTemplate||defaultTemplate);
+
+}
 
 async function openCamera(){
 
-  showPage("cameraPage");
+ showPage("cameraPage");
 
-  try{
+ const design=activeDesign();
 
-    if(!navigator.mediaDevices?.getUserMedia){
+ $("photoTotal").textContent=design.layoutCount;
 
-      throw new Error("Camera API unavailable. Open the website using HTTPS.");
+ $("cameraSubtitle").textContent=
 
-    }
+  design.layoutCount+" pose"+(design.layoutCount>1?"s":"")+". Each pose records five seconds of movement.";
 
-    cameraStream=await navigator.mediaDevices.getUserMedia({
+ $("photoCount").textContent="0";
 
-      video:{facingMode:"user",width:{ideal:1280},height:{ideal:960}},
+ $("cameraStatus").textContent="Opening camera...";
 
-      audio:false
+ $("startBtn").disabled=false;
 
-    });
+ $("startBtn").textContent="START";
 
-    $("cameraVideo").srcObject=cameraStream;
+ try{
 
-    $("cameraStatus").textContent="Camera ready. Press START.";
+  if(!navigator.mediaDevices?.getUserMedia){
 
-  }catch(error){
-
-    $("cameraStatus").textContent="Camera access failed. Allow camera permission and open the HTTPS website.";
+   throw new Error("Camera API unavailable. Open the website using HTTPS.");
 
   }
+
+  cameraStream=await navigator.mediaDevices.getUserMedia({
+
+   video:{facingMode:"user",width:{ideal:1280},height:{ideal:960}},
+
+   audio:false
+
+  });
+
+  $("cameraVideo").srcObject=cameraStream;
+
+  $("cameraStatus").textContent="Camera ready. Press START.";
+
+ }catch(error){
+
+  $("cameraStatus").textContent="Camera access failed. Allow camera permission and open the HTTPS website.";
+
+ }
 
 }
 
 function stopCamera(){
 
-  if(cameraStream){
+ if(cameraStream){
 
-    cameraStream.getTracks().forEach(track=>track.stop());
+  cameraStream.getTracks().forEach(track=>track.stop());
 
-    cameraStream=null;
+  cameraStream=null;
 
-  }
+ }
 
-  $("cameraVideo").srcObject=null;
+ $("cameraVideo").srcObject=null;
 
 }
 
 function goHome(){
 
-  stopCamera();
+ stopCamera();
 
-  showPage("home");
+ showPage("home");
 
 }
 
 function captureStill(){
 
-  const video=$("cameraVideo");
+ const video=$("cameraVideo");
 
-  const canvas=document.createElement("canvas");
+ const canvas=document.createElement("canvas");
 
-  const width=video.videoWidth||1280;
+ const width=video.videoWidth||1280;
 
-  const height=video.videoHeight||960;
+ const height=video.videoHeight||960;
 
-  canvas.width=width;
+ canvas.width=width;
 
-  canvas.height=height;
+ canvas.height=height;
 
-  const ctx=canvas.getContext("2d");
+ const ctx=canvas.getContext("2d");
 
-  ctx.translate(width,0);
+ ctx.translate(width,0);
 
-  ctx.scale(-1,1);
+ ctx.scale(-1,1);
 
-  ctx.drawImage(video,0,0,width,height);
+ ctx.drawImage(video,0,0,width,height);
 
-  const flash=$("flash");
+ const flash=$("flash");
 
-  flash.classList.remove("flash-now");
+ flash.classList.remove("flash-now");
 
-  void flash.offsetWidth;
+ void flash.offsetWidth;
 
-  flash.classList.add("flash-now");
+ flash.classList.add("flash-now");
 
-  return canvas.toDataURL("image/jpeg",.92);
+ return canvas.toDataURL("image/jpeg",.92);
 
 }
 
 function recordCameraClip(ms=5000){
 
-  return new Promise((resolve,reject)=>{
+ return new Promise((resolve,reject)=>{
 
-    if(!cameraStream||!window.MediaRecorder){
+  if(!cameraStream||!window.MediaRecorder){
 
-      reject(new Error("This browser cannot record video."));
+   reject(new Error("This browser cannot record video."));
 
-      return;
-
-    }
-
-    let type="";
-
-    for(const candidate of [
-
-      "video/mp4;codecs=avc1",
-
-      "video/mp4",
-
-      "video/webm;codecs=vp8",
-
-      "video/webm"
-
-    ]){
-
-      if(MediaRecorder.isTypeSupported(candidate)){
-
-        type=candidate;
-
-        break;
-
-      }
-
-    }
-
-    let recorder;
-
-    try{
-
-      recorder=type?new MediaRecorder(cameraStream,{mimeType:type}):new MediaRecorder(cameraStream);
-
-    }catch(error){
-
-      reject(error);
-
-      return;
-
-    }
-
-    const chunks=[];
-
-    recorder.ondataavailable=event=>{
-
-      if(event.data?.size)chunks.push(event.data);
-
-    };
-
-    recorder.onerror=()=>reject(new Error("Camera video recording failed."));
-
-    recorder.onstop=()=>{
-
-      const blob=new Blob(chunks,{type:recorder.mimeType||type||"video/webm"});
-
-      if(!blob.size)reject(new Error("The camera returned an empty video."));
-
-      else resolve(blob);
-
-    };
-
-    recorder.start();
-
-    setTimeout(()=>{
-
-      if(recorder.state!=="inactive")recorder.stop();
-
-    },ms);
-
-  });
-
-}
-
-async function startSession(){
-
-  if(busy)return;
-
-  if(!cameraStream){
-
-    await openCamera();
-
-    if(!cameraStream)return;
+   return;
 
   }
 
-  busy=true;
-
-  photos=[];
-
-  clips=[];
-
-  $("photoCount").textContent="0";
-
-  $("startBtn").disabled=true;
-
-  $("startBtn").textContent="RECORDING...";
-
-  $("singleQR").innerHTML="";
-
-  $("uploadStatus").textContent="";
-
-  try{
-
-    for(let i=0;i<3;i++){
-
-      $("cameraStatus").textContent="Pose "+(i+1)+": get ready!";
-
-      for(let n=5;n>=1;n--){
-
-        $("countdown").style.display="flex";
-
-        $("countdown").textContent=n;
-
-        await sleep(1000);
-
-      }
-
-      $("countdown").style.display="none";
-
-      photos.push(captureStill());
-
-      $("photoCount").textContent=photos.length;
-
-      $("cameraStatus").textContent="Recording movement for 5 seconds...";
-
-      clips.push(await recordCameraClip(5000));
-
-      $("cameraStatus").textContent="Pose "+(i+1)+" saved!";
-
-      await sleep(350);
-
-    }
-
-  }catch(error){
-
-    console.error(error);
-
-    $("cameraStatus").textContent="Recording issue: "+error.message;
-
-    busy=false;
-
-    $("startBtn").disabled=false;
-
-    $("startBtn").textContent="TRY AGAIN";
-
-    stopCamera();
-
-    return;
-
-  }
-
-  stopCamera();
-
-  busy=false;
-
-  $("startBtn").disabled=false;
-
-  $("startBtn").textContent="START AGAIN";
-
-  await showResult();
-
-}
-
-/* ---------------- CREATE PHOTO OUTPUTS ---------------- */
-
-function photoImages(){
-
-  return Promise.all(photos.map(src=>new Promise((resolve,reject)=>{
-
-    const img=new Image();
-
-    img.onload=()=>resolve(img);
-
-    img.onerror=reject;
-
-    img.src=src;
-
-  })));
-
-}
-
-async function makeStatic(images,design){
-
-  await waitImages(design);
-
-  const canvas=document.createElement("canvas");
-
-  canvas.width=W;
-
-  canvas.height=H;
-
-  drawStrip(canvas.getContext("2d"),images,design);
-
-  return new Promise((resolve,reject)=>{
-
-    canvas.toBlob(blob=>{
-
-      if(blob)resolve(blob);
-
-      else reject(new Error("Could not create PNG."));
-
-    },"image/png");
-
-  });
-
-}
-
-async function makeLive(design){
-
-  if(!HTMLCanvasElement.prototype.captureStream||!window.MediaRecorder){
-
-    throw new Error("Canvas video is not supported in this browser.");
-
-  }
-
-  await waitImages(design);
-
-  const videos=clips.map(blob=>{
-
-    const video=document.createElement("video");
-
-    video.muted=true;
-
-    video.playsInline=true;
-
-    video.loop=true;
-
-    video.src=URL.createObjectURL(blob);
-
-    return video;
-
-  });
-
-  await Promise.all(videos.map(video=>new Promise((resolve,reject)=>{
-
-    video.onloadeddata=resolve;
-
-    video.onerror=()=>reject(new Error("Could not load a recorded clip."));
-
-    video.load();
-
-  })));
-
-  videos.forEach(video=>video.currentTime=0);
-
-  await Promise.all(videos.map(video=>video.play()));
-
-  const canvas=document.createElement("canvas");
-
-  canvas.width=W;
-
-  canvas.height=H;
-
-  const ctx=canvas.getContext("2d");
-
-  const stream=canvas.captureStream(24);
-
-  let mime="";
+  let type="";
 
   for(const candidate of [
 
-    "video/mp4;codecs=avc1",
+   "video/mp4;codecs=avc1","video/mp4",
 
-    "video/mp4",
-
-    "video/webm;codecs=vp8",
-
-    "video/webm"
+   "video/webm;codecs=vp8","video/webm"
 
   ]){
 
-    if(MediaRecorder.isTypeSupported(candidate)){
+   if(MediaRecorder.isTypeSupported(candidate)){
 
-      mime=candidate;
+    type=candidate;
 
-      break;
+    break;
 
-    }
+   }
 
   }
 
-  const recorder=mime?new MediaRecorder(stream,{mimeType:mime}):new MediaRecorder(stream);
+  let recorder;
+
+  try{
+
+   recorder=type?new MediaRecorder(cameraStream,{mimeType:type}):new MediaRecorder(cameraStream);
+
+  }catch(error){reject(error);return;}
 
   const chunks=[];
 
   recorder.ondataavailable=event=>{
 
-    if(event.data?.size)chunks.push(event.data);
+   if(event.data?.size)chunks.push(event.data);
 
   };
 
-  const finished=new Promise((resolve,reject)=>{
+  recorder.onerror=()=>reject(new Error("Camera video recording failed."));
 
-    recorder.onerror=()=>reject(new Error("Final live photostrip recording failed."));
+  recorder.onstop=()=>{
 
-    recorder.onstop=()=>resolve(new Blob(chunks,{type:recorder.mimeType||mime||"video/webm"}));
+   const blob=new Blob(chunks,{type:recorder.mimeType||type||"video/webm"});
 
-  });
+   if(!blob.size)reject(new Error("The camera returned an empty video."));
 
-  drawStrip(ctx,null,design,videos);
+   else resolve(blob);
 
-  recorder.start(200);
+  };
 
-  const start=performance.now();
+  recorder.start();
 
-  await new Promise(resolve=>{
+  setTimeout(()=>{
 
-    function frame(){
+   if(recorder.state!=="inactive")recorder.stop();
 
-      drawStrip(ctx,null,design,videos);
+  },ms);
 
-      if(performance.now()-start>=5000){
+ });
 
-        resolve();
+}
 
-        return;
+async function startSession(){
 
-      }
+ if(busy)return;
 
-      requestAnimationFrame(frame);
+ if(!cameraStream){
 
-    }
+  await openCamera();
 
-    requestAnimationFrame(frame);
+  if(!cameraStream)return;
 
-  });
+ }
 
-  recorder.stop();
+ busy=true;
 
-  const result=await finished;
+ photos=[];
 
-  stream.getTracks().forEach(track=>track.stop());
+ clips=[];
 
-  videos.forEach(video=>{
+ const design=activeDesign();
 
-    video.pause();
+ const count=design.layoutCount||3;
 
-    URL.revokeObjectURL(video.src);
+ $("photoCount").textContent="0";
 
-  });
+ $("startBtn").disabled=true;
 
-  return result;
+ $("startBtn").textContent="RECORDING...";
+
+ $("singleQR").innerHTML="";
+
+ $("uploadStatus").textContent="";
+
+ try{
+
+  for(let i=0;i<count;i++){
+
+   $("cameraStatus").textContent="Pose "+(i+1)+": get ready!";
+
+   for(let n=5;n>=1;n--){
+
+    $("countdown").style.display="flex";
+
+    $("countdown").textContent=n;
+
+    await sleep(1000);
+
+   }
+
+   $("countdown").style.display="none";
+
+   photos.push(captureStill());
+
+   $("photoCount").textContent=photos.length;
+
+   $("cameraStatus").textContent="Recording movement for 5 seconds...";
+
+   clips.push(await recordCameraClip(5000));
+
+   $("cameraStatus").textContent="Pose "+(i+1)+" saved!";
+
+   await sleep(350);
+
+  }
+
+ }catch(error){
+
+  console.error(error);
+
+  $("cameraStatus").textContent="Recording issue: "+error.message;
+
+  busy=false;
+
+  $("startBtn").disabled=false;
+
+  $("startBtn").textContent="TRY AGAIN";
+
+  stopCamera();
+
+  return;
+
+ }
+
+ stopCamera();
+
+ busy=false;
+
+ $("startBtn").disabled=false;
+
+ $("startBtn").textContent="START AGAIN";
+
+ await showResult();
+
+}
+
+/* CREATE PHOTO OUTPUTS */
+
+function photoImages(){
+
+ return Promise.all(photos.map(src=>new Promise((resolve,reject)=>{
+
+  const img=new Image();
+
+  img.onload=()=>resolve(img);
+
+  img.onerror=reject;
+
+  img.src=src;
+
+ })));
+
+}
+
+async function makeStatic(images,design){
+
+ await waitImages(design);
+
+ const canvas=document.createElement("canvas");
+
+ canvas.width=W;
+
+ canvas.height=ratioHeight(design.ratio||"2:6");
+
+ drawStrip(canvas.getContext("2d"),images,design);
+
+ return new Promise((resolve,reject)=>{
+
+  canvas.toBlob(blob=>{
+
+   if(blob)resolve(blob);
+
+   else reject(new Error("Could not create PNG."));
+
+  },"image/png");
+
+ });
+
+}
+
+async function makeLive(design){
+
+ if(!HTMLCanvasElement.prototype.captureStream||!window.MediaRecorder){
+
+  throw new Error("Canvas video is not supported in this browser.");
+
+ }
+
+ await waitImages(design);
+
+ const videos=clips.map(blob=>{
+
+  const video=document.createElement("video");
+
+  video.muted=true;
+
+  video.playsInline=true;
+
+  video.loop=true;
+
+  video.src=URL.createObjectURL(blob);
+
+  return video;
+
+ });
+
+ await Promise.all(videos.map(video=>new Promise((resolve,reject)=>{
+
+  video.onloadeddata=resolve;
+
+  video.onerror=()=>reject(new Error("Could not load a recorded clip."));
+
+  video.load();
+
+ })));
+
+ videos.forEach(video=>video.currentTime=0);
+
+ await Promise.all(videos.map(video=>video.play()));
+
+ const canvas=document.createElement("canvas");
+
+ canvas.width=W;
+
+ canvas.height=ratioHeight(design.ratio||"2:6");
+
+ const ctx=canvas.getContext("2d");
+
+ const stream=canvas.captureStream(24);
+
+ let mime="";
+
+ for(const candidate of [
+
+  "video/mp4;codecs=avc1","video/mp4",
+
+  "video/webm;codecs=vp8","video/webm"
+
+ ]){
+
+  if(MediaRecorder.isTypeSupported(candidate)){
+
+   mime=candidate;
+
+   break;
+
+  }
+
+ }
+
+ const recorder=mime?new MediaRecorder(stream,{mimeType:mime}):new MediaRecorder(stream);
+
+ const chunks=[];
+
+ recorder.ondataavailable=event=>{
+
+  if(event.data?.size)chunks.push(event.data);
+
+ };
+
+ const finished=new Promise((resolve,reject)=>{
+
+  recorder.onerror=()=>reject(new Error("Final live photostrip recording failed."));
+
+  recorder.onstop=()=>resolve(new Blob(chunks,{type:recorder.mimeType||mime||"video/webm"}));
+
+ });
+
+ drawStrip(ctx,null,design,videos);
+
+ recorder.start(200);
+
+ const start=performance.now();
+
+ await new Promise(resolve=>{
+
+  function frame(){
+
+   drawStrip(ctx,null,design,videos);
+
+   if(performance.now()-start>=5000){
+
+    resolve();
+
+    return;
+
+   }
+
+   requestAnimationFrame(frame);
+
+  }
+
+  requestAnimationFrame(frame);
+
+ });
+
+ recorder.stop();
+
+ const result=await finished;
+
+ stream.getTracks().forEach(track=>track.stop());
+
+ videos.forEach(video=>{
+
+  video.pause();
+
+  URL.revokeObjectURL(video.src);
+
+ });
+
+ return result;
 
 }
 
 async function showResult(){
 
-  showPage("resultPage");
+ showPage("resultPage");
 
-  $("uploadStatus").textContent="";
+ $("uploadStatus").textContent="";
 
-  $("singleQR").innerHTML="";
+ $("singleQR").innerHTML="";
+
+ $("uploadBtn").disabled=true;
+
+ $("uploadBtn").textContent="PREPARING...";
+
+ try{
+
+  const images=await photoImages();
+
+  const design=clone(sessionTemplate||defaultTemplate);
+
+  staticBlob=await makeStatic(images,design);
+
+  if(staticURL)URL.revokeObjectURL(staticURL);
+
+  staticURL=URL.createObjectURL(staticBlob);
+
+  $("stripPreview").src=staticURL;
+
+  liveBlob=await makeLive(design);
+
+  if(liveURL)URL.revokeObjectURL(liveURL);
+
+  liveURL=URL.createObjectURL(liveBlob);
+
+  $("livePreview").src=liveURL;
+
+  $("uploadBtn").disabled=false;
+
+  $("uploadBtn").textContent="GENERATE MY QR CODE";
+
+  sessionTemplate=null;
+
+ }catch(error){
+
+  console.error(error);
+
+  $("uploadStatus").textContent="Photostrip creation issue: "+error.message+" Please try again using an updated browser.";
 
   $("uploadBtn").disabled=true;
 
-  $("uploadBtn").textContent="PREPARING...";
+  $("uploadBtn").textContent="NOT READY";
 
-  try{
-
-    const images=await photoImages();
-
-    const design=clone(sessionTemplate||defaultTemplate);
-
-    staticBlob=await makeStatic(images,design);
-
-    if(staticURL)URL.revokeObjectURL(staticURL);
-
-    staticURL=URL.createObjectURL(staticBlob);
-
-    $("stripPreview").src=staticURL;
-
-    liveBlob=await makeLive(design);
-
-    if(liveURL)URL.revokeObjectURL(liveURL);
-
-    liveURL=URL.createObjectURL(liveBlob);
-
-    $("livePreview").src=liveURL;
-
-    $("uploadBtn").disabled=false;
-
-    $("uploadBtn").textContent="GENERATE MY QR CODE";
-
-    sessionTemplate=null;
-
-  }catch(error){
-
-    console.error(error);
-
-    $("uploadStatus").textContent="Photostrip creation issue: "+error.message+" Please try again using an updated browser.";
-
-    $("uploadBtn").disabled=true;
-
-    $("uploadBtn").textContent="NOT READY";
-
-  }
+ }
 
 }
 
-/* ---------------- DOWNLOADS ---------------- */
+/* DOWNLOADS */
 
 function downloadBlob(blob,name){
 
-  if(!blob)return;
+ if(!blob)return;
 
-  const url=URL.createObjectURL(blob);
+ const url=URL.createObjectURL(blob);
 
-  const a=document.createElement("a");
+ const a=document.createElement("a");
 
-  a.href=url;
+ a.href=url;
 
-  a.download=name;
+ a.download=name;
 
-  document.body.appendChild(a);
+ document.body.appendChild(a);
 
-  a.click();
+ a.click();
 
-  a.remove();
+ a.remove();
 
-  setTimeout(()=>URL.revokeObjectURL(url),4000);
+ setTimeout(()=>URL.revokeObjectURL(url),4000);
 
 }
 
 function downloadStatic(){
 
-  downloadBlob(staticBlob,"PERSIDA12-Photostrip.png");
+ downloadBlob(staticBlob,"PERSIDA12-Photostrip.png");
 
 }
 
 function downloadLive(){
 
-  if(!liveBlob)return;
+ if(!liveBlob)return;
 
-  const extension=liveBlob.type.includes("mp4")?"mp4":"webm";
+ const extension=liveBlob.type.includes("mp4")?"mp4":"webm";
 
-  downloadBlob(liveBlob,"PERSIDA12-Live-Photostrip."+extension);
+ downloadBlob(liveBlob,"PERSIDA12-Live-Photostrip."+extension);
 
 }
 
 function retake(){
 
-  photos=[];
+ photos=[];
 
-  clips=[];
+ clips=[];
 
-  staticBlob=null;
+ staticBlob=null;
 
-  liveBlob=null;
+ liveBlob=null;
 
-  $("photoCount").textContent="0";
+ $("photoCount").textContent="0";
 
-  $("singleQR").innerHTML="";
+ $("singleQR").innerHTML="";
 
-  openCamera();
+ openCamera();
 
 }
 
-/* ---------------- GOOGLE DRIVE UPLOAD + QR ---------------- */
+/* GOOGLE DRIVE UPLOAD + QR */
 
 function blobData(blob){
 
-  return new Promise((resolve,reject)=>{
+ return new Promise((resolve,reject)=>{
 
-    const reader=new FileReader();
+  const reader=new FileReader();
 
-    reader.onloadend=()=>resolve(reader.result);
+  reader.onloadend=()=>resolve(reader.result);
 
-    reader.onerror=reject;
+  reader.onerror=reject;
 
-    reader.readAsDataURL(blob);
+  reader.readAsDataURL(blob);
 
-  });
+ });
 
 }
 
 async function uploadSession(){
 
-  if(!SCRIPT_URL.startsWith("https://")||SCRIPT_URL.includes("PASTE_")){
+ if(!SCRIPT_URL.startsWith("https://")||SCRIPT_URL.includes("PASTE_")){
 
-    $("uploadStatus").textContent="Please paste your deployed Google Apps Script URL in the code first.";
+  $("uploadStatus").textContent="Please paste your deployed Google Apps Script URL in the code first.";
 
-    return;
+  return;
+
+ }
+
+ if(!staticBlob||!liveBlob||photos.length===0){
+
+  $("uploadStatus").textContent="Photos and photostrips are not ready.";
+
+  return;
+
+ }
+
+ $("uploadBtn").disabled=true;
+
+ $("loading").classList.add("show");
+
+ $("uploadStatus").textContent="";
+
+ $("singleQR").innerHTML="";
+
+ try{
+
+  const files=[];
+
+  for(let i=0;i<photos.length;i++){
+
+   files.push({
+
+    name:"PERSIDA12-Photo-"+(i+1)+".jpg",
+
+    mimeType:"image/jpeg",
+
+    data:photos[i]
+
+   });
+
+  }
+
+  files.push({
+
+   name:"PERSIDA12-Photostrip.png",
+
+   mimeType:"image/png",
+
+   data:await blobData(staticBlob)
+
+  });
+
+  const extension=liveBlob.type.includes("mp4")?"mp4":"webm";
+
+  files.push({
+
+   name:"PERSIDA12-Live-Photostrip."+extension,
+
+   mimeType:liveBlob.type||"video/webm",
+
+   data:await blobData(liveBlob)
+
+  });
+
+  const response=await fetch(SCRIPT_URL,{
+
+   method:"POST",
+
+   headers:{"Content-Type":"text/plain;charset=utf-8"},
+
+   body:JSON.stringify({
+
+    action:"uploadBatch",
+
+    sessionId:"PERSIDA12-"+Date.now(),
+
+    files
+
+   })
+
+  });
+
+  if(!response.ok)throw new Error("Server returned an upload error.");
+
+  const result=await response.json();
+
+  if(!result.ok||!result.folderUrl){
+
+   throw new Error(result.error||"Upload failed.");
 
   }
 
-  if(!staticBlob||!liveBlob||photos.length!==3){
+  new QRCode($("singleQR"),{
 
-    $("uploadStatus").textContent="Photos and photostrips are not ready.";
+   text:result.folderUrl,
 
-    return;
+   width:200,
 
-  }
+   height:200,
 
-  $("uploadBtn").disabled=true;
+   correctLevel:QRCode.CorrectLevel.M
 
-  $("loading").classList.add("show");
+  });
 
-  $("uploadStatus").textContent="";
+  $("uploadStatus").textContent="All "+files.length+" files are ready! Scan this QR code to access your collection.";
 
-  $("singleQR").innerHTML="";
+ }catch(error){
 
-  try{
+  console.error(error);
 
-    const files=[];
+  $("uploadStatus").textContent="Upload failed: "+error.message;
 
-    for(let i=0;i<3;i++){
+ }finally{
 
-      files.push({
+  $("loading").classList.remove("show");
 
-        name:"PERSIDA12-Photo-"+(i+1)+".jpg",
+  $("uploadBtn").disabled=false;
 
-        mimeType:"image/jpeg",
+  $("uploadBtn").textContent="GENERATE MY QR CODE";
 
-        data:photos[i]
-
-      });
-
-    }
-
-    files.push({
-
-      name:"PERSIDA12-Photostrip.png",
-
-      mimeType:"image/png",
-
-      data:await blobData(staticBlob)
-
-    });
-
-    const extension=liveBlob.type.includes("mp4")?"mp4":"webm";
-
-    files.push({
-
-      name:"PERSIDA12-Live-Photostrip."+extension,
-
-      mimeType:liveBlob.type||"video/webm",
-
-      data:await blobData(liveBlob)
-
-    });
-
-    const response=await fetch(SCRIPT_URL,{
-
-      method:"POST",
-
-      headers:{"Content-Type":"text/plain;charset=utf-8"},
-
-      body:JSON.stringify({
-
-        action:"uploadBatch",
-
-        sessionId:"PERSIDA12-"+Date.now(),
-
-        files
-
-      })
-
-    });
-
-    if(!response.ok)throw new Error("Server returned an upload error.");
-
-    const result=await response.json();
-
-    if(!result.ok||!result.folderUrl){
-
-      throw new Error(result.error||"Upload failed.");
-
-    }
-
-    new QRCode($("singleQR"),{
-
-      text:result.folderUrl,
-
-      width:200,
-
-      height:200,
-
-      correctLevel:QRCode.CorrectLevel.M
-
-    });
-
-    $("uploadStatus").textContent="All five files are ready! Scan this QR code to access your collection.";
-
-  }catch(error){
-
-    console.error(error);
-
-    $("uploadStatus").textContent="Upload failed: "+error.message;
-
-  }finally{
-
-    $("loading").classList.remove("show");
-
-    $("uploadBtn").disabled=false;
-
-    $("uploadBtn").textContent="GENERATE MY QR CODE";
-
-  }
+ }
 
 }
+
+/* INITIAL SETUP */
+
+resizeEditorCanvas();
+
+updateSlotChoices();
 
 </script>
 
 </body>
 
-</html></html>
+</html></html></html>
