@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html>
 
 <html lang="en">
@@ -16,113 +14,583 @@
 
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Quicksand:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&family=Great+Vibes&family=Dancing+Script:wght@400;500;600;700&family=Allura&family=Parisienne&family=Sacramento&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Quicksand:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
 
 <style>
 
-:root{--pink:#f5dfe5;--dusty:#d991a1;--sage:#a6b89b;--dark-sage:#71846b;--cream:#fffaf5;--text:#65565a}
+:root{
+
+  --pink:#f5dfe5;
+
+  --dusty:#d991a1;
+
+  --sage:#a6b89b;
+
+  --dark-sage:#71846b;
+
+  --cream:#fffaf5;
+
+  --text:#65565a;
+
+}
 
 *{box-sizing:border-box}
 
-html,body{margin:0;min-height:100%;color:var(--text);font-family:Quicksand,sans-serif}
+html,body{
 
-body{background-color:#f8e8eb;background-image:radial-gradient(circle,#fff 2.4px,transparent 2.8px);background-size:30px 30px;background-attachment:fixed}
+  margin:0;
 
-button,input,select{font:inherit}button{border:0;cursor:pointer}button:disabled{opacity:.5;cursor:not-allowed}
+  min-height:100%;
 
-.page{display:none;min-height:100vh;padding:25px 15px 42px;align-items:center;flex-direction:column;position:relative}
+  color:var(--text);
+
+  font-family:Quicksand,sans-serif;
+
+}
+
+body{
+
+  background-color:#f8e8eb;
+
+  background-image:radial-gradient(circle,#fff 2.4px,transparent 2.8px);
+
+  background-size:30px 30px;
+
+  background-attachment:fixed;
+
+}
+
+button,input,select{font:inherit}
+
+button{border:0;cursor:pointer}
+
+button:disabled{opacity:.5;cursor:not-allowed}
+
+.page{
+
+  display:none;
+
+  min-height:100vh;
+
+  padding:25px 15px 42px;
+
+  align-items:center;
+
+  flex-direction:column;
+
+  position:relative;
+
+}
 
 .page.active{display:flex}
 
-h1,h2,h3{font-family:'Cormorant Garamond',serif;font-weight:600;color:#8c5967}
+h1,h2,h3{
 
-.brand{font-family:'Cormorant Garamond',serif;font-size:23px;letter-spacing:3px;color:var(--dark-sage)}
+  font-family:'Cormorant Garamond',serif;
 
-.eyebrow{font-size:11px;letter-spacing:3px;text-transform:uppercase;color:#9a7b7e}
+  font-weight:600;
 
-.main-title{font-size:clamp(44px,10vw,68px);line-height:.95;margin:12px 0;text-align:center}
+  color:#8c5967;
 
-.subtitle{max-width:340px;text-align:center;font-size:13px;line-height:1.8;color:#8c777a}
+}
 
-.primary-btn{background:#8fa486;color:white;border-radius:30px;padding:13px 22px;font-size:12px;font-weight:700;letter-spacing:1px;box-shadow:0 5px 14px #8c9e8a35}
+.brand{
 
-.secondary-btn{background:#fffaf5;color:#80656d;border:1px solid #e5cbd1;border-radius:30px;padding:11px 17px;font-size:11px;font-weight:700}
+  font-family:'Cormorant Garamond',serif;
 
-.danger-btn{background:#f7e3e5;color:#a45f6e;border:1px solid #e8c2ca;border-radius:25px;padding:10px 15px;font-size:11px;font-weight:700}
+  font-size:23px;
 
-.btn-row{display:flex;flex-wrap:wrap;justify-content:center;gap:9px;margin-top:17px}
+  letter-spacing:3px;
 
-.home-card,.camera-card,.result-card{width:min(100%,520px);background:#fffaf5ed;border:1px solid white;border-radius:25px;padding:20px;box-shadow:0 12px 35px #9c7b8030}
+  color:var(--dark-sage);
 
-.home-card{width:min(100%,440px);margin:auto;padding:35px 22px;text-align:center;border-radius:180px 180px 28px 28px}
+}
 
-.camera-frame{width:100%;aspect-ratio:3/4;background:#eadde0;border-radius:18px;overflow:hidden;position:relative}
+.eyebrow{
 
-#cameraVideo{width:100%;height:100%;object-fit:cover;transform:scaleX(-1)}
+  font-size:11px;
 
-#countdown{position:absolute;inset:0;display:none;align-items:center;justify-content:center;color:white;font-family:'Cormorant Garamond',serif;font-size:100px;text-shadow:0 3px 20px #0008;background:#0002}
+  letter-spacing:3px;
 
-#flash{position:absolute;inset:0;background:white;opacity:0;pointer-events:none}
+  text-transform:uppercase;
+
+  color:#9a7b7e;
+
+}
+
+.main-title{
+
+  font-size:clamp(44px,10vw,68px);
+
+  line-height:.95;
+
+  margin:12px 0;
+
+  text-align:center;
+
+}
+
+.subtitle{
+
+  max-width:340px;
+
+  text-align:center;
+
+  font-size:13px;
+
+  line-height:1.8;
+
+  color:#8c777a;
+
+}
+
+.primary-btn{
+
+  background:#8fa486;
+
+  color:white;
+
+  border-radius:30px;
+
+  padding:13px 22px;
+
+  font-size:12px;
+
+  font-weight:700;
+
+  letter-spacing:1px;
+
+  box-shadow:0 5px 14px #8c9e8a35;
+
+}
+
+.secondary-btn{
+
+  background:#fffaf5;
+
+  color:#80656d;
+
+  border:1px solid #e5cbd1;
+
+  border-radius:30px;
+
+  padding:11px 17px;
+
+  font-size:11px;
+
+  font-weight:700;
+
+}
+
+.danger-btn{
+
+  background:#f7e3e5;
+
+  color:#a45f6e;
+
+  border:1px solid #e8c2ca;
+
+  border-radius:25px;
+
+  padding:10px 15px;
+
+  font-size:11px;
+
+  font-weight:700;
+
+}
+
+.btn-row{
+
+  display:flex;
+
+  flex-wrap:wrap;
+
+  justify-content:center;
+
+  gap:9px;
+
+  margin-top:17px;
+
+}
+
+.home-card,.camera-card,.result-card{
+
+  width:min(100%,520px);
+
+  background:#fffaf5ed;
+
+  border:1px solid white;
+
+  border-radius:25px;
+
+  padding:20px;
+
+  box-shadow:0 12px 35px #9c7b8030;
+
+}
+
+.home-card{
+
+  width:min(100%,440px);
+
+  margin:auto;
+
+  padding:35px 22px;
+
+  text-align:center;
+
+  border-radius:180px 180px 28px 28px;
+
+}
+
+.camera-frame{
+
+  width:100%;
+
+  aspect-ratio:3/4;
+
+  background:#eadde0;
+
+  border-radius:18px;
+
+  overflow:hidden;
+
+  position:relative;
+
+}
+
+#cameraVideo{
+
+  width:100%;
+
+  height:100%;
+
+  object-fit:cover;
+
+  transform:scaleX(-1);
+
+}
+
+#countdown{
+
+  position:absolute;
+
+  inset:0;
+
+  display:none;
+
+  align-items:center;
+
+  justify-content:center;
+
+  color:white;
+
+  font-family:'Cormorant Garamond',serif;
+
+  font-size:100px;
+
+  text-shadow:0 3px 20px #0008;
+
+  background:#0002;
+
+}
+
+#flash{
+
+  position:absolute;
+
+  inset:0;
+
+  background:white;
+
+  opacity:0;
+
+  pointer-events:none;
+
+}
 
 .flash-now{animation:flash .35s ease}
 
 @keyframes flash{0%{opacity:.95}100%{opacity:0}}
 
-.status{text-align:center;font-size:13px;color:#8b777a;margin:12px 0}
+.status{
+
+  text-align:center;
+
+  font-size:13px;
+
+  color:#8b777a;
+
+  margin:12px 0;
+
+}
 
 .photo-count{color:var(--dark-sage);font-weight:700}
 
 .section-title{font-size:36px;margin:9px 0}
 
-.result-strip{width:min(100%,230px);margin:17px auto;display:block;box-shadow:0 8px 25px #795c6330}
+.result-strip{
 
-.preview-video{width:min(100%,230px);border-radius:8px;margin:10px auto;display:block;background:#222}
+  width:min(100%,230px);
 
-.qr-section{margin-top:25px;padding-top:18px;border-top:1px solid #ead9dc}
+  margin:17px auto;
 
-.single-qr{display:flex;justify-content:center;align-items:center;margin:18px auto;padding:12px;background:white;border:1px solid #f0dce0;border-radius:16px;width:fit-content;min-width:145px;min-height:145px}
+  display:block;
 
-.small-note{font-size:11px;line-height:1.7;color:#9b8588;margin-top:12px;text-align:center}
+  box-shadow:0 8px 25px #795c6330;
 
-.loading{display:none;margin:14px 0;color:var(--dark-sage);font-size:12px;font-weight:700;text-align:center}
+}
+
+.preview-video{
+
+  width:min(100%,230px);
+
+  border-radius:8px;
+
+  margin:10px auto;
+
+  display:block;
+
+  background:#222;
+
+}
+
+.qr-section{
+
+  margin-top:25px;
+
+  padding-top:18px;
+
+  border-top:1px solid #ead9dc;
+
+}
+
+.single-qr{
+
+  display:flex;
+
+  justify-content:center;
+
+  align-items:center;
+
+  margin:18px auto;
+
+  padding:12px;
+
+  background:white;
+
+  border:1px solid #f0dce0;
+
+  border-radius:16px;
+
+  width:fit-content;
+
+  min-width:145px;
+
+  min-height:145px;
+
+}
+
+.small-note{
+
+  font-size:11px;
+
+  line-height:1.7;
+
+  color:#9b8588;
+
+  margin-top:12px;
+
+  text-align:center;
+
+}
+
+.loading{
+
+  display:none;
+
+  margin:14px 0;
+
+  color:var(--dark-sage);
+
+  font-size:12px;
+
+  font-weight:700;
+
+  text-align:center;
+
+}
 
 .loading.show{display:block}
 
-.footer{text-align:center;margin-top:25px;font-size:11px;letter-spacing:1px;color:#92767d;line-height:1.9}
+.footer{
 
-#studioPage{background:linear-gradient(125deg,#f7e2e8 0%,#f7e2e8 48%,#dce7d5 48%,#dce7d5 100%);background-attachment:fixed}
+  text-align:center;
+
+  margin-top:25px;
+
+  font-size:11px;
+
+  letter-spacing:1px;
+
+  color:#92767d;
+
+  line-height:1.9;
+
+}
+
+/* DESIGN STUDIO */
+
+#studioPage{
+
+  background:linear-gradient(125deg,#f7e2e8 0%,#f7e2e8 48%,#dce7d5 48%,#dce7d5 100%);
+
+  background-attachment:fixed;
+
+}
 
 .studio-page{width:100%;max-width:1150px}
 
 .studio-heading{text-align:center;margin-bottom:14px}
 
-.studio-layout{display:grid;grid-template-columns:minmax(0,1fr);gap:14px}
+.studio-layout{
 
-.studio-panel{background:#fffaf5ed;border:1px solid white;border-radius:20px;padding:14px;box-shadow:0 8px 25px #9c7b8020;min-width:0}
+  display:grid;
+
+  grid-template-columns:minmax(0,1fr);
+
+  gap:14px;
+
+}
+
+.studio-panel{
+
+  background:#fffaf5ed;
+
+  border:1px solid white;
+
+  border-radius:20px;
+
+  padding:14px;
+
+  box-shadow:0 8px 25px #9c7b8020;
+
+  min-width:0;
+
+}
 
 .studio-preview-panel{overflow:hidden}
 
-.editor-preview-wrap{width:min(100%,360px);aspect-ratio:9/16;margin:0 auto;border-radius:15px;padding:12px;display:flex;justify-content:center;align-items:center;overflow:hidden;background:linear-gradient(125deg,#f7e2e8 0%,#f7e2e8 48%,#dce7d5 48%,#dce7d5 100%);background-size:cover;background-position:center;position:relative}
+.editor-preview-wrap{
 
-#editorCanvas{width:auto;height:auto;max-height:94%;max-width:90%;aspect-ratio:1/3;display:block;box-shadow:0 5px 18px #755d6530;touch-action:none;background:#fff;object-fit:contain}
+  background:linear-gradient(135deg,#f3dce3 0 50%,#dce7d5 50% 100%);
 
-.studio-actions{display:flex;flex-wrap:wrap;gap:7px;justify-content:center;margin:10px 0 15px}
+  border-radius:15px;
+
+  padding:18px;
+
+  display:flex;
+
+  justify-content:center;
+
+  align-items:flex-start;
+
+  overflow:hidden;
+
+  min-height:200px;
+
+  background-size:cover;
+
+  background-position:center;
+
+}
+
+#editorCanvas{
+
+  width:100%;
+
+  max-width:300px;
+
+  height:auto;
+
+  display:block;
+
+  box-shadow:0 5px 18px #755d6530;
+
+  touch-action:none;
+
+  background:#fff;
+
+}
+
+.studio-actions{
+
+  display:flex;
+
+  flex-wrap:wrap;
+
+  gap:7px;
+
+  justify-content:center;
+
+  margin:10px 0 15px;
+
+}
 
 .studio-actions button{font-size:10px}
 
 .studio-panel h3{font-size:23px;margin:3px 0 10px}
 
-.editor-tools{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:7px}
+.editor-tools{
+
+  display:grid;
+
+  grid-template-columns:repeat(2,minmax(0,1fr));
+
+  gap:7px;
+
+}
 
 .editor-tools button{width:100%;padding:10px 7px}
 
 .field{margin:10px 0}
 
-.field label{display:block;font-size:10px;font-weight:700;color:#846d72;margin-bottom:5px}
+.field label{
 
-.field input:not([type=checkbox]),.field select{width:100%;padding:10px;border:1px solid #e7cfd4;border-radius:9px;background:white;color:#65565a;min-width:0;font-size:12px}
+  display:block;
+
+  font-size:10px;
+
+  font-weight:700;
+
+  color:#846d72;
+
+  margin-bottom:5px;
+
+}
+
+.field input:not([type=checkbox]),.field select{
+
+  width:100%;
+
+  padding:10px;
+
+  border:1px solid #e7cfd4;
+
+  border-radius:9px;
+
+  background:white;
+
+  color:#65565a;
+
+  min-width:0;
+
+  font-size:12px;
+
+}
 
 .field input[type=color]{height:40px;padding:3px}
 
@@ -130,19 +598,61 @@ h1,h2,h3{font-family:'Cormorant Garamond',serif;font-weight:600;color:#8c5967}
 
 .field input[type=checkbox]{accent-color:#8fa486}
 
-.field-row{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.field-row{
+
+  display:grid;
+
+  grid-template-columns:1fr 1fr;
+
+  gap:8px;
+
+}
 
 .hint{font-size:10px;color:#927d81;line-height:1.6}
 
-.selected-name{font-size:11px;font-weight:700;color:#71846b;margin:8px 0}
+.selected-name{
+
+  font-size:11px;
+
+  font-weight:700;
+
+  color:#71846b;
+
+  margin:8px 0;
+
+}
 
 .studio-divider{border:0;border-top:1px solid #ead9dc;margin:13px 0}
 
 .file-input{display:none}
 
-@media(min-width:850px){.studio-layout{grid-template-columns:minmax(0,1fr) 350px;align-items:start}.studio-preview-panel{position:sticky;top:12px}.editor-preview-wrap{width:min(100%,360px)}}
+.tool-tabs{display:flex;gap:6px;flex-wrap:wrap;margin:8px 0}
 
-@media(max-width:380px){.camera-card,.result-card{padding:12px}}
+.tool-tabs button{flex:1;min-width:90px}
+
+@media(min-width:850px){
+
+  .studio-layout{
+
+    grid-template-columns:minmax(0,1fr) 350px;
+
+    align-items:start;
+
+  }
+
+  .studio-preview-panel{position:sticky;top:12px}
+
+  .editor-preview-wrap{padding:25px}
+
+  #editorCanvas{max-width:380px}
+
+}
+
+@media(max-width:380px){
+
+  .camera-card,.result-card{padding:12px}
+
+}
 
 </style>
 
@@ -150,347 +660,573 @@ h1,h2,h3{font-family:'Cormorant Garamond',serif;font-weight:600;color:#8c5967}
 
 <body>
 
+<!-- HOMEPAGE -->
+
 <section class="page active" id="home">
 
- <div class="home-card">
+  <div class="home-card">
 
-  <div class="brand">PERSIDA 12</div>
+    <div class="brand">PERSIDA 12</div>
 
-  <p class="eyebrow">Appreciation Night</p>
+    <p class="eyebrow">Appreciation Night</p>
 
-  <h1 class="main-title">A Little<br>Memory</h1>
+    <h1 class="main-title">A Little<br>Memory</h1>
 
-  <p class="subtitle">Capture your beautiful moments and keep them forever.</p>
+    <p class="subtitle">Capture your beautiful moments and keep them forever.</p>
 
-  <div style="margin:24px 0;font-size:36px;color:#a6b89b">♡</div>
+    <div style="margin:24px 0;font-size:36px;color:#a6b89b">♡</div>
 
-  <button class="primary-btn" onclick="openCamera()">OPEN CAMERA</button>
+    <button class="primary-btn" onclick="openCamera()">OPEN CAMERA</button>
 
-  <div class="btn-row"><button class="secondary-btn" onclick="openStudio()">DESIGN STUDIO · OPERATOR</button></div>
+    <div class="btn-row">
 
-  <div class="footer">#pursuing excellent pioneering unity<br>17.11.2026</div>
+      <button class="secondary-btn" onclick="openStudio()">DESIGN STUDIO · OPERATOR</button>
 
- </div>
+    </div>
+
+    <div class="footer">
+
+      #pursuing excellent pioneering unity<br>
+
+      17.11.2026
+
+    </div>
+
+  </div>
 
 </section>
+
+<!-- CAMERA -->
 
 <section class="page" id="cameraPage">
 
- <div class="brand">PERSIDA 12</div>
+  <div class="brand">PERSIDA 12</div>
 
- <h2 class="section-title">Let's Capture</h2>
+  <h2 class="section-title">Let's Capture</h2>
 
- <p class="subtitle">Your poses will be recorded with five seconds of movement each.</p>
+  <p class="subtitle">Three poses. Each pose records five seconds of movement.</p>
 
- <div class="camera-card">
+  <div class="camera-card">
 
-  <div class="camera-frame">
+    <div class="camera-frame">
 
-   <video id="cameraVideo" autoplay playsinline muted></video>
+      <video id="cameraVideo" autoplay playsinline muted></video>
 
-   <div id="countdown">5</div><div id="flash"></div>
+      <div id="countdown">5</div>
+
+      <div id="flash"></div>
+
+    </div>
+
+    <div class="status">Pose <span id="photoCount" class="photo-count">0</span> of 3</div>
+
+    <p id="cameraStatus" class="status">Press start when you are ready.</p>
+
+    <div class="btn-row">
+
+      <button class="primary-btn" id="startBtn" onclick="startSession()">START</button>
+
+      <button class="secondary-btn" onclick="goHome()">BACK</button>
+
+    </div>
 
   </div>
-
-  <div class="status" id="poseStatus">Pose <span id="photoCount" class="photo-count">0</span> of 3</div>
-
-  <p id="cameraStatus" class="status">Press start when you are ready.</p>
-
-  <div class="btn-row">
-
-   <button class="primary-btn" id="startBtn" onclick="startSession()">START</button>
-
-   <button class="secondary-btn" onclick="goHome()">BACK</button>
-
-  </div>
-
- </div>
 
 </section>
+
+<!-- RESULT -->
 
 <section class="page" id="resultPage">
 
- <div class="brand">PERSIDA 12</div>
+  <div class="brand">PERSIDA 12</div>
 
- <h2 class="section-title">Your Memories</h2>
+  <h2 class="section-title">Your Memories</h2>
 
- <p class="subtitle">Your photostrip is ready!</p>
+  <p class="subtitle">Your photostrip is ready!</p>
 
- <div class="result-card">
+  <div class="result-card">
 
-  <h3 style="font-size:27px;margin:5px 0">Static Photostrip</h3>
+    <h3 style="font-size:27px;margin:5px 0">Static Photostrip</h3>
 
-  <img id="stripPreview" class="result-strip" alt="Photostrip">
+    <img id="stripPreview" class="result-strip" alt="Photostrip">
 
-  <button class="primary-btn" onclick="downloadStatic()">DOWNLOAD PNG</button>
+    <button class="primary-btn" onclick="downloadStatic()">DOWNLOAD PNG</button>
 
-  <div class="qr-section">
+    <div class="qr-section">
 
-   <h3 style="font-size:27px;margin:5px 0">Live Photostrip</h3>
+      <h3 style="font-size:27px;margin:5px 0">Live Photostrip</h3>
 
-   <video id="livePreview" class="preview-video" controls playsinline loop muted></video>
+      <video id="livePreview" class="preview-video" controls playsinline loop muted></video>
 
-   <p id="liveStatus" class="small-note"></p>
+      <button class="primary-btn" onclick="downloadLive()">DOWNLOAD VIDEO</button>
 
-   <button class="primary-btn" id="liveDownloadBtn" onclick="downloadLive()">DOWNLOAD VIDEO</button>
+    </div>
+
+    <div class="qr-section">
+
+      <h3 style="font-size:27px;margin:5px 0">Your Photo Collection</h3>
+
+      <p class="small-note">One QR code to access all three photos and both photostrips.</p>
+
+      <button class="primary-btn" id="uploadBtn" onclick="uploadSession()">GENERATE MY QR CODE</button>
+
+      <div class="loading" id="loading">Uploading your photos and preparing your QR code...</div>
+
+      <div class="single-qr" id="singleQR"></div>
+
+      <p id="uploadStatus" class="small-note"></p>
+
+    </div>
+
+    <div class="btn-row">
+
+      <button class="secondary-btn" onclick="retake()">RETAKE PHOTOS</button>
+
+      <button class="secondary-btn" onclick="goHome()">HOME</button>
+
+    </div>
+
+    <div class="footer">
+
+      <strong>PERSIDA</strong><br>
+
+      appreciation night with Persida 12<br>
+
+      17.11.2026
+
+    </div>
 
   </div>
-
-  <div class="qr-section">
-
-   <h3 style="font-size:27px;margin:5px 0">Your Photo Collection</h3>
-
-   <p class="small-note">One QR code to access all your photos and photostrips.</p>
-
-   <button class="primary-btn" id="uploadBtn" onclick="uploadSession()">GENERATE MY QR CODE</button>
-
-   <div class="loading" id="loading">Uploading your photos and preparing your QR code...</div>
-
-   <div class="single-qr" id="singleQR"></div>
-
-   <p id="uploadStatus" class="small-note"></p>
-
-  </div>
-
-  <div class="btn-row">
-
-   <button class="secondary-btn" onclick="retake()">RETAKE PHOTOS</button>
-
-   <button class="secondary-btn" onclick="goHome()">HOME</button>
-
-  </div>
-
-  <div class="footer"><strong>PERSIDA</strong><br>appreciation night with Persida 12<br>17.11.2026</div>
-
- </div>
 
 </section>
 
+<!-- DESIGN STUDIO -->
+
 <section class="page" id="studioPage">
 
- <div class="studio-page">
+  <div class="studio-page">
 
-  <div class="studio-heading">
+    <div class="studio-heading">
 
-   <div class="brand">PERSIDA 12</div>
+      <div class="brand">PERSIDA 12</div>
 
-   <h2 class="section-title">Design Studio</h2>
+      <h2 class="section-title">Design Studio</h2>
 
-   <p class="subtitle">Tap an element to select it, drag to move, and use the controls to edit your photostrip.</p>
+      <p class="subtitle">Tap an element to select it, drag to move, and use the controls to edit your photostrip.</p>
+
+    </div>
+
+    <div class="studio-actions">
+
+      <button class="secondary-btn" onclick="saveDefault()">SAVE AS DEFAULT</button>
+
+      <button class="primary-btn" onclick="useForSession()">USE FOR NEXT SESSION</button>
+
+      <button class="danger-btn" onclick="resetDesign()">RESET DESIGN</button>
+
+    </div>
+
+    <div class="studio-layout">
+
+      <div class="studio-panel studio-preview-panel">
+
+        <div class="editor-preview-wrap" id="previewWrap">
+
+          <canvas id="editorCanvas" width="600" height="1800"></canvas>
+
+        </div>
+
+        <p class="hint">
+
+          Tap a photo frame, text or decoration to select it. Drag it to move.
+
+          The background behind the strip is only a preview and will not be printed.
+
+        </p>
+
+      </div>
+
+      <div class="studio-panel">
+
+        <h3>Photostrip Background</h3>
+
+        <div class="field-row">
+
+          <div class="field">
+
+            <label>BASE COLOUR</label>
+
+            <input type="color" id="baseColor" value="#ffffff" oninput="changeDesign()">
+
+          </div>
+
+          <div class="field">
+
+            <label>DOT COLOUR</label>
+
+            <input type="color" id="dotColor" value="#111111" oninput="changeDesign()">
+
+          </div>
+
+        </div>
+
+        <div class="field">
+
+          <label>PHOTO FILTER</label>
+
+          <select id="photoFilter" onchange="changeDesign()">
+
+            <option value="color">Original colour photos</option>
+
+            <option value="grayscale">Black & white photos</option>
+
+          </select>
+
+        </div>
+
+        <div class="field">
+
+          <label><input type="checkbox" id="dotsToggle" onchange="changeDesign()"> Polkadots on photostrip</label>
+
+        </div>
+
+        <div class="field">
+
+          <label>UPLOAD IMAGE AS STRIP BACKGROUND</label>
+
+          <button class="secondary-btn" style="width:100%" onclick="$('stripBgUpload').click()">UPLOAD STRIP BACKGROUND</button>
+
+          <input class="file-input" id="stripBgUpload" type="file" accept="image/*" onchange="uploadStripBackground(event)">
+
+          <button class="danger-btn" style="width:100%;margin-top:7px" onclick="removeStripBackground()">REMOVE STRIP BACKGROUND</button>
+
+        </div>
+
+        <div class="field">
+
+          <label>UPLOAD PHOTOSTRIP TEMPLATE (PNG)</label>
+
+          <button class="secondary-btn" style="width:100%" onclick="$('templateUpload').click()">UPLOAD TRANSPARENT PNG TEMPLATE</button>
+
+          <input class="file-input" id="templateUpload" type="file" accept="image/png,image/webp" onchange="uploadTemplate(event)">
+
+          <button class="danger-btn" style="width:100%;margin-top:7px" onclick="removeTemplate()">REMOVE TEMPLATE</button>
+
+          <p class="hint">The uploaded template is placed over the photos. Use a PNG with transparent photo windows. Adjust the three photo frames below to line up with the openings.</p>
+
+        </div>
+
+        <hr class="studio-divider">
+
+        <h3>Background Behind Strip</h3>
+
+        <div class="field-row">
+
+          <div class="field">
+
+            <label>BACKDROP COLOUR</label>
+
+            <input type="color" id="stageColor" value="#f7e2e8" oninput="changeStage()">
+
+          </div>
+
+          <div class="field">
+
+            <label>SECOND COLOUR</label>
+
+            <input type="color" id="stageColor2" value="#dce7d5" oninput="changeStage()">
+
+          </div>
+
+        </div>
+
+        <div class="field">
+
+          <label>UPLOAD BACKDROP IMAGE</label>
+
+          <button class="secondary-btn" style="width:100%" onclick="$('stageUpload').click()">UPLOAD IMAGE BEHIND STRIP</button>
+
+          <input class="file-input" id="stageUpload" type="file" accept="image/*" onchange="uploadStageBackground(event)">
+
+          <button class="danger-btn" style="width:100%;margin-top:7px" onclick="removeStageBackground()">REMOVE BACKDROP IMAGE</button>
+
+        </div>
+
+        <hr class="studio-divider">
+
+        <h3>Photo Frames</h3>
+
+        <div class="field">
+
+          <label>SELECT PHOTO FRAME</label>
+
+          <select id="slotChoice" onchange="selectSlot()">
+
+            <option value="0">Photo frame 1</option>
+
+            <option value="1">Photo frame 2</option>
+
+            <option value="2">Photo frame 3</option>
+
+          </select>
+
+        </div>
+
+        <div class="field">
+
+          <label>FRAME SHAPE</label>
+
+          <select id="slotShape" onchange="updateSlot()">
+
+            <option value="rectangle">Rectangle</option>
+
+            <option value="rounded">Rounded rectangle</option>
+
+            <option value="oval">Oval</option>
+
+            <option value="scalloped">Scalloped / Bergerigi</option>
+
+          </select>
+
+        </div>
+
+        <div class="field-row">
+
+          <div class="field">
+
+            <label>X POSITION</label>
+
+            <input type="number" id="slotX" oninput="updateSlot()">
+
+          </div>
+
+          <div class="field">
+
+            <label>Y POSITION</label>
+
+            <input type="number" id="slotY" oninput="updateSlot()">
+
+          </div>
+
+        </div>
+
+        <div class="field-row">
+
+          <div class="field">
+
+            <label>WIDTH</label>
+
+            <input type="number" id="slotW" oninput="updateSlot()">
+
+          </div>
+
+          <div class="field">
+
+            <label>HEIGHT</label>
+
+            <input type="number" id="slotH" oninput="updateSlot()">
+
+          </div>
+
+        </div>
+
+        <div class="field">
+
+          <label>FRAME CORNER / EDGE ROUNDING</label>
+
+          <input type="range" id="slotRadius" min="0" max="100" value="25" oninput="updateSlot()">
+
+        </div>
+
+        <div class="field">
+
+          <label>FRAME BORDER COLOUR</label>
+
+          <input type="color" id="slotBorder" value="#111111" oninput="updateSlot()">
+
+        </div>
+
+        <div class="field">
+
+          <label>FRAME BORDER WIDTH</label>
+
+          <input type="range" id="slotBorderWidth" min="0" max="20" value="3" oninput="updateSlot()">
+
+        </div>
+
+        <hr class="studio-divider">
+
+        <h3>Add Elements</h3>
+
+        <div class="editor-tools">
+
+          <button class="secondary-btn" onclick="addText()">＋ Add Text</button>
+
+          <button class="secondary-btn" onclick="addEmoji('♡')">♡ Heart</button>
+
+          <button class="secondary-btn" onclick="addEmoji('✿')">✿ Flower</button>
+
+          <button class="secondary-btn" onclick="addEmoji('🦋')">🦋 Butterfly</button>
+
+          <button class="secondary-btn" onclick="addEmoji('✧')">✧ Sparkle</button>
+
+          <button class="secondary-btn" onclick="addEmoji('☁')">☁ Cloud</button>
+
+          <button class="secondary-btn" onclick="addEmoji('☆')">☆ Star</button>
+
+          <button class="secondary-btn" onclick="$('assetUpload').click()">＋ Upload Image</button>
+
+        </div>
+
+        <input class="file-input" id="assetUpload" type="file" accept="image/png,image/webp,image/jpeg" onchange="uploadElement(event)">
+
+        <hr class="studio-divider">
+
+        <h3>Edit Selected Element</h3>
+
+        <div id="selectedName" class="selected-name">No element selected</div>
+
+        <div class="field">
+
+          <label>TEXT</label>
+
+          <input id="elementText" type="text" placeholder="Select a text element" oninput="updateElement()">
+
+        </div>
+
+        <div class="field">
+
+          <label>FONT</label>
+
+          <select id="elementFont" onchange="updateElement()">
+
+            <option value="Quicksand">Quicksand</option>
+
+            <option value="Cormorant Garamond">Cormorant Garamond</option>
+
+            <option value="Playfair Display">Playfair Display</option>
+
+            <option value="Georgia">Georgia</option>
+
+          </select>
+
+        </div>
+
+        <div class="field-row">
+
+          <div class="field">
+
+            <label>TEXT COLOUR</label>
+
+            <input type="color" id="elementColor" value="#111111" oninput="updateElement()">
+
+          </div>
+
+          <div class="field">
+
+            <label>FONT SIZE</label>
+
+            <input type="number" id="elementSize" min="8" max="220" value="40" oninput="updateElement()">
+
+          </div>
+
+        </div>
+
+        <div class="field-row">
+
+          <div class="field">
+
+            <label>WIDTH</label>
+
+            <input type="number" id="elementWidth" min="10" max="600" oninput="updateElement()">
+
+          </div>
+
+          <div class="field">
+
+            <label>HEIGHT</label>
+
+            <input type="number" id="elementHeight" min="10" max="1800" oninput="updateElement()">
+
+          </div>
+
+        </div>
+
+        <div class="field">
+
+          <label>ROTATION</label>
+
+          <input type="range" id="elementRotation" min="-180" max="180" value="0" oninput="updateElement()">
+
+        </div>
+
+        <div class="field">
+
+          <label>OPACITY</label>
+
+          <input type="range" id="elementOpacity" min="10" max="100" value="100" oninput="updateElement()">
+
+        </div>
+
+        <div class="field-row">
+
+          <div class="field">
+
+            <label>X POSITION</label>
+
+            <input type="number" id="elementX" oninput="updatePosition()">
+
+          </div>
+
+          <div class="field">
+
+            <label>Y POSITION</label>
+
+            <input type="number" id="elementY" oninput="updatePosition()">
+
+          </div>
+
+        </div>
+
+        <div class="field">
+
+          <label>TEXT ALIGNMENT</label>
+
+          <select id="elementAlign" onchange="updateElement()">
+
+            <option value="center">Center</option>
+
+            <option value="left">Left</option>
+
+            <option value="right">Right</option>
+
+          </select>
+
+        </div>
+
+        <div class="btn-row">
+
+          <button class="secondary-btn" onclick="duplicateElement()">DUPLICATE</button>
+
+          <button class="danger-btn" onclick="deleteElement()">DELETE</button>
+
+        </div>
+
+        <hr class="studio-divider">
+
+        <div class="btn-row">
+
+          <button class="secondary-btn" onclick="goHome()">BACK TO HOME</button>
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <p class="small-note">Default design is saved in this browser on this device. Use the same device and browser at the event.</p>
 
   </div>
-
-  <div class="studio-actions">
-
-   <button class="secondary-btn" onclick="saveDefault()">SAVE AS DEFAULT</button>
-
-   <button class="primary-btn" onclick="useForSession()">USE FOR NEXT SESSION</button>
-
-   <button class="danger-btn" onclick="resetDesign()">RESET DESIGN</button>
-
-  </div>
-
-  <div class="studio-layout">
-
-   <div class="studio-panel studio-preview-panel">
-
-    <div class="editor-preview-wrap" id="previewWrap"><canvas id="editorCanvas" width="600" height="1800"></canvas></div>
-
-    <p class="hint">Backdrop preview is 9:16. The photostrip remains 600 × 1800 px. The backdrop is not included in the printed photostrip.</p>
-
-   </div>
-
-   <div class="studio-panel">
-
-    <h3>Photostrip Layout</h3>
-
-    <div class="field">
-
-     <label>NUMBER OF PHOTOS PER STRIP</label>
-
-     <select id="layoutCount" onchange="changeLayout()">
-
-      <option value="1">1 Photo - Polaroid Style</option><option value="2">2 Photos</option><option value="3">3 Photos</option><option value="4">4 Photos</option>
-
-     </select>
-
-     <p class="hint">This changes the photo frame arrangement only. The photostrip size stays the same.</p>
-
-    </div>
-
-    <hr class="studio-divider">
-
-    <h3>Photostrip Background</h3>
-
-    <div class="field-row">
-
-     <div class="field"><label>BASE COLOUR</label><input type="color" id="baseColor" value="#ffffff" oninput="changeDesign()"></div>
-
-     <div class="field"><label>DOT COLOUR</label><input type="color" id="dotColor" value="#111111" oninput="changeDesign()"></div>
-
-    </div>
-
-    <div class="field"><label>PHOTO FILTER</label><select id="photoFilter" onchange="changeDesign()"><option value="color">Original colour photos</option><option value="grayscale">Black & white photos</option></select></div>
-
-    <div class="field"><label><input type="checkbox" id="dotsToggle" onchange="changeDesign()"> Polkadots on photostrip</label></div>
-
-    <div class="field">
-
-     <label>UPLOAD IMAGE AS STRIP BACKGROUND</label>
-
-     <button class="secondary-btn" style="width:100%" onclick="$('stripBgUpload').click()">UPLOAD STRIP BACKGROUND</button>
-
-     <input class="file-input" id="stripBgUpload" type="file" accept="image/*" onchange="uploadStripBackground(event)">
-
-     <button class="danger-btn" style="width:100%;margin-top:7px" onclick="removeStripBackground()">REMOVE STRIP BACKGROUND</button>
-
-    </div>
-
-    <div class="field">
-
-     <label>UPLOAD PHOTOSTRIP TEMPLATE (PNG)</label>
-
-     <button class="secondary-btn" style="width:100%" onclick="$('templateUpload').click()">UPLOAD TRANSPARENT PNG TEMPLATE</button>
-
-     <input class="file-input" id="templateUpload" type="file" accept="image/png,image/webp" onchange="uploadTemplate(event)">
-
-     <button class="danger-btn" style="width:100%;margin-top:7px" onclick="removeTemplate()">REMOVE TEMPLATE</button>
-
-     <p class="hint">The uploaded template is placed over the photos. Use a PNG with transparent photo windows.</p>
-
-    </div>
-
-    <hr class="studio-divider">
-
-    <h3>Background Behind Strip</h3>
-
-    <p class="hint">This preview area uses a fixed 9:16 ratio. It is separate from the photostrip.</p>
-
-    <div class="field-row">
-
-     <div class="field"><label>BACKDROP COLOUR</label><input type="color" id="stageColor" value="#f7e2e8" oninput="changeStage()"></div>
-
-     <div class="field"><label>SECOND COLOUR</label><input type="color" id="stageColor2" value="#dce7d5" oninput="changeStage()"></div>
-
-    </div>
-
-    <div class="field">
-
-     <label>UPLOAD BACKDROP IMAGE (9:16)</label>
-
-     <button class="secondary-btn" style="width:100%" onclick="$('stageUpload').click()">UPLOAD IMAGE BEHIND STRIP</button>
-
-     <input class="file-input" id="stageUpload" type="file" accept="image/*" onchange="uploadStageBackground(event)">
-
-     <button class="danger-btn" style="width:100%;margin-top:7px" onclick="removeStageBackground()">REMOVE BACKDROP IMAGE</button>
-
-    </div>
-
-    <hr class="studio-divider">
-
-    <h3>Photo Frames</h3>
-
-    <div class="field"><label>SELECT PHOTO FRAME</label><select id="slotChoice" onchange="selectSlot()"></select></div>
-
-    <div class="field"><label>FRAME SHAPE</label><select id="slotShape" onchange="updateSlot()"><option value="rectangle">Rectangle</option><option value="rounded">Rounded rectangle</option><option value="oval">Oval</option><option value="scalloped">Scalloped / Bergerigi</option></select></div>
-
-    <div class="field-row">
-
-     <div class="field"><label>X POSITION</label><input type="number" id="slotX" oninput="updateSlot()"></div>
-
-     <div class="field"><label>Y POSITION</label><input type="number" id="slotY" oninput="updateSlot()"></div>
-
-    </div>
-
-    <div class="field-row">
-
-     <div class="field"><label>WIDTH</label><input type="number" id="slotW" oninput="updateSlot()"></div>
-
-     <div class="field"><label>HEIGHT</label><input type="number" id="slotH" oninput="updateSlot()"></div>
-
-    </div>
-
-    <div class="field"><label>FRAME CORNER / EDGE ROUNDING</label><input type="range" id="slotRadius" min="0" max="100" value="25" oninput="updateSlot()"></div>
-
-    <div class="field"><label>FRAME BORDER COLOUR</label><input type="color" id="slotBorder" value="#111111" oninput="updateSlot()"></div>
-
-    <div class="field"><label>FRAME BORDER WIDTH</label><input type="range" id="slotBorderWidth" min="0" max="20" value="3" oninput="updateSlot()"></div>
-
-    <hr class="studio-divider">
-
-    <h3>Add Elements</h3>
-
-    <div class="editor-tools">
-
-     <button class="secondary-btn" onclick="addText()">＋ Add Text</button><button class="secondary-btn" onclick="addEmoji('♡')">♡ Heart</button>
-
-     <button class="secondary-btn" onclick="addEmoji('✿')">✿ Flower</button><button class="secondary-btn" onclick="addEmoji('🦋')">🦋 Butterfly</button>
-
-     <button class="secondary-btn" onclick="addEmoji('✧')">✧ Sparkle</button><button class="secondary-btn" onclick="addEmoji('☁')">☁ Cloud</button>
-
-     <button class="secondary-btn" onclick="addEmoji('☆')">☆ Star</button><button class="secondary-btn" onclick="$('assetUpload').click()">＋ Upload Image</button>
-
-    </div>
-
-    <input class="file-input" id="assetUpload" type="file" accept="image/png,image/webp,image/jpeg" onchange="uploadElement(event)">
-
-    <hr class="studio-divider">
-
-    <h3>Edit Selected Element</h3>
-
-    <div id="selectedName" class="selected-name">No element selected</div>
-
-    <div class="field"><label>TEXT</label><input id="elementText" type="text" placeholder="Select a text element" oninput="updateElement()"></div>
-
-    <div class="field"><label>FONT</label><select id="elementFont" onchange="updateElement()">
-
-     <option value="Quicksand">Quicksand</option><option value="Cormorant Garamond">Cormorant Garamond</option><option value="Playfair Display">Playfair Display</option><option value="Georgia">Georgia</option><option value="Great Vibes">Great Vibes - Script</option><option value="Dancing Script">Dancing Script - Script</option><option value="Allura">Allura - Script</option><option value="Parisienne">Parisienne - Script</option><option value="Sacramento">Sacramento - Script</option>
-
-    </select></div>
-
-    <div class="field-row">
-
-     <div class="field"><label>TEXT COLOUR</label><input type="color" id="elementColor" value="#111111" oninput="updateElement()"></div>
-
-     <div class="field"><label>FONT SIZE</label><input type="number" id="elementSize" min="8" max="220" value="40" oninput="updateElement()"></div>
-
-    </div>
-
-    <div class="field-row">
-
-     <div class="field"><label>WIDTH</label><input type="number" id="elementWidth" min="10" max="600" oninput="updateElement()"></div>
-
-     <div class="field"><label>HEIGHT</label><input type="number" id="elementHeight" min="10" max="1800" oninput="updateElement()"></div>
-
-    </div>
-
-    <div class="field"><label>ROTATION</label><input type="range" id="elementRotation" min="-180" max="180" value="0" oninput="updateElement()"></div>
-
-    <div class="field"><label>OPACITY</label><input type="range" id="elementOpacity" min="10" max="100" value="100" oninput="updateElement()"></div>
-
-    <div class="field-row">
-
-     <div class="field"><label>X POSITION</label><input type="number" id="elementX" oninput="updatePosition()"></div>
-
-     <div class="field"><label>Y POSITION</label><input type="number" id="elementY" oninput="updatePosition()"></div>
-
-    </div>
-
-    <div class="field"><label>TEXT ALIGNMENT</label><select id="elementAlign" onchange="updateElement()"><option value="center">Center</option><option value="left">Left</option><option value="right">Right</option></select></div>
-
-    <div class="btn-row"><button class="secondary-btn" onclick="duplicateElement()">DUPLICATE</button><button class="danger-btn" onclick="deleteElement()">DELETE</button></div>
-
-    <hr class="studio-divider">
-
-    <div class="btn-row"><button class="secondary-btn" onclick="goHome()">BACK TO HOME</button></div>
-
-   </div>
-
-  </div>
-
-  <p class="small-note">Your designs are saved in this browser on this device. Use the same device and browser at the event.</p>
-
- </div>
 
 </section>
 
@@ -498,97 +1234,103 @@ h1,h2,h3{font-family:'Cormorant Garamond',serif;font-weight:600;color:#8c5967}
 
 /* MASUKKAN URL GOOGLE APPS SCRIPT WEB APP DI SINI */
 
-const SCRIPT_URL="PASTE_YOUR_GOOGLE_APPS_SCRIPT_WEB_APP_URL_HERE";
+const SCRIPT_URL = "PASTE_YOUR_GOOGLE_APPS_SCRIPT_WEB_APP_URL_HERE";
 
-const W=600,H=1800,$=id=>document.getElementById(id);
+const W = 600;
 
-const clone=obj=>JSON.parse(JSON.stringify(obj));
+const H = 1800;
 
-const DEFAULT_KEY="persida12_default_template";
+const $ = id => document.getElementById(id);
 
-const NEXT_KEY="persida12_next_session_template";
+const clone = obj => JSON.parse(JSON.stringify(obj));
 
-function createSlots(count){
+const ORIGINAL_TEMPLATE = {
 
- const slots=[],x=55,width=490,gap=25;
+  base:"#ffffff",
 
- let startY=250,height=350;
+  dot:"#111111",
 
- if(count===1)return [{x:75,y:420,w:450,h:520,shape:"rectangle",radius:0,border:"#111111",borderWidth:3}];
+  dots:false,
 
- if(count===2){height=500;startY=330}
+  photoFilter:"color",
 
- if(count===3){height=350;startY=250}
+  stage:"#f7e2e8",
 
- if(count===4){height=260;startY=210}
+  stage2:"#dce7d5",
 
- for(let i=0;i<count;i++)slots.push({x,y:startY+i*(height+gap),w:width,h:height,shape:"rectangle",radius:25,border:"#111111",borderWidth:3});
+  stageImage:null,
 
- return slots;
+  stripBackground:null,
 
-}
+  overlay:null,
 
-const ORIGINAL_TEMPLATE={
+  slots:[
 
- base:"#ffffff",dot:"#111111",dots:false,photoFilter:"color",
+    {x:55,y:250,w:490,h:350,shape:"rectangle",radius:25,border:"#111111",borderWidth:3},
 
- stage:"#f7e2e8",stage2:"#dce7d5",stageImage:null,
+    {x:55,y:650,w:490,h:350,shape:"rectangle",radius:25,border:"#111111",borderWidth:3},
 
- stripBackground:null,overlay:null,layoutCount:3,slots:createSlots(3),
+    {x:55,y:1050,w:490,h:350,shape:"rectangle",radius:25,border:"#111111",borderWidth:3}
 
- elements:[
+  ],
 
-  {id:"head1",type:"text",text:"PERSIDA",x:300,y:105,size:42,color:"#111111",font:"Cormorant Garamond",align:"center",rotation:0,opacity:100},
+  elements:[
 
-  {id:"head2",type:"text",text:"appreciation night with Persida 12",x:300,y:155,size:16,color:"#222222",font:"Quicksand",align:"center",rotation:0,opacity:100},
+    {id:"head1",type:"text",text:"PERSIDA",x:300,y:105,size:42,color:"#111111",font:"Cormorant Garamond",align:"center",rotation:0,opacity:100},
 
-  {id:"foot1",type:"text",text:"PERSIDA",x:300,y:1510,size:35,color:"#111111",font:"Cormorant Garamond",align:"center",rotation:0,opacity:100},
+    {id:"head2",type:"text",text:"appreciation night with Persida 12",x:300,y:155,size:16,color:"#222222",font:"Quicksand",align:"center",rotation:0,opacity:100},
 
-  {id:"foot2",type:"text",text:"appreciation night with Persida 12",x:300,y:1550,size:13,color:"#222222",font:"Quicksand",align:"center",rotation:0,opacity:100},
+    {id:"foot1",type:"text",text:"PERSIDA",x:300,y:1510,size:35,color:"#111111",font:"Cormorant Garamond",align:"center",rotation:0,opacity:100},
 
-  {id:"foot3",type:"text",text:"17.11.2026",x:300,y:1590,size:17,color:"#111111",font:"Quicksand",align:"center",rotation:0,opacity:100}
+    {id:"foot2",type:"text",text:"appreciation night with Persida 12",x:300,y:1550,size:13,color:"#222222",font:"Quicksand",align:"center",rotation:0,opacity:100},
 
- ]
+    {id:"foot3",type:"text",text:"17.11.2026",x:300,y:1590,size:17,color:"#111111",font:"Quicksand",align:"center",rotation:0,opacity:100}
+
+  ]
 
 };
 
-function normalizeTemplate(data){
+function loadDefault(){
 
- const merged={...clone(ORIGINAL_TEMPLATE),...data};
+  try{
 
- merged.elements=Array.isArray(data.elements)?data.elements:clone(ORIGINAL_TEMPLATE.elements);
+    const saved=localStorage.getItem("persida12_default_template");
 
- const count=Number(merged.layoutCount)||merged.slots?.length||3;
+    if(!saved)return clone(ORIGINAL_TEMPLATE);
 
- merged.layoutCount=count;
+    return {...clone(ORIGINAL_TEMPLATE),...JSON.parse(saved)};
 
- if(!Array.isArray(merged.slots)||merged.slots.length!==count)merged.slots=createSlots(count);
+  }catch(e){
 
- return merged;
+    return clone(ORIGINAL_TEMPLATE);
 
-}
-
-function readTemplate(key,fallback){
-
- try{const s=localStorage.getItem(key);return s?normalizeTemplate(JSON.parse(s)):clone(fallback)}
-
- catch(e){return clone(fallback)}
+  }
 
 }
 
-let defaultTemplate=readTemplate(DEFAULT_KEY,ORIGINAL_TEMPLATE);
+let defaultTemplate=loadDefault();
 
-let sessionTemplate=readTemplate(NEXT_KEY,defaultTemplate);
+let sessionTemplate=null;
 
-let workingTemplate=clone(sessionTemplate);
+let workingTemplate=clone(defaultTemplate);
 
-let activeSessionTemplate=null;
+let selected=null;
 
-let selected=null,selectedSlotIndex=0;
+let selectedSlotIndex=0;
 
-let photos=[],clips=[],cameraStream=null;
+let photos=[];
 
-let staticBlob=null,liveBlob=null,staticURL=null,liveURL=null;
+let clips=[];
+
+let cameraStream=null;
+
+let staticBlob=null;
+
+let liveBlob=null;
+
+let staticURL=null;
+
+let liveURL=null;
 
 let busy=false;
 
@@ -596,899 +1338,1763 @@ const imgCache=new Map();
 
 function showPage(id){
 
- document.querySelectorAll(".page").forEach(p=>p.classList.remove("active"));
+  document.querySelectorAll(".page").forEach(p=>p.classList.remove("active"));
 
- $(id).classList.add("active");
+  $(id).classList.add("active");
 
- window.scrollTo(0,0);
+  window.scrollTo(0,0);
 
 }
 
-const sleep=ms=>new Promise(resolve=>setTimeout(resolve,ms));
+function sleep(ms){return new Promise(resolve=>setTimeout(resolve,ms))}
 
 function newId(){return "el"+Date.now()+Math.random().toString(16).slice(2)}
 
+/* ---------------- DESIGN STUDIO ---------------- */
+
 function openStudio(){
 
- /* Load the pending design first, not the old default design. */
+  workingTemplate=clone(defaultTemplate);
 
- sessionTemplate=readTemplate(NEXT_KEY,defaultTemplate);
+  selected=null;
 
- workingTemplate=clone(sessionTemplate);
+  showPage("studioPage");
 
- selected=null;selectedSlotIndex=0;
+  syncDesignControls();
 
- showPage("studioPage");syncDesignControls();buildSlotChoices();selectSlot();renderEditor();refreshControls();
+  renderEditor();
+
+  refreshControls();
+
+  selectSlot();
 
 }
 
 function syncDesignControls(){
 
- $("layoutCount").value=String(workingTemplate.layoutCount);
+  $("baseColor").value=workingTemplate.base||"#ffffff";
 
- $("baseColor").value=workingTemplate.base||"#ffffff";
+  $("dotColor").value=workingTemplate.dot||"#111111";
 
- $("dotColor").value=workingTemplate.dot||"#111111";
+  $("dotsToggle").checked=!!workingTemplate.dots;
 
- $("dotsToggle").checked=!!workingTemplate.dots;
+  $("photoFilter").value=workingTemplate.photoFilter||"color";
 
- $("photoFilter").value=workingTemplate.photoFilter||"color";
+  $("stageColor").value=workingTemplate.stage||"#f7e2e8";
 
- $("stageColor").value=workingTemplate.stage||"#f7e2e8";
+  $("stageColor2").value=workingTemplate.stage2||"#dce7d5";
 
- $("stageColor2").value=workingTemplate.stage2||"#dce7d5";
-
- updateStagePreview();
-
-}
-
-function buildSlotChoices(){
-
- const select=$("slotChoice");select.innerHTML="";
-
- workingTemplate.slots.forEach((slot,index)=>{
-
-  const option=document.createElement("option");
-
-  option.value=String(index);option.textContent="Photo frame "+(index+1);select.appendChild(option);
-
- });
-
- selectedSlotIndex=Math.min(selectedSlotIndex,workingTemplate.slots.length-1);
-
- select.value=String(selectedSlotIndex);
-
-}
-
-function changeLayout(){
-
- const count=Number($("layoutCount").value);
-
- if(![1,2,3,4].includes(count))return;
-
- const old=workingTemplate.slots||[],slots=createSlots(count);
-
- slots.forEach((s,i)=>{if(old[i]){s.shape=old[i].shape||s.shape;s.radius=old[i].radius??s.radius;s.border=old[i].border||s.border;s.borderWidth=old[i].borderWidth??s.borderWidth}});
-
- workingTemplate.layoutCount=count;workingTemplate.slots=slots;selectedSlotIndex=0;
-
- selected={kind:"slot",index:0};buildSlotChoices();selectSlot();renderEditor();
+  updateStagePreview();
 
 }
 
 function saveDefault(){
 
- try{
+  try{
 
-  localStorage.setItem(DEFAULT_KEY,JSON.stringify(workingTemplate));
+    localStorage.setItem("persida12_default_template",JSON.stringify(workingTemplate));
 
-  defaultTemplate=clone(workingTemplate);
+    defaultTemplate=clone(workingTemplate);
 
-  alert("Default design saved on this device!");
+    alert("Default design saved on this device!");
 
- }catch(e){alert("Unable to save. The uploaded images may be too large. Try using smaller images.")}
+  }catch(e){
+
+    alert("Unable to save. The uploaded images may be too large. Try using smaller images.");
+
+  }
 
 }
 
 function useForSession(){
 
- try{
-
   sessionTemplate=clone(workingTemplate);
 
-  localStorage.setItem(NEXT_KEY,JSON.stringify(sessionTemplate));
-
-  alert("Your design has been saved and will be used for the next photo session.");
+  alert("Your design will be used for the next photo session.");
 
   showPage("home");
-
- }catch(e){alert("Unable to save this design. Please use smaller uploaded images.");}
 
 }
 
 function resetDesign(){
 
- if(!confirm("Reset the design to the original PERSIDA 12 template?"))return;
+  if(!confirm("Reset the design to the original PERSIDA 12 template?"))return;
 
- workingTemplate=clone(ORIGINAL_TEMPLATE);sessionTemplate=clone(ORIGINAL_TEMPLATE);
+  workingTemplate=clone(ORIGINAL_TEMPLATE);
 
- try{localStorage.setItem(NEXT_KEY,JSON.stringify(sessionTemplate))}catch(e){}
+  selected=null;
 
- selected=null;selectedSlotIndex=0;syncDesignControls();buildSlotChoices();selectSlot();renderEditor();refreshControls();
+  syncDesignControls();
+
+  renderEditor();
+
+  refreshControls();
+
+  selectSlot();
 
 }
 
 function changeDesign(){
 
- workingTemplate.base=$("baseColor").value;workingTemplate.dot=$("dotColor").value;
+  workingTemplate.base=$("baseColor").value;
 
- workingTemplate.dots=$("dotsToggle").checked;workingTemplate.photoFilter=$("photoFilter").value;renderEditor();
+  workingTemplate.dot=$("dotColor").value;
+
+  workingTemplate.dots=$("dotsToggle").checked;
+
+  workingTemplate.photoFilter=$("photoFilter").value;
+
+  renderEditor();
 
 }
 
 function changeStage(){
 
- workingTemplate.stage=$("stageColor").value;workingTemplate.stage2=$("stageColor2").value;updateStagePreview();
+  workingTemplate.stage=$("stageColor").value;
+
+  workingTemplate.stage2=$("stageColor2").value;
+
+  updateStagePreview();
 
 }
 
 function updateStagePreview(){
 
- const wrap=$("previewWrap");
+  const wrap=$("previewWrap");
 
- if(workingTemplate.stageImage){wrap.style.backgroundImage=`url("${workingTemplate.stageImage}")`;wrap.style.backgroundSize="cover";wrap.style.backgroundPosition="center"}
+  if(workingTemplate.stageImage){
 
- else wrap.style.backgroundImage=`linear-gradient(125deg,${workingTemplate.stage} 0%,${workingTemplate.stage} 48%,${workingTemplate.stage2} 48%,${workingTemplate.stage2} 100%)`;
+    wrap.style.backgroundImage=`url("${workingTemplate.stageImage}")`;
+
+    wrap.style.backgroundSize="cover";
+
+    wrap.style.backgroundPosition="center";
+
+  }else{
+
+    wrap.style.backgroundImage=`linear-gradient(125deg,${workingTemplate.stage} 0%,${workingTemplate.stage} 48%,${workingTemplate.stage2} 48%,${workingTemplate.stage2} 100%)`;
+
+  }
 
 }
 
 function readImageFile(file,callback){
 
- if(!file)return;
+  if(!file)return;
 
- if(file.size>5000000){alert("Please choose an image smaller than 5MB.");return}
+  if(file.size>5000000){
 
- const reader=new FileReader();reader.onload=()=>callback(reader.result);reader.onerror=()=>alert("Unable to read this image.");reader.readAsDataURL(file);
+    alert("Please choose an image smaller than 5MB.");
+
+    return;
+
+  }
+
+  const reader=new FileReader();
+
+  reader.onload=()=>callback(reader.result);
+
+  reader.onerror=()=>alert("Unable to read this image.");
+
+  reader.readAsDataURL(file);
 
 }
 
-function uploadStripBackground(e){readImageFile(e.target.files?.[0],data=>{workingTemplate.stripBackground=data;renderEditor()});e.target.value=""}
+function uploadStripBackground(event){
 
-function removeStripBackground(){workingTemplate.stripBackground=null;renderEditor()}
+  const file=event.target.files?.[0];
 
-function uploadTemplate(e){readImageFile(e.target.files?.[0],data=>{workingTemplate.overlay=data;renderEditor()});e.target.value=""}
+  readImageFile(file,data=>{
 
-function removeTemplate(){workingTemplate.overlay=null;renderEditor()}
+    workingTemplate.stripBackground=data;
 
-function uploadStageBackground(e){readImageFile(e.target.files?.[0],data=>{workingTemplate.stageImage=data;updateStagePreview()});e.target.value=""}
+    renderEditor();
 
-function removeStageBackground(){workingTemplate.stageImage=null;updateStagePreview()}
+  });
+
+  event.target.value="";
+
+}
+
+function removeStripBackground(){
+
+  workingTemplate.stripBackground=null;
+
+  renderEditor();
+
+}
+
+function uploadTemplate(event){
+
+  const file=event.target.files?.[0];
+
+  readImageFile(file,data=>{
+
+    workingTemplate.overlay=data;
+
+    renderEditor();
+
+  });
+
+  event.target.value="";
+
+}
+
+function removeTemplate(){
+
+  workingTemplate.overlay=null;
+
+  renderEditor();
+
+}
+
+function uploadStageBackground(event){
+
+  const file=event.target.files?.[0];
+
+  readImageFile(file,data=>{
+
+    workingTemplate.stageImage=data;
+
+    updateStagePreview();
+
+  });
+
+  event.target.value="";
+
+}
+
+function removeStageBackground(){
+
+  workingTemplate.stageImage=null;
+
+  updateStagePreview();
+
+}
 
 function addText(){
 
- const value=prompt("Enter your text:");if(!value||!value.trim())return;
+  const value=prompt("Enter your text:");
 
- const e={id:newId(),type:"text",text:value.trim(),x:300,y:900,size:35,color:"#111111",font:"Quicksand",align:"center",rotation:0,opacity:100};
+  if(!value||!value.trim())return;
 
- workingTemplate.elements.push(e);selected={kind:"element",id:e.id};renderEditor();refreshControls();
+  const e={
+
+    id:newId(),type:"text",text:value.trim(),
+
+    x:300,y:900,size:35,color:"#111111",
+
+    font:"Quicksand",align:"center",rotation:0,opacity:100
+
+  };
+
+  workingTemplate.elements.push(e);
+
+  selected={kind:"element",id:e.id};
+
+  renderEditor();
+
+  refreshControls();
 
 }
 
 function addEmoji(value){
 
- const e={id:newId(),type:"text",text:value,x:300,y:900,size:70,color:"#111111",font:"Quicksand",align:"center",rotation:0,opacity:100};
+  const e={
 
- workingTemplate.elements.push(e);selected={kind:"element",id:e.id};renderEditor();refreshControls();
+    id:newId(),type:"text",text:value,
+
+    x:300,y:900,size:70,color:"#111111",
+
+    font:"Quicksand",align:"center",rotation:0,opacity:100
+
+  };
+
+  workingTemplate.elements.push(e);
+
+  selected={kind:"element",id:e.id};
+
+  renderEditor();
+
+  refreshControls();
 
 }
 
-function uploadElement(e){
+function uploadElement(event){
 
- readImageFile(e.target.files?.[0],data=>{
+  const file=event.target.files?.[0];
 
-  const el={id:newId(),type:"image",src:data,x:300,y:900,w:150,h:150,rotation:0,opacity:100};
+  readImageFile(file,data=>{
 
-  workingTemplate.elements.push(el);selected={kind:"element",id:el.id};renderEditor();refreshControls();
+    const e={
 
- });e.target.value="";
+      id:newId(),type:"image",src:data,
+
+      x:300,y:900,w:150,h:150,rotation:0,opacity:100
+
+    };
+
+    workingTemplate.elements.push(e);
+
+    selected={kind:"element",id:e.id};
+
+    renderEditor();
+
+    refreshControls();
+
+  });
+
+  event.target.value="";
 
 }
 
 function getSelected(){
 
- if(!selected)return null;
+  if(!selected)return null;
 
- if(selected.kind==="element")return workingTemplate.elements.find(e=>e.id===selected.id);
+  if(selected.kind==="element"){
 
- if(selected.kind==="slot")return workingTemplate.slots[selected.index];
+    return workingTemplate.elements.find(e=>e.id===selected.id);
 
- return null;
+  }
+
+  if(selected.kind==="slot"){
+
+    return workingTemplate.slots[selected.index];
+
+  }
+
+  return null;
 
 }
 
 function selectSlot(){
 
- selectedSlotIndex=Number($("slotChoice").value)||0;
+  selectedSlotIndex=Number($("slotChoice").value)||0;
 
- const s=workingTemplate.slots[selectedSlotIndex];if(!s)return;
+  const s=workingTemplate.slots[selectedSlotIndex];
 
- selected={kind:"slot",index:selectedSlotIndex};
+  selected={kind:"slot",index:selectedSlotIndex};
 
- $("slotShape").value=s.shape||"rectangle";$("slotX").value=Math.round(s.x);$("slotY").value=Math.round(s.y);
+  $("slotShape").value=s.shape||"rectangle";
 
- $("slotW").value=Math.round(s.w);$("slotH").value=Math.round(s.h);$("slotRadius").value=s.radius??25;
+  $("slotX").value=Math.round(s.x);
 
- $("slotBorder").value=s.border||"#111111";$("slotBorderWidth").value=s.borderWidth??3;
+  $("slotY").value=Math.round(s.y);
 
- refreshControls();renderEditor();
+  $("slotW").value=Math.round(s.w);
+
+  $("slotH").value=Math.round(s.h);
+
+  $("slotRadius").value=s.radius??25;
+
+  $("slotBorder").value=s.border||"#111111";
+
+  $("slotBorderWidth").value=s.borderWidth??3;
+
+  refreshControls();
+
+  renderEditor();
 
 }
 
 function updateSlot(){
 
- const s=workingTemplate.slots[selectedSlotIndex];if(!s)return;
+  const s=workingTemplate.slots[selectedSlotIndex];
 
- s.shape=$("slotShape").value;s.x=Number($("slotX").value)||0;s.y=Number($("slotY").value)||0;
+  s.shape=$("slotShape").value;
 
- s.w=Math.max(30,Number($("slotW").value)||30);s.h=Math.max(30,Number($("slotH").value)||30);
+  s.x=Number($("slotX").value)||0;
 
- s.radius=Number($("slotRadius").value)||0;s.border=$("slotBorder").value;s.borderWidth=Number($("slotBorderWidth").value)||0;
+  s.y=Number($("slotY").value)||0;
 
- selected={kind:"slot",index:selectedSlotIndex};renderEditor();
+  s.w=Math.max(30,Number($("slotW").value)||30);
+
+  s.h=Math.max(30,Number($("slotH").value)||30);
+
+  s.radius=Number($("slotRadius").value)||0;
+
+  s.border=$("slotBorder").value;
+
+  s.borderWidth=Number($("slotBorderWidth").value)||0;
+
+  selected={kind:"slot",index:selectedSlotIndex};
+
+  renderEditor();
 
 }
 
 function refreshControls(){
 
- const e=getSelected(),isText=e&&selected.kind==="element"&&e.type==="text",isImage=e&&selected.kind==="element"&&e.type==="image";
+  const e=getSelected();
 
- $("selectedName").textContent=!e?"No element selected":selected.kind==="slot"?"Photo frame "+(selected.index+1):isImage?"Uploaded image":e.text||"Text";
+  const isText=e&&selected.kind==="element"&&e.type==="text";
 
- $("elementText").disabled=!isText;$("elementFont").disabled=!isText;$("elementAlign").disabled=!isText;$("elementColor").disabled=!isText;$("elementSize").disabled=!isText;
+  const isImage=e&&selected.kind==="element"&&e.type==="image";
 
- $("elementWidth").disabled=!isImage;$("elementHeight").disabled=!isImage;
+  $("selectedName").textContent=!e?"No element selected":
 
- $("elementRotation").disabled=!e||selected.kind==="slot";$("elementOpacity").disabled=!e||selected.kind==="slot";
+    selected.kind==="slot"?"Photo frame "+(selected.index+1):
 
- $("elementX").disabled=!e||selected.kind==="slot";$("elementY").disabled=!e||selected.kind==="slot";
+    isImage?"Uploaded image":e.text||"Text";
 
- if(!e){["elementText","elementWidth","elementHeight","elementX","elementY"].forEach(id=>$(id).value="");return}
+  $("elementText").disabled=!isText;
 
- $("elementText").value=isText?e.text:"";$("elementFont").value=isText?e.font:"Quicksand";
+  $("elementFont").disabled=!isText;
 
- $("elementColor").value=e.color||"#111111";$("elementSize").value=e.size||35;
+  $("elementAlign").disabled=!isText;
 
- $("elementRotation").value=e.rotation||0;$("elementOpacity").value=e.opacity??100;
+  $("elementColor").disabled=!isText;
 
- $("elementAlign").value=e.align||"center";$("elementWidth").value=isImage?e.w:"";$("elementHeight").value=isImage?e.h:"";
+  $("elementSize").disabled=!isText;
 
- $("elementX").value=Math.round(e.x);$("elementY").value=Math.round(e.y);
+  $("elementWidth").disabled=!isImage;
+
+  $("elementHeight").disabled=!isImage;
+
+  $("elementRotation").disabled=!e||selected.kind==="slot";
+
+  $("elementOpacity").disabled=!e||selected.kind==="slot";
+
+  $("elementX").disabled=!e||selected.kind==="slot";
+
+  $("elementY").disabled=!e||selected.kind==="slot";
+
+  if(!e){
+
+    ["elementText","elementWidth","elementHeight","elementX","elementY"].forEach(id=>$(id).value="");
+
+    return;
+
+  }
+
+  $("elementText").value=isText?e.text:"";
+
+  $("elementFont").value=isText?e.font:"Quicksand";
+
+  $("elementColor").value=e.color||"#111111";
+
+  $("elementSize").value=e.size||35;
+
+  $("elementRotation").value=e.rotation||0;
+
+  $("elementOpacity").value=e.opacity??100;
+
+  $("elementAlign").value=e.align||"center";
+
+  $("elementWidth").value=isImage?e.w:"";
+
+  $("elementHeight").value=isImage?e.h:"";
+
+  $("elementX").value=Math.round(e.x);
+
+  $("elementY").value=Math.round(e.y);
 
 }
 
 function updateElement(){
 
- const e=getSelected();if(!e||selected.kind!=="element")return;
+  const e=getSelected();
 
- if(e.type==="text"){e.text=$("elementText").value;e.font=$("elementFont").value;e.color=$("elementColor").value;e.size=Math.max(8,Number($("elementSize").value)||35);e.align=$("elementAlign").value}
+  if(!e||selected.kind!=="element")return;
 
- else{e.w=Math.max(10,Number($("elementWidth").value)||e.w);e.h=Math.max(10,Number($("elementHeight").value)||e.h)}
+  if(e.type==="text"){
 
- e.rotation=Number($("elementRotation").value)||0;e.opacity=Number($("elementOpacity").value)||100;renderEditor();
+    e.text=$("elementText").value;
+
+    e.font=$("elementFont").value;
+
+    e.color=$("elementColor").value;
+
+    e.size=Math.max(8,Number($("elementSize").value)||35);
+
+    e.align=$("elementAlign").value;
+
+  }else{
+
+    e.w=Math.max(10,Number($("elementWidth").value)||e.w);
+
+    e.h=Math.max(10,Number($("elementHeight").value)||e.h);
+
+  }
+
+  e.rotation=Number($("elementRotation").value)||0;
+
+  e.opacity=Number($("elementOpacity").value)||100;
+
+  renderEditor();
 
 }
 
 function updatePosition(){
 
- const e=getSelected();if(!e||selected.kind!=="element")return;
+  const e=getSelected();
 
- e.x=Number($("elementX").value)||0;e.y=Number($("elementY").value)||0;renderEditor();
+  if(!e||selected.kind!=="element")return;
+
+  e.x=Number($("elementX").value)||0;
+
+  e.y=Number($("elementY").value)||0;
+
+  renderEditor();
 
 }
 
 function duplicateElement(){
 
- const e=getSelected();if(!e||selected.kind!=="element")return;
+  const e=getSelected();
 
- const copy=clone(e);copy.id=newId();copy.x+=25;copy.y+=25;
+  if(!e||selected.kind!=="element")return;
 
- workingTemplate.elements.push(copy);selected={kind:"element",id:copy.id};renderEditor();refreshControls();
+  const copy=clone(e);
+
+  copy.id=newId();
+
+  copy.x+=25;
+
+  copy.y+=25;
+
+  workingTemplate.elements.push(copy);
+
+  selected={kind:"element",id:copy.id};
+
+  renderEditor();
+
+  refreshControls();
 
 }
 
 function deleteElement(){
 
- if(!selected||selected.kind!=="element")return;
+  if(!selected||selected.kind!=="element")return;
 
- workingTemplate.elements=workingTemplate.elements.filter(e=>e.id!==selected.id);selected=null;renderEditor();refreshControls();
+  workingTemplate.elements=workingTemplate.elements.filter(e=>e.id!==selected.id);
+
+  selected=null;
+
+  renderEditor();
+
+  refreshControls();
 
 }
 
-/* PHOTOSTRIP DRAWING */
+/* ---------------- DRAW PHOTOSTRIP ---------------- */
 
 function getImg(src){
 
- if(!src)return null;
+  if(!src)return null;
 
- if(!imgCache.has(src)){const img=new Image();img.src=src;imgCache.set(src,img)}
+  if(!imgCache.has(src)){
 
- return imgCache.get(src);
+    const img=new Image();
+
+    img.src=src;
+
+    imgCache.set(src,img);
+
+  }
+
+  return imgCache.get(src);
 
 }
 
-async function waitImages(d){
+async function waitImages(design){
 
- await document.fonts.ready;
+  await document.fonts.ready;
 
- const sources=[d.stripBackground,d.overlay,...d.elements.filter(e=>e.type==="image").map(e=>e.src)].filter(Boolean);
+  const sources=[
 
- await Promise.all(sources.map(src=>new Promise(resolve=>{
+    design.stripBackground,
 
-  const img=getImg(src);if(img.complete)return resolve();img.onload=resolve;img.onerror=resolve;
+    design.overlay,
 
- })));
+    design.stageImage,
+
+    ...design.elements.filter(e=>e.type==="image").map(e=>e.src)
+
+  ].filter(Boolean);
+
+  await Promise.all(sources.map(src=>new Promise(resolve=>{
+
+    const img=getImg(src);
+
+    if(img.complete)return resolve();
+
+    img.onload=resolve;
+
+    img.onerror=resolve;
+
+  })));
 
 }
 
 function drawImageCover(ctx,img,x,y,w,h){
 
- if(!img||!img.naturalWidth)return;
+  if(!img||!img.naturalWidth)return;
 
- const scale=Math.max(w/img.width,h/img.height),sw=w/scale,sh=h/scale,sx=(img.width-sw)/2,sy=(img.height-sh)/2;
+  const scale=Math.max(w/img.width,h/img.height);
 
- ctx.drawImage(img,sx,sy,sw,sh,x,y,w,h);
+  const sw=w/scale,sh=h/scale;
+
+  const sx=(img.width-sw)/2,sy=(img.height-sh)/2;
+
+  ctx.drawImage(img,sx,sy,sw,sh,x,y,w,h);
 
 }
 
 function drawShapePath(ctx,s){
 
- ctx.beginPath();
+  ctx.beginPath();
 
- if(s.shape==="oval")ctx.ellipse(s.x+s.w/2,s.y+s.h/2,s.w/2,s.h/2,0,0,Math.PI*2);
+  if(s.shape==="oval"){
 
- else if(s.shape==="rounded"){
+    ctx.ellipse(s.x+s.w/2,s.y+s.h/2,s.w/2,s.h/2,0,0,Math.PI*2);
 
-  const r=Math.min(s.radius||25,s.w/2,s.h/2),x=s.x,y=s.y,w=s.w,h=s.h;
+  }else if(s.shape==="rounded"){
 
-  ctx.moveTo(x+r,y);ctx.lineTo(x+w-r,y);ctx.quadraticCurveTo(x+w,y,x+w,y+r);
+    const r=Math.min(s.radius||25,s.w/2,s.h/2);
 
-  ctx.lineTo(x+w,y+h-r);ctx.quadraticCurveTo(x+w,y+h,x+w-r,y+h);
+    ctx.roundRect(s.x,s.y,s.w,s.h,r);
 
-  ctx.lineTo(x+r,y+h);ctx.quadraticCurveTo(x,y+h,x,y+h-r);
+  }else if(s.shape==="scalloped"){
 
-  ctx.lineTo(x,y+r);ctx.quadraticCurveTo(x,y,x+r,y);
+    const steps=12;
 
- }
+    const cx=s.x+s.w/2,cy=s.y+s.h/2;
 
- else if(s.shape==="scalloped"){
+    const rx=s.w/2,ry=s.h/2;
 
-  const steps=12,cx=s.x+s.w/2,cy=s.y+s.h/2,rx=s.w/2,ry=s.h/2;
+    for(let i=0;i<=steps*8;i++){
 
-  for(let i=0;i<=steps*8;i++){const a=i/(steps*8)*Math.PI*2,wave=1+.045*Math.cos(a*steps),x=cx+Math.cos(a)*rx*wave,y=cy+Math.sin(a)*ry*wave;if(i===0)ctx.moveTo(x,y);else ctx.lineTo(x,y)}
+      const a=i/(steps*8)*Math.PI*2;
 
-  ctx.closePath();
+      const wave=1+0.045*Math.cos(a*steps);
 
- }else ctx.rect(s.x,s.y,s.w,s.h);
+      const x=cx+Math.cos(a)*rx*wave;
+
+      const y=cy+Math.sin(a)*ry*wave;
+
+      if(i===0)ctx.moveTo(x,y);else ctx.lineTo(x,y);
+
+    }
+
+    ctx.closePath();
+
+  }else{
+
+    ctx.rect(s.x,s.y,s.w,s.h);
+
+  }
+
+}
+
+function drawSlotPhoto(ctx,img,s,filter){
+
+  ctx.save();
+
+  drawShapePath(ctx,s);
+
+  ctx.clip();
+
+  if(img){
+
+    ctx.save();
+
+    if(filter==="grayscale")ctx.filter="grayscale(1)";
+
+    drawImageCover(ctx,img,s.x,s.y,s.w,s.h);
+
+    ctx.restore();
+
+  }else{
+
+    ctx.fillStyle="#eadde0";
+
+    ctx.fillRect(s.x,s.y,s.w,s.h);
+
+  }
+
+  ctx.restore();
+
+  if(s.borderWidth>0){
+
+    ctx.save();
+
+    drawShapePath(ctx,s);
+
+    ctx.strokeStyle=s.border||"#111111";
+
+    ctx.lineWidth=s.borderWidth;
+
+    ctx.stroke();
+
+    ctx.restore();
+
+  }
 
 }
 
 function drawBackground(ctx,d){
 
- ctx.fillStyle=d.base||"#fff";ctx.fillRect(0,0,W,H);
+  ctx.fillStyle=d.base||"#ffffff";
 
- if(d.stripBackground){const img=getImg(d.stripBackground);if(img?.complete&&img.naturalWidth)drawImageCover(ctx,img,0,0,W,H)}
+  ctx.fillRect(0,0,W,H);
 
- if(d.dots){ctx.fillStyle=d.dot||"#111";for(let y=18;y<H;y+=40)for(let x=18;x<W;x+=40){ctx.beginPath();ctx.arc(x,y,2.2,0,Math.PI*2);ctx.fill()}}
+  if(d.stripBackground){
+
+    const img=getImg(d.stripBackground);
+
+    if(img?.complete&&img.naturalWidth)drawImageCover(ctx,img,0,0,W,H);
+
+  }
+
+  if(d.dots){
+
+    ctx.fillStyle=d.dot||"#111111";
+
+    for(let y=18;y<H;y+=40){
+
+      for(let x=18;x<W;x+=40){
+
+        ctx.beginPath();
+
+        ctx.arc(x,y,2.2,0,Math.PI*2);
+
+        ctx.fill();
+
+      }
+
+    }
+
+  }
 
 }
 
 function drawElements(ctx,d){
 
- d.elements.forEach(e=>{
+  d.elements.forEach(e=>{
 
-  ctx.save();ctx.globalAlpha=(e.opacity??100)/100;ctx.translate(e.x,e.y);ctx.rotate((e.rotation||0)*Math.PI/180);
+    ctx.save();
 
-  if(e.type==="text"){ctx.fillStyle=e.color||"#111";ctx.textAlign=e.align||"center";ctx.textBaseline="middle";ctx.font=`600 ${e.size||35}px "${e.font||"Quicksand"}",sans-serif`;ctx.fillText(e.text||"",0,0)}
+    ctx.globalAlpha=(e.opacity??100)/100;
 
-  else if(e.type==="image"){const img=getImg(e.src);if(img?.complete&&img.naturalWidth)ctx.drawImage(img,-(e.w||150)/2,-(e.h||150)/2,e.w||150,e.h||150)}
+    ctx.translate(e.x,e.y);
 
-  ctx.restore();
+    ctx.rotate((e.rotation||0)*Math.PI/180);
 
- });
+    if(e.type==="text"){
+
+      ctx.fillStyle=e.color||"#111111";
+
+      ctx.textAlign=e.align||"center";
+
+      ctx.textBaseline="middle";
+
+      ctx.font=`600 ${e.size||35}px "${e.font||"Quicksand"}",sans-serif`;
+
+      ctx.fillText(e.text||"",0,0);
+
+    }else if(e.type==="image"){
+
+      const img=getImg(e.src);
+
+      if(img?.complete&&img.naturalWidth){
+
+        ctx.drawImage(img,-(e.w||150)/2,-(e.h||150)/2,e.w||150,e.h||150);
+
+      }
+
+    }
+
+    ctx.restore();
+
+  });
 
 }
 
 function drawStrip(ctx,images,d,videoEls=null,editorMode=false){
 
- drawBackground(ctx,d);
+  drawBackground(ctx,d);
 
- d.slots.forEach((s,i)=>{
+  d.slots.forEach((s,i)=>{
 
-  let source=null;
+    let source=null;
 
-  if(videoEls?.[i]&&videoEls[i].readyState>=2)source=videoEls[i];
+    if(videoEls&&videoEls[i]&&videoEls[i].readyState>=2){
 
-  else if(images?.[i])source=images[i];
+      source=videoEls[i];
 
-  ctx.save();drawShapePath(ctx,s);ctx.clip();
+    }else if(images&&images[i]){
 
-  if(source){if(d.photoFilter==="grayscale")ctx.filter="grayscale(1)";drawImageCover(ctx,source,s.x,s.y,s.w,s.h);ctx.filter="none"}
+      source=images[i];
 
-  else if(editorMode){ctx.fillStyle="#eadde0";ctx.fillRect(s.x,s.y,s.w,s.h);ctx.fillStyle="#8c777a";ctx.font="24px Quicksand";ctx.textAlign="center";ctx.textBaseline="middle";ctx.fillText("PHOTO "+(i+1),s.x+s.w/2,s.y+s.h/2)}
+    }
 
-  ctx.restore();
+    ctx.save();
 
-  if(s.borderWidth>0){ctx.save();drawShapePath(ctx,s);ctx.strokeStyle=s.border||"#111";ctx.lineWidth=s.borderWidth;ctx.stroke();ctx.restore()}
+    drawShapePath(ctx,s);
 
- });
+    ctx.clip();
 
- if(d.overlay){const img=getImg(d.overlay);if(img?.complete&&img.naturalWidth)ctx.drawImage(img,0,0,W,H)}
+    if(source){
 
- drawElements(ctx,d);
+      if(d.photoFilter==="grayscale")ctx.filter="grayscale(1)";
+
+      if(source instanceof HTMLVideoElement){
+
+        drawImageCover(ctx,source,s.x,s.y,s.w,s.h);
+
+      }else{
+
+        drawImageCover(ctx,source,s.x,s.y,s.w,s.h);
+
+      }
+
+      ctx.filter="none";
+
+    }else if(editorMode){
+
+      ctx.fillStyle="#eadde0";
+
+      ctx.fillRect(s.x,s.y,s.w,s.h);
+
+      ctx.fillStyle="#8c777a";
+
+      ctx.font="24px Quicksand";
+
+      ctx.textAlign="center";
+
+      ctx.fillText("PHOTO "+(i+1),s.x+s.w/2,s.y+s.h/2);
+
+    }
+
+    ctx.restore();
+
+    if(s.borderWidth>0){
+
+      ctx.save();
+
+      drawShapePath(ctx,s);
+
+      ctx.strokeStyle=s.border||"#111111";
+
+      ctx.lineWidth=s.borderWidth;
+
+      ctx.stroke();
+
+      ctx.restore();
+
+    }
+
+  });
+
+  /* Template PNG goes over the photos */
+
+  if(d.overlay){
+
+    const img=getImg(d.overlay);
+
+    if(img?.complete&&img.naturalWidth){
+
+      ctx.drawImage(img,0,0,W,H);
+
+    }
+
+  }
+
+  drawElements(ctx,d);
 
 }
 
 function renderEditor(){
 
- const ctx=$("editorCanvas").getContext("2d");drawStrip(ctx,null,workingTemplate,null,true);
+  const canvas=$("editorCanvas");
 
- if(selected){const e=getSelected();if(e){
+  const ctx=canvas.getContext("2d");
 
-  ctx.save();ctx.strokeStyle="#d05f83";ctx.lineWidth=3;ctx.setLineDash([8,6]);
+  drawStrip(ctx,null,workingTemplate,null,true);
 
-  if(selected.kind==="slot"){drawShapePath(ctx,e);ctx.stroke()}
+  if(selected){
 
-  else if(e.type==="image"){ctx.translate(e.x,e.y);ctx.rotate((e.rotation||0)*Math.PI/180);ctx.strokeRect(-(e.w||150)/2,-(e.h||150)/2,e.w||150,e.h||150)}
+    const e=getSelected();
 
-  else{ctx.translate(e.x,e.y);ctx.rotate((e.rotation||0)*Math.PI/180);ctx.strokeRect(-Math.max(65,e.size*2.7),-e.size,Math.max(130,e.size*5.4),e.size*2)}
+    if(e){
 
-  ctx.restore();
+      ctx.save();
 
- }}
+      ctx.strokeStyle="#d05f83";
+
+      ctx.lineWidth=3;
+
+      ctx.setLineDash([8,6]);
+
+      if(selected.kind==="slot"){
+
+        drawShapePath(ctx,e);
+
+        ctx.stroke();
+
+      }else if(e.type==="image"){
+
+        ctx.translate(e.x,e.y);
+
+        ctx.rotate((e.rotation||0)*Math.PI/180);
+
+        ctx.strokeRect(-(e.w||150)/2,-(e.h||150)/2,e.w||150,e.h||150);
+
+      }else{
+
+        ctx.translate(e.x,e.y);
+
+        ctx.rotate((e.rotation||0)*Math.PI/180);
+
+        ctx.strokeRect(-Math.max(65,e.size*2.7),-e.size,Math.max(130,e.size*5.4),e.size*2);
+
+      }
+
+      ctx.restore();
+
+    }
+
+  }
 
 }
 
-const editor=$("editorCanvas");let dragging=false,dragInfo=null;
+/* SELECT AND DRAG */
 
-function pointerPoint(event){const r=editor.getBoundingClientRect();return{x:(event.clientX-r.left)*W/r.width,y:(event.clientY-r.top)*H/r.height}}
+const editor=$("editorCanvas");
+
+let dragging=false;
+
+let dragInfo=null;
+
+function pointerPoint(event){
+
+  const rect=editor.getBoundingClientRect();
+
+  return{
+
+    x:(event.clientX-rect.left)*W/rect.width,
+
+    y:(event.clientY-rect.top)*H/rect.height
+
+  };
+
+}
 
 function hitTest(p){
 
- for(let i=workingTemplate.elements.length-1;i>=0;i--){const e=workingTemplate.elements[i],w=e.type==="image"?e.w:Math.max(100,e.size*5),h=e.type==="image"?e.h:Math.max(70,e.size*2);if(p.x>=e.x-w/2-12&&p.x<=e.x+w/2+12&&p.y>=e.y-h/2-12&&p.y<=e.y+h/2+12)return{kind:"element",id:e.id}}
+  for(let i=workingTemplate.elements.length-1;i>=0;i--){
 
- for(let i=workingTemplate.slots.length-1;i>=0;i--){const s=workingTemplate.slots[i];if(p.x>=s.x&&p.x<=s.x+s.w&&p.y>=s.y&&p.y<=s.y+s.h)return{kind:"slot",index:i}}
+    const e=workingTemplate.elements[i];
 
- return null;
+    const w=e.type==="image"?e.w:Math.max(100,e.size*5);
+
+    const h=e.type==="image"?e.h:Math.max(70,e.size*2);
+
+    if(p.x>=e.x-w/2-12&&p.x<=e.x+w/2+12&&p.y>=e.y-h/2-12&&p.y<=e.y+h/2+12){
+
+      return{kind:"element",id:e.id};
+
+    }
+
+  }
+
+  for(let i=workingTemplate.slots.length-1;i>=0;i--){
+
+    const s=workingTemplate.slots[i];
+
+    if(p.x>=s.x&&p.x<=s.x+s.w&&p.y>=s.y&&p.y<=s.y+s.h){
+
+      return{kind:"slot",index:i};
+
+    }
+
+  }
+
+  return null;
 
 }
 
 editor.addEventListener("pointerdown",event=>{
 
- const p=pointerPoint(event);selected=hitTest(p);
+  const p=pointerPoint(event);
 
- if(selected){const e=getSelected();dragging=true;dragInfo={x:p.x,y:p.y,ex:e.x,ey:e.y};editor.setPointerCapture(event.pointerId);
+  selected=hitTest(p);
 
-  if(selected.kind==="slot"){selectedSlotIndex=selected.index;$("slotChoice").value=String(selected.index);selectSlot()}else refreshControls()
+  if(selected){
 
- }else refreshControls();
+    const e=getSelected();
 
- renderEditor();
+    dragging=true;
+
+    dragInfo={x:p.x,y:p.y,ex:e.x,ey:e.y};
+
+    editor.setPointerCapture(event.pointerId);
+
+    if(selected.kind==="slot"){
+
+      selectedSlotIndex=selected.index;
+
+      $("slotChoice").value=String(selected.index);
+
+      selectSlot();
+
+    }else{
+
+      refreshControls();
+
+    }
+
+  }else{
+
+    refreshControls();
+
+  }
+
+  renderEditor();
 
 });
 
 editor.addEventListener("pointermove",event=>{
 
- if(!dragging||!selected||!dragInfo)return;
+  if(!dragging||!selected||!dragInfo)return;
 
- const p=pointerPoint(event),e=getSelected();e.x=Math.round(dragInfo.ex+p.x-dragInfo.x);e.y=Math.round(dragInfo.ey+p.y-dragInfo.y);
+  const p=pointerPoint(event);
 
- if(selected.kind==="slot"){$("slotX").value=e.x;$("slotY").value=e.y}else{$("elementX").value=e.x;$("elementY").value=e.y}
+  const e=getSelected();
 
- renderEditor();
+  e.x=Math.round(dragInfo.ex+p.x-dragInfo.x);
+
+  e.y=Math.round(dragInfo.ey+p.y-dragInfo.y);
+
+  if(selected.kind==="slot"){
+
+    $("slotX").value=e.x;
+
+    $("slotY").value=e.y;
+
+  }else{
+
+    $("elementX").value=e.x;
+
+    $("elementY").value=e.y;
+
+  }
+
+  renderEditor();
 
 });
 
-["pointerup","pointercancel","lostpointercapture"].forEach(n=>editor.addEventListener(n,()=>{dragging=false;dragInfo=null}));
+["pointerup","pointercancel","lostpointercapture"].forEach(name=>{
 
-/* CAMERA AND SESSION */
+  editor.addEventListener(name,()=>{
+
+    dragging=false;
+
+    dragInfo=null;
+
+  });
+
+});
+
+/* ---------------- CAMERA ---------------- */
 
 async function openCamera(){
 
- showPage("cameraPage");
+  showPage("cameraPage");
 
- try{
+  try{
 
-  if(!navigator.mediaDevices?.getUserMedia)throw new Error("Camera API unavailable. Open the website using HTTPS.");
+    if(!navigator.mediaDevices?.getUserMedia){
 
-  cameraStream=await navigator.mediaDevices.getUserMedia({video:{facingMode:"user",width:{ideal:1280},height:{ideal:960}},audio:false});
+      throw new Error("Camera API unavailable. Open the website using HTTPS.");
 
-  $("cameraVideo").srcObject=cameraStream;await $("cameraVideo").play();
+    }
 
-  $("cameraStatus").textContent="Camera ready. Press START.";
+    cameraStream=await navigator.mediaDevices.getUserMedia({
 
- }catch(e){$("cameraStatus").textContent="Camera access failed. Allow camera permission and open the HTTPS website."}
+      video:{facingMode:"user",width:{ideal:1280},height:{ideal:960}},
+
+      audio:false
+
+    });
+
+    $("cameraVideo").srcObject=cameraStream;
+
+    $("cameraStatus").textContent="Camera ready. Press START.";
+
+  }catch(error){
+
+    $("cameraStatus").textContent="Camera access failed. Allow camera permission and open the HTTPS website.";
+
+  }
 
 }
 
-function stopCamera(){if(cameraStream){cameraStream.getTracks().forEach(t=>t.stop());cameraStream=null}$("cameraVideo").srcObject=null}
+function stopCamera(){
 
-function goHome(){stopCamera();showPage("home")}
+  if(cameraStream){
+
+    cameraStream.getTracks().forEach(track=>track.stop());
+
+    cameraStream=null;
+
+  }
+
+  $("cameraVideo").srcObject=null;
+
+}
+
+function goHome(){
+
+  stopCamera();
+
+  showPage("home");
+
+}
 
 function captureStill(){
 
- const video=$("cameraVideo"),canvas=document.createElement("canvas"),w=video.videoWidth||1280,h=video.videoHeight||960;
+  const video=$("cameraVideo");
 
- canvas.width=w;canvas.height=h;const ctx=canvas.getContext("2d");ctx.translate(w,0);ctx.scale(-1,1);ctx.drawImage(video,0,0,w,h);
+  const canvas=document.createElement("canvas");
 
- const flash=$("flash");flash.classList.remove("flash-now");void flash.offsetWidth;flash.classList.add("flash-now");
+  const width=video.videoWidth||1280;
 
- return canvas.toDataURL("image/jpeg",.92);
+  const height=video.videoHeight||960;
 
-}
+  canvas.width=width;
 
-function supportedRecorderType(){
+  canvas.height=height;
 
- if(!window.MediaRecorder)return "";
+  const ctx=canvas.getContext("2d");
 
- if(typeof MediaRecorder.isTypeSupported!=="function")return "";
+  ctx.translate(width,0);
 
- const candidates=["video/mp4;codecs=avc1","video/mp4","video/webm;codecs=vp8","video/webm"];
+  ctx.scale(-1,1);
 
- return candidates.find(t=>{try{return MediaRecorder.isTypeSupported(t)}catch(e){return false}})||"";
+  ctx.drawImage(video,0,0,width,height);
+
+  const flash=$("flash");
+
+  flash.classList.remove("flash-now");
+
+  void flash.offsetWidth;
+
+  flash.classList.add("flash-now");
+
+  return canvas.toDataURL("image/jpeg",.92);
 
 }
 
 function recordCameraClip(ms=5000){
 
- return new Promise((resolve,reject)=>{
+  return new Promise((resolve,reject)=>{
 
-  if(!cameraStream||!window.MediaRecorder){reject(new Error("Video recording is not supported by this browser."));return}
+    if(!cameraStream||!window.MediaRecorder){
 
-  const type=supportedRecorderType();let recorder;
+      reject(new Error("This browser cannot record video."));
 
-  try{recorder=type?new MediaRecorder(cameraStream,{mimeType:type}):new MediaRecorder(cameraStream)}catch(e){reject(new Error("This browser cannot start video recording."));return}
+      return;
 
-  const chunks=[];let settled=false;
+    }
 
-  recorder.ondataavailable=e=>{if(e.data?.size)chunks.push(e.data)};
+    let type="";
 
-  recorder.onerror=()=>{if(!settled){settled=true;reject(new Error("Camera video recording failed."))}};
+    for(const candidate of [
 
-  recorder.onstop=()=>{
+      "video/mp4;codecs=avc1",
 
-   if(settled)return;settled=true;
+      "video/mp4",
 
-   const blob=new Blob(chunks,{type:recorder.mimeType||type||"video/webm"});
+      "video/webm;codecs=vp8",
 
-   if(blob.size)resolve(blob);else reject(new Error("The camera returned an empty video."));
+      "video/webm"
 
-  };
+    ]){
 
-  try{recorder.start(250)}catch(e){try{recorder.start()}catch(err){reject(err);return}}
+      if(MediaRecorder.isTypeSupported(candidate)){
 
-  setTimeout(()=>{if(recorder.state!=="inactive")try{recorder.stop()}catch(e){reject(e)}},ms);
+        type=candidate;
 
- });
+        break;
+
+      }
+
+    }
+
+    let recorder;
+
+    try{
+
+      recorder=type?new MediaRecorder(cameraStream,{mimeType:type}):new MediaRecorder(cameraStream);
+
+    }catch(error){
+
+      reject(error);
+
+      return;
+
+    }
+
+    const chunks=[];
+
+    recorder.ondataavailable=event=>{
+
+      if(event.data?.size)chunks.push(event.data);
+
+    };
+
+    recorder.onerror=()=>reject(new Error("Camera video recording failed."));
+
+    recorder.onstop=()=>{
+
+      const blob=new Blob(chunks,{type:recorder.mimeType||type||"video/webm"});
+
+      if(!blob.size)reject(new Error("The camera returned an empty video."));
+
+      else resolve(blob);
+
+    };
+
+    recorder.start();
+
+    setTimeout(()=>{
+
+      if(recorder.state!=="inactive")recorder.stop();
+
+    },ms);
+
+  });
 
 }
 
 async function startSession(){
 
- if(busy)return;
+  if(busy)return;
 
- if(!cameraStream){await openCamera();if(!cameraStream)return}
+  if(!cameraStream){
 
- busy=true;photos=[];clips=[];
+    await openCamera();
 
- /* Snapshot the exact design chosen when this session starts. */
-
- sessionTemplate=readTemplate(NEXT_KEY,defaultTemplate);
-
- activeSessionTemplate=clone(sessionTemplate||defaultTemplate);
-
- const count=activeSessionTemplate.slots.length;
-
- $("poseStatus").innerHTML=`Pose <span id="photoCount" class="photo-count">0</span> of ${count}`;
-
- $("startBtn").disabled=true;$("startBtn").textContent="RECORDING...";
-
- $("singleQR").innerHTML="";$("uploadStatus").textContent="";
-
- try{
-
-  for(let i=0;i<count;i++){
-
-   $("cameraStatus").textContent="Pose "+(i+1)+": get ready!";
-
-   for(let n=5;n>=1;n--){$("countdown").style.display="flex";$("countdown").textContent=n;await sleep(1000)}
-
-   $("countdown").style.display="none";
-
-   photos.push(captureStill());$("photoCount").textContent=photos.length;
-
-   $("cameraStatus").textContent="Recording movement for 5 seconds...";
-
-   clips.push(await recordCameraClip(5000));
-
-   $("cameraStatus").textContent="Pose "+(i+1)+" saved!";await sleep(350);
+    if(!cameraStream)return;
 
   }
 
- }catch(error){
+  busy=true;
 
-  console.error(error);$("countdown").style.display="none";$("cameraStatus").textContent="Recording issue: "+error.message;
+  photos=[];
 
-  busy=false;$("startBtn").disabled=false;$("startBtn").textContent="TRY AGAIN";stopCamera();return;
+  clips=[];
 
- }
+  $("photoCount").textContent="0";
 
- stopCamera();busy=false;$("startBtn").disabled=false;$("startBtn").textContent="START AGAIN";
+  $("startBtn").disabled=true;
 
- await showResult();
+  $("startBtn").textContent="RECORDING...";
+
+  $("singleQR").innerHTML="";
+
+  $("uploadStatus").textContent="";
+
+  try{
+
+    for(let i=0;i<3;i++){
+
+      $("cameraStatus").textContent="Pose "+(i+1)+": get ready!";
+
+      for(let n=5;n>=1;n--){
+
+        $("countdown").style.display="flex";
+
+        $("countdown").textContent=n;
+
+        await sleep(1000);
+
+      }
+
+      $("countdown").style.display="none";
+
+      photos.push(captureStill());
+
+      $("photoCount").textContent=photos.length;
+
+      $("cameraStatus").textContent="Recording movement for 5 seconds...";
+
+      clips.push(await recordCameraClip(5000));
+
+      $("cameraStatus").textContent="Pose "+(i+1)+" saved!";
+
+      await sleep(350);
+
+    }
+
+  }catch(error){
+
+    console.error(error);
+
+    $("cameraStatus").textContent="Recording issue: "+error.message;
+
+    busy=false;
+
+    $("startBtn").disabled=false;
+
+    $("startBtn").textContent="TRY AGAIN";
+
+    stopCamera();
+
+    return;
+
+  }
+
+  stopCamera();
+
+  busy=false;
+
+  $("startBtn").disabled=false;
+
+  $("startBtn").textContent="START AGAIN";
+
+  await showResult();
 
 }
 
-/* BUILD STATIC AND LIVE STRIPS */
+/* ---------------- CREATE PHOTO OUTPUTS ---------------- */
 
 function photoImages(){
 
- return Promise.all(photos.map(src=>new Promise((resolve,reject)=>{const img=new Image();img.onload=()=>resolve(img);img.onerror=reject;img.src=src})));
+  return Promise.all(photos.map(src=>new Promise((resolve,reject)=>{
+
+    const img=new Image();
+
+    img.onload=()=>resolve(img);
+
+    img.onerror=reject;
+
+    img.src=src;
+
+  })));
 
 }
 
 async function makeStatic(images,design){
 
- await waitImages(design);const canvas=document.createElement("canvas");canvas.width=W;canvas.height=H;
+  await waitImages(design);
 
- drawStrip(canvas.getContext("2d"),images,design);
+  const canvas=document.createElement("canvas");
 
- return new Promise((resolve,reject)=>canvas.toBlob(b=>b?resolve(b):reject(new Error("Could not create PNG.")),"image/png"));
+  canvas.width=W;
+
+  canvas.height=H;
+
+  drawStrip(canvas.getContext("2d"),images,design);
+
+  return new Promise((resolve,reject)=>{
+
+    canvas.toBlob(blob=>{
+
+      if(blob)resolve(blob);
+
+      else reject(new Error("Could not create PNG."));
+
+    },"image/png");
+
+  });
 
 }
 
 async function makeLive(design){
 
- if(!HTMLCanvasElement.prototype.captureStream||!window.MediaRecorder)throw new Error("Your browser cannot combine the clips into a Live Photostrip. You can still download the PNG and upload the original clips.");
+  if(!HTMLCanvasElement.prototype.captureStream||!window.MediaRecorder){
 
- await waitImages(design);
+    throw new Error("Canvas video is not supported in this browser.");
 
- const videos=clips.map(blob=>{
+  }
 
-  const v=document.createElement("video");v.muted=true;v.playsInline=true;v.loop=true;v.preload="auto";v.src=URL.createObjectURL(blob);return v;
+  await waitImages(design);
 
- });
+  const videos=clips.map(blob=>{
 
- try{
+    const video=document.createElement("video");
 
-  await Promise.all(videos.map(v=>new Promise((resolve,reject)=>{
+    video.muted=true;
 
-   if(v.readyState>=2)return resolve();
+    video.playsInline=true;
 
-   v.onloadeddata=()=>resolve();v.onerror=()=>reject(new Error("Could not load a recorded clip."));v.load();
+    video.loop=true;
+
+    video.src=URL.createObjectURL(blob);
+
+    return video;
+
+  });
+
+  await Promise.all(videos.map(video=>new Promise((resolve,reject)=>{
+
+    video.onloadeddata=resolve;
+
+    video.onerror=()=>reject(new Error("Could not load a recorded clip."));
+
+    video.load();
 
   })));
 
-  videos.forEach(v=>{try{v.currentTime=0}catch(e){}});
+  videos.forEach(video=>video.currentTime=0);
 
-  await Promise.all(videos.map(v=>v.play()));
+  await Promise.all(videos.map(video=>video.play()));
 
-  const canvas=document.createElement("canvas");canvas.width=W;canvas.height=H;
+  const canvas=document.createElement("canvas");
 
-  const ctx=canvas.getContext("2d"),stream=canvas.captureStream(24),mime=supportedRecorderType();
+  canvas.width=W;
 
-  let recorder;
+  canvas.height=H;
 
-  try{recorder=mime?new MediaRecorder(stream,{mimeType:mime}):new MediaRecorder(stream)}catch(e){stream.getTracks().forEach(t=>t.stop());throw new Error("Safari could not create the Live Photostrip video.")}
+  const ctx=canvas.getContext("2d");
+
+  const stream=canvas.captureStream(24);
+
+  let mime="";
+
+  for(const candidate of [
+
+    "video/mp4;codecs=avc1",
+
+    "video/mp4",
+
+    "video/webm;codecs=vp8",
+
+    "video/webm"
+
+  ]){
+
+    if(MediaRecorder.isTypeSupported(candidate)){
+
+      mime=candidate;
+
+      break;
+
+    }
+
+  }
+
+  const recorder=mime?new MediaRecorder(stream,{mimeType:mime}):new MediaRecorder(stream);
 
   const chunks=[];
 
+  recorder.ondataavailable=event=>{
+
+    if(event.data?.size)chunks.push(event.data);
+
+  };
+
   const finished=new Promise((resolve,reject)=>{
 
-   recorder.ondataavailable=e=>{if(e.data?.size)chunks.push(e.data)};
+    recorder.onerror=()=>reject(new Error("Final live photostrip recording failed."));
 
-   recorder.onerror=()=>reject(new Error("Final Live Photostrip recording failed."));
-
-   recorder.onstop=()=>{const b=new Blob(chunks,{type:recorder.mimeType||mime||"video/webm"});b.size?resolve(b):reject(new Error("Live Photostrip video is empty."))};
+    recorder.onstop=()=>resolve(new Blob(chunks,{type:recorder.mimeType||mime||"video/webm"}));
 
   });
 
   drawStrip(ctx,null,design,videos);
 
-  try{recorder.start(200)}catch(e){recorder.start()}
+  recorder.start(200);
 
   const start=performance.now();
 
   await new Promise(resolve=>{
 
-   function frame(){drawStrip(ctx,null,design,videos);if(performance.now()-start>=5000){resolve();return}requestAnimationFrame(frame)}
+    function frame(){
 
-   requestAnimationFrame(frame);
+      drawStrip(ctx,null,design,videos);
+
+      if(performance.now()-start>=5000){
+
+        resolve();
+
+        return;
+
+      }
+
+      requestAnimationFrame(frame);
+
+    }
+
+    requestAnimationFrame(frame);
 
   });
 
-  recorder.stop();const result=await finished;stream.getTracks().forEach(t=>t.stop());return result;
+  recorder.stop();
 
- }finally{
+  const result=await finished;
 
-  videos.forEach(v=>{v.pause();if(v.src)URL.revokeObjectURL(v.src)});
+  stream.getTracks().forEach(track=>track.stop());
 
- }
+  videos.forEach(video=>{
+
+    video.pause();
+
+    URL.revokeObjectURL(video.src);
+
+  });
+
+  return result;
 
 }
 
 async function showResult(){
 
- showPage("resultPage");$("uploadStatus").textContent="";$("singleQR").innerHTML="";
+  showPage("resultPage");
 
- $("uploadBtn").disabled=true;$("uploadBtn").textContent="PREPARING...";
+  $("uploadStatus").textContent="";
 
- $("liveStatus").textContent="Preparing Live Photostrip...";
+  $("singleQR").innerHTML="";
 
- try{
+  $("uploadBtn").disabled=true;
 
-  const images=await photoImages(),design=clone(activeSessionTemplate||sessionTemplate||defaultTemplate);
-
-  staticBlob=await makeStatic(images,design);
-
-  if(staticURL)URL.revokeObjectURL(staticURL);staticURL=URL.createObjectURL(staticBlob);$("stripPreview").src=staticURL;
+  $("uploadBtn").textContent="PREPARING...";
 
   try{
 
-   liveBlob=await makeLive(design);
+    const images=await photoImages();
 
-   if(liveURL)URL.revokeObjectURL(liveURL);liveURL=URL.createObjectURL(liveBlob);$("livePreview").src=liveURL;
+    const design=clone(sessionTemplate||defaultTemplate);
 
-   $("liveStatus").textContent="Your Live Photostrip is ready.";
+    staticBlob=await makeStatic(images,design);
 
-   $("liveDownloadBtn").disabled=false;
+    if(staticURL)URL.revokeObjectURL(staticURL);
 
-  }catch(liveError){
+    staticURL=URL.createObjectURL(staticBlob);
 
-   console.warn(liveError);liveBlob=null;$("livePreview").removeAttribute("src");$("livePreview").load();
+    $("stripPreview").src=staticURL;
 
-   $("liveStatus").textContent=liveError.message;$("liveDownloadBtn").disabled=true;
+    liveBlob=await makeLive(design);
+
+    if(liveURL)URL.revokeObjectURL(liveURL);
+
+    liveURL=URL.createObjectURL(liveBlob);
+
+    $("livePreview").src=liveURL;
+
+    $("uploadBtn").disabled=false;
+
+    $("uploadBtn").textContent="GENERATE MY QR CODE";
+
+    sessionTemplate=null;
+
+  }catch(error){
+
+    console.error(error);
+
+    $("uploadStatus").textContent="Photostrip creation issue: "+error.message+" Please try again using an updated browser.";
+
+    $("uploadBtn").disabled=true;
+
+    $("uploadBtn").textContent="NOT READY";
 
   }
 
-  $("uploadBtn").disabled=false;$("uploadBtn").textContent="GENERATE MY QR CODE";
-
-  /* Keep the pending design saved for the next session. */
-
- }catch(error){
-
-  console.error(error);$("uploadStatus").textContent="Photostrip creation issue: "+error.message;
-
-  $("uploadBtn").disabled=true;$("uploadBtn").textContent="NOT READY";
-
- }
-
 }
 
-/* DOWNLOAD */
+/* ---------------- DOWNLOADS ---------------- */
 
 function downloadBlob(blob,name){
 
- if(!blob)return;const url=URL.createObjectURL(blob),a=document.createElement("a");
+  if(!blob)return;
 
- a.href=url;a.download=name;document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),4000);
+  const url=URL.createObjectURL(blob);
+
+  const a=document.createElement("a");
+
+  a.href=url;
+
+  a.download=name;
+
+  document.body.appendChild(a);
+
+  a.click();
+
+  a.remove();
+
+  setTimeout(()=>URL.revokeObjectURL(url),4000);
 
 }
 
-function downloadStatic(){downloadBlob(staticBlob,"PERSIDA12-Photostrip.png")}
+function downloadStatic(){
+
+  downloadBlob(staticBlob,"PERSIDA12-Photostrip.png");
+
+}
 
 function downloadLive(){
 
- if(!liveBlob)return;const ext=liveBlob.type.includes("mp4")?"mp4":"webm";
+  if(!liveBlob)return;
 
- downloadBlob(liveBlob,"PERSIDA12-Live-Photostrip."+ext);
+  const extension=liveBlob.type.includes("mp4")?"mp4":"webm";
+
+  downloadBlob(liveBlob,"PERSIDA12-Live-Photostrip."+extension);
 
 }
 
 function retake(){
 
- photos=[];clips=[];staticBlob=null;liveBlob=null;activeSessionTemplate=null;
+  photos=[];
 
- $("photoCount").textContent="0";$("singleQR").innerHTML="";openCamera();
+  clips=[];
+
+  staticBlob=null;
+
+  liveBlob=null;
+
+  $("photoCount").textContent="0";
+
+  $("singleQR").innerHTML="";
+
+  openCamera();
 
 }
 
-/* GOOGLE DRIVE UPLOAD AND QR CODE */
+/* ---------------- GOOGLE DRIVE UPLOAD + QR ---------------- */
 
 function blobData(blob){
 
- return new Promise((resolve,reject)=>{
+  return new Promise((resolve,reject)=>{
 
-  const reader=new FileReader();reader.onloadend=()=>resolve(reader.result);reader.onerror=reject;reader.readAsDataURL(blob);
+    const reader=new FileReader();
 
- });
+    reader.onloadend=()=>resolve(reader.result);
+
+    reader.onerror=reject;
+
+    reader.readAsDataURL(blob);
+
+  });
 
 }
 
 async function uploadSession(){
 
- if(!SCRIPT_URL.startsWith("https://")||SCRIPT_URL.includes("PASTE_")){
+  if(!SCRIPT_URL.startsWith("https://")||SCRIPT_URL.includes("PASTE_")){
 
-  $("uploadStatus").textContent="Please paste your deployed Google Apps Script URL in the code first.";return;
+    $("uploadStatus").textContent="Please paste your deployed Google Apps Script URL in the code first.";
 
- }
-
- if(!staticBlob||photos.length!==((activeSessionTemplate||defaultTemplate).slots.length)){
-
-  $("uploadStatus").textContent="Photos and photostrip are not ready.";return;
-
- }
-
- $("uploadBtn").disabled=true;$("loading").classList.add("show");$("uploadStatus").textContent="";$("singleQR").innerHTML="";
-
- try{
-
-  const files=[];
-
-  for(let i=0;i<photos.length;i++){
-
-   files.push({name:"PERSIDA12-Photo-"+(i+1)+".jpg",mimeType:"image/jpeg",data:photos[i]});
+    return;
 
   }
 
-  files.push({name:"PERSIDA12-Photostrip.png",mimeType:"image/png",data:await blobData(staticBlob)});
+  if(!staticBlob||!liveBlob||photos.length!==3){
 
-  if(liveBlob){
+    $("uploadStatus").textContent="Photos and photostrips are not ready.";
 
-   const ext=liveBlob.type.includes("mp4")?"mp4":"webm";
-
-   files.push({name:"PERSIDA12-Live-Photostrip."+ext,mimeType:liveBlob.type||"video/webm",data:await blobData(liveBlob)});
+    return;
 
   }
 
-  for(let i=0;i<clips.length;i++){
+  $("uploadBtn").disabled=true;
 
-   const ext=clips[i].type.includes("mp4")?"mp4":"webm";
+  $("loading").classList.add("show");
 
-   files.push({name:"PERSIDA12-Motion-"+(i+1)+"."+ext,mimeType:clips[i].type||"video/webm",data:await blobData(clips[i])});
+  $("uploadStatus").textContent="";
+
+  $("singleQR").innerHTML="";
+
+  try{
+
+    const files=[];
+
+    for(let i=0;i<3;i++){
+
+      files.push({
+
+        name:"PERSIDA12-Photo-"+(i+1)+".jpg",
+
+        mimeType:"image/jpeg",
+
+        data:photos[i]
+
+      });
+
+    }
+
+    files.push({
+
+      name:"PERSIDA12-Photostrip.png",
+
+      mimeType:"image/png",
+
+      data:await blobData(staticBlob)
+
+    });
+
+    const extension=liveBlob.type.includes("mp4")?"mp4":"webm";
+
+    files.push({
+
+      name:"PERSIDA12-Live-Photostrip."+extension,
+
+      mimeType:liveBlob.type||"video/webm",
+
+      data:await blobData(liveBlob)
+
+    });
+
+    const response=await fetch(SCRIPT_URL,{
+
+      method:"POST",
+
+      headers:{"Content-Type":"text/plain;charset=utf-8"},
+
+      body:JSON.stringify({
+
+        action:"uploadBatch",
+
+        sessionId:"PERSIDA12-"+Date.now(),
+
+        files
+
+      })
+
+    });
+
+    if(!response.ok)throw new Error("Server returned an upload error.");
+
+    const result=await response.json();
+
+    if(!result.ok||!result.folderUrl){
+
+      throw new Error(result.error||"Upload failed.");
+
+    }
+
+    new QRCode($("singleQR"),{
+
+      text:result.folderUrl,
+
+      width:200,
+
+      height:200,
+
+      correctLevel:QRCode.CorrectLevel.M
+
+    });
+
+    $("uploadStatus").textContent="All five files are ready! Scan this QR code to access your collection.";
+
+  }catch(error){
+
+    console.error(error);
+
+    $("uploadStatus").textContent="Upload failed: "+error.message;
+
+  }finally{
+
+    $("loading").classList.remove("show");
+
+    $("uploadBtn").disabled=false;
+
+    $("uploadBtn").textContent="GENERATE MY QR CODE";
 
   }
-
-  const response=await fetch(SCRIPT_URL,{
-
-   method:"POST",headers:{"Content-Type":"text/plain;charset=utf-8"},
-
-   body:JSON.stringify({action:"uploadBatch",sessionId:"PERSIDA12-"+Date.now(),files})
-
-  });
-
-  if(!response.ok)throw new Error("Server returned an upload error.");
-
-  const result=await response.json();
-
-  if(!result.ok||!result.folderUrl)throw new Error(result.error||"Upload failed.");
-
-  if(!window.QRCode)throw new Error("QR code library did not load. Please refresh the page.");
-
-  new QRCode($("singleQR"),{text:result.folderUrl,width:200,height:200,correctLevel:QRCode.CorrectLevel.M});
-
-  $("uploadStatus").textContent="Your photo collection is ready! Scan this QR code to access your photos and videos.";
-
- }catch(error){
-
-  console.error(error);$("uploadStatus").textContent="Upload failed: "+error.message;
-
- }finally{
-
-  $("loading").classList.remove("show");$("uploadBtn").disabled=false;$("uploadBtn").textContent="GENERATE MY QR CODE";
-
- }
-
-}
-
-/* INITIAL PREVIEW */
-
-syncInitialEditor();
-
-function syncInitialEditor(){
-
- workingTemplate=clone(sessionTemplate||defaultTemplate);
-
- syncDesignControls();buildSlotChoices();selectSlot();renderEditor();
 
 }
 
@@ -1496,4 +3102,4 @@ function syncInitialEditor(){
 
 </body>
 
-</html></html></html></html></html>
+</html></html></html></html></html></html>
