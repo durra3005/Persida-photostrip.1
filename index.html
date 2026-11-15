@@ -1,2797 +1,622 @@
 
-
 <!DOCTYPE html>
-
 <html lang="en">
-
 <head>
-
 <meta charset="UTF-8">
-
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<meta name="theme-color" content="#f9e8ed">
-
+<meta name="theme-color" content="#f8e6eb">
 <title>PERSIDA 12 | Appreciation Night</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
-
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
 <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Allura&family=Dancing+Script:wght@400;500;600;700&family=Great+Vibes&family=Italianno&family=Parisienne&family=Pinyon+Script&family=Sacramento&family=Tangerine:wght@400;700&display=swap" rel="stylesheet">
 
 <style>
-
 :root {
-
   --pink: #f7dce5;
-
-  --dark-pink: #d98da8;
-
-  --green: #758b69;
-
-  --cream: #fffaf5;
-
-  --ink: #55454a;
-
+  --deep-pink: #b8758e;
+  --green: #788b6b;
+  --cream: #fffaf6;
+  --ink: #604d55;
 }
 
 * { box-sizing: border-box; }
 
 body {
-
   margin: 0;
-
   min-height: 100vh;
-
-  color: var(--ink);
-
   font-family: Georgia, serif;
-
-  background-color: #f9e8ed;
-
-  background-image: radial-gradient(#e9b9c9 1.6px, transparent 1.6px);
-
+  color: var(--ink);
+  background-color: #f9e9ed;
+  background-image: radial-gradient(#e8bdcb 1.5px, transparent 1.5px);
   background-size: 22px 22px;
-
 }
 
 button, input, select, textarea { font: inherit; }
-
-button {
-
-  cursor: pointer;
-
-  border: 0;
-
-}
-
-.page {
-
-  width: 100%;
-
-  min-height: 100vh;
-
-  padding: 25px 16px 35px;
-
-}
-
+button { cursor: pointer; border: 0; }
 .hidden { display: none !important; }
 
+.page {
+  min-height: 100vh;
+  padding: 24px 15px 35px;
+}
+
 .home {
-
-  min-height: calc(100vh - 60px);
-
+  min-height: calc(100vh - 59px);
   display: flex;
-
   align-items: center;
-
   justify-content: center;
-
   text-align: center;
-
 }
 
 .home-card {
-
   width: min(100%, 430px);
-
   padding: 38px 24px;
-
-  background: rgba(255,250,245,.88);
-
-  border: 1px solid #efd0da;
-
+  background: rgba(255,250,246,.93);
+  border: 1px solid #efd1dc;
   border-radius: 32px;
-
   box-shadow: 0 12px 35px #b77b8b20;
-
 }
 
 .eyebrow {
-
   font-size: 11px;
-
   letter-spacing: 4px;
-
   color: #9c7882;
-
   text-transform: uppercase;
-
 }
 
 .home h1 {
-
   font-size: clamp(48px, 12vw, 76px);
-
   font-weight: 400;
-
   line-height: 1;
-
   margin: 22px 0 8px;
-
   color: #b66f89;
-
 }
 
 .home h2 {
-
-  font-size: 15px;
-
+  font-size: 14px;
   font-weight: 400;
-
   letter-spacing: 3px;
-
   text-transform: uppercase;
-
   margin: 0;
-
 }
 
-.home .subtitle {
-
-  font-family: 'Great Vibes', cursive;
-
-  font-size: 34px;
-
+.subtitle {
+  font-family: "Great Vibes", cursive;
+  font-size: 36px;
   color: #a77d88;
-
   margin: 25px 0 30px;
-
 }
 
-.home .tagline {
-
+.tagline {
   font-size: 12px;
-
   letter-spacing: 2px;
-
   line-height: 1.8;
-
   color: #9a8187;
+}
 
+.primary-btn, .secondary-btn {
+  display: block;
+  width: 100%;
+  max-width: 280px;
+  margin: 13px auto;
+  padding: 16px 20px;
+  border-radius: 30px;
+  font-size: 11px;
+  letter-spacing: 2px;
 }
 
 .primary-btn {
-
-  display: block;
-
-  width: 100%;
-
-  max-width: 270px;
-
-  margin: 13px auto;
-
-  padding: 16px 20px;
-
-  border-radius: 30px;
-
   background: var(--green);
-
   color: white;
-
-  font-size: 11px;
-
-  letter-spacing: 2px;
-
   box-shadow: 0 5px 15px #687c5c30;
-
 }
 
 .secondary-btn {
-
-  display: block;
-
-  width: 100%;
-
-  max-width: 270px;
-
-  margin: 12px auto;
-
-  padding: 14px 20px;
-
-  border-radius: 30px;
-
   background: #f4e0e6;
-
   color: #956879;
-
-  font-size: 11px;
-
-  letter-spacing: 1.5px;
-
 }
 
 .footer {
-
   margin-top: 32px;
-
   font-size: 10px;
-
   letter-spacing: 2px;
-
   color: #a78b94;
-
   line-height: 1.8;
-
 }
 
-/* COMMON */
-
 .panel {
-
-  width: min(100%, 1000px);
-
+  width: min(100%, 1050px);
   margin: 0 auto;
-
-  background: rgba(255,250,245,.95);
-
+  background: rgba(255,250,246,.97);
   border: 1px solid #efd0da;
-
   border-radius: 25px;
-
   padding: 22px;
-
   box-shadow: 0 10px 30px #b77b8b15;
-
 }
 
 .panel-title {
-
   text-align: center;
-
-  font-size: 25px;
-
+  font-size: 26px;
   font-weight: 400;
-
   color: #b66f89;
-
   margin: 5px 0 8px;
-
 }
 
 .panel-subtitle {
-
   text-align: center;
-
   font-size: 12px;
-
   color: #a18a90;
-
   margin: 0 0 22px;
-
   line-height: 1.6;
-
 }
 
 .back-btn {
-
   background: transparent;
-
   color: #9c7882;
-
   padding: 8px 0;
-
   font-size: 12px;
-
 }
 
 .action-row {
-
   display: flex;
-
   flex-wrap: wrap;
-
   justify-content: center;
-
   gap: 10px;
-
   margin-top: 18px;
-
 }
 
 .small-btn {
-
   background: #f2dce4;
-
   color: #875d6c;
-
-  padding: 12px 18px;
-
+  padding: 12px 17px;
   border-radius: 22px;
-
   font-size: 11px;
-
   letter-spacing: 1px;
-
 }
 
 .green-btn {
-
   background: var(--green);
-
   color: white;
-
 }
 
-.field {
-
-  margin: 14px 0;
-
+button:disabled {
+  opacity: .5;
+  cursor: not-allowed;
 }
+
+.field { margin: 13px 0; }
 
 .field label {
-
   display: block;
-
   font-size: 11px;
-
   letter-spacing: 1px;
-
   color: #92737e;
-
   margin-bottom: 7px;
-
 }
 
 .field input, .field select, .field textarea {
-
   width: 100%;
-
   border: 1px solid #e8cbd5;
-
   background: #fffdfb;
-
   padding: 11px 12px;
-
   border-radius: 12px;
-
   color: #65535a;
-
   outline: none;
-
 }
 
-.field textarea { min-height: 65px; resize: vertical; }
-
 .field input[type="color"] {
-
   height: 42px;
-
   padding: 4px;
-
 }
 
 .field input[type="range"] { padding: 0; }
-
-/* STUDIO */
+.field textarea { min-height: 65px; resize: vertical; }
 
 .studio-layout {
-
   display: grid;
-
-  grid-template-columns: minmax(0, 1fr) minmax(250px, 340px);
-
+  grid-template-columns: minmax(0,1fr) minmax(260px,340px);
   gap: 22px;
-
   align-items: start;
-
 }
 
 .stage-wrap {
-
   width: 100%;
-
   max-width: 420px;
-
   margin: 0 auto;
-
 }
 
 .stage-preview {
-
   width: 100%;
-
   aspect-ratio: 9 / 16;
-
   background: #f5dce5;
-
   display: flex;
-
   justify-content: center;
-
   align-items: center;
-
   overflow: hidden;
-
   border-radius: 18px;
-
-  position: relative;
-
   background-size: cover;
-
   background-position: center;
-
 }
 
 #studioStrip {
-
   width: auto;
-
   height: 100%;
-
   max-width: 100%;
-
   aspect-ratio: 1 / 3;
-
   object-fit: contain;
-
   box-shadow: 0 5px 20px #0002;
-
-  touch-action: none;
-
 }
 
 .zoom-row {
-
   display: flex;
-
   align-items: center;
-
   gap: 10px;
-
   margin-top: 10px;
-
   font-size: 11px;
-
   color: #92737e;
-
 }
 
 .zoom-row input { flex: 1; }
 
 .editor-tools {
-
-  max-height: 700px;
-
+  max-height: 720px;
   overflow-y: auto;
-
   padding-right: 4px;
-
 }
 
 .tool-section {
-
   border-top: 1px solid #efdce2;
-
   padding-top: 13px;
-
   margin-top: 13px;
-
 }
 
 .tool-section h3 {
-
   font-size: 12px;
-
   font-weight: 400;
-
   letter-spacing: 1px;
-
   color: #b16e88;
-
   text-transform: uppercase;
-
 }
 
 .slot-editor {
-
   border: 1px solid #edd6df;
-
   border-radius: 13px;
-
   padding: 10px;
-
   margin: 9px 0;
-
   background: #fffdfb;
-
 }
 
 .slot-editor strong {
-
   font-size: 11px;
-
   font-weight: 400;
-
   color: #8d6977;
-
 }
 
 .two-col {
-
   display: grid;
-
   grid-template-columns: 1fr 1fr;
-
   gap: 9px;
-
 }
 
-/* CAMERA */
-
 .camera-box {
-
-  width: min(100%, 480px);
-
+  width: min(100%,480px);
   margin: 0 auto;
-
   text-align: center;
-
 }
 
 .camera-frame {
-
   width: 100%;
-
   aspect-ratio: 3 / 4;
-
   border-radius: 25px;
-
   overflow: hidden;
-
   background: #ead9df;
-
   position: relative;
-
 }
 
 #cameraVideo {
-
   width: 100%;
-
   height: 100%;
-
   object-fit: cover;
-
   transform: scaleX(-1);
-
 }
 
 .camera-count {
-
   font-size: 65px;
-
   color: white;
-
   position: absolute;
-
   inset: 0;
-
   display: flex;
-
   justify-content: center;
-
   align-items: center;
-
   text-shadow: 0 2px 12px #0008;
-
   pointer-events: none;
-
 }
 
 .camera-status {
-
   font-size: 12px;
-
   color: #9b7b86;
-
   margin: 16px 0;
-
+  line-height: 1.6;
 }
 
 .progress {
-
   height: 5px;
-
   width: 100%;
-
   background: #f0dce3;
-
   border-radius: 10px;
-
   overflow: hidden;
-
   margin: 12px 0;
-
 }
 
 .progress-inner {
-
   height: 100%;
-
   width: 0%;
-
   background: var(--green);
-
   transition: width .2s;
-
 }
 
-/* RESULT */
-
 .result-grid {
-
   display: grid;
-
   grid-template-columns: 1fr 1fr;
-
   gap: 18px;
-
   align-items: start;
-
 }
 
 .result-card {
-
   text-align: center;
-
   min-width: 0;
-
 }
 
 .result-card h3 {
-
   font-weight: 400;
-
   color: #a76d82;
-
   font-size: 15px;
-
 }
 
 .result-card img, .result-card video {
-
-  width: min(100%, 250px);
-
+  width: min(100%,250px);
   max-height: 480px;
-
   object-fit: contain;
-
   border-radius: 12px;
-
   background: #f3e5e9;
-
 }
 
-#qrBox img {
-
-  width: 180px;
-
-  height: 180px;
-
-  object-fit: contain;
-
+#qrImage img, #qrImage canvas {
+  width: 200px !important;
+  height: 200px !important;
   margin: 10px auto;
-
 }
 
-/* MOBILE */
-
-@media(max-width: 700px) {
-
+@media(max-width:700px) {
   .studio-layout { grid-template-columns: 1fr; }
-
   .stage-wrap { max-width: 320px; }
-
   .editor-tools { max-height: none; }
-
   .result-grid { grid-template-columns: 1fr; }
-
   .panel { padding: 17px; }
-
 }
-
 </style>
-
 </head>
 
 <body>
-
 <div class="page">
 
-<!-- HOME -->
+  <section id="homePage" class="home">
+    <div class="home-card">
+      <div class="eyebrow">Faculty of Accountancy</div>
+      <h1>PERSIDA</h1>
+      <h2>12 Appreciation Night</h2>
+      <div class="subtitle">A Little Memory</div>
+      <p class="tagline">CAPTURE THE MOMENT<br>KEEP IT FOREVER</p>
 
-<section id="homePage" class="home">
+      <button class="primary-btn" id="openCameraBtn">OPEN CAMERA</button>
+      <button class="secondary-btn" id="openStudioBtn">DESIGN STUDIO · OPERATOR</button>
 
-  <div class="home-card">
-
-    <div class="eyebrow">Faculty of Accountancy</div>
-
-    <h1>PERSIDA</h1>
-
-    <h2>12 Appreciation Night</h2>
-
-    <div class="subtitle">A Little Memory</div>
-
-    <p class="tagline">CAPTURE THE MOMENT<br>KEEP IT FOREVER</p>
-
-    <button class="primary-btn" onclick="startSession()">OPEN CAMERA</button>
-
-    <button class="secondary-btn" onclick="openStudio()">DESIGN STUDIO · OPERATOR</button>
-
-    <div class="footer">
-
-      #pursuing excellent pioneering unity<br>
-
-      17.11.2026
-
-    </div>
-
-  </div>
-
-</section>
-
-<!-- DESIGN STUDIO -->
-
-<section id="studioPage" class="hidden">
-
-  <div class="panel">
-
-    <button class="back-btn" onclick="goHome()">← BACK TO HOME</button>
-
-    <h2 class="panel-title">Design Studio</h2>
-
-    <p class="panel-subtitle">Create your photostrip and backdrop design</p>
-
-    <div class="studio-layout">
-
-      <div>
-
-        <div class="stage-wrap">
-
-          <div class="stage-preview" id="stagePreview">
-
-            <canvas id="studioStrip" width="600" height="1800"></canvas>
-
-          </div>
-
-          <div class="zoom-row">
-
-            <span>ZOOM</span>
-
-            <input id="zoomSlider" type="range" min="70" max="120" value="100" oninput="updateZoom(this.value)">
-
-            <span id="zoomLabel">100%</span>
-
-          </div>
-
-        </div>
-
-        <div class="action-row">
-
-          <button class="small-btn" onclick="renderStudio()">REFRESH PREVIEW</button>
-
-          <button class="small-btn green-btn" onclick="useForSession()">USE FOR NEXT SESSION</button>
-
-          <button class="small-btn" onclick="saveDefault()">SAVE AS DEFAULT</button>
-
-        </div>
-
+      <div class="footer">
+        #pursuing excellent pioneering unity<br>
+        17.11.2026
       </div>
-
-      <div class="editor-tools">
-
-        <div class="tool-section">
-
-          <h3>Photostrip Layout</h3>
-
-          <div class="field">
-
-            <label>NUMBER OF PHOTOS</label>
-
-            <select id="photoCount" onchange="changePhotoCount(this.value)">
-
-              <option value="1">1 Photo</option>
-
-              <option value="2">2 Photos</option>
-
-              <option value="3" selected>3 Photos</option>
-
-              <option value="4">4 Photos</option>
-
-            </select>
-
-          </div>
-
-          <div class="field">
-
-            <label>STRIP BACKGROUND</label>
-
-            <input id="stripColor" type="color" value="#fffaf5" onchange="updateTemplate('stripBackground',this.value)">
-
-          </div>
-
-          <div class="field">
-
-            <label>PHOTO FILTER</label>
-
-            <select id="photoFilter" onchange="updateTemplate('photoFilter',this.value)">
-
-              <option value="none">Original</option>
-
-              <option value="soft">Soft</option>
-
-              <option value="warm">Warm</option>
-
-              <option value="bw">Black & White</option>
-
-              <option value="vintage">Vintage</option>
-
-            </select>
-
-          </div>
-
-        </div>
-
-        <div class="tool-section">
-
-          <h3>Backdrop · 9:16</h3>
-
-          <div class="field">
-
-            <label>BACKDROP COLOR</label>
-
-            <input id="backdropColor" type="color" value="#f7dce5" onchange="updateTemplate('backdropColor',this.value)">
-
-          </div>
-
-          <div class="field">
-
-            <label>SECOND COLOR</label>
-
-            <input id="backdropColor2" type="color" value="#fff4f5" onchange="updateTemplate('backdropColor2',this.value)">
-
-          </div>
-
-          <div class="field">
-
-            <label>BACKDROP STYLE</label>
-
-            <select id="backdropStyle" onchange="updateTemplate('backdropStyle',this.value)">
-
-              <option value="solid">Solid</option>
-
-              <option value="gradient">Gradient</option>
-
-              <option value="polkadot">Polkadot</option>
-
-            </select>
-
-          </div>
-
-          <div class="field">
-
-            <label>UPLOAD BACKDROP IMAGE</label>
-
-            <input type="file" accept="image/*" onchange="uploadBackdrop(event)">
-
-          </div>
-
-          <button class="small-btn" onclick="removeBackdrop()">REMOVE BACKDROP IMAGE</button>
-
-        </div>
-
-        <div class="tool-section">
-
-          <h3>Photo Slot Settings</h3>
-
-          <div id="slotEditors"></div>
-
-        </div>
-
-        <div class="tool-section">
-
-          <h3>Text & Fonts</h3>
-
-          <div class="field">
-
-            <label>ADD TEXT</label>
-
-            <input id="newText" type="text" placeholder="Enter your text">
-
-          </div>
-
-          <div class="field">
-
-            <label>FONT STYLE</label>
-
-            <select id="newFont">
-
-              <option value="Georgia">Georgia</option>
-
-              <option value="Amiri">Amiri</option>
-
-              <option value="Great Vibes">Great Vibes</option>
-
-              <option value="Allura">Allura</option>
-
-              <option value="Parisienne">Parisienne</option>
-
-              <option value="Sacramento">Sacramento</option>
-
-              <option value="Dancing Script">Dancing Script</option>
-
-              <option value="Tangerine">Tangerine</option>
-
-              <option value="Pinyon Script">Pinyon Script</option>
-
-              <option value="Italianno">Italianno</option>
-
-            </select>
-
-          </div>
-
-          <div class="two-col">
-
-            <div class="field">
-
-              <label>FONT SIZE</label>
-
-              <input id="newSize" type="number" min="12" max="150" value="42">
-
+    </div>
+  </section>
+
+  <section id="studioPage" class="hidden">
+    <div class="panel">
+      <button class="back-btn" id="studioBackBtn">← BACK TO HOME</button>
+      <h2 class="panel-title">Design Studio</h2>
+      <p class="panel-subtitle">Create your photostrip and backdrop design</p>
+
+      <div class="studio-layout">
+        <div>
+          <div class="stage-wrap">
+            <div class="stage-preview" id="stagePreview">
+              <canvas id="studioStrip" width="600" height="1800"></canvas>
             </div>
-
-            <div class="field">
-
-              <label>TEXT COLOR</label>
-
-              <input id="newColor" type="color" value="#9b657a">
-
+            <div class="zoom-row">
+              <span>ZOOM</span>
+              <input id="zoomSlider" type="range" min="70" max="120" value="100">
+              <span id="zoomLabel">100%</span>
             </div>
-
           </div>
 
-          <button class="small-btn" onclick="addText()">ADD TEXT TO STRIP</button>
-
-          <div id="textEditors"></div>
-
+          <div class="action-row">
+            <button class="small-btn" id="refreshPreviewBtn">REFRESH PREVIEW</button>
+            <button class="small-btn green-btn" id="useSessionBtn">USE FOR NEXT SESSION</button>
+            <button class="small-btn" id="saveDefaultBtn">SAVE AS DEFAULT</button>
+          </div>
         </div>
 
-        <div class="tool-section">
-
-          <h3>Footer</h3>
-
-          <div class="field">
-
-            <label>FOOTER TEXT 1</label>
-
-            <input id="footer1" value="PERSIDA" onchange="updateFooter(0,this.value)">
-
+        <div class="editor-tools">
+          <div class="tool-section">
+            <h3>Photostrip Layout</h3>
+            <div class="field">
+              <label>NUMBER OF PHOTOS</label>
+              <select id="photoCount">
+                <option value="1">1 Photo</option>
+                <option value="2">2 Photos</option>
+                <option value="3" selected>3 Photos</option>
+                <option value="4">4 Photos</option>
+              </select>
+            </div>
+            <div class="field">
+              <label>STRIP BACKGROUND</label>
+              <input id="stripColor" type="color" value="#fffaf5">
+            </div>
+            <div class="field">
+              <label>PHOTO FILTER</label>
+              <select id="photoFilter">
+                <option value="none">Original</option>
+                <option value="soft">Soft</option>
+                <option value="warm">Warm</option>
+                <option value="bw">Black & White</option>
+                <option value="vintage">Vintage</option>
+              </select>
+            </div>
           </div>
 
-          <div class="field">
-
-            <label>FOOTER TEXT 2</label>
-
-            <input id="footer2" value="appreciation night with Persida 12" onchange="updateFooter(1,this.value)">
-
+          <div class="tool-section">
+            <h3>Backdrop · 9:16</h3>
+            <div class="field">
+              <label>BACKDROP COLOR</label>
+              <input id="backdropColor" type="color" value="#f7dce5">
+            </div>
+            <div class="field">
+              <label>SECOND COLOR</label>
+              <input id="backdropColor2" type="color" value="#fff4f5">
+            </div>
+            <div class="field">
+              <label>BACKDROP STYLE</label>
+              <select id="backdropStyle">
+                <option value="solid">Solid</option>
+                <option value="gradient">Gradient</option>
+                <option value="polkadot">Polkadot</option>
+              </select>
+            </div>
+            <div class="field">
+              <label>UPLOAD BACKDROP IMAGE</label>
+              <input id="backdropUpload" type="file" accept="image/*">
+            </div>
+            <button class="small-btn" id="removeBackdropBtn">REMOVE BACKDROP IMAGE</button>
           </div>
 
-          <div class="field">
-
-            <label>FOOTER TEXT 3</label>
-
-            <input id="footer3" value="17.11.2026" onchange="updateFooter(2,this.value)">
-
+          <div class="tool-section">
+            <h3>Photo Slot Settings</h3>
+            <div id="slotEditors"></div>
           </div>
 
+          <div class="tool-section">
+            <h3>Text & Fonts</h3>
+            <div class="field">
+              <label>ADD TEXT</label>
+              <input id="newText" type="text" placeholder="Enter your text">
+            </div>
+            <div class="field">
+              <label>FONT STYLE</label>
+              <select id="newFont">
+                <option value="Georgia">Georgia</option>
+                <option value="Amiri">Amiri</option>
+                <option value="Great Vibes">Great Vibes</option>
+                <option value="Allura">Allura</option>
+                <option value="Parisienne">Parisienne</option>
+                <option value="Sacramento">Sacramento</option>
+                <option value="Dancing Script">Dancing Script</option>
+                <option value="Tangerine">Tangerine</option>
+                <option value="Pinyon Script">Pinyon Script</option>
+                <option value="Italianno">Italianno</option>
+              </select>
+            </div>
+            <div class="two-col">
+              <div class="field">
+                <label>FONT SIZE</label>
+                <input id="newSize" type="number" min="12" max="150" value="42">
+              </div>
+              <div class="field">
+                <label>TEXT COLOR</label>
+                <input id="newColor" type="color" value="#9b657a">
+              </div>
+            </div>
+            <button class="small-btn" id="addTextBtn">ADD TEXT TO STRIP</button>
+            <div id="textEditors"></div>
+          </div>
+
+          <div class="tool-section">
+            <h3>Footer</h3>
+            <div class="field">
+              <label>FOOTER TEXT 1</label>
+              <input id="footer1" value="PERSIDA">
+            </div>
+            <div class="field">
+              <label>FOOTER TEXT 2</label>
+              <input id="footer2" value="appreciation night with Persida 12">
+            </div>
+            <div class="field">
+              <label>FOOTER TEXT 3</label>
+              <input id="footer3" value="17.11.2026">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="cameraPage" class="hidden">
+    <div class="panel">
+      <button class="back-btn" id="cameraBackBtn">← BACK TO HOME</button>
+      <h2 class="panel-title">Let's Capture Memories</h2>
+      <p class="panel-subtitle">Get ready and smile for the camera!</p>
+
+      <div class="camera-box">
+        <div class="camera-frame">
+          <video id="cameraVideo" autoplay playsinline muted></video>
+          <div id="cameraCount" class="camera-count"></div>
+        </div>
+        <div id="cameraStatus" class="camera-status">Preparing your camera...</div>
+        <div class="progress"><div id="progressInner" class="progress-inner"></div></div>
+        <button id="captureBtn" class="primary-btn" disabled>START PHOTO SESSION</button>
+      </div>
+    </div>
+  </section>
+
+  <section id="resultPage" class="hidden">
+    <div class="panel">
+      <h2 class="panel-title">Your Memories</h2>
+      <p class="panel-subtitle">A little moment to keep forever</p>
+
+      <div class="result-grid">
+        <div class="result-card">
+          <h3>Static Memory</h3>
+          <img id="staticPreview" alt="Static photostrip">
+          <div class="action-row">
+            <button class="small-btn green-btn" id="downloadStaticBtn">DOWNLOAD PHOTO</button>
+          </div>
         </div>
 
-      </div>
-
-    </div>
-
-  </div>
-
-</section>
-
-<!-- CAMERA -->
-
-<section id="cameraPage" class="hidden">
-
-  <div class="panel">
-
-    <button class="back-btn" onclick="goHome()">← BACK TO HOME</button>
-
-    <h2 class="panel-title">Let's Capture Memories</h2>
-
-    <p class="panel-subtitle">Get ready and smile for the camera!</p>
-
-    <div class="camera-box">
-
-      <div class="camera-frame">
-
-        <video id="cameraVideo" autoplay playsinline muted></video>
-
-        <div id="cameraCount" class="camera-count"></div>
-
-      </div>
-
-      <div id="cameraStatus" class="camera-status">Preparing your camera...</div>
-
-      <div class="progress"><div id="progressInner" class="progress-inner"></div></div>
-
-      <button id="captureBtn" class="primary-btn" onclick="beginCapture()">START PHOTO SESSION</button>
-
-    </div>
-
-  </div>
-
-</section>
-
-<!-- RESULT -->
-
-<section id="resultPage" class="hidden">
-
-  <div class="panel">
-
-    <h2 class="panel-title">Your Memories</h2>
-
-    <p class="panel-subtitle">A little moment to keep forever</p>
-
-    <div class="result-grid">
-
-      <div class="result-card">
-
-        <h3>Static Memory</h3>
-
-        <img id="staticPreview" alt="Photostrip with backdrop">
-
-        <div class="action-row">
-
-          <button class="small-btn green-btn" onclick="downloadStatic()">DOWNLOAD PHOTO</button>
-
+        <div class="result-card">
+          <h3>Live Memory · All Photos Moving</h3>
+          <video id="livePreview" controls playsinline loop></video>
+          <p id="liveMessage" class="camera-status"></p>
+          <div class="action-row">
+            <button class="small-btn" id="downloadLiveBtn" disabled>DOWNLOAD LIVE VIDEO</button>
+          </div>
         </div>
-
       </div>
 
-      <div class="result-card">
-
-        <h3>Live Memory</h3>
-
-        <video id="livePreview" controls playsinline loop></video>
-
-        <p id="liveMessage" class="camera-status"></p>
-
-        <div class="action-row">
-
-          <button id="downloadLiveBtn" class="small-btn" onclick="downloadLive()">DOWNLOAD LIVE VIDEO</button>
-
-        </div>
-
+      <div class="action-row">
+        <button id="uploadBtn" class="primary-btn" disabled>SAVE TO GALLERY & GENERATE QR</button>
+        <button id="retakeBtn" class="secondary-btn">RETAKE PHOTOS</button>
       </div>
 
+      <div id="qrBox" class="camera-box hidden">
+        <h3 class="panel-title">Your QR Memory</h3>
+        <p class="panel-subtitle">Scan the QR code to access your photos</p>
+        <div id="qrImage"></div>
+        <p id="uploadMessage" class="camera-status"></p>
+      </div>
     </div>
-
-    <div class="action-row">
-
-      <button id="uploadBtn" class="primary-btn" onclick="uploadSession()">SAVE TO GALLERY & GENERATE QR</button>
-
-      <button class="secondary-btn" onclick="retake()">RETAKE PHOTOS</button>
-
-    </div>
-
-    <div id="qrBox" class="camera-box hidden">
-
-      <h3 class="panel-title">Your QR Memory</h3>
-
-      <p class="panel-subtitle">Scan the QR code to access your photos</p>
-
-      <div id="qrImage"></div>
-
-      <p id="uploadMessage" class="camera-status"></p>
-
-    </div>
-
-  </div>
-
-</section>
+  </section>
 
 </div>
 
-<script>
-
-/* =====================================================
-
-   PERSIDA 12 PHOTOBOOTH
-
-   Replace this URL with your deployed Apps Script URL.
-
-===================================================== */
-
-const APPS_SCRIPT_URL = "PASTE_YOUR_GOOGLE_APPS_SCRIPT_WEB_APP_URL_HERE";
-
-const W = 600;
-
-const H = 1800;
-
-const OUTPUT_W = 1080;
-
-const OUTPUT_H = 1920;
-
-const $ = id => document.getElementById(id);
-
-const ORIGINAL_TEMPLATE = {
-
-  photoCount: 3,
-
-  stripBackground: "#fffaf5",
-
-  photoFilter: "none",
-
-  backdropColor: "#f7dce5",
-
-  backdropColor2: "#fff4f5",
-
-  backdropStyle: "gradient",
-
-  backdropImage: null,
-
-  footer: [
-
-    "PERSIDA",
-
-    "appreciation night with Persida 12",
-
-    "17.11.2026"
-
-  ],
-
-  slots: [
-
-    {x:55,y:250,w:490,h:350},
-
-    {x:55,y:625,w:490,h:350},
-
-    {x:55,y:1000,w:490,h:350}
-
-  ],
-
-  elements: [
-
-    {
-
-      type:"text",
-
-      text:"PERSIDA",
-
-      x:300,y:100,
-
-      size:55,
-
-      color:"#a66d82",
-
-      font:"Georgia",
-
-      align:"center"
-
-    }
-
-  ]
-
-};
-
-let defaultTemplate = clone(ORIGINAL_TEMPLATE);
-
-let workingTemplate = clone(ORIGINAL_TEMPLATE);
-
-let activeSessionTemplate = null;
-
-let stream = null;
-
-let photos = [];
-
-let liveBlob = null;
-
-let staticBlob = null;
-
-let staticURL = null;
-
-let liveURL = null;
-
-let backdropImageObject = null;
-
-let selectedTextIndex = -1;
-
-let zoomValue = 100;
-
-function clone(obj) {
-
-  return JSON.parse(JSON.stringify(obj));
-
-}
-
-function getDefaultTemplate() {
-
-  try {
-
-    const saved = localStorage.getItem("persida12_default_template");
-
-    return saved ? JSON.parse(saved) : clone(ORIGINAL_TEMPLATE);
-
-  } catch {
-
-    return clone(ORIGINAL_TEMPLATE);
-
-  }
-
-}
-
-function getPendingTemplate() {
-
-  try {
-
-    const saved = localStorage.getItem("persida12_next_session_template");
-
-    return saved ? JSON.parse(saved) : null;
-
-  } catch {
-
-    return null;
-
-  }
-
-}
-
-defaultTemplate = getDefaultTemplate();
-
-function showPage(page) {
-
-  ["homePage","studioPage","cameraPage","resultPage"].forEach(id => {
-
-    $(id).classList.add("hidden");
-
-  });
-
-  $(page).classList.remove("hidden");
-
-  window.scrollTo(0,0);
-
-}
-
-function goHome() {
-
-  stopCamera();
-
-  showPage("homePage");
-
-}
-
-function openStudio() {
-
-  const pending = getPendingTemplate();
-
-  workingTemplate = clone(pending || defaultTemplate);
-
-  selectedTextIndex = -1;
-
-  loadStudioControls();
-
-  showPage("studioPage");
-
-  renderStudio();
-
-}
-
-function loadStudioControls() {
-
-  $("photoCount").value = workingTemplate.photoCount || 3;
-
-  $("stripColor").value = workingTemplate.stripBackground || "#fffaf5";
-
-  $("photoFilter").value = workingTemplate.photoFilter || "none";
-
-  $("backdropColor").value = workingTemplate.backdropColor || "#f7dce5";
-
-  $("backdropColor2").value = workingTemplate.backdropColor2 || "#fff4f5";
-
-  $("backdropStyle").value = workingTemplate.backdropStyle || "gradient";
-
-  $("footer1").value = workingTemplate.footer[0];
-
-  $("footer2").value = workingTemplate.footer[1];
-
-  $("footer3").value = workingTemplate.footer[2];
-
-  createSlotEditors();
-
-  createTextEditors();
-
-  updateStageBackdrop();
-
-}
-
-function useForSession() {
-
-  localStorage.setItem(
-
-    "persida12_next_session_template",
-
-    JSON.stringify(workingTemplate)
-
-  );
-
-  alert("Design saved for your next photo session!");
-
-  goHome();
-
-}
-
-function saveDefault() {
-
-  localStorage.setItem(
-
-    "persida12_default_template",
-
-    JSON.stringify(workingTemplate)
-
-  );
-
-  defaultTemplate = clone(workingTemplate);
-
-  alert("Default design saved successfully!");
-
-}
-
-function updateTemplate(key,value) {
-
-  workingTemplate[key] = value;
-
-  if(key === "stripBackground" || key === "photoFilter") {
-
-    renderStudio();
-
-  } else {
-
-    updateStageBackdrop();
-
-    renderStudio();
-
-  }
-
-}
-
-function updateFooter(index,value) {
-
-  workingTemplate.footer[index] = value;
-
-  renderStudio();
-
-}
-
-function changePhotoCount(value) {
-
-  const count = Math.max(1,Math.min(4,Number(value)));
-
-  workingTemplate.photoCount = count;
-
-  workingTemplate.slots = createSlots(count);
-
-  createSlotEditors();
-
-  renderStudio();
-
-}
-
-function createSlots(count) {
-
-  const layouts = {
-
-    1: [{x:75,y:420,w:450,h:520}],
-
-    2: [
-
-      {x:55,y:330,w:490,h:500},
-
-      {x:55,y:855,w:490,h:500}
-
-    ],
-
-    3: [
-
-      {x:55,y:250,w:490,h:350},
-
-      {x:55,y:625,w:490,h:350},
-
-      {x:55,y:1000,w:490,h:350}
-
-    ],
-
-    4: [
-
-      {x:55,y:210,w:490,h:260},
-
-      {x:55,y:495,w:490,h:260},
-
-      {x:55,y:780,w:490,h:260},
-
-      {x:55,y:1065,w:490,h:260}
-
-    ]
-
-  };
-
-  return clone(layouts[count]);
-
-}
-
-function createSlotEditors() {
-
-  const box = $("slotEditors");
-
-  box.innerHTML = "";
-
-  workingTemplate.slots.forEach((slot,index) => {
-
-    const div = document.createElement("div");
-
-    div.className = "slot-editor";
-
-    div.innerHTML = `
-
-      <strong>PHOTO ${index+1}</strong>
-
-      <div class="two-col">
-
-        <div class="field">
-
-          <label>WIDTH</label>
-
-          <input type="number" value="${slot.w}" data-index="${index}" data-key="w">
-
-        </div>
-
-        <div class="field">
-
-          <label>HEIGHT</label>
-
-          <input type="number" value="${slot.h}" data-index="${index}" data-key="h">
-
-        </div>
-
-        <div class="field">
-
-          <label>X POSITION</label>
-
-          <input type="number" value="${slot.x}" data-index="${index}" data-key="x">
-
-        </div>
-
-        <div class="field">
-
-          <label>Y POSITION</label>
-
-          <input type="number" value="${slot.y}" data-index="${index}" data-key="y">
-
-        </div>
-
-      </div>
-
-    `;
-
-    box.appendChild(div);
-
-  });
-
-  box.querySelectorAll("input").forEach(input => {
-
-    input.addEventListener("change", () => {
-
-      const index = Number(input.dataset.index);
-
-      const key = input.dataset.key;
-
-      workingTemplate.slots[index][key] = Number(input.value);
-
-      renderStudio();
-
-    });
-
-  });
-
-}
-
-function createTextEditors() {
-
-  const box = $("textEditors");
-
-  box.innerHTML = "";
-
-  workingTemplate.elements.forEach((el,index) => {
-
-    if(el.type !== "text") return;
-
-    const div = document.createElement("div");
-
-    div.className = "slot-editor";
-
-    div.innerHTML = `
-
-      <strong>TEXT ${index+1}</strong>
-
-      <div class="field">
-
-        <input type="text" value="${escapeHTML(el.text)}" data-index="${index}">
-
-      </div>
-
-      <div class="two-col">
-
-        <button class="small-btn" data-action="select" data-index="${index}">SELECT</button>
-
-        <button class="small-btn" data-action="delete" data-index="${index}">DELETE</button>
-
-      </div>
-
-    `;
-
-    box.appendChild(div);
-
-  });
-
-  box.querySelectorAll("input").forEach(input => {
-
-    input.addEventListener("change", () => {
-
-      workingTemplate.elements[Number(input.dataset.index)].text = input.value;
-
-      renderStudio();
-
-    });
-
-  });
-
-  box.querySelectorAll("button").forEach(button => {
-
-    button.addEventListener("click", () => {
-
-      const index = Number(button.dataset.index);
-
-      if(button.dataset.action === "delete") {
-
-        workingTemplate.elements.splice(index,1);
-
-        selectedTextIndex = -1;
-
-        createTextEditors();
-
-        renderStudio();
-
-      } else {
-
-        selectedTextIndex = index;
-
-        renderStudio();
-
-      }
-
-    });
-
-  });
-
-}
-
-function escapeHTML(value) {
-
-  return String(value).replace(/[&<>"']/g, char => ({
-
-    "&":"&amp;",
-
-    "<":"&lt;",
-
-    ">":"&gt;",
-
-    '"':"&quot;",
-
-    "'":"&#39;"
-
-  }[char]));
-
-}
-
-function addText() {
-
-  const text = $("newText").value.trim();
-
-  if(!text) return;
-
-  workingTemplate.elements.push({
-
-    type:"text",
-
-    text,
-
-    x:300,
-
-    y:1450,
-
-    size:Number($("newSize").value) || 42,
-
-    color:$("newColor").value,
-
-    font:$("newFont").value,
-
-    align:"center"
-
-  });
-
-  $("newText").value = "";
-
-  createTextEditors();
-
-  renderStudio();
-
-}
-
-function updateStageBackdrop() {
-
-  const stage = $("stagePreview");
-
-  if(backdropImageObject) {
-
-    stage.style.backgroundImage = `url("${backdropImageObject.src}")`;
-
-    stage.style.backgroundColor = workingTemplate.backdropColor;
-
-    return;
-
-  }
-
-  const a = workingTemplate.backdropColor || "#f7dce5";
-
-  const b = workingTemplate.backdropColor2 || "#fff4f5";
-
-  const style = workingTemplate.backdropStyle;
-
-  if(style === "gradient") {
-
-    stage.style.backgroundImage = `linear-gradient(145deg, ${a}, ${b})`;
-
-  } else if(style === "polkadot") {
-
-    stage.style.backgroundImage =
-
-      `radial-gradient(${b} 2px, transparent 2px)`;
-
-    stage.style.backgroundSize = "22px 22px";
-
-    stage.style.backgroundColor = a;
-
-  } else {
-
-    stage.style.backgroundImage = "none";
-
-    stage.style.backgroundColor = a;
-
-  }
-
-}
-
-function uploadBackdrop(event) {
-
-  const file = event.target.files[0];
-
-  if(!file) return;
-
-  const reader = new FileReader();
-
-  reader.onload = () => {
-
-    const img = new Image();
-
-    img.onload = () => {
-
-      backdropImageObject = img;
-
-      workingTemplate.backdropImage = reader.result;
-
-      updateStageBackdrop();
-
-      renderStudio();
-
-    };
-
-    img.src = reader.result;
-
-  };
-
-  reader.readAsDataURL(file);
-
-}
-
-function removeBackdrop() {
-
-  backdropImageObject = null;
-
-  workingTemplate.backdropImage = null;
-
-  updateStageBackdrop();
-
-  renderStudio();
-
-}
-
-function updateZoom(value) {
-
-  zoomValue = Number(value);
-
-  $("zoomLabel").textContent = zoomValue + "%";
-
-  $("studioStrip").style.height = zoomValue + "%";
-
-}
-
-function roundedRect(ctx,x,y,w,h,r) {
-
-  r = Math.min(r,w/2,h/2);
-
-  ctx.beginPath();
-
-  ctx.moveTo(x+r,y);
-
-  ctx.lineTo(x+w-r,y);
-
-  ctx.quadraticCurveTo(x+w,y,x+w,y+r);
-
-  ctx.lineTo(x+w,y+h-r);
-
-  ctx.quadraticCurveTo(x+w,y+h,x+w-r,y+h);
-
-  ctx.lineTo(x+r,y+h);
-
-  ctx.quadraticCurveTo(x,y+h,x,y+h-r);
-
-  ctx.lineTo(x,y+r);
-
-  ctx.quadraticCurveTo(x,y,x+r,y);
-
-  ctx.closePath();
-
-}
-
-function drawImageCover(ctx,img,x,y,w,h) {
-
-  const scale = Math.max(w/img.width,h/img.height);
-
-  const sw = w/scale;
-
-  const sh = h/scale;
-
-  const sx = (img.width-sw)/2;
-
-  const sy = (img.height-sh)/2;
-
-  ctx.drawImage(img,sx,sy,sw,sh,x,y,w,h);
-
-}
-
-function getFilter(filter) {
-
-  switch(filter) {
-
-    case "soft": return "brightness(1.05) saturate(.8)";
-
-    case "warm": return "sepia(.22) saturate(1.2)";
-
-    case "bw": return "grayscale(1)";
-
-    case "vintage": return "sepia(.35) contrast(.9) saturate(.8)";
-
-    default: return "none";
-
-  }
-
-}
-
-function drawStrip(ctx,template,photoList=[]) {
-
-  ctx.clearRect(0,0,W,H);
-
-  ctx.fillStyle = template.stripBackground || "#fffaf5";
-
-  ctx.fillRect(0,0,W,H);
-
-  const slots = template.slots || [];
-
-  slots.forEach((slot,index) => {
-
-    ctx.save();
-
-    ctx.fillStyle = "#f1e6e8";
-
-    roundedRect(ctx,slot.x,slot.y,slot.w,slot.h,12);
-
-    ctx.fill();
-
-    const photo = photoList[index];
-
-    if(photo) {
-
-      ctx.save();
-
-      ctx.filter = getFilter(template.photoFilter);
-
-      drawImageCover(ctx,photo,slot.x,slot.y,slot.w,slot.h);
-
-      ctx.restore();
-
-    } else {
-
-      ctx.fillStyle = "#d7c4ca";
-
-      ctx.font = "20px Georgia";
-
-      ctx.textAlign = "center";
-
-      ctx.fillText("PHOTO " + (index+1),slot.x+slot.w/2,slot.y+slot.h/2);
-
-    }
-
-    ctx.restore();
-
-  });
-
-  (template.elements || []).forEach((el,index) => {
-
-    if(el.type !== "text") return;
-
-    ctx.save();
-
-    ctx.fillStyle = el.color || "#9b657a";
-
-    ctx.textAlign = el.align || "center";
-
-    ctx.textBaseline = "middle";
-
-    ctx.font = `${el.size || 42}px "${el.font || "Georgia"}"`;
-
-    ctx.fillText(el.text || "",el.x,el.y);
-
-    if(index === selectedTextIndex) {
-
-      const width = ctx.measureText(el.text || "").width;
-
-      ctx.strokeStyle = "#d98da8";
-
-      ctx.setLineDash([6,5]);
-
-      ctx.strokeRect(el.x-width/2,el.y-(el.size||42)/2,width,el.size||42);
-
-    }
-
-    ctx.restore();
-
-  });
-
-  const footer = template.footer || ORIGINAL_TEMPLATE.footer;
-
-  ctx.save();
-
-  ctx.textAlign = "center";
-
-  ctx.fillStyle = "#9b7782";
-
-  ctx.font = "bold 34px Georgia";
-
-  ctx.fillText(footer[0] || "PERSIDA",300,1515);
-
-  ctx.font = "20px Georgia";
-
-  ctx.fillText(footer[1] || "appreciation night with Persida 12",300,1555);
-
-  ctx.font = "18px Georgia";
-
-  ctx.fillText(footer[2] || "17.11.2026",300,1595);
-
-  ctx.restore();
-
-}
-
-async function waitForFonts() {
-
-  if(document.fonts && document.fonts.ready) {
-
-    try { await document.fonts.ready; } catch {}
-
-  }
-
-}
-
-async function renderStudio() {
-
-  await waitForFonts();
-
-  const canvas = $("studioStrip");
-
-  const ctx = canvas.getContext("2d");
-
-  drawStrip(ctx,workingTemplate,[]);
-
-}
-
-$("studioStrip").addEventListener("click",event => {
-
-  const rect = event.currentTarget.getBoundingClientRect();
-
-  const x = (event.clientX-rect.left)/rect.width*W;
-
-  const y = (event.clientY-rect.top)/rect.height*H;
-
-  const index = workingTemplate.elements.findIndex(el =>
-
-    el.type === "text" &&
-
-    Math.abs(el.x-x)<150 &&
-
-    Math.abs(el.y-y)<100
-
-  );
-
-  if(index >= 0) {
-
-    selectedTextIndex = index;
-
-    renderStudio();
-
-  }
-
-});
-
-/* CAMERA */
-
-async function openCamera() {
-
-  if(!navigator.mediaDevices || !navigator.mediaDevices.getUserMedia) {
-
-    throw new Error("Camera is not available in this browser.");
-
-  }
-
-  stream = await navigator.mediaDevices.getUserMedia({
-
-    video: {
-
-      facingMode:"user",
-
-      width:{ideal:1280},
-
-      height:{ideal:960}
-
-    },
-
-    audio:false
-
-  });
-
-  $("cameraVideo").srcObject = stream;
-
-  await $("cameraVideo").play();
-
-}
-
-function stopCamera() {
-
-  if(stream) {
-
-    stream.getTracks().forEach(track => track.stop());
-
-    stream = null;
-
-  }
-
-  $("cameraVideo").srcObject = null;
-
-}
-
-async function startSession() {
-
-  const pending = getPendingTemplate();
-
-  activeSessionTemplate = clone(pending || defaultTemplate);
-
-  photos = [];
-
-  liveBlob = null;
-
-  staticBlob = null;
-
-  showPage("cameraPage");
-
-  $("cameraStatus").textContent = "Preparing your camera...";
-
-  $("cameraCount").textContent = "";
-
-  $("progressInner").style.width = "0%";
-
-  $("captureBtn").disabled = true;
-
-  try {
-
-    await openCamera();
-
-    $("cameraStatus").textContent =
-
-      `${activeSessionTemplate.photoCount} photos ready. Press start when you're ready.`;
-
-    $("captureBtn").disabled = false;
-
-  } catch(error) {
-
-    $("cameraStatus").textContent = error.message;
-
-    alert("Please allow camera access and open this website using HTTPS.");
-
-  }
-
-}
-
-function wait(ms) {
-
-  return new Promise(resolve => setTimeout(resolve,ms));
-
-}
-
-function countdown(seconds) {
-
-  return new Promise(resolve => {
-
-    let count = seconds;
-
-    $("cameraCount").textContent = count;
-
-    const timer = setInterval(() => {
-
-      count--;
-
-      if(count <= 0) {
-
-        clearInterval(timer);
-
-        $("cameraCount").textContent = "";
-
-        resolve();
-
-      } else {
-
-        $("cameraCount").textContent = count;
-
-      }
-
-    },1000);
-
-  });
-
-}
-
-function captureStill() {
-
-  const video = $("cameraVideo");
-
-  const canvas = document.createElement("canvas");
-
-  canvas.width = video.videoWidth || 1280;
-
-  canvas.height = video.videoHeight || 960;
-
-  const ctx = canvas.getContext("2d");
-
-  ctx.translate(canvas.width,0);
-
-  ctx.scale(-1,1);
-
-  ctx.drawImage(video,0,0,canvas.width,canvas.height);
-
-  return new Promise(resolve => {
-
-    canvas.toBlob(blob => {
-
-      if(!blob) {
-
-        resolve(null);
-
-        return;
-
-      }
-
-      const img = new Image();
-
-      img.onload = () => resolve(img);
-
-      img.onerror = () => resolve(null);
-
-      img.src = URL.createObjectURL(blob);
-
-    },"image/jpeg",0.95);
-
-  });
-
-}
-
-async function recordCameraClip(duration=1500) {
-
-  if(!stream || typeof MediaRecorder === "undefined") return null;
-
-  let recorder;
-
-  try {
-
-    const candidates = [
-
-      "video/mp4",
-
-      "video/webm;codecs=vp9",
-
-      "video/webm;codecs=vp8",
-
-      "video/webm"
-
-    ];
-
-    let options = undefined;
-
-    if(typeof MediaRecorder.isTypeSupported === "function") {
-
-      const mime = candidates.find(type => MediaRecorder.isTypeSupported(type));
-
-      if(mime) options = {mimeType:mime};
-
-    }
-
-    recorder = options
-
-      ? new MediaRecorder(stream,options)
-
-      : new MediaRecorder(stream);
-
-    const chunks = [];
-
-    return await new Promise(resolve => {
-
-      let finished = false;
-
-      const finish = blob => {
-
-        if(finished) return;
-
-        finished = true;
-
-        resolve(blob && blob.size ? blob : null);
-
-      };
-
-      recorder.ondataavailable = event => {
-
-        if(event.data && event.data.size) chunks.push(event.data);
-
-      };
-
-      recorder.onerror = () => finish(null);
-
-      recorder.onstop = () => {
-
-        const type = recorder.mimeType || "video/webm";
-
-        finish(new Blob(chunks,{type}));
-
-      };
-
-      recorder.start();
-
-      setTimeout(() => {
-
-        if(recorder.state !== "inactive") {
-
-          try { recorder.stop(); } catch { finish(null); }
-
-        }
-
-      },duration);
-
-    });
-
-  } catch(error) {
-
-    console.warn("Camera recording unavailable:",error);
-
-    return null;
-
-  }
-
-}
-
-async function beginCapture() {
-
-  $("captureBtn").disabled = true;
-
-  photos = [];
-
-  const total = activeSessionTemplate.photoCount || 3;
-
-  for(let i=0;i<total;i++) {
-
-    $("cameraStatus").textContent = `PHOTO ${i+1} OF ${total}`;
-
-    $("progressInner").style.width = `${(i/total)*100}%`;
-
-    await countdown(3);
-
-    const photo = await captureStill();
-
-    if(photo) photos.push(photo);
-
-    if(i < total-1) await wait(900);
-
-  }
-
-  $("cameraStatus").textContent = "Creating your live memory...";
-
-  $("progressInner").style.width = "100%";
-
-  liveBlob = await recordCameraClip(1800);
-
-  stopCamera();
-
-  $("cameraStatus").textContent = "Preparing your photostrip...";
-
-  await showResult();
-
-}
-
-function makeCanvas() {
-
-  const canvas = document.createElement("canvas");
-
-  canvas.width = W;
-
-  canvas.height = H;
-
-  drawStrip(canvas.getContext("2d"),activeSessionTemplate,photos);
-
-  return canvas;
-
-}
-
-function drawBackdrop(ctx,template) {
-
-  if(template.backdropImage && backdropImageObject) {
-
-    drawImageCover(ctx,backdropImageObject,0,0,OUTPUT_W,OUTPUT_H);
-
-    return;
-
-  }
-
-  if(template.backdropImage) {
-
-    return new Promise(resolve => {
-
-      const img = new Image();
-
-      img.onload = () => {
-
-        drawImageCover(ctx,img,0,0,OUTPUT_W,OUTPUT_H);
-
-        resolve();
-
-      };
-
-      img.onerror = () => {
-
-        drawBackdropColor(ctx,template);
-
-        resolve();
-
-      };
-
-      img.src = template.backdropImage;
-
-    });
-
-  }
-
-  drawBackdropColor(ctx,template);
-
-}
-
-function drawBackdropColor(ctx,template) {
-
-  const a = template.backdropColor || "#f7dce5";
-
-  const b = template.backdropColor2 || "#fff4f5";
-
-  if(template.backdropStyle === "gradient") {
-
-    const gradient = ctx.createLinearGradient(0,0,OUTPUT_W,OUTPUT_H);
-
-    gradient.addColorStop(0,a);
-
-    gradient.addColorStop(1,b);
-
-    ctx.fillStyle = gradient;
-
-    ctx.fillRect(0,0,OUTPUT_W,OUTPUT_H);
-
-  } else if(template.backdropStyle === "polkadot") {
-
-    ctx.fillStyle = a;
-
-    ctx.fillRect(0,0,OUTPUT_W,OUTPUT_H);
-
-    ctx.fillStyle = b;
-
-    for(let y=15;y<OUTPUT_H;y+=40) {
-
-      for(let x=15;x<OUTPUT_W;x+=40) {
-
-        ctx.beginPath();
-
-        ctx.arc(x,y,3,0,Math.PI*2);
-
-        ctx.fill();
-
-      }
-
-    }
-
-  } else {
-
-    ctx.fillStyle = a;
-
-    ctx.fillRect(0,0,OUTPUT_W,OUTPUT_H);
-
-  }
-
-}
-
-async function makeFinalCanvas() {
-
-  await waitForFonts();
-
-  const canvas = document.createElement("canvas");
-
-  canvas.width = OUTPUT_W;
-
-  canvas.height = OUTPUT_H;
-
-  const ctx = canvas.getContext("2d");
-
-  await drawBackdrop(ctx,activeSessionTemplate);
-
-  const strip = makeCanvas();
-
-  const scale = Math.min(OUTPUT_W/W,OUTPUT_H/H);
-
-  const width = W*scale;
-
-  const height = H*scale;
-
-  const x = (OUTPUT_W-width)/2;
-
-  const y = (OUTPUT_H-height)/2;
-
-  ctx.save();
-
-  ctx.shadowColor = "#61434d55";
-
-  ctx.shadowBlur = 25;
-
-  ctx.shadowOffsetY = 8;
-
-  ctx.drawImage(strip,x,y,width,height);
-
-  ctx.restore();
-
-  return canvas;
-
-}
-
-function canvasToBlob(canvas,type="image/png") {
-
-  return new Promise(resolve => {
-
-    canvas.toBlob(blob => resolve(blob),type);
-
-  });
-
-}
-
-async function showResult() {
-
-  showPage("resultPage");
-
-  $("liveMessage").textContent = "Preparing live memory...";
-
-  $("uploadBtn").disabled = true;
-
-  try {
-
-    const finalCanvas = await makeFinalCanvas();
-
-    staticBlob = await canvasToBlob(finalCanvas,"image/png");
-
-    if(!staticBlob) throw new Error("Unable to create photo.");
-
-    if(staticURL) URL.revokeObjectURL(staticURL);
-
-    staticURL = URL.createObjectURL(staticBlob);
-
-    $("staticPreview").src = staticURL;
-
-    $("uploadBtn").disabled = false;
-
-  } catch(error) {
-
-    $("liveMessage").textContent = "Unable to create the static image.";
-
-    console.error(error);
-
-  }
-
-  if(liveBlob) {
-
-    if(liveURL) URL.revokeObjectURL(liveURL);
-
-    liveURL = URL.createObjectURL(liveBlob);
-
-    $("livePreview").src = liveURL;
-
-    $("livePreview").classList.remove("hidden");
-
-    $("downloadLiveBtn").disabled = false;
-
-    $("liveMessage").textContent = "Live memory is ready.";
-
-  } else {
-
-    $("livePreview").classList.add("hidden");
-
-    $("downloadLiveBtn").disabled = true;
-
-    $("liveMessage").textContent =
-
-      "Live video is not supported on this device. Your static photo is still ready to save.";
-
-  }
-
-  localStorage.removeItem("persida12_next_session_template");
-
-}
-
-function downloadStatic() {
-
-  if(!staticBlob) return;
-
-  const url = URL.createObjectURL(staticBlob);
-
-  downloadURL(url,"PERSIDA12-Static-Memory.png");
-
-  setTimeout(() => URL.revokeObjectURL(url),3000);
-
-}
-
-function downloadLive() {
-
-  if(!liveBlob) return;
-
-  const extension = liveBlob.type.includes("mp4") ? "mp4" : "webm";
-
-  const url = URL.createObjectURL(liveBlob);
-
-  downloadURL(url,`PERSIDA12-Live-Memory.${extension}`);
-
-  setTimeout(() => URL.revokeObjectURL(url),3000);
-
-}
-
-function downloadURL(url,name) {
-
-  const a = document.createElement("a");
-
-  a.href = url;
-
-  a.download = name;
-
-  document.body.appendChild(a);
-
-  a.click();
-
-  a.remove();
-
-}
-
-function retake() {
-
-  if(staticURL) URL.revokeObjectURL(staticURL);
-
-  if(liveURL) URL.revokeObjectURL(liveURL);
-
-  staticURL = null;
-
-  liveURL = null;
-
-  staticBlob = null;
-
-  liveBlob = null;
-
-  photos = [];
-
-  showPage("cameraPage");
-
-  openCamera().then(() => {
-
-    $("cameraStatus").textContent = "Ready for another round!";
-
-    $("captureBtn").disabled = false;
-
-    $("progressInner").style.width = "0%";
-
-  }).catch(error => {
-
-    $("cameraStatus").textContent = error.message;
-
-  });
-
-}
-
-/* UPLOAD + QR */
-
-async function uploadSession() {
-
-  if(!staticBlob) {
-
-    alert("Your static photo is not ready yet.");
-
-    return;
-
-  }
-
-  if(!APPS_SCRIPT_URL ||
-
-     APPS_SCRIPT_URL.includes("PASTE_YOUR")) {
-
-    alert("Please add your Google Apps Script Web App URL in the code first.");
-
-    return;
-
-  }
-
-  $("uploadBtn").disabled = true;
-
-  $("uploadMessage").textContent = "Uploading your memories...";
-
-  try {
-
-    const files = [];
-
-    files.push({
-
-      name:"PERSIDA12-Static-Memory.png",
-
-      mimeType:"image/png",
-
-      data:await blobToBase64(staticBlob)
-
-    });
-
-    for(let i=0;i<photos.length;i++) {
-
-      const blob = await imageToBlob(photos[i]);
-
-      files.push({
-
-        name:`PERSIDA12-Original-Photo-${i+1}.jpg`,
-
-        mimeType:"image/jpeg",
-
-        data:await blobToBase64(blob)
-
-      });
-
-    }
-
-    if(liveBlob) {
-
-      const ext = liveBlob.type.includes("mp4") ? "mp4" : "webm";
-
-      files.push({
-
-        name:`PERSIDA12-Live-Memory.${ext}`,
-
-        mimeType:liveBlob.type || "video/webm",
-
-        data:await blobToBase64(liveBlob)
-
-      });
-
-    }
-
-    const payload = {
-
-      action:"uploadBatch",
-
-      sessionId:"PERSIDA12-" + Date.now(),
-
-      files
-
-    };
-
-    const response = await fetch(APPS_SCRIPT_URL,{
-
-      method:"POST",
-
-      body:JSON.stringify(payload)
-
-    });
-
-    const result = await response.json();
-
-    if(!result.ok || !result.folderUrl) {
-
-      throw new Error(result.message || "Upload was unsuccessful.");
-
-    }
-
-    await generateQR(result.folderUrl);
-
-    $("qrBox").classList.remove("hidden");
-
-    $("uploadMessage").textContent =
-
-      "Your memories have been uploaded successfully!";
-
-    $("uploadBtn").textContent = "UPLOADED SUCCESSFULLY";
-
-  } catch(error) {
-
-    console.error(error);
-
-    $("uploadMessage").textContent =
-
-      "Upload failed: " + error.message;
-
-    $("uploadBtn").disabled = false;
-
-  }
-
-}
-
-function blobToBase64(blob) {
-
-  return new Promise((resolve,reject) => {
-
-    const reader = new FileReader();
-
-    reader.onloadend = () => {
-
-      const result = String(reader.result);
-
-      resolve(result.split(",")[1]);
-
-    };
-
-    reader.onerror = reject;
-
-    reader.readAsDataURL(blob);
-
-  });
-
-}
-
-function imageToBlob(img) {
-
-  return new Promise(resolve => {
-
-    const canvas = document.createElement("canvas");
-
-    canvas.width = img.naturalWidth || img.width;
-
-    canvas.height = img.naturalHeight || img.height;
-
-    canvas.getContext("2d").drawImage(img,0,0);
-
-    canvas.toBlob(resolve,"image/jpeg",0.95);
-
-  });
-
-}
-
-async function generateQR(url) {
-
-  const box = $("qrImage");
-
-  box.innerHTML = "";
-
-  if(window.QRCode) {
-
-    new QRCode(box,{
-
-      text:url,
-
-      width:200,
-
-      height:200,
-
-      colorDark:"#55454a",
-
-      colorLight:"#ffffff",
-
-      correctLevel:QRCode.CorrectLevel.H
-
-    });
-
-    return;
-
-  }
-
-  const script = document.createElement("script");
-
-  script.src = "https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js";
-
-  await new Promise((resolve,reject) => {
-
-    script.onload = resolve;
-
-    script.onerror = reject;
-
-    document.head.appendChild(script);
-
-  });
-
-  if(!window.QRCode) throw new Error("QR generator could not load.");
-
-  new QRCode(box,{
-
-    text:url,
-
-    width:200,
-
-    height:200
-
-  });
-
-}
-
-/* INITIALISE */
-
-window.addEventListener("load",() => {
-
-  defaultTemplate = getDefaultTemplate();
-
-});
-
-</script>
-
+<script src="script.js"></script>
 </body>
-
+</html>
 </html></html></html></html></html></html></html>
